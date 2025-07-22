@@ -1,0 +1,38 @@
+http_interactions:
+- request:
+    method: GET
+    uri: https://api.notion.com/v1/comments?block_id=23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba
+  response:
+    status: 200
+    headers:
+      alt-svc: h3=":443"; ma=86400
+      cf-cache-status: DYNAMIC
+      cf-ray: 96389e3229c5271a-MEL
+      content-encoding: gzip
+      content-security-policy: default-src 'none'
+      content-type: application/json; charset=utf-8
+      date: Wed, 23 Jul 2025 05:01:06 GMT
+      etag: W/"329-zu1FAa5bAnGooLuniu6agZyNzPk"
+      referrer-policy: strict-origin-when-cross-origin
+      server: cloudflare
+      set-cookie:
+      - __cf_bm=LxTO.QDqupqESMDKmggdbZLV5Temx.Hoyb.rK2XXR_A-1753246866-1.0.1.1-vh16W6Eu6VsVEUcRgTtHP.Unc.eiAYqHLYlGDiXXOruK527V0IeRdhpiZMBsGlYY8oSR09NVUlz.lzmL8kzyR7o_lWi3xlmBIhEcyeKQtkI;
+        path=/; expires=Wed, 23-Jul-25 05:31:06 GMT; domain=.notion.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=M_euMfk6ovl8V.R6ZXgJuHhm4u51zewdcI8M9kU3Og0-1753246866521-0.0.1.1-604800000;
+        path=/; domain=.notion.com; HttpOnly; Secure; SameSite=None
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      vary: Accept-Encoding
+      x-content-type-options: nosniff
+      x-dns-prefetch-control: 'off'
+      x-download-options: noopen
+      x-frame-options: SAMEORIGIN
+      x-notion-request-id: b1a5dbcc-d2b8-405b-82c3-16f6df2c3cdf
+      x-permitted-cross-domain-policies: none
+      x-xss-protection: '0'
+    body:
+      string: '{"object":"list","results":[{"object":"comment","id":"23933ea0-c1e4-8180-a10e-001d4fcf0d39","parent":{"type":"page_id","page_id":"23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba"},"discussion_id":"23933ea0-c1e4-81ea-a476-001c4f062db0","created_time":"2025-07-23T05:01:00.000Z","last_edited_time":"2025-07-23T05:01:00.000Z","created_by":{"object":"user","id":"6b786605-e456-4237-9c61-5efaff23c081"},"rich_text":[{"type":"text","text":{"content":"Hello
+        world","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Hello
+        world","href":null}],"display_name":{"type":"integration","resolved_name":"brenwin-internal"}}],"next_cursor":null,"has_more":false,"type":"comment","comment":{},"request_id":"b1a5dbcc-d2b8-405b-82c3-16f6df2c3cdf"}'
+  recorded_at: 2025-07-23 05:01:06
+recorded_with: VCR-vcr/1.7.1.93

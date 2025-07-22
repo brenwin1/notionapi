@@ -1,0 +1,38 @@
+http_interactions:
+- request:
+    method: GET
+    uri: https://api.notion.com/v1/blocks/23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba/children?page_size=100
+  response:
+    status: 200
+    headers:
+      alt-svc: h3=":443"; ma=86400
+      cf-cache-status: DYNAMIC
+      cf-ray: 96389dfe3d4f271a-MEL
+      content-encoding: gzip
+      content-security-policy: default-src 'none'
+      content-type: application/json; charset=utf-8
+      date: Wed, 23 Jul 2025 05:00:58 GMT
+      etag: W/"374-Y7ac8Gc9bZHTRMc2QS/4QXJB8ro"
+      referrer-policy: strict-origin-when-cross-origin
+      server: cloudflare
+      set-cookie:
+      - __cf_bm=zBs7YqGnftpyfHXYs8LWr3uaqoJxf9K.YS.pLm77BM0-1753246858-1.0.1.1-aU1Bo78CNXT4hUTs4fcw3XNw57w9dhU30lU6V4N3V43cZ.HrovizxMB0PWjadNKiyimEWUyweZx68oDGTa62TpeLJWCALWNlWfi54nW3YII;
+        path=/; expires=Wed, 23-Jul-25 05:30:58 GMT; domain=.notion.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=GtsQJxVb7bOFhmzMtSFjFkwIsVDaBrNhsIjWLfBfP2I-1753246858177-0.0.1.1-604800000;
+        path=/; domain=.notion.com; HttpOnly; Secure; SameSite=None
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      vary: Accept-Encoding
+      x-content-type-options: nosniff
+      x-dns-prefetch-control: 'off'
+      x-download-options: noopen
+      x-frame-options: SAMEORIGIN
+      x-notion-request-id: c6a86d45-a6ea-4d08-87e5-6c47192c3495
+      x-permitted-cross-domain-policies: none
+      x-xss-protection: '0'
+    body:
+      string: '{"object":"list","results":[{"object":"block","id":"23933ea0-c1e4-81dc-9f56-f3fa251a757f","parent":{"type":"page_id","page_id":"23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba"},"created_time":"2025-07-23T05:00:00.000Z","last_edited_time":"2025-07-23T05:00:00.000Z","created_by":{"object":"user","id":"6b786605-e456-4237-9c61-5efaff23c081"},"last_edited_by":{"object":"user","id":"6b786605-e456-4237-9c61-5efaff23c081"},"has_children":false,"archived":false,"in_trash":false,"type":"heading_2","heading_2":{"rich_text":[{"type":"text","text":{"content":"Test
+        Heading","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Test
+        Heading","href":null}],"is_toggleable":false,"color":"default"}}],"next_cursor":null,"has_more":false,"type":"block","block":{},"request_id":"c6a86d45-a6ea-4d08-87e5-6c47192c3495"}'
+  recorded_at: 2025-07-23 05:00:58
+recorded_with: VCR-vcr/1.7.1.93

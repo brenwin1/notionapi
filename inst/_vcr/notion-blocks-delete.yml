@@ -1,0 +1,37 @@
+http_interactions:
+- request:
+    method: DELETE
+    uri: https://api.notion.com/v1/blocks/23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba
+  response:
+    status: 200
+    headers:
+      alt-svc: h3=":443"; ma=86400
+      cf-cache-status: DYNAMIC
+      cf-ray: 96389e345f23271a-MEL
+      content-encoding: gzip
+      content-security-policy: default-src 'none'
+      content-type: application/json; charset=utf-8
+      date: Wed, 23 Jul 2025 05:01:07 GMT
+      etag: W/"22a-B1gfstGk2vf44RsyhWqH7JSVQ0k"
+      referrer-policy: strict-origin-when-cross-origin
+      server: cloudflare
+      set-cookie:
+      - __cf_bm=x0L73_rECsCBir6jI51WhfSvdBxP8uWuHsClRBebPhE-1753246867-1.0.1.1-m3eh6VdZNFR4x.kSzL0f_NWuaRqz34ZXRfStxSbW1o1_UnufoDZjBenp5mk85a4KaVE5npTKPIsUG3Qc1GTtWNf9M4we6.YbMWR4G7jLXcE;
+        path=/; expires=Wed, 23-Jul-25 05:31:07 GMT; domain=.notion.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=UNG8U.9n3mGXzAc6X4viwd7tSFhvyNQq7K.azTexM1A-1753246867545-0.0.1.1-604800000;
+        path=/; domain=.notion.com; HttpOnly; Secure; SameSite=None
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      vary: Accept-Encoding
+      x-content-type-options: nosniff
+      x-dns-prefetch-control: 'off'
+      x-download-options: noopen
+      x-frame-options: SAMEORIGIN
+      x-notion-request-id: 3371d06e-15fc-4e7c-b238-baea10ee7926
+      x-permitted-cross-domain-policies: none
+      x-xss-protection: '0'
+    body:
+      string: '{"object":"block","id":"23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba","parent":{"type":"page_id","page_id":"22f33ea0-c1e4-80b9-9c77-d1ab72aedff9"},"created_time":"2025-07-23T05:00:00.000Z","last_edited_time":"2025-07-23T05:01:00.000Z","created_by":{"object":"user","id":"6b786605-e456-4237-9c61-5efaff23c081"},"last_edited_by":{"object":"user","id":"6b786605-e456-4237-9c61-5efaff23c081"},"has_children":true,"archived":true,"in_trash":true,"type":"child_page","child_page":{"title":"Test
+        Page for notionapi"},"request_id":"3371d06e-15fc-4e7c-b238-baea10ee7926"}'
+  recorded_at: 2025-07-23 05:01:07
+recorded_with: VCR-vcr/1.7.1.93

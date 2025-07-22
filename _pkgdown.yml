@@ -1,0 +1,21 @@
+url: ~
+template:
+  bootstrap: 5
+
+reference:
+  - title: "Main Client"
+    desc: "Create and configure Notion API client"
+    contents:
+      - notion_client
+      - NotionClient
+  - title: "Endpoints"
+    desc: "R6 classes for interacting with different Notion API endpoints"
+    contents:
+      - ends_with("Endpoint")
+  - title: "Utilities"
+    desc: "Helper functions and utilities"
+    contents:
+      - no_config
+  - title: "Response Objects"
+    contents:
+      - print.notion_response

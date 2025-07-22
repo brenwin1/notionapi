@@ -1,0 +1,37 @@
+http_interactions:
+- request:
+    method: GET
+    uri: https://api.notion.com/v1/users/me
+  response:
+    status: 401
+    headers:
+      alt-svc: h3=":443"; ma=86400
+      cf-cache-status: DYNAMIC
+      cf-ray: 96389db4dc7e271a-MEL
+      content-length: '139'
+      content-security-policy: default-src 'none'
+      content-type: application/json; charset=utf-8
+      date: Wed, 23 Jul 2025 05:00:54 GMT
+      etag: W/"8b-Ukjt1ig3fDFqzO6/l491YL9Seuw"
+      referrer-policy: strict-origin-when-cross-origin
+      server: cloudflare
+      set-cookie:
+      - __cf_bm=KAaFrWQEeaxyJYWfiZxdys494mP_ioSY0Kf_.KrgljM-1753246854-1.0.1.1-E02H9CI1YDc0TjbtwTiffrYsffmSgdt6EaQ3fFh2yoz4DJcgT6pVN6cdmv5G.cv3RO1XcvvXhg.CmMHB8Qa8XU.AqMxEPEm2AJX_P_EIU_Y;
+        path=/; expires=Wed, 23-Jul-25 05:30:54 GMT; domain=.notion.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=8h4afmyvnkJfjpa5wELMQp8kANFg4tRKNZrP3BpABcE-1753246854055-0.0.1.1-604800000;
+        path=/; domain=.notion.com; HttpOnly; Secure; SameSite=None
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      vary: Accept-Encoding
+      x-content-type-options: nosniff
+      x-dns-prefetch-control: 'off'
+      x-download-options: noopen
+      x-frame-options: SAMEORIGIN
+      x-notion-request-id: 62942bf3-c19d-48a5-88cc-d0a5c9dbd7da
+      x-permitted-cross-domain-policies: none
+      x-xss-protection: '0'
+    body:
+      string: '{"object":"error","status":401,"code":"unauthorized","message":"API
+        token is invalid.","request_id":"62942bf3-c19d-48a5-88cc-d0a5c9dbd7da"}'
+  recorded_at: 2025-07-23 05:00:53
+recorded_with: VCR-vcr/1.7.1.93

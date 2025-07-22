@@ -1,0 +1,39 @@
+http_interactions:
+- request:
+    method: GET
+    uri: https://api.notion.com/v1/databases/23933ea0-c1e4-8136-b37b-fa235c6f2a71
+  response:
+    status: 200
+    headers:
+      alt-svc: h3=":443"; ma=86400
+      cf-cache-status: DYNAMIC
+      cf-ray: 96389e11381f271a-MEL
+      content-encoding: gzip
+      content-security-policy: default-src 'none'
+      content-type: application/json; charset=utf-8
+      date: Wed, 23 Jul 2025 05:01:01 GMT
+      etag: W/"3e2-/NR9SVS8ivr6gA3bFQ+5s8PncQs"
+      referrer-policy: strict-origin-when-cross-origin
+      server: cloudflare
+      set-cookie:
+      - __cf_bm=hfR0M50aAqLa.OMT7fKPOkh3LTu8CP_HnbUzXfHcRy0-1753246861-1.0.1.1-NIRQy45tANUeVl2o95dpabOw7sizGAIhKWJ8Cf7_1j3eOo33uYRHy0ZFvXxx7nOWGipti_zW_b_bcMlx8QrycZbgo4XPI0Ge8HPHRIKFylg;
+        path=/; expires=Wed, 23-Jul-25 05:31:01 GMT; domain=.notion.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=XVcr2fDmDPqimFW7OP_i2E32imk3tTQsDaehCHMBTt0-1753246861218-0.0.1.1-604800000;
+        path=/; domain=.notion.com; HttpOnly; Secure; SameSite=None
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      vary: Accept-Encoding
+      x-content-type-options: nosniff
+      x-dns-prefetch-control: 'off'
+      x-download-options: noopen
+      x-frame-options: SAMEORIGIN
+      x-notion-request-id: f585fdc8-9acd-4ac1-a99f-26a882aea654
+      x-permitted-cross-domain-policies: none
+      x-xss-protection: '0'
+    body:
+      string: '{"object":"database","id":"23933ea0-c1e4-8136-b37b-fa235c6f2a71","cover":null,"icon":null,"created_time":"2025-07-23T05:01:00.000Z","created_by":{"object":"user","id":"6b786605-e456-4237-9c61-5efaff23c081"},"last_edited_by":{"object":"user","id":"6b786605-e456-4237-9c61-5efaff23c081"},"last_edited_time":"2025-07-23T05:01:00.000Z","title":[{"type":"text","text":{"content":"Grocery
+        list","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Grocery
+        list","href":null}],"description":[],"is_inline":false,"properties":{"In stock":{"id":"q%3BL%5E","name":"In
+        stock","type":"checkbox","checkbox":{}},"Name":{"id":"title","name":"Name","type":"title","title":{}}},"parent":{"type":"page_id","page_id":"23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba"},"url":"https://www.notion.so/23933ea0c1e48136b37bfa235c6f2a71","public_url":null,"archived":false,"in_trash":false,"request_id":"f585fdc8-9acd-4ac1-a99f-26a882aea654"}'
+  recorded_at: 2025-07-23 05:01:01
+recorded_with: VCR-vcr/1.7.1.93

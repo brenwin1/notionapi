@@ -1,0 +1,57 @@
+http_interactions:
+- request:
+    method: POST
+    uri: https://api.notion.com/v1/databases/22833ea0c1e481178e9cf1dcba79dbca/query
+    body:
+      string: '{"filter":{"orr":[{"property":"In stock","checkbox":{"equals":true}}]},"page_size":100}'
+  response:
+    status: 400
+    headers:
+      alt-svc: h3=":443"; ma=86400
+      cf-cache-status: DYNAMIC
+      cf-ray: 96389db28e63271a-MEL
+      content-encoding: gzip
+      content-security-policy: default-src 'none'
+      content-type: application/json; charset=utf-8
+      date: Wed, 23 Jul 2025 05:00:46 GMT
+      etag: W/"67e-kDiOOmKRHIL0k2B2lTcQjML1IT0"
+      referrer-policy: strict-origin-when-cross-origin
+      server: cloudflare
+      set-cookie:
+      - __cf_bm=Xyzt0XYOD1Wo6gElQJzFMnqcpexa5gZ07_K8mRk1rZc-1753246846-1.0.1.1-hWaW3eb66Mo7Ma.dFx.krVuKp472oUHACPDBPswePFHTPP9vp23DcmOhjjrB05MG_dtEmgVFUZNIgODhVNolqB_mxB7Kbv4NSDaHNFgLiG8;
+        path=/; expires=Wed, 23-Jul-25 05:30:46 GMT; domain=.notion.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=JqRV_DaIBkdkXdL2X9VFMZNpfQyQPoTQtyPTcRm2sBw-1753246846121-0.0.1.1-604800000;
+        path=/; domain=.notion.com; HttpOnly; Secure; SameSite=None
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      vary: Accept-Encoding
+      x-content-type-options: nosniff
+      x-dns-prefetch-control: 'off'
+      x-download-options: noopen
+      x-frame-options: SAMEORIGIN
+      x-notion-request-id: e0c807a3-4ea3-476e-b280-dff0a7d0ecb3
+      x-permitted-cross-domain-policies: none
+      x-xss-protection: '0'
+    body:
+      string: '{"object":"error","status":400,"code":"validation_error","message":"body
+        failed validation. Fix one:\nbody.filter.or should be defined, instead was
+        `undefined`.\nbody.filter.and should be defined, instead was `undefined`.\nbody.filter.title
+        should be defined, instead was `undefined`.\nbody.filter.rich_text should
+        be defined, instead was `undefined`.\nbody.filter.number should be defined,
+        instead was `undefined`.\nbody.filter.checkbox should be defined, instead
+        was `undefined`.\nbody.filter.select should be defined, instead was `undefined`.\nbody.filter.multi_select
+        should be defined, instead was `undefined`.\nbody.filter.status should be
+        defined, instead was `undefined`.\nbody.filter.date should be defined, instead
+        was `undefined`.\nbody.filter.people should be defined, instead was `undefined`.\nbody.filter.files
+        should be defined, instead was `undefined`.\nbody.filter.url should be defined,
+        instead was `undefined`.\nbody.filter.email should be defined, instead was
+        `undefined`.\nbody.filter.phone_number should be defined, instead was `undefined`.\nbody.filter.relation
+        should be defined, instead was `undefined`.\nbody.filter.created_by should
+        be defined, instead was `undefined`.\nbody.filter.created_time should be defined,
+        instead was `undefined`.\nbody.filter.last_edited_by should be defined, instead
+        was `undefined`.\nbody.filter.last_edited_time should be defined, instead
+        was `undefined`.\nbody.filter.formula should be defined, instead was `undefined`.\nbody.filter.unique_id
+        should be defined, instead was `undefined`.\nbody.filter.rollup should be
+        defined, instead was `undefined`.","request_id":"e0c807a3-4ea3-476e-b280-dff0a7d0ecb3"}'
+  recorded_at: 2025-07-23 05:00:46
+recorded_with: VCR-vcr/1.7.1.93

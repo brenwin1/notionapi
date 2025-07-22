@@ -1,0 +1,41 @@
+http_interactions:
+- request:
+    method: PATCH
+    uri: https://api.notion.com/v1/pages/23933ea0-c1e4-8104-897b-f5a09269e561
+    body:
+      string: '{"properties":{"In stock":{"checkbox":true}}}'
+  response:
+    status: 200
+    headers:
+      alt-svc: h3=":443"; ma=86400
+      cf-cache-status: DYNAMIC
+      cf-ray: 96389e1ac81f271a-MEL
+      content-encoding: gzip
+      content-security-policy: default-src 'none'
+      content-type: application/json; charset=utf-8
+      date: Wed, 23 Jul 2025 05:01:03 GMT
+      etag: W/"3a4-N7/UpiBXU+BCI9znLXyGNvgNoYs"
+      referrer-policy: strict-origin-when-cross-origin
+      server: cloudflare
+      set-cookie:
+      - __cf_bm=JdQu1YOUDqMQ3GqL7lpOHRtrPTR0elIOBAyFI7UsbiE-1753246863-1.0.1.1-G.96BEYD4CR53CwvwhWLZegJigC82475DWHoW4t7eWrdwViiy9t7nCGw647w.Ws7ZuJvE0qT2IVmGsyFDQQkGXDhcvRHbPMTqUk_oLdAMwY;
+        path=/; expires=Wed, 23-Jul-25 05:31:03 GMT; domain=.notion.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=zb_fgXoc1wpPvTs5SSt8NdbmodY62m.9x0GpP_pcO1k-1753246863311-0.0.1.1-604800000;
+        path=/; domain=.notion.com; HttpOnly; Secure; SameSite=None
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      vary: Accept-Encoding
+      x-content-type-options: nosniff
+      x-dns-prefetch-control: 'off'
+      x-download-options: noopen
+      x-frame-options: SAMEORIGIN
+      x-notion-request-id: 2392c4f7-29f1-4947-938d-0fe7ba006966
+      x-permitted-cross-domain-policies: none
+      x-xss-protection: '0'
+    body:
+      string: '{"object":"page","id":"23933ea0-c1e4-8104-897b-f5a09269e561","created_time":"2025-07-23T05:01:00.000Z","last_edited_time":"2025-07-23T05:01:00.000Z","created_by":{"object":"user","id":"6b786605-e456-4237-9c61-5efaff23c081"},"last_edited_by":{"object":"user","id":"6b786605-e456-4237-9c61-5efaff23c081"},"cover":null,"icon":null,"parent":{"type":"database_id","database_id":"23933ea0-c1e4-8136-b37b-fa235c6f2a71"},"archived":false,"in_trash":false,"properties":{"In
+        stock":{"id":"q%3BL%5E","type":"checkbox","checkbox":true},"Name":{"id":"title","type":"title","title":[{"type":"text","text":{"content":"Tuscan
+        Kale","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Tuscan
+        Kale","href":null}]}},"url":"https://www.notion.so/Tuscan-Kale-23933ea0c1e48104897bf5a09269e561","public_url":null,"request_id":"2392c4f7-29f1-4947-938d-0fe7ba006966"}'
+  recorded_at: 2025-07-23 05:01:03
+recorded_with: VCR-vcr/1.7.1.93

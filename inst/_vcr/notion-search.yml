@@ -1,0 +1,40 @@
+http_interactions:
+- request:
+    method: POST
+    uri: https://api.notion.com/v1/search
+    body:
+      string: '{"query":"Test Page for notionapi","sort":{"direction":"descending","timestamp":"last_edited_time"},"filter":{"value":"page","property":"object"},"page_size":1}'
+  response:
+    status: 200
+    headers:
+      alt-svc: h3=":443"; ma=86400
+      cf-cache-status: DYNAMIC
+      cf-ray: 96389e274f5c271a-MEL
+      content-encoding: gzip
+      content-security-policy: default-src 'none'
+      content-type: application/json; charset=utf-8
+      date: Wed, 23 Jul 2025 05:01:05 GMT
+      etag: W/"420-f+4FGZap/+bQcfiRkPpakHlasE4"
+      referrer-policy: strict-origin-when-cross-origin
+      server: cloudflare
+      set-cookie:
+      - __cf_bm=rdIFnlu_L9b__Uf7Bxn8ECdw6vrRSAavbH2SRZwoL1I-1753246865-1.0.1.1-0cGFxKw5479.Z2gx7PAbRFlSXcXrguK7UeF8WT0zTgvJzZ2Pb2EW8jT_YElMtmiCS0TS9b.VheMzltB0wknYNRUKmVddlmbjHbBFskU78qs;
+        path=/; expires=Wed, 23-Jul-25 05:31:05 GMT; domain=.notion.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=NUvflwSGES_UIKtDzwmGhcYtonHPujCt4.SMjj1jP4U-1753246865838-0.0.1.1-604800000;
+        path=/; domain=.notion.com; HttpOnly; Secure; SameSite=None
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      vary: Accept-Encoding
+      x-content-type-options: nosniff
+      x-dns-prefetch-control: 'off'
+      x-download-options: noopen
+      x-frame-options: SAMEORIGIN
+      x-notion-request-id: 9f78f94e-8e09-4b47-b652-f25b8afc34b3
+      x-permitted-cross-domain-policies: none
+      x-xss-protection: '0'
+    body:
+      string: '{"object":"list","results":[{"object":"page","id":"22f33ea0-c1e4-80b9-9c77-d1ab72aedff9","created_time":"2025-07-13T12:29:00.000Z","last_edited_time":"2025-07-23T05:00:00.000Z","created_by":{"object":"user","id":"fda12729-108d-4eb5-bbfb-a8f0886794d1"},"last_edited_by":{"object":"user","id":"6b786605-e456-4237-9c61-5efaff23c081"},"cover":null,"icon":{"type":"emoji","emoji":"#️⃣"},"parent":{"type":"block_id","block_id":"21e33ea0-c1e4-8014-963b-cc5ecf889b84"},"archived":false,"in_trash":false,"properties":{"title":{"id":"title","type":"title","title":[{"type":"text","text":{"content":"Test
+        Page Parent","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Test
+        Page Parent","href":null}]}},"url":"https://www.notion.so/Test-Page-Parent-22f33ea0c1e480b99c77d1ab72aedff9","public_url":null}],"next_cursor":"47d65dc1-baca-4120-a969-9678e7302f99","has_more":true,"type":"page_or_database","page_or_database":{},"request_id":"9f78f94e-8e09-4b47-b652-f25b8afc34b3"}'
+  recorded_at: 2025-07-23 05:01:05
+recorded_with: VCR-vcr/1.7.1.93
