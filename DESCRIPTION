@@ -22,3 +22,4 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 Remotes: 
     ropensci/vcr
+URL: https://brenwin1.github.io/notionapi/
