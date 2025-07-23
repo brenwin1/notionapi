@@ -160,16 +160,19 @@ Set to FALSE to restore the block Defaults to FALSE.</p></dd>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">notion</span> <span class="op">&lt;-</span> <span class="fu"><a href="NotionClient.html">notion_client</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> Notion integration token not found.</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Set it with `NOTION_TOKEN` environment variable (recommended)</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> or pass it directly with `auth` argument</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># ----- retrieve a page property</span></span></span>
 <span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">pages</span><span class="op">$</span><span class="va">properties</span><span class="op">$</span><span class="fu">retrieve</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  <span class="st">"23933ea0-c1e4-8104-897b-f5a09269e561"</span>,</span></span>
 <span class="r-in"><span>  property_id <span class="op">=</span> <span class="st">"q;L^"</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'notion' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "property_item",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "type": "checkbox",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "q%3BL%5E",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "checkbox": true,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "7905abd5-ea30-4e4b-95c3-f2a49113b047"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># ----- update a page property</span></span></span>
 <span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">pages</span><span class="op">$</span><span class="va">properties</span><span class="op">$</span><span class="fu">update</span><span class="op">(</span></span></span>
@@ -180,7 +183,61 @@ Set to FALSE to restore the block Defaults to FALSE.</p></dd>
 <span class="r-in"><span>    <span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'notion' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "page",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "23933ea0-c1e4-8104-897b-f5a09269e561",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2025-07-23T05:01:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2025-07-23T05:01:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_by": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "object": "user",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_by": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "object": "user",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "cover": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "icon": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "parent": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "type": "database_id",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "database_id": "23933ea0-c1e4-8136-b37b-fa235c6f2a71"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "archived": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "in_trash": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "properties": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "In stock": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "id": "q%3BL%5E",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "type": "checkbox",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "checkbox": true</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "Name": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "id": "title",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "type": "title",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "title": [</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "type": "text",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "text": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "content": "Tuscan Kale",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "link": {}</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "annotations": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "bold": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "italic": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "strikethrough": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "underline": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "code": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "color": "default"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "plain_text": "Tuscan Kale",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "href": {}</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       ]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "url": "https://www.notion.so/Tuscan-Kale-23933ea0c1e48104897bf5a09269e561",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "public_url": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "2392c4f7-29f1-4947-938d-0fe7ba006966"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

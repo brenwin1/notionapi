@@ -227,9 +227,6 @@ If NULL, returns the first page of results.</p></dd>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">notion</span> <span class="op">&lt;-</span> <span class="fu"><a href="NotionClient.html">notion_client</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> Notion integration token not found.</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Set it with `NOTION_TOKEN` environment variable (recommended)</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> or pass it directly with `auth` argument</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># ----- create a database</span></span></span>
 <span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">databases</span><span class="op">$</span><span class="fu">create</span><span class="op">(</span></span></span>
@@ -251,13 +248,131 @@ If NULL, returns the first page of results.</p></dd>
 <span class="r-in"><span>    <span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'notion' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "database",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "23933ea0-c1e4-8136-b37b-fa235c6f2a71",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "cover": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "icon": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2025-07-23T05:01:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_by": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "object": "user",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_by": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "object": "user",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2025-07-23T05:01:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "title": [</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "type": "text",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "text": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "content": "Grocery list",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "link": {}</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "annotations": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "bold": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "italic": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "strikethrough": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "underline": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "code": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "color": "default"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "plain_text": "Grocery list",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "href": {}</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ],</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "description": [],</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "is_inline": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "properties": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "In stock": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "id": "q%3BL%5E",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "name": "In stock",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "type": "checkbox",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "checkbox": {}</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "Name": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "id": "title",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "name": "Name",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "type": "title",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "title": {}</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "parent": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "type": "page_id",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "page_id": "23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "url": "https://www.notion.so/23933ea0c1e48136b37bfa235c6f2a71",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "public_url": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "archived": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "in_trash": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "c3a4224b-5923-46c2-9497-c5527eb10b92"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># ----- retrieve a database</span></span></span>
 <span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">databases</span><span class="op">$</span><span class="fu">retrieve</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  <span class="st">"23933ea0-c1e4-8136-b37b-fa235c6f2a71"</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'notion' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "database",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "23933ea0-c1e4-8136-b37b-fa235c6f2a71",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "cover": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "icon": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2025-07-23T05:01:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_by": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "object": "user",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_by": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "object": "user",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2025-07-23T05:01:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "title": [</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "type": "text",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "text": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "content": "Grocery list",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "link": {}</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "annotations": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "bold": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "italic": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "strikethrough": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "underline": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "code": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "color": "default"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "plain_text": "Grocery list",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "href": {}</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ],</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "description": [],</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "is_inline": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "properties": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "In stock": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "id": "q%3BL%5E",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "name": "In stock",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "type": "checkbox",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "checkbox": {}</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "Name": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "id": "title",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "name": "Name",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "type": "title",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "title": {}</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "parent": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "type": "page_id",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "page_id": "23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "url": "https://www.notion.so/23933ea0c1e48136b37bfa235c6f2a71",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "public_url": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "archived": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "in_trash": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "f585fdc8-9acd-4ac1-a99f-26a882aea654"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># ----- update a database</span></span></span>
 <span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">databases</span><span class="op">$</span><span class="fu">update</span><span class="op">(</span></span></span>
@@ -268,7 +383,66 @@ If NULL, returns the first page of results.</p></dd>
 <span class="r-in"><span>    <span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'notion' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "database",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "23933ea0-c1e4-8136-b37b-fa235c6f2a71",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "cover": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "icon": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2025-07-23T05:01:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_by": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "object": "user",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_by": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "object": "user",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2025-07-23T05:01:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "title": [</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "type": "text",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "text": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "content": "Today's grocery list",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "link": {}</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "annotations": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "bold": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "italic": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "strikethrough": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "underline": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "code": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "color": "default"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "plain_text": "Today's grocery list",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "href": {}</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ],</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "description": [],</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "is_inline": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "properties": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "In stock": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "id": "q%3BL%5E",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "name": "In stock",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "type": "checkbox",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "checkbox": {}</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "Name": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "id": "title",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "name": "Name",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "type": "title",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "title": {}</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "parent": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "type": "page_id",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "page_id": "23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "url": "https://www.notion.so/23933ea0c1e48136b37bfa235c6f2a71",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "public_url": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "archived": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "in_trash": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "68c8b897-f3c1-4cde-a9f3-db92c20ebbb8"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># ----- query a database</span></span></span>
 <span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">databases</span><span class="op">$</span><span class="fu">query</span><span class="op">(</span></span></span>
@@ -290,7 +464,70 @@ If NULL, returns the first page of results.</p></dd>
 <span class="r-in"><span>    direction <span class="op">=</span> <span class="st">"ascending"</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'notion' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "list",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "results": [</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "object": "page",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "id": "23933ea0-c1e4-8104-897b-f5a09269e561",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "created_time": "2025-07-23T05:01:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "last_edited_time": "2025-07-23T05:01:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "created_by": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "object": "user",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "last_edited_by": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "object": "user",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "cover": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "icon": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "parent": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "type": "database_id",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "database_id": "23933ea0-c1e4-8136-b37b-fa235c6f2a71"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "archived": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "in_trash": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "properties": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "In stock": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "id": "q%3BL%5E",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "type": "checkbox",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "checkbox": true</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "Name": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "id": "title",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "type": "title",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "title": [</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               "type": "text",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               "text": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                 "content": "Tuscan Kale",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                 "link": {}</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               "annotations": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                 "bold": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                 "italic": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                 "strikethrough": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                 "underline": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                 "code": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                 "color": "default"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               "plain_text": "Tuscan Kale",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               "href": {}</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           ]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "url": "https://www.notion.so/Tuscan-Kale-23933ea0c1e48104897bf5a09269e561",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "public_url": {}</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ],</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "next_cursor": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "has_more": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "type": "page_or_database",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "page_or_database": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "7dde87ad-4cbf-4189-8b05-795e9609cc99"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># ----- iterate through paginated results</span></span></span>
 <span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>

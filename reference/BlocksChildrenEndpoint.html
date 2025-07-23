@@ -136,9 +136,6 @@ If NULL, returns the first page of results.</p></dd>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">notion</span> <span class="op">&lt;-</span> <span class="fu"><a href="NotionClient.html">notion_client</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> Notion integration token not found.</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Set it with `NOTION_TOKEN` environment variable (recommended)</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> or pass it directly with `auth` argument</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># ----- append children to a block</span></span></span>
 <span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">blocks</span><span class="op">$</span><span class="va">children</span><span class="op">$</span><span class="fu">append</span><span class="op">(</span></span></span>
@@ -155,11 +152,119 @@ If NULL, returns the first page of results.</p></dd>
 <span class="r-in"><span>    <span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'notion' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "list",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "results": [</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "object": "block",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "id": "23933ea0-c1e4-81dc-9f56-f3fa251a757f",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "parent": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "type": "page_id",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "page_id": "23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "created_time": "2025-07-23T05:00:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "last_edited_time": "2025-07-23T05:00:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "created_by": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "object": "user",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "last_edited_by": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "object": "user",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "has_children": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "archived": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "in_trash": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "type": "heading_2",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "heading_2": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "rich_text": [</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "type": "text",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "text": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               "content": "Test Heading",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               "link": {}</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "annotations": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               "bold": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               "italic": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               "strikethrough": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               "underline": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               "code": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               "color": "default"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "plain_text": "Test Heading",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "href": {}</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         ],</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "is_toggleable": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "color": "default"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ],</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "next_cursor": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "has_more": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "type": "block",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "block": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "9e6e8dcd-dac3-479f-9d0c-b5ef44b628c9"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># ----- retrieve children of a block</span></span></span>
 <span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">blocks</span><span class="op">$</span><span class="va">children</span><span class="op">$</span><span class="fu">retrieve</span><span class="op">(</span><span class="st">"23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba"</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'notion' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "list",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "results": [</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "object": "block",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "id": "23933ea0-c1e4-81dc-9f56-f3fa251a757f",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "parent": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "type": "page_id",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "page_id": "23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "created_time": "2025-07-23T05:00:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "last_edited_time": "2025-07-23T05:00:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "created_by": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "object": "user",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "last_edited_by": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "object": "user",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "has_children": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "archived": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "in_trash": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "type": "heading_2",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "heading_2": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "rich_text": [</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "type": "text",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "text": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               "content": "Test Heading",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               "link": {}</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "annotations": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               "bold": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               "italic": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               "strikethrough": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               "underline": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               "code": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               "color": "default"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "plain_text": "Test Heading",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "href": {}</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         ],</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "is_toggleable": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "color": "default"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ],</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "next_cursor": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "has_more": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "type": "block",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "block": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "c6a86d45-a6ea-4d08-87e5-6c47192c3495"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># ----- iterate through paginated results</span></span></span>
 <span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>

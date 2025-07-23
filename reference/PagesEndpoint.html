@@ -154,9 +154,6 @@ If NULL, all properties are returned.</p></dd>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">notion</span> <span class="op">&lt;-</span> <span class="fu"><a href="NotionClient.html">notion_client</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> Notion integration token not found.</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Set it with `NOTION_TOKEN` environment variable (recommended)</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> or pass it directly with `auth` argument</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># ----- create a page</span></span></span>
 <span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">pages</span><span class="op">$</span><span class="fu">create</span><span class="op">(</span></span></span>
@@ -169,11 +166,109 @@ If NULL, all properties are returned.</p></dd>
 <span class="r-in"><span>    <span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'notion' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "page",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2025-07-23T05:00:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2025-07-23T05:00:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_by": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "object": "user",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_by": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "object": "user",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "cover": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "icon": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "parent": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "type": "page_id",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "page_id": "22f33ea0-c1e4-80b9-9c77-d1ab72aedff9"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "archived": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "in_trash": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "properties": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "title": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "id": "title",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "type": "title",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "title": [</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "type": "text",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "text": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "content": "Test Page for notionapi",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "link": {}</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "annotations": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "bold": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "italic": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "strikethrough": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "underline": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "code": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "color": "default"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "plain_text": "Test Page for notionapi",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "href": {}</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       ]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "url": "https://www.notion.so/Test-Page-for-notionapi-23933ea0c1e481d6a6f6dd5b57ad4aba",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "public_url": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "a46593d0-18a7-436e-ab7c-b3049b00c8e8"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># ----- retrieve a page</span></span></span>
 <span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">pages</span><span class="op">$</span><span class="fu">retrieve</span><span class="op">(</span><span class="st">"23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba"</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'notion' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "page",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2025-07-23T05:00:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2025-07-23T05:00:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_by": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "object": "user",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_by": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "object": "user",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "cover": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "icon": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "parent": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "type": "page_id",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "page_id": "22f33ea0-c1e4-80b9-9c77-d1ab72aedff9"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "archived": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "in_trash": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "properties": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "title": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "id": "title",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "type": "title",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "title": [</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "type": "text",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "text": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "content": "Test Page for notionapi",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "link": {}</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "annotations": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "bold": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "italic": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "strikethrough": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "underline": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "code": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "color": "default"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "plain_text": "Test Page for notionapi",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "href": {}</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       ]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "url": "https://www.notion.so/Test-Page-for-notionapi-23933ea0c1e481d6a6f6dd5b57ad4aba",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "public_url": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "b9ea5c65-77df-48fb-b165-5bb2ffffe555"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

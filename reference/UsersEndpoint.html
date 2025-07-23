@@ -138,21 +138,77 @@ If NULL, returns the first page of results.</p></dd>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">notion</span> <span class="op">&lt;-</span> <span class="fu"><a href="NotionClient.html">notion_client</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> Notion integration token not found.</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Set it with `NOTION_TOKEN` environment variable (recommended)</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> or pass it directly with `auth` argument</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># ----- list all users</span></span></span>
 <span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">users</span><span class="op">$</span><span class="fu">list</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'notion' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "list",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "results": [</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "object": "user",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "id": "fda12729-108d-4eb5-bbfb-a8f0886794d1",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "name": "Brenwin",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "avatar_url": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "type": "person",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "person": {}</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "object": "user",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "id": "6b786605-e456-4237-9c61-5efaff23c081",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "name": "brenwin-internal",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "avatar_url": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "type": "bot",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "bot": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "owner": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "type": "workspace",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "workspace": true</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "workspace_name": "Brenwin's Notion",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "workspace_limits": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "max_file_upload_size_in_bytes": 5368709120</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ],</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "next_cursor": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "has_more": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "type": "user",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "user": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "fd112634-e4c9-4953-a557-43326deb3f41"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># ----- retrieve a user</span></span></span>
 <span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">users</span><span class="op">$</span><span class="fu">retrieve</span><span class="op">(</span>user_id <span class="op">=</span> <span class="st">"fda12729-108d-4eb5-bbfb-a8f0886794d1"</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'notion' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "user",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "fda12729-108d-4eb5-bbfb-a8f0886794d1",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "name": "Brenwin",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "avatar_url": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "type": "person",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "person": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "f53db350-84cc-4efd-a8cc-cb9a01d0059b"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># ----- retrieve the bot User associated with the API token</span></span></span>
 <span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">users</span><span class="op">$</span><span class="fu">me</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'notion' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "user",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "6b786605-e456-4237-9c61-5efaff23c081",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "name": "brenwin-internal",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "avatar_url": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "type": "bot",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "bot": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "owner": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "type": "workspace",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "workspace": true</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "workspace_name": "Brenwin's Notion",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "workspace_limits": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "max_file_upload_size_in_bytes": 5368709120</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "065294fa-c8a4-465a-af1f-07360dd262cf"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
