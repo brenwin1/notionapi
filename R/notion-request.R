@@ -172,7 +172,7 @@ notion_handle_api_error <- function(resp, error_call = rlang::caller_env()) {
 #' @param auth Authentication token (optional)
 #' @param base_url Base URL for Notion API
 #' @param version Notion API version
-#' @return httr2 request object
+#' @returns httr2 request object
 #' @noRd
 #' @keywords internal
 notion_request <- function(

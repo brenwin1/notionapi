@@ -67,6 +67,7 @@ async_notion_client <- function(
 #' - `users`: Users endpoint object ([UsersEndpoint])
 #'
 #' @seealso [Notion API documentation](https://developers.notion.com/reference)
+#' @returns A Notion API client instance
 #' @export
 #'
 #' @examples
@@ -203,6 +204,9 @@ NotionClient <- R6Class(
     #' @param page_size Integer. Number of items to return per page (1-100). Defaults to 100.
     #' @param start_cursor Character. For pagination. If provided, returns results starting from this cursor.
     #'   If NULL, returns the first page of results.
+    #'
+    #' @details
+    #' [Endpoint documentation](https://developers.notion.com/reference/post-search)
     search = function(
       query = NULL,
       sort = NULL,

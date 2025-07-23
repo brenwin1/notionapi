@@ -1,11 +1,17 @@
 Package: notionapi
-Title: R Client for the Notion API
+Title: Client for the Notion API
 Version: 0.0.0.9000
 Authors@R: 
     person("Brenwin", "Ang", , "brenwinalj@gmail.com", role = c("aut", "cre", "cph"))
-Description: Provides an R interface to the Notion API, enabling users to
-    programatically interact with Notion pages, databases, blocks, comments, and users.
+Description: Enable programmatic interaction with 'Notion' pages,
+    databases, blocks, comments, and users through the 'Notion API'.
+    Provides both synchronous and asynchronous client interfaces for
+    building workflows and automations that integrate with 'Notion'
+    workspaces.  Supports all 'Notion API' endpoints including content
+    creation, data retrieval, and workspace management.
 License: MIT + file LICENSE
+URL: https://brenwin1.github.io/notionapi/,
+    https://github.com/brenwin1/notionapi
 Imports: 
     cli,
     httr2,
@@ -16,10 +22,9 @@ Suggests:
     promises,
     testthat (>= 3.0.0),
     vcr (>= 2.0.0)
+Remotes: 
+    ropensci/vcr
 Config/testthat/edition: 3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
-Remotes: 
-    ropensci/vcr
-URL: https://brenwin1.github.io/notionapi/, https://github.com/brenwin1/notionapi 

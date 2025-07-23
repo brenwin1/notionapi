@@ -21,6 +21,9 @@ async_notion_client(
   timeout = 60000
 )
 }
+\value{
+A Notion API client instance
+}
 \description{
 Main client for interacting with Notion API. This R6 class provides
 access to all Notion API endpoints through organised sub-objects.
@@ -225,6 +228,10 @@ If NULL, returns the first page of results.}
 }
 \if{html}{\out{</div>}}
 }
+\subsection{Details}{
+\href{https://developers.notion.com/reference/post-search}{Endpoint documentation}
+}
+
 }
 }
 \section{Super class}{

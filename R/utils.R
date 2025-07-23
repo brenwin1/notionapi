@@ -7,7 +7,7 @@
 #' do not need configuration settings.
 #' This function returns the empty configuration (`{}` in JSON)
 #' that these properties expect.
-#' @return An empty `named list` that serialises to `{}` in JSON
+#' @returns An empty `named list` that serialises to `{}` in JSON
 #' @export
 no_config <- function() {
   set_names(list(), character())

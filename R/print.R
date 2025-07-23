@@ -2,10 +2,10 @@
 #'
 #' @param x The result object.
 #' @param ... Ignored.
-#' @return The JSON result.
+#' @returns The JSON result.
 #'
 #' @importFrom jsonlite toJSON
 #' @export
 print.notion_response <- function(x, ...) {
-  print(jsonlite::toJSON(unclass(x), pretty = TRUE, auto_unbox = TRUE))
+  print(toJSON(unclass(x), pretty = TRUE, auto_unbox = TRUE))
 }
