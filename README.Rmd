@@ -57,23 +57,16 @@ usethis::edit_r_environ()
 
 4. [Share pages/databases](https://developers.notion.com/docs/authorization#integration-permissions) with your integration in Notion.
 
-5. Create your client:
-
-```{r}
-#| eval: FALSE
-library(notionapi)
-
-notion <- notion_client()
-```
+5. **Restart your R session** to load the environment variable.
 
 ## Usage
 
-Use `notion_client()` or `async_notion_client()` to create a client instance for accessing all the API endpoints: 
+Use `notion_client()` or `async_notion_client()` to create a client instance for accessing the API endpoints: 
 
 The client organises methods into logical endpoint groups like pages, databases, and blocks. 
-Each method maps directly to a Notion API endpoint, with all parameters available as function arguments.
+Each method maps directly to an endpoint, with parameters available as function arguments.
 
-See [Notion API reference](https://developers.notion.com/reference/intro) for complete endpoint documentation.
+See the [Notion API reference](https://developers.notion.com/reference/intro) for complete endpoint documentation.
 
 ```{r}
 library(notionapi)
