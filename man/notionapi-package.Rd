@@ -8,6 +8,14 @@
 \description{
 Provides an R interface to the Notion API, enabling users to programatically interact with Notion pages, databases, blocks, comments, and users.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://brenwin1.github.io/notionapi/}
+  \item \url{https://github.com/brenwin1/notionapi}
+}
+
+}
 \author{
 \strong{Maintainer}: Brenwin Ang \email{brenwinalj@gmail.com} [copyright holder]
 
