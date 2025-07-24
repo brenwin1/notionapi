@@ -109,21 +109,25 @@ notion$users$list()
 #>   "has_more": false,
 #>   "type": "user",
 #>   "user": {},
-#>   "request_id": "e048550d-958b-4787-a4e5-f96bbff2d21a"
+#>   "request_id": "73d84fd2-ccde-4a3c-b348-6d5382e14b2a"
 #> }
 ```
+
+API resonses are automatically converted from JSON to R lists.
 
 ### Serialisation
 
 R data structures are automatically converted to the JSON format
 expected by the Notion API:
 
-- `lists` -\> JSON object
-- `list of lists` -\> JSON array
+- `lists` → JSON object
+- `list of lists` → JSON array
 
-Examples can be found throughout the [reference
-documentation](reference/). For example, see [CommentsEndpoint
-create()](reference/CommentsEndpoint.html#ref-examples) method.
+Examples are provided throughout the [reference
+documentation](https://brenwin1.github.io/notionapi/reference/index.html).
+See [CommentsEndpoint
+create()](https://brenwin1.github.io/notionapi/reference/CommentsEndpoint.html#ref-examples)
+method for an example.
 
 ### Pagination
 
@@ -136,4 +140,5 @@ Pagination parameters (`page_size` and `start_cursor`) are exposed as
 function arguments.
 
 For an example, see [BlocksChildrenEndpoint
-retrieve()](reference/BlocksChildrenEndpoint.html#ref-examples) method.
+retrieve()](https://brenwin1.github.io/notionapi/reference/BlocksChildrenEndpoint.html#ref-examples)
+method.

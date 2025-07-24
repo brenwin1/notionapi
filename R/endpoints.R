@@ -183,7 +183,7 @@ BlocksEndpoint <- R6Class(
 #' # ----- iterate through paginated results
 #' \dontrun{
 #' start_cursor <- NULL
-#' has_more <- TRUE
+#' has_more <- FALSE
 #' resps <- list()
 #' i <- 1
 #'

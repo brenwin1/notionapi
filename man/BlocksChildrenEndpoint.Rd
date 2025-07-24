@@ -40,7 +40,7 @@ notion$blocks$children$retrieve("23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba")
 # ----- iterate through paginated results
 \dontrun{
 start_cursor <- NULL
-has_more <- TRUE
+has_more <- FALSE
 resps <- list()
 i <- 1
 
