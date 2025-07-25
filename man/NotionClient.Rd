@@ -64,6 +64,7 @@ The only difference is that async methods return \href{https://rstudio.github.io
 }
 
 \examples{
+\dontshow{if (notion_token_exists()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 # ----- Create a Notion client with default configuration
 notion <- notion_client()
 
@@ -110,6 +111,7 @@ p2 \%...>\%
 # See the [promises package documentation](https://rstudio.github.io/promises/)
 # for more information on working with promises
 }
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 \href{https://developers.notion.com/reference}{Notion API documentation}

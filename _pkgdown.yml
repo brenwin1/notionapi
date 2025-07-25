@@ -16,6 +16,7 @@ reference:
     desc: "Helper functions and utilities"
     contents:
       - no_config
+      - notion_token_exists
   - title: "Response Objects"
     contents:
       - print.notion_response

@@ -8,7 +8,7 @@
 #' @param block_id Character (required). The ID for a Notion block.
 #' @returns A list containing the parsed API response.
 #'
-#' @examples
+#' @examplesIf notion_token_exists()
 #' \dontshow{notionapi:::vcr_example_start("notion-blocks-retrieve")}
 #' notion <- notion_client()
 #'
@@ -154,7 +154,7 @@ BlocksEndpoint <- R6Class(
 #'
 #' @returns A list containing the parsed API response.
 #'
-#' @examples
+#' @examplesIf notion_token_exists()
 #' notion <- notion_client()
 #'
 #' # ----- append children to a block
@@ -295,7 +295,7 @@ BlocksChildrenEndpoint <- R6Class(
 #'
 #' @returns A list containing the parsed API response.
 #'
-#' @examples
+#' @examplesIf notion_token_exists()
 #' \dontshow{notionapi:::vcr_example_start("notion-pages-create")}
 #' notion <- notion_client()
 #'
@@ -436,7 +436,7 @@ PagesEndpoint <- R6Class(
 #'
 #' @returns A list containing the parsed API response.
 #'
-#' @examples
+#' @examplesIf notion_token_exists()
 #' notion <- notion_client()
 #'
 #' # ----- retrieve a page property
@@ -573,7 +573,7 @@ PagesPropertiesEndpoint <- R6Class(
 #'
 #' @returns A list containing the parsed API response.
 #'
-#' @examples
+#' @examplesIf notion_token_exists()
 #' notion <- notion_client()
 #'
 #' # ----- create a database
@@ -848,7 +848,7 @@ DatabasesEndpoint <- R6Class(
 #'
 #' @returns A list containing the parsed API response.
 #'
-#' @examples
+#' @examplesIf notion_token_exists()
 #' notion <- notion_client()
 #'
 #' # ----- create comment
@@ -978,7 +978,7 @@ CommentsEndpoint <- R6Class(
 #'
 #' @returns A list containing the parsed API response.
 #'
-#' @examples
+#' @examplesIf notion_token_exists()
 #' notion <- notion_client()
 #'
 #' # ----- list all users

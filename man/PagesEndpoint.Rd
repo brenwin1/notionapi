@@ -12,6 +12,7 @@ Handle all pages operations in the Notion API
 \strong{Note:} Access this endpoint through the client instance, e.g., \code{notion$pages}. Not to be instantiated directly.
 }
 \examples{
+\dontshow{if (notion_token_exists()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 \dontshow{notionapi:::vcr_example_start("notion-pages-create")}
 notion <- notion_client()
 
@@ -32,6 +33,7 @@ notion$pages$create(
 \dontshow{notionapi:::vcr_example_start("notion-pages-retrieve")}
 notion$pages$retrieve("23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba")
 \dontshow{notionapi:::vcr_example_end()}
+\dontshow{\}) # examplesIf}
 }
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}

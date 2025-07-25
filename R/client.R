@@ -70,7 +70,7 @@ async_notion_client <- function(
 #' @returns A Notion API client instance
 #' @export
 #'
-#' @examples
+#' @examplesIf notion_token_exists()
 #' # ----- Create a Notion client with default configuration
 #' notion <- notion_client()
 #'

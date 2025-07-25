@@ -12,6 +12,7 @@ Handle all block children operations in the Notion API
 \strong{Note:} Access this endpoint through the client instance, e.g., \code{notion$blocks$children}. Not to be instantiated directly.
 }
 \examples{
+\dontshow{if (notion_token_exists()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 notion <- notion_client()
 
 # ----- append children to a block
@@ -54,6 +55,7 @@ while (has_more) {
   i <- i + 1
 }
 }
+\dontshow{\}) # examplesIf}
 }
 \section{Methods}{
 \subsection{Public methods}{

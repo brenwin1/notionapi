@@ -12,6 +12,7 @@ Handle all pages properties operations in the Notion API
 \strong{Note:} Access this endpoint through the client instance, e.g., \code{notion$pages$properties}. Not to be instantiated directly.
 }
 \examples{
+\dontshow{if (notion_token_exists()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 notion <- notion_client()
 
 # ----- retrieve a page property
@@ -33,6 +34,7 @@ notion$pages$properties$update(
   )
 )
 \dontshow{notionapi:::vcr_example_end()}
+\dontshow{\}) # examplesIf}
 }
 \section{Methods}{
 \subsection{Public methods}{
