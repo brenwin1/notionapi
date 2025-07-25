@@ -22,8 +22,6 @@ Suggests:
     promises,
     testthat (>= 3.0.0),
     vcr (>= 2.0.0)
-Remotes: 
-    ropensci/vcr
 Config/testthat/edition: 3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
