@@ -54,3 +54,7 @@ vcr_example_start <- function(name) {
 vcr_example_end <- function() {
   vcr::eject_cassette()
 }
+
+is_testing <- function() {
+  identical(Sys.getenv("TESTTHAT"), "true")
+}

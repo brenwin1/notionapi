@@ -5,6 +5,9 @@
   token <- auth %||% Sys.getenv("NOTION_TOKEN")
 
   if (!nzchar(token)) {
+    if (is_testing()) {
+      testthat::skip("Notion token not set")
+    }
     notionapi_error(
       c(
         "Notion integration token not found.",
