@@ -13,6 +13,7 @@ Useful links:
 \itemize{
   \item \url{https://brenwin1.github.io/notionapi/}
   \item \url{https://github.com/brenwin1/notionapi}
+  \item Report bugs at \url{https://github.com/brenwin1/notionapi/issues}
 }
 
 }
