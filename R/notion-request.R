@@ -22,6 +22,19 @@
   token
 }
 
+#' Check if Notion token is set
+#'
+#' @description
+#' Checks if the `NOTION_TOKEN` environment variable is set.
+#' @returns `TRUE` if the token exists, `FALSE` otherwise.
+#' @export
+#'
+#' @examples
+#' notion_token_exists()
+notion_token_exists <- function() {
+  !identical(Sys.getenv("NOTION_TOKEN"), "")
+}
+
 notion_build_request <- function(
   req,
   path,
