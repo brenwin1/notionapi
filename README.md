@@ -77,7 +77,8 @@ library(notionapi)
 notion <- notion_client()
 
 # Access the users endpoint to list all users in your Notion workspace
-notion$users$list()
+resp <- notion$users$list()
+resp
 #> {
 #>   "object": "list",
 #>   "results": [
@@ -111,11 +112,17 @@ notion$users$list()
 #>   "has_more": false,
 #>   "type": "user",
 #>   "user": {},
-#>   "request_id": "7d7ccc1b-6c83-4c6c-b832-2297f4b68a79"
+#>   "request_id": "a1aa2c2b-c6c4-425a-9fd7-56bed22ed030"
 #> }
 ```
 
-API resonses are automatically converted from JSON to R lists.
+API responses are automatically converted from JSON to R lists.
+
+``` r
+# Extract specific fields from the response (list subsetting)
+vapply(resp$results, "[[", "", "type")
+#> [1] "person" "bot"
+```
 
 ### Serialisation
 
