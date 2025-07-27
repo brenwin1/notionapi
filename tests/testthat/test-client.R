@@ -19,8 +19,12 @@ test_that("notion_client() creates a valid client", {
 })
 
 test_that("Client creation fails without authentication", {
+  token <- Sys.getenv("NOTION_TOKEN")
+  on.exit(Sys.setenv(NOTION_TOKEN = token))
+
+  Sys.unsetenv("NOTION_TOKEN")
   expect_error(
-    notion_client(""),
+    notion_client(auth = ""),
     class = "notionapi_auth_error"
   )
 })
