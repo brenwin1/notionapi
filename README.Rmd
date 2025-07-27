@@ -17,6 +17,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/brenwin1/notionapi/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/brenwin1/notionapi/actions/workflows/R-CMD-check.yaml)
+[![Codecov test coverage](https://codecov.io/gh/brenwin1/notionapi/graph/badge.svg)](https://app.codecov.io/gh/brenwin1/notionapi)
 <!-- badges: end -->
 
 notionapi is an R client library for [Notion API](https://developers.notion.com/), enabling users to programmatically interact with their Notion workspaces. The package provides complete API coverage for managing pages and databases, managing content blocks, handling comments and retrieving user information.

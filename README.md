@@ -6,6 +6,8 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/brenwin1/notionapi/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/brenwin1/notionapi/actions/workflows/R-CMD-check.yaml)
+[![Codecov test
+coverage](https://codecov.io/gh/brenwin1/notionapi/graph/badge.svg)](https://app.codecov.io/gh/brenwin1/notionapi)
 <!-- badges: end -->
 
 notionapi is an R client library for [Notion
@@ -109,7 +111,7 @@ notion$users$list()
 #>   "has_more": false,
 #>   "type": "user",
 #>   "user": {},
-#>   "request_id": "73d84fd2-ccde-4a3c-b348-6d5382e14b2a"
+#>   "request_id": "7d7ccc1b-6c83-4c6c-b832-2297f4b68a79"
 #> }
 ```
 
