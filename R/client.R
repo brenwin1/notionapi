@@ -15,7 +15,6 @@ notion_client <- function(
   )
 }
 
-
 #' @rdname NotionClient
 #'
 #' @export
@@ -188,9 +187,21 @@ NotionClient <- R6Class(
     #' @description
     #' Print basic details of Notion Client
     print = function() {
-      cat("Notion Client\n")
-      cat("  Base URL: ", self$base_url, "\n")
-      cat("  Version: ", self$version, "\n")
+      cli::cat_line(
+        cli::format_inline("{.cls {class(self)[[1]]}}")
+      )
+
+      cli::cat_line(
+        cli::format_inline("{.strong Base URL: }", self$base_url)
+      )
+
+      cli::cat_line(
+        cli::format_inline("{.strong Version: }", self$version)
+      )
+
+      cli::cat_line(
+        cli::format_inline("{.strong Timeout: }", private$.timeout, "s")
+      )
 
       invisible(self)
     },
@@ -300,9 +311,21 @@ AsyncNotionClient <- R6Class(
     #' @description
     #' Print basic details of Notion Client
     print = function() {
-      cat("Async Notion Client\n")
-      cat("  Base URL: ", self$base_url, "\n")
-      cat("  Version: ", self$version, "\n")
+      cli::cat_line(
+        cli::format_inline("{.cls {class(self)[[1]]}}")
+      )
+
+      cli::cat_line(
+        cli::format_inline("{.strong Base URL: }", self$base_url)
+      )
+
+      cli::cat_line(
+        cli::format_inline("{.strong Version: }", self$version)
+      )
+
+      cli::cat_line(
+        cli::format_inline("{.strong Timeout: }", private$.timeout, "s")
+      )
 
       invisible(self)
     }
