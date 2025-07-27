@@ -5,14 +5,14 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>R Client for the Notion API • notionapi</title>
+<title>Client for the Notion API • notionapi</title>
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="R Client for the Notion API">
-<meta name="description" content="Provides an R interface to the Notion API, enabling users to programatically interact with Notion pages, databases, blocks, comments, and users.">
-<meta property="og:description" content="Provides an R interface to the Notion API, enabling users to programatically interact with Notion pages, databases, blocks, comments, and users.">
+<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Client for the Notion API">
+<meta name="description" content="Enable programmatic interaction with Notion pages, databases, blocks, comments, and users through the Notion API. Provides both synchronous and asynchronous client interfaces for building workflows and automations that integrate with Notion workspaces. Supports all Notion API endpoints including content creation, data retrieval, and workspace management.">
+<meta property="og:description" content="Enable programmatic interaction with Notion pages, databases, blocks, comments, and users through the Notion API. Provides both synchronous and asynchronous client interfaces for building workflows and automations that integrate with Notion workspaces. Supports all Notion API endpoints including content creation, data retrieval, and workspace management.">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -127,26 +127,27 @@
 <span><span class="co">#&gt;   "has_more": false,</span></span>
 <span><span class="co">#&gt;   "type": "user",</span></span>
 <span><span class="co">#&gt;   "user": {},</span></span>
-<span><span class="co">#&gt;   "request_id": "e048550d-958b-4787-a4e5-f96bbff2d21a"</span></span>
+<span><span class="co">#&gt;   "request_id": "73d84fd2-ccde-4a3c-b348-6d5382e14b2a"</span></span>
 <span><span class="co">#&gt; }</span></span></code></pre></div>
+<p>API resonses are automatically converted from JSON to R lists.</p>
 <div class="section level3">
 <h3 id="serialisation">Serialisation<a class="anchor" aria-label="anchor" href="#serialisation"></a>
 </h3>
 <p>R data structures are automatically converted to the JSON format expected by the Notion API:</p>
 <ul>
 <li>
-<code>lists</code> -&gt; JSON object</li>
+<code>lists</code> → JSON object</li>
 <li>
-<code>list of lists</code> -&gt; JSON array</li>
+<code>list of lists</code> → JSON array</li>
 </ul>
-<p>Examples can be found throughout the <a href="reference/">reference documentation</a>. For example, see <a href="reference/CommentsEndpoint.html#ref-examples">CommentsEndpoint create()</a> method.</p>
+<p>Examples are provided throughout the <a href="https://brenwin1.github.io/notionapi/reference/index.html">reference documentation</a>. See <a href="https://brenwin1.github.io/notionapi/reference/CommentsEndpoint.html#ref-examples">CommentsEndpoint create()</a> method for an example.</p>
 </div>
 <div class="section level3">
 <h3 id="pagination">Pagination<a class="anchor" aria-label="anchor" href="#pagination"></a>
 </h3>
 <p>See <a href="https://developers.notion.com/reference/intro#pagination" class="external-link">Pagination</a> section in Notion API documentation for supported endpoints and implementation details.</p>
 <p>Pagination parameters (<code>page_size</code> and <code>start_cursor</code>) are exposed as function arguments.</p>
-<p>For an example, see <a href="reference/BlocksChildrenEndpoint.html#ref-examples">BlocksChildrenEndpoint retrieve()</a> method.</p>
+<p>For an example, see <a href="https://brenwin1.github.io/notionapi/reference/BlocksChildrenEndpoint.html#ref-examples">BlocksChildrenEndpoint retrieve()</a> method.</p>
 </div>
 </div>
 </div>
