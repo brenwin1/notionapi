@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# notionapi
+# notionapi <a href="https://brenwin1.github.io/notionapi/"><img src="man/figures/logo.png" align="right" height="139" alt="notionapi website" /></a>
 
 <!-- badges: start -->
 
@@ -112,7 +112,7 @@ resp
 #>   "has_more": false,
 #>   "type": "user",
 #>   "user": {},
-#>   "request_id": "a1aa2c2b-c6c4-425a-9fd7-56bed22ed030"
+#>   "request_id": "7ecade3d-9ad8-4a02-bd8d-9aee421e18c6"
 #> }
 ```
 

@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# notionapi
+# notionapi <a href="https://brenwin1.github.io/notionapi/"><img src="man/figures/logo.png" align="right" height="139" alt="notionapi website" /></a>
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/brenwin1/notionapi/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/brenwin1/notionapi/actions/workflows/R-CMD-check.yaml)
