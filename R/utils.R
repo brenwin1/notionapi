@@ -9,6 +9,32 @@
 #' that these properties expect.
 #' @returns An empty `named list` that serialises to `{}` in JSON
 #' @export
+#'
+#' @examplesIf notion_token_exists()
+#' notion <- notion_client()
+#'
+#' # ----- create a database
+#' \dontshow{notionapi:::vcr_example_start("notion-databases-create")}
+#' notion$databases$create(
+#'   parent = list(page_id = "23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba"),
+#'   title = list(
+#'     list(
+#'       type = "text",
+#'       text = list(
+#'         content = "Grocery list"
+#'       )
+#'     )
+#'   ),
+#'   properties = list(
+#'     Name = list(
+#'       title = no_config()
+#'     ),
+#'     `In stock` = list(
+#'       checkbox = no_config()
+#'     )
+#'   )
+#' )
+#' \dontshow{notionapi:::vcr_example_end()}
 no_config <- function() {
   set_names(list(), character())
 }
