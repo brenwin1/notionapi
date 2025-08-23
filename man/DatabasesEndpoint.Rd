@@ -16,7 +16,7 @@ Handle all databases operations in the Notion API
 notion <- notion_client()
 
 # ----- create a database
-\dontshow{notionapi:::vcr_example_start("notion-databases-create")}
+\dontshow{notionapi::vcr_example_start("notion-databases-create")}
 notion$databases$create(
   parent = list(page_id = "23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba"),
   title = list(
@@ -36,17 +36,17 @@ notion$databases$create(
     )
   )
 )
-\dontshow{notionapi:::vcr_example_end()}
+\dontshow{notionapi::vcr_example_end()}
 
 # ----- retrieve a database
-\dontshow{notionapi:::vcr_example_start("notion-databases-retrieve")}
+\dontshow{notionapi::vcr_example_start("notion-databases-retrieve")}
 notion$databases$retrieve(
   "23933ea0-c1e4-8136-b37b-fa235c6f2a71"
 )
-\dontshow{notionapi:::vcr_example_end()}
+\dontshow{notionapi::vcr_example_end()}
 
 # ----- update a database
-\dontshow{notionapi:::vcr_example_start("notion-database-update")}
+\dontshow{notionapi::vcr_example_start("notion-database-update")}
 notion$databases$update(
   "23933ea0-c1e4-8136-b37b-fa235c6f2a71",
   list(list(
@@ -55,10 +55,10 @@ notion$databases$update(
     )
   ))
 )
-\dontshow{notionapi:::vcr_example_end()}
+\dontshow{notionapi::vcr_example_end()}
 
 # ----- query a database
-\dontshow{notionapi:::vcr_example_start("notion-database-query")}
+\dontshow{notionapi::vcr_example_start("notion-database-query")}
 notion$databases$query(
   database_id = "23933ea0-c1e4-8136-b37b-fa235c6f2a71",
   filter = list(
@@ -78,7 +78,7 @@ notion$databases$query(
     direction = "ascending"
   ))
 )
-\dontshow{notionapi:::vcr_example_end()}
+\dontshow{notionapi::vcr_example_end()}
 
 # ----- iterate through paginated results
 \dontrun{

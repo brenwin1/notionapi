@@ -16,19 +16,19 @@ Handle all users operations in the Notion API
 notion <- notion_client()
 
 # ----- list all users
-\dontshow{notionapi:::vcr_example_start("notion-users-list")}
+\dontshow{notionapi::vcr_example_start("notion-users-list")}
 notion$users$list()
-\dontshow{notionapi:::vcr_example_end()}
+\dontshow{notionapi::vcr_example_end()}
 
 # ----- retrieve a user
-\dontshow{notionapi:::vcr_example_start("notion-users-retrieve")}
+\dontshow{notionapi::vcr_example_start("notion-users-retrieve")}
 notion$users$retrieve(user_id = "fda12729-108d-4eb5-bbfb-a8f0886794d1")
-\dontshow{notionapi:::vcr_example_end()}
+\dontshow{notionapi::vcr_example_end()}
 
 # ----- retrieve the bot User associated with the API token
-\dontshow{notionapi:::vcr_example_start("notion-users-me")}
+\dontshow{notionapi::vcr_example_start("notion-users-me")}
 notion$users$me()
-\dontshow{notionapi:::vcr_example_end()}
+\dontshow{notionapi::vcr_example_end()}
 \dontshow{\}) # examplesIf}
 }
 \section{Methods}{

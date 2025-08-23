@@ -68,6 +68,18 @@ decode_query_param <- function(param_value) {
   utils::URLdecode(param_value)
 }
 
+#' VCR Example Helpers
+#'
+#' Internal functions for managing VCR cassettes in package examples.
+#' These functions are not intended for direct use by package users.
+#'
+#' @param name Character. The name of the cassette to be used.
+#' @keywords internal
+#' @name vcr_example_helpers
+NULL
+
+#' @rdname vcr_example_helpers
+#' @export
 vcr_example_start <- function(name) {
   vcr::insert_example_cassette(
     name,
@@ -77,6 +89,8 @@ vcr_example_start <- function(name) {
   )
 }
 
+#' @rdname vcr_example_helpers
+#' @export
 vcr_example_end <- function() {
   vcr::eject_cassette()
 }

@@ -13,15 +13,15 @@ Handle all block operations in the Notion API
 }
 \examples{
 \dontshow{if (notion_token_exists()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-\dontshow{notionapi:::vcr_example_start("notion-blocks-retrieve")}
+\dontshow{notionapi::vcr_example_start("notion-blocks-retrieve")}
 notion <- notion_client()
 
 # ----- retrieve a block
 notion$blocks$retrieve("23933ea0-c1e4-81dc-9f56-f3fa251a757f")
-\dontshow{notionapi:::vcr_example_end()}
+\dontshow{notionapi::vcr_example_end()}
 
 # ----- update a block
-\dontshow{notionapi:::vcr_example_start("notion-blocks-update")}
+\dontshow{notionapi::vcr_example_start("notion-blocks-update")}
 notion$blocks$update(
   "23933ea0-c1e4-81dc-9f56-f3fa251a757f",
   heading_2 = list(
@@ -34,12 +34,12 @@ notion$blocks$update(
     )
   )
 )
-\dontshow{notionapi:::vcr_example_end()}
+\dontshow{notionapi::vcr_example_end()}
 
 # ----- delete a block
-\dontshow{notionapi:::vcr_example_start("notion-blocks-delete")}
+\dontshow{notionapi::vcr_example_start("notion-blocks-delete")}
 notion$blocks$delete(block_id = "23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba")
-\dontshow{notionapi:::vcr_example_end()}
+\dontshow{notionapi::vcr_example_end()}
 \dontshow{\}) # examplesIf}
 }
 \section{Public fields}{

@@ -16,7 +16,7 @@ Handle all comments operations in the Notion API
 notion <- notion_client()
 
 # ----- create comment
-\dontshow{notionapi:::vcr_example_start("notion-comments-create")}
+\dontshow{notionapi::vcr_example_start("notion-comments-create")}
 notion$comments$create(
   list(page_id = "23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba"),
   rich_text = list(list(
@@ -25,12 +25,12 @@ notion$comments$create(
     )
   ))
 )
-\dontshow{notionapi:::vcr_example_end()}
+\dontshow{notionapi::vcr_example_end()}
 
 # ----- retrieve comments
-\dontshow{notionapi:::vcr_example_start("notion-comments-retrieve")}
+\dontshow{notionapi::vcr_example_start("notion-comments-retrieve")}
 notion$comments$retrieve(block_id = "23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba")
-\dontshow{notionapi:::vcr_example_end()}
+\dontshow{notionapi::vcr_example_end()}
 \dontshow{\}) # examplesIf}
 }
 \section{Methods}{

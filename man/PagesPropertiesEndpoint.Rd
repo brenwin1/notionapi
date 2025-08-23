@@ -16,15 +16,15 @@ Handle all pages properties operations in the Notion API
 notion <- notion_client()
 
 # ----- retrieve a page property
-\dontshow{notionapi:::vcr_example_start("notion-pages-properties-retrieve")}
+\dontshow{notionapi::vcr_example_start("notion-pages-properties-retrieve")}
 notion$pages$properties$retrieve(
   "23933ea0-c1e4-8104-897b-f5a09269e561",
   property_id = "q;L^"
 )
-\dontshow{notionapi:::vcr_example_end()}
+\dontshow{notionapi::vcr_example_end()}
 
 # ----- update a page property
-\dontshow{notionapi:::vcr_example_start("notion-pages-properties-update")}
+\dontshow{notionapi::vcr_example_start("notion-pages-properties-update")}
 notion$pages$properties$update(
   "23933ea0-c1e4-8104-897b-f5a09269e561",
   list(
@@ -33,7 +33,7 @@ notion$pages$properties$update(
     )
   )
 )
-\dontshow{notionapi:::vcr_example_end()}
+\dontshow{notionapi::vcr_example_end()}
 \dontshow{\}) # examplesIf}
 }
 \section{Methods}{

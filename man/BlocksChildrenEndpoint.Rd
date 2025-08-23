@@ -16,7 +16,7 @@ Handle all block children operations in the Notion API
 notion <- notion_client()
 
 # ----- append children to a block
-\dontshow{notionapi:::vcr_example_start("notion-blocks-children-append")}
+\dontshow{notionapi::vcr_example_start("notion-blocks-children-append")}
 notion$blocks$children$append(
   block_id = "23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba",
   children = list(
@@ -31,12 +31,12 @@ notion$blocks$children$append(
     )
   )
 )
-\dontshow{notionapi:::vcr_example_end()}
+\dontshow{notionapi::vcr_example_end()}
 
 # ----- retrieve children of a block
-\dontshow{notionapi:::vcr_example_start("notion-blocks-children-retrieve")}
+\dontshow{notionapi::vcr_example_start("notion-blocks-children-retrieve")}
 notion$blocks$children$retrieve("23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba")
-\dontshow{notionapi:::vcr_example_end()}
+\dontshow{notionapi::vcr_example_end()}
 
 # ----- iterate through paginated results
 \dontrun{

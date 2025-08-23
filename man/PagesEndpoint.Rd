@@ -13,7 +13,7 @@ Handle all pages operations in the Notion API
 }
 \examples{
 \dontshow{if (notion_token_exists()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-\dontshow{notionapi:::vcr_example_start("notion-pages-create")}
+\dontshow{notionapi::vcr_example_start("notion-pages-create")}
 notion <- notion_client()
 
 # ----- create a page
@@ -27,12 +27,12 @@ notion$pages$create(
     ))
   )
 )
-\dontshow{notionapi:::vcr_example_end()}
+\dontshow{notionapi::vcr_example_end()}
 
 # ----- retrieve a page
-\dontshow{notionapi:::vcr_example_start("notion-pages-retrieve")}
+\dontshow{notionapi::vcr_example_start("notion-pages-retrieve")}
 notion$pages$retrieve("23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba")
-\dontshow{notionapi:::vcr_example_end()}
+\dontshow{notionapi::vcr_example_end()}
 \dontshow{\}) # examplesIf}
 }
 \section{Public fields}{

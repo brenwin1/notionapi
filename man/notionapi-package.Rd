@@ -4,11 +4,11 @@
 \name{notionapi-package}
 \alias{notionapi}
 \alias{notionapi-package}
-\title{notionapi: Client for the Notion API}
+\title{notionapi: Client for the 'Notion API'}
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-Enable programmatic interaction with 'Notion' pages, databases, blocks, comments, and users through the 'Notion API'. Provides both synchronous and asynchronous client interfaces for building workflows and automations that integrate with 'Notion' workspaces. Supports all 'Notion API' endpoints including content creation, data retrieval, and workspace management.
+Enable programmatic interaction with 'Notion' pages, databases, blocks, comments, and users through the 'Notion API' \url{https://developers.notion.com/}. Provides both synchronous and asynchronous client interfaces for building workflows and automations that integrate with 'Notion' workspaces. Supports all 'Notion API' endpoints including content creation, data retrieval, and workspace management.
 }
 \seealso{
 Useful links:
