@@ -69,7 +69,7 @@ The only difference is that async methods return \href{https://rstudio.github.io
 notion <- notion_client()
 
 # search for pages and databases
-\dontshow{notionapi:::vcr_example_start("notion-search")}
+\dontshow{notionapi::vcr_example_start("notion-search")}
 notion$search(
   "Test Page 2025-07-15",
   page_size = 1,
@@ -82,7 +82,7 @@ notion$search(
     timestamp = "last_edited_time"
   )
 )
-\dontshow{notionapi:::vcr_example_end()}
+\dontshow{notionapi::vcr_example_end()}
 
 # ----- Async client
 \dontrun{

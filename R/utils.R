@@ -14,7 +14,7 @@
 #' notion <- notion_client()
 #'
 #' # ----- create a database
-#' \dontshow{notionapi:::vcr_example_start("notion-databases-create")}
+#' \dontshow{notionapi::vcr_example_start("notion-databases-create")}
 #' notion$databases$create(
 #'   parent = list(page_id = "23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba"),
 #'   title = list(
@@ -34,7 +34,7 @@
 #'     )
 #'   )
 #' )
-#' \dontshow{notionapi:::vcr_example_end()}
+#' \dontshow{notionapi::vcr_example_end()}
 no_config <- function() {
   set_names(list(), character())
 }

@@ -74,7 +74,7 @@ async_notion_client <- function(
 #' notion <- notion_client()
 #'
 #' # search for pages and databases
-#' \dontshow{notionapi:::vcr_example_start("notion-search")}
+#' \dontshow{notionapi::vcr_example_start("notion-search")}
 #' notion$search(
 #'   "Test Page 2025-07-15",
 #'   page_size = 1,
@@ -87,7 +87,7 @@ async_notion_client <- function(
 #'     timestamp = "last_edited_time"
 #'   )
 #' )
-#' \dontshow{notionapi:::vcr_example_end()}
+#' \dontshow{notionapi::vcr_example_end()}
 #'
 #' # ----- Async client
 #' \dontrun{
