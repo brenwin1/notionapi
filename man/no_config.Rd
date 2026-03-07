@@ -19,7 +19,7 @@ This function returns the empty configuration (\code{{}} in JSON)
 that these properties expect.
 }
 \examples{
-\dontshow{if (notion_token_exists()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (notion_token_exists()) withAutoprint(\{ # examplesIf}
 notion <- notion_client()
 
 # ----- create a database
