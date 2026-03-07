@@ -78,8 +78,10 @@ BlocksEndpoint <- R6Class(
     #' @description
     #' Update a block
     #'
-    #' @param archived Boolean. Set to TRUE to archive (delete) a block.
-    #'   Set to FALSE to unarchive (restore) a block. Defaults to FALSE.
+    #' @param in_trash Boolean. Set to TRUE to trash (delete) a block.
+    #'   Set to FALSE to restore a block.
+    #' @param archived Boolean. Deprecated alias for `in_trash`. Use `in_trash`
+    #'   for new integrations.
     #' @param ... <[`dynamic-dots`][rlang::dyn-dots]> Block-specific properties to update. Each argument should be named
     #'   after a [block type](https://developers.notion.com/reference/block) (e.g., `heading_1`, `paragraph`)
     #'   with a named list value containing the block configuration.
@@ -88,13 +90,19 @@ BlocksEndpoint <- R6Class(
     #' [Endpoint documentation](https://developers.notion.com/reference/update-a-block)
     update = function(
       block_id,
-      archived = FALSE,
+      in_trash = NULL,
+      archived = NULL,
       ...
     ) {
       check_string(block_id, TRUE, FALSE)
+      check_bool(in_trash, FALSE)
       check_bool(archived, FALSE)
 
-      body_params <- parse_body_params(archived = archived, ...)
+      body_params <- parse_body_params(
+        in_trash = in_trash,
+        archived = archived,
+        ...
+      )
 
       req <-
         notion_build_request(
