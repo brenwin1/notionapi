@@ -153,7 +153,7 @@ Initialise Notion Client
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{NotionClient$new(
   auth = NULL,
-  base_url = "https://api.notion.com/v1/",
+  base_url = getOption("notionapi.base_url"),
   version = getOption("notionapi.version"),
   timeout = 60000
 )}\if{html}{\out{</div>}}
@@ -262,7 +262,7 @@ Initialise Async Notion Client
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{AsyncNotionClient$new(
   auth = NULL,
-  base_url = "https://api.notion.com/v1/",
+  base_url = getOption("notionapi.base_url"),
   version = getOption("notionapi.version"),
   timeout = 60000
 )}\if{html}{\out{</div>}}

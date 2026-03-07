@@ -149,7 +149,7 @@ NotionClient <- R6Class(
     #' @keywords internal
     initialize = function(
       auth = NULL,
-      base_url = "https://api.notion.com/v1/",
+      base_url = getOption("notionapi.base_url"),
       version = getOption("notionapi.version"),
       timeout = 60000
     ) {
@@ -276,7 +276,7 @@ AsyncNotionClient <- R6Class(
     #' @keywords internal
     initialize = function(
       auth = NULL,
-      base_url = "https://api.notion.com/v1/",
+      base_url = getOption("notionapi.base_url"),
       version = getOption("notionapi.version"),
       timeout = 60000
     ) {
