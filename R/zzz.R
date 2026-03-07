@@ -4,7 +4,7 @@
   op <- options()
 
   op.notionapi <- list(
-    notionapi.version = "2022-06-28",
+    notionapi.version = "2022-09-03",
     notionapi.base_url = "https://api.notion.com/v1"
   )
 
