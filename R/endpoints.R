@@ -252,21 +252,27 @@ BlocksChildrenEndpoint <- R6Class(
     #' Append block children
     #'
     #' @param children List of lists (JSON array) (required). Block objects to append as children to the block.
-    #' @param after Character. The ID of the existing block after which the new children are appended.
+    #' @param position Named list (JSON object). Controls where new blocks are inserted
+    #'   among parent's children. Defaults to end of parent block's children when omitted.
+    #' @param after Character. Deprecated. Use `position` instead.
+    #'   The ID of the existing block after which the new children are appended.
     #'
     #' @details
     #' [Endpoint documentation](https://developers.notion.com/reference/patch-block-children)
     append = function(
       block_id,
       children,
+      position = NULL,
       after = NULL
     ) {
       check_string(block_id, TRUE)
       check_json_array(children, TRUE)
+      check_json_object(position)
       check_string(after)
 
       body_params <- parse_body_params(
         children = children,
+        position = position,
         after = after
       )
 

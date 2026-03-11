@@ -205,7 +205,8 @@ test_that("notion$blocks$children$append() works", {
           ))
         )
       )
-    )
+    ),
+    position = list(type = "start")
   )
 
   expect_s3_class(resp, "notion_response")

@@ -115,7 +115,12 @@ If NULL, returns the first page of results.}
 \subsection{Method \code{append()}}{
 Append block children
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{BlocksChildrenEndpoint$append(block_id, children, after = NULL)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{BlocksChildrenEndpoint$append(
+  block_id,
+  children,
+  position = NULL,
+  after = NULL
+)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
@@ -125,7 +130,11 @@ Append block children
 
 \item{\code{children}}{List of lists (JSON array) (required). Block objects to append as children to the block.}
 
-\item{\code{after}}{Character. The ID of the existing block after which the new children are appended.}
+\item{\code{position}}{Named list (JSON object). Controls where new blocks are inserted
+among parent's children. Defaults to end of parent block's children when omitted.}
+
+\item{\code{after}}{Character. Deprecated. Use \code{position} instead.
+The ID of the existing block after which the new children are appended.}
 }
 \if{html}{\out{</div>}}
 }
