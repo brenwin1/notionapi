@@ -155,7 +155,7 @@ notion_handle_resp.promise <- function(resp) {
 
 #' Handle Notion API errors
 #'
-#' @seealso [https://developers.notion.com/reference/status-codes]
+#' @seealso [Notion API Status Codes](https://developers.notion.com/reference/status-codes)
 #' @noRd
 #' @keywords internal
 notion_handle_api_error <- function(resp, error_call = rlang::caller_env()) {
