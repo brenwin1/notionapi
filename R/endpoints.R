@@ -264,9 +264,6 @@ BlocksChildrenEndpoint <- R6Class(
       check_string(block_id, TRUE)
       check_json_array(children, TRUE)
       check_string(after)
-      if (missing(children)) {
-        notionapi_error("`children` paremeter is required")
-      }
 
       body_params <- parse_body_params(
         children = children,
