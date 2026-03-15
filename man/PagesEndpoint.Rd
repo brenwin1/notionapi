@@ -76,25 +76,40 @@ Create a page
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{PagesEndpoint$create(
   parent,
-  properties,
-  children = NULL,
+  properties = NULL,
   icon = NULL,
-  cover = NULL
+  cover = NULL,
+  content = NULL,
+  children = NULL,
+  markdown = NULL,
+  template = NULL,
+  position = NULL
 )}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{parent}}{Named list (JSON object) (required). The parent page or database where the new page is inserted.}
+\item{\code{parent}}{Named list (JSON object) (required). The parent under which the new page is created.}
 
-\item{\code{properties}}{Named list (JSON object) (required). Key-value pairs representing the properties of the page.}
+\item{\code{properties}}{Named list (JSON object). Key-value pairs representing the page's properties.}
+
+\item{\code{icon}}{Named list (JSON object). The page icon.}
+
+\item{\code{cover}}{Named list (JSON object). The page cover image.}
+
+\item{\code{content}}{List of lists (JSON array). Block objects to append as children to the page.}
 
 \item{\code{children}}{List of lists (JSON array). Block objects to append as children to the page.}
 
-\item{\code{icon}}{Named list (JSON object). An icon for the page.}
+\item{\code{markdown}}{Character. Page content as Notion-flavored Markdown.
+Mutually exclusive with content/children.}
 
-\item{\code{cover}}{Named list (JSON object). A cover image for the page.}
+\item{\code{template}}{Named list (JSON object). A data source template apply to the new page.
+Cannot be combined with children.}
+
+\item{\code{position}}{Named list (JSON object). Controls where new blocks are inserted
+among parent's children. Defaults to end of parent block's children when omitted.}
 }
 \if{html}{\out{</div>}}
 }

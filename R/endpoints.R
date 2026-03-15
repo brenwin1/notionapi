@@ -345,33 +345,52 @@ PagesEndpoint <- R6Class(
     #' @description
     #' Create a page
     #'
-    #' @param parent Named list (JSON object) (required). The parent page or database where the new page is inserted.
-    #' @param properties Named list (JSON object) (required). Key-value pairs representing the properties of the page.
+    #' @param parent Named list (JSON object) (required). The parent under which the new page is created.
+    #' @param properties Named list (JSON object). Key-value pairs representing the page's properties.
+    #' @param icon Named list (JSON object). The page icon.
+    #' @param cover Named list (JSON object). The page cover image.
+    #' @param content List of lists (JSON array). Block objects to append as children to the page.
     #' @param children List of lists (JSON array). Block objects to append as children to the page.
-    #' @param icon Named list (JSON object). An icon for the page.
-    #' @param cover Named list (JSON object). A cover image for the page.
+    #' @param markdown Character. Page content as Notion-flavored Markdown.
+    #'   Mutually exclusive with content/children.
+    #' @param template Named list (JSON object). A data source template apply to the new page.
+    #'   Cannot be combined with children.
+    #' @param position Named list (JSON object). Controls where new blocks are inserted
+    #'   among parent's children. Defaults to end of parent block's children when omitted.
     #'
     #' @details
     #' [Endpoint documentation](https://developers.notion.com/reference/post-page)
     create = function(
       parent,
-      properties,
-      children = NULL,
+      properties = NULL,
       icon = NULL,
-      cover = NULL
+      cover = NULL,
+      content = NULL,
+      children = NULL,
+      markdown = NULL,
+      template = NULL,
+      position = NULL
     ) {
       check_json_object(parent, TRUE)
-      check_json_object(properties, TRUE)
-      check_json_array(children)
-      check_json_object(icon)
-      check_json_object(cover)
+      check_json_object(properties, FALSE)
+      check_json_object(icon, FALSE)
+      check_json_object(cover, FALSE)
+      check_json_array(content, FALSE)
+      check_json_array(children, FALSE)
+      check_string(markdown, FALSE)
+      check_json_object(template, FALSE)
+      check_json_object(position, FALSE)
 
       body_params <- parse_body_params(
         parent = parent,
         properties = properties,
-        children = children,
         icon = icon,
-        cover = cover
+        cover = cover,
+        content = content,
+        children = children,
+        markdown = markdown,
+        template = template,
+        position = position
       )
 
       req <- notion_build_request(
