@@ -130,7 +130,7 @@ Retrieve page properties
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{page_id}}{Character (required.). The ID for a Notion page.}
+\item{\code{page_id}}{Character (required). The ID for a Notion page.}
 
 \item{\code{filter_properties}}{Character. Page property value IDs to include in the response schema.
 If NULL, all properties are returned.}
