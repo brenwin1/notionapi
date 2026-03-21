@@ -212,5 +212,9 @@ for new integrations.}
 }
 \if{html}{\out{</div>}}
 }
+\subsection{Details}{
+\href{https://developers.notion.com/reference/patch-page}{Endpoint documentation}
+}
+
 }
 }

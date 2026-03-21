@@ -488,6 +488,8 @@ PagesEndpoint <- R6Class(
     #'   Set to FALSE to restore the page.
     #' @param is_archived Boolean. Deprecated alias for `in_trash`. Use `in_trash`
     #'   for new integrations.
+    #' @details
+    #' [Endpoint documentation](https://developers.notion.com/reference/patch-page)
     update = function(
       page_id,
       properties = NULL,
