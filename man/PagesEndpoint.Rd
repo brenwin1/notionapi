@@ -48,6 +48,7 @@ notion$pages$retrieve("23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba")
 \item \href{#method-PagesEndpoint-new}{\code{PagesEndpoint$new()}}
 \item \href{#method-PagesEndpoint-create}{\code{PagesEndpoint$create()}}
 \item \href{#method-PagesEndpoint-retrieve}{\code{PagesEndpoint$retrieve()}}
+\item \href{#method-PagesEndpoint-move}{\code{PagesEndpoint$move()}}
 }
 }
 \if{html}{\out{<hr>}}
@@ -139,6 +140,29 @@ If NULL, all properties are returned.}
 }
 \subsection{Details}{
 \href{https://developers.notion.com/reference/retrieve-a-page}{Endpoint documentation}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-PagesEndpoint-move"></a>}}
+\if{latex}{\out{\hypertarget{method-PagesEndpoint-move}{}}}
+\subsection{Method \code{move()}}{
+Move a page
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{PagesEndpoint$move(page_id, parent)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{page_id}}{Character (required). The ID of the page to move.}
+
+\item{\code{parent}}{Named list (JSON object) (required). The new parent location for the page.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+\href{https://developers.notion.com/reference/move-page}{Endpoint documentation}
 }
 
 }

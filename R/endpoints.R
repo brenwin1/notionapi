@@ -444,6 +444,38 @@ PagesEndpoint <- R6Class(
       res <- notion_handle_resp(resp)
 
       res
+    },
+    #' @description
+    #' Move a page
+    #'
+    #' @param page_id Character (required). The ID of the page to move.
+    #' @param parent Named list (JSON object) (required). The new parent location for the page.
+    #'
+    #' @details
+    #' [Endpoint documentation](https://developers.notion.com/reference/move-page)
+    move = function(
+      page_id,
+      parent
+    ) {
+      check_string(page_id, TRUE, FALSE)
+      check_json_object(parent, TRUE)
+
+      body_params <- parse_body_params(
+        parent = parent
+      )
+
+      req <- notion_build_request(
+        private$.client$request(),
+        c("pages", page_id, "move"),
+        "POST",
+        body_params = body_params
+      )
+
+      resp <- notion_perform_req(req)
+
+      res <- notion_handle_resp(resp)
+
+      res
     }
   ),
   private = list(
