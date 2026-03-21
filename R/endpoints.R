@@ -476,6 +476,67 @@ PagesEndpoint <- R6Class(
       res <- notion_handle_resp(resp)
 
       res
+    },
+
+    #' @description
+    #' Update attributes of a Notion page
+    #'
+    #' @param page_id Character (required). The ID for a Notion page.
+    #' @param properties Named list (JSON object). Key-value pairs representing the page's properties.
+    #' @param icon Named list (JSON object). The page icon.
+    #' @param cover Named list (JSON object). The page cover image.
+    #' @param is_locked Boolean. Whether the page should be locked from editing.
+    #' @param template Named list (JSON object). A template to apply to the page.
+    #' @param erase_content Boolean. Whether to erase all existing content from the page.
+    #'   Irreversible via the API.
+    #' @param in_trash Boolean. Set to TRUE to trash (delete) the page.
+    #'   Set to FALSE to restore the page.
+    #' @param is_archived Boolean. Deprecated alias for `in_trash`. Use `in_trash`
+    #'   for new integrations.
+    update = function(
+      page_id,
+      properties = NULL,
+      icon = NULL,
+      cover = NULL,
+      is_locked = NULL,
+      template = NULL,
+      erase_content = NULL,
+      in_trash = NULL,
+      is_archived = NULL
+    ) {
+      check_string(page_id, TRUE)
+      check_json_object(properties, FALSE)
+      check_json_object(icon, FALSE)
+      check_json_object(cover, FALSE)
+      check_bool(is_locked, FALSE)
+      check_json_object(template, FALSE)
+      check_bool(erase_content, FALSE)
+      check_bool(in_trash, FALSE)
+      check_bool(is_archived, FALSE)
+
+      body_params = parse_body_params(
+        properties = properties,
+        icon = icon,
+        cover = cover,
+        is_locked = is_locked,
+        template = template,
+        erase_content = erase_content,
+        in_trash = in_trash,
+        is_archived = is_archived
+      )
+
+      req <- notion_build_request(
+        private$.client$request(),
+        c("pages", page_id),
+        "PATCH",
+        body_params = body_params
+      )
+
+      resp <- notion_perform_req(req)
+
+      res <- notion_handle_resp(resp)
+
+      res
     }
   ),
   private = list(

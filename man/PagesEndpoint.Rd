@@ -49,6 +49,7 @@ notion$pages$retrieve("23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba")
 \item \href{#method-PagesEndpoint-create}{\code{PagesEndpoint$create()}}
 \item \href{#method-PagesEndpoint-retrieve}{\code{PagesEndpoint$retrieve()}}
 \item \href{#method-PagesEndpoint-move}{\code{PagesEndpoint$move()}}
+\item \href{#method-PagesEndpoint-update}{\code{PagesEndpoint$update()}}
 }
 }
 \if{html}{\out{<hr>}}
@@ -165,5 +166,51 @@ Move a page
 \href{https://developers.notion.com/reference/move-page}{Endpoint documentation}
 }
 
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-PagesEndpoint-update"></a>}}
+\if{latex}{\out{\hypertarget{method-PagesEndpoint-update}{}}}
+\subsection{Method \code{update()}}{
+Update attributes of a Notion page
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{PagesEndpoint$update(
+  page_id,
+  properties = NULL,
+  icon = NULL,
+  cover = NULL,
+  is_locked = NULL,
+  template = NULL,
+  erase_content = NULL,
+  in_trash = NULL,
+  is_archived = NULL
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{page_id}}{Character (required). The ID for a Notion page.}
+
+\item{\code{properties}}{Named list (JSON object). Key-value pairs representing the page's properties.}
+
+\item{\code{icon}}{Named list (JSON object). The page icon.}
+
+\item{\code{cover}}{Named list (JSON object). The page cover image.}
+
+\item{\code{is_locked}}{Boolean. Whether the page should be locked from editing.}
+
+\item{\code{template}}{Named list (JSON object). A template to apply to the page.}
+
+\item{\code{erase_content}}{Boolean. Whether to erase all existing content from the page.
+Irreversible via the API.}
+
+\item{\code{in_trash}}{Boolean. Set to TRUE to trash (delete) the page.
+Set to FALSE to restore the page.}
+
+\item{\code{is_archived}}{Boolean. Deprecated alias for \code{in_trash}. Use \code{in_trash}
+for new integrations.}
+}
+\if{html}{\out{</div>}}
+}
 }
 }
