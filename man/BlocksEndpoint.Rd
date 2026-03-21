@@ -103,7 +103,7 @@ Retrieve a block
 \subsection{Method \code{update()}}{
 Update a block
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{BlocksEndpoint$update(block_id, in_trash = NULL, archived = NULL, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{BlocksEndpoint$update(block_id, in_trash = NULL, ...)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
@@ -113,9 +113,6 @@ Update a block
 
 \item{\code{in_trash}}{Boolean. Set to TRUE to trash (delete) a block.
 Set to FALSE to restore a block.}
-
-\item{\code{archived}}{Boolean. Deprecated alias for \code{in_trash}. Use \code{in_trash}
-for new integrations.}
 
 \item{\code{...}}{<\code{\link[rlang:dyn-dots]{dynamic-dots}}> Block-specific properties to update. Each argument should be named
 after a \href{https://developers.notion.com/reference/block}{block type} (e.g., \code{heading_1}, \code{paragraph})
