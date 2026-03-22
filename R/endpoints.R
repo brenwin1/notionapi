@@ -840,28 +840,44 @@ DatabasesEndpoint <- R6Class(
 
     #' @description
     #' Create a database
-    #' @param parent Named list (JSON object) (required). The parent page where the database will be created.
-    #' @param title List of lists (JSON array). Database title as an array of [rich text objects](https://developers.notion.com/reference/rich-text).
-    #' @param properties Named list (JSON object) (required). The properties of the database as key-value pairs.
-    #' @param ... <[`dynamic-dots`][rlang::dyn-dots]> Additional body parameters to include in the request body.
+    #' @param parent Named list (JSON object) (required). The parent page or workspace
+    #'   where the database will be created.
+    #' @param title List of lists (JSON array). The title of the database.
+    #' @param description List of lists (JSON array). The description of the database.
+    #' @param is_inline Boolean. Whether the database should be displayed inline
+    #'   in the parent page. Defaults to false.
+    #' @param initial_data_source Named list (JSON object). Initial data source
+    #'   configuration for the database
+    #' @param icon Named list (JSON object). The icon for the database.
+    #' @param cover Named list (JSON object). The cover image for the database.
     #'
     #' @details
-    #' [Endpoint documentation](https://developers.notion.com/reference/create-a-database)
+    #' [Endpoint documentation](https://developers.notion.com/reference/create-database)
     create = function(
       parent,
-      title,
-      properties,
-      ...
+      title = NULL,
+      description = NULL,
+      is_inline = NULL,
+      initial_data_source = NULL,
+      icon = NULL,
+      cover = NULL
     ) {
       check_json_object(parent, TRUE)
       check_json_array(title)
-      check_json_object(properties, TRUE)
+      check_json_array(description)
+      check_bool(is_inline)
+      check_json_object(initial_data_source)
+      check_json_object(icon)
+      check_json_object(cover)
 
       body_params <- parse_body_params(
         parent = parent,
         title = title,
-        properties = properties,
-        ...
+        description = description,
+        is_inline = is_inline,
+        initial_data_source = initial_data_source,
+        icon = icon,
+        cover = cover
       )
 
       req <- notion_build_request(
@@ -879,67 +895,10 @@ DatabasesEndpoint <- R6Class(
     },
 
     #' @description
-    #' Query a database
-    #' @param filter_properties Character vector. Property value IDs to include in the response schema.
-    #' @param filter Named list (JSON object). [Filter conditions](https://developers.notion.com/reference/post-database-query-filter)
-    #'   to apply to the query.
-    #' @param sorts List of lists (JSON array). [Sort conditions](https://developers.notion.com/reference/post-database-query-sort)
-    #'   to apply to the query.
-    #' @param ... Reserved for future use.
-    #'
-    #' @details
-    #' [Endpoint documentation](https://developers.notion.com/reference/post-database-query)
-    query = function(
-      database_id,
-      filter_properties = NULL,
-      filter = NULL,
-      sorts = NULL,
-      start_cursor = NULL,
-      page_size = 100,
-      ...
-    ) {
-      check_string(database_id, TRUE)
-      check_string(filter_properties, FALSE, TRUE)
-      check_string(start_cursor)
-      check_int(page_size, 100, FALSE)
-
-      query_params <- if (!is.null(filter_properties)) {
-        filter_properties <- decode_query_param(filter_properties)
-
-        query_params <- parse_repeated_query_params(
-          filter_properties,
-          "filter_properties"
-        )
-      }
-
-      body_params <- parse_body_params(
-        filter = filter,
-        sorts = sorts,
-        start_cursor = start_cursor,
-        page_size = page_size,
-        ...
-      )
-
-      req <- notion_build_request(
-        private$.client$request(),
-        c("databases", database_id, "query"),
-        "POST",
-        query_params,
-        body_params
-      )
-
-      resp <- notion_perform_req(req)
-
-      res <- notion_handle_resp(resp)
-
-      res
-    },
-
-    #' @description
     #' Retrieve a database
     #'
     #' @details
-    #' [Endpoint documentation](https://developers.notion.com/reference/retrieve-a-database)
+    #' [Endpoint documentation](https://developers.notion.com/reference/retrieve-database)
     retrieve = function(
       database_id
     ) {
@@ -959,28 +918,52 @@ DatabasesEndpoint <- R6Class(
 
     #' @description
     #' Update a database
-    #' @param title List of lists (JSON array). Database title as an array of rich text objects.
-    #' @param description List of lists (JSON array). Database description as an array of rich text objects.
-    #' @param properties Named list (JSON object). Database properties to update as key-value pairs.
+    #'
+    #' @param parent Named list (JSON object). The parent page or workspace
+    #'   to move the database to. If not provided, the database will not be moved.
+    #' @param title List of lists (JSON array). The updated title of the database.
+    #' @param description List of lists (JSON array). The updated description of the database.
+    #' @param is_inline Boolean. Whether the database should be displayed in the
+    #'   parent page.
+    #' @param icon Named list (JSON object). The updated icon for the database.
+    #' @param cover Named list (JSON object). The updated cover image for the database.
+    #' @param in_trash Boolean. Whether the database should be moved to or from the trash.
+    #' @param is_locked Boolean. Whether the database should be locked from editing.
     #'
     #' @details
-    #' [Endpoint documentation](https://developers.notion.com/reference/update-a-database)
+    #' [Endpoint documentation](https://developers.notion.com/reference/update-database)
     update = function(
+      # path params.
       database_id,
+      # body params.
+      parent = NULL,
       title = NULL,
       description = NULL,
-      properties = NULL
+      is_inline = NULL,
+      icon = NULL,
+      cover = NULL,
+      in_trash = NULL,
+      is_locked = NULL
     ) {
       check_string(database_id, TRUE)
-
+      check_json_object(parent)
       check_json_array(title)
       check_json_array(description)
-      check_json_object(properties)
+      check_bool(is_inline)
+      check_json_object(icon)
+      check_json_object(cover)
+      check_bool(in_trash)
+      check_bool(is_locked)
 
       body_params <- parse_body_params(
+        parent = parent,
         title = title,
         description = description,
-        properties = properties
+        is_inline = is_inline,
+        icon = icon,
+        cover = cover,
+        in_trash = in_trash,
+        is_locked = is_locked
       )
 
       req <- notion_build_request(
