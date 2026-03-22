@@ -41,7 +41,6 @@ notion$pages$properties$update(
 \itemize{
 \item \href{#method-PagesPropertiesEndpoint-new}{\code{PagesPropertiesEndpoint$new()}}
 \item \href{#method-PagesPropertiesEndpoint-retrieve}{\code{PagesPropertiesEndpoint$retrieve()}}
-\item \href{#method-PagesPropertiesEndpoint-update}{\code{PagesPropertiesEndpoint$update()}}
 }
 }
 \if{html}{\out{<hr>}}
@@ -71,8 +70,8 @@ Retrieve a page property item
 \if{html}{\out{<div class="r">}}\preformatted{PagesPropertiesEndpoint$retrieve(
   page_id,
   property_id,
-  page_size = 100,
-  start_cursor = NULL
+  start_cursor = NULL,
+  page_size = NULL
 )}\if{html}{\out{</div>}}
 }
 
@@ -83,51 +82,15 @@ Retrieve a page property item
 
 \item{\code{property_id}}{Character (required). The ID of the property to retrieve.}
 
-\item{\code{page_size}}{Integer. Number of items to return per page (1-100). Defaults to 100.}
-
 \item{\code{start_cursor}}{Character. For pagination. If provided, returns results starting from this cursor.
 If NULL, returns the first page of results.}
+
+\item{\code{page_size}}{Integer. Number of items to return per page (1-100). Defaults to 100.}
 }
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
 \href{https://developers.notion.com/reference/retrieve-a-page-property}{Endpoint documentation}
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-PagesPropertiesEndpoint-update"></a>}}
-\if{latex}{\out{\hypertarget{method-PagesPropertiesEndpoint-update}{}}}
-\subsection{Method \code{update()}}{
-Update a page property
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{PagesPropertiesEndpoint$update(
-  page_id,
-  properties = NULL,
-  in_trash = NULL,
-  icon = NULL,
-  cover = NULL
-)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{page_id}}{Character (required). The ID for a Notion page.}
-
-\item{\code{properties}}{Named list (JSON object). Page properties to update as key-value pairs.}
-
-\item{\code{in_trash}}{Boolean. Set to TRUE to move the block to trash (delete).
-Set to FALSE to restore the block Defaults to FALSE.}
-
-\item{\code{icon}}{Named list (JSON object). An icon for the page.}
-
-\item{\code{cover}}{Named list (JSON object). A cover image for the page.}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Details}{
-\href{https://developers.notion.com/reference/patch-page}{Endpoint documentation}
 }
 
 }

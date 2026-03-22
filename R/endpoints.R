@@ -219,7 +219,7 @@ BlocksChildrenEndpoint <- R6Class(
     retrieve = function(
       block_id,
       start_cursor = NULL,
-      page_size = 100
+      page_size = NULL
     ) {
       check_string(block_id, TRUE)
       check_string(start_cursor)
@@ -691,8 +691,8 @@ PagesPropertiesEndpoint <- R6Class(
     retrieve = function(
       page_id,
       property_id,
-      page_size = 100,
-      start_cursor = NULL
+      start_cursor = NULL,
+      page_size = NULL
     ) {
       check_string(page_id, TRUE)
       check_string(property_id, TRUE)

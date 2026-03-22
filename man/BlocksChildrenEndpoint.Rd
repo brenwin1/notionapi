@@ -89,7 +89,11 @@ Not to be called directly, e.g., use \code{notion$pages$children} instead.
 \subsection{Method \code{retrieve()}}{
 Retrieve a block's children
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{BlocksChildrenEndpoint$retrieve(block_id, start_cursor = NULL, page_size = 100)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{BlocksChildrenEndpoint$retrieve(
+  block_id,
+  start_cursor = NULL,
+  page_size = NULL
+)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
