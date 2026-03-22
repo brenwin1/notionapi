@@ -719,51 +719,6 @@ PagesPropertiesEndpoint <- R6Class(
       res <- notion_handle_resp(resp)
 
       return(res)
-    },
-
-    #' @description
-    #' Update a page property
-    #'
-    #' @param properties Named list (JSON object). Page properties to update as key-value pairs.
-    #' @param in_trash Boolean. Set to TRUE to move the block to trash (delete).
-    #'   Set to FALSE to restore the block Defaults to FALSE.
-    #' @param icon Named list (JSON object). An icon for the page.
-    #' @param cover Named list (JSON object). A cover image for the page.
-    #'
-    #' @details
-    #' [Endpoint documentation](https://developers.notion.com/reference/patch-page)
-    update = function(
-      page_id,
-      properties = NULL,
-      in_trash = NULL,
-      icon = NULL,
-      cover = NULL
-    ) {
-      check_string(page_id, TRUE)
-      check_json_object(properties)
-      check_bool(in_trash)
-      check_json_object(icon, FALSE)
-      check_json_object(cover, FALSE)
-
-      body_params <- parse_body_params(
-        properties = properties,
-        in_trash = in_trash,
-        icon = icon,
-        cover = cover
-      )
-
-      req <- notion_build_request(
-        private$.client$request(),
-        c("pages", page_id),
-        "PATCH",
-        body_params = body_params
-      )
-
-      resp <- notion_perform_req(req)
-
-      res <- notion_handle_resp(resp)
-
-      res
     }
   ),
   private = list(
