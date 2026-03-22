@@ -529,6 +529,104 @@ PagesEndpoint <- R6Class(
       res <- notion_handle_resp(resp)
 
       res
+    },
+
+    #' @description Retrieve a page as markdown
+    #'
+    #' @param page_id Character (required). The ID of the page (or block) to
+    #'   to retrieve as markdown.
+    #' @param include_transcript Boolean. Whether to include meeting note transcripts.
+    #'   Defaults to false.
+    #'
+    #' @details
+    #' [Endpoint documentation](https://developers.notion.com/reference/retrieve-page-markdown)
+    retrieve_markdown = function(
+      page_id,
+      include_transcript = NULL
+    ) {
+      check_string(page_id, TRUE, FALSE)
+
+      check_bool(include_transcript, FALSE)
+
+      query_params <- parse_query_params(
+        include_transcript = include_transcript
+      )
+
+      req <- notion_build_request(
+        private$.client$request(),
+        c("pages", page_id, "markdown"),
+        "GET",
+        query_params
+      )
+
+      resp <- notion_perform_req(req)
+
+      res <- notion_handle_resp(resp)
+
+      return(res)
+    },
+
+    #' @description
+    #' Update a page's content as markdown
+    #'
+    #' @param page_id Character (required). The ID of the page to update.
+    #' @param type Character (required). The update command type.
+    #'   One of "update_content", "replace_content", "insert_content"
+    #'   and "replace_content_range". The first two are recommended.
+    #' @param update_content Named list (JSON object). Update specific content
+    #'   using search-and-replace operations.
+    #' @param replace_content Named list (JSON object). Replace the entire page content
+    #'   with new markdown.
+    #' @param insert_content Named list (JSON object). Insert new content into
+    #'   the page.
+    #' @param replace_content_range Named list (JSON object). Replace a range
+    #'   of content in the page.
+    #'
+    #' @details
+    #' [Endpoint documentation](https://developers.notion.com/reference/update-page-markdown)
+    update_markdown = function(
+      page_id,
+      type,
+      update_content = NULL,
+      replace_content = NULL,
+      insert_content = NULL,
+      replace_content_range = NULL
+    ) {
+      check_exclusive(
+        update_content,
+        replace_content,
+        insert_content,
+        replace_content_range,
+        .require = TRUE
+      )
+
+      check_string(page_id, TRUE, FALSE)
+      check_string(type, TRUE, FALSE)
+      check_json_object(update_content, FALSE)
+      check_json_object(replace_content, FALSE)
+      check_json_object(insert_content, FALSE)
+      check_json_object(replace_content_range, FALSE)
+
+      body_params <- parse_body_params(
+        type = type,
+        update_content = update_content,
+        replace_content = replace_content,
+        insert_content = insert_content,
+        replace_content_range = replace_content_range
+      )
+
+      req <- notion_build_request(
+        private$.client$request(),
+        c("pages", page_id, "markdown"),
+        "PATCH",
+        body_params = body_params
+      )
+
+      resp <- notion_perform_req(req)
+
+      res <- notion_handle_resp(resp)
+
+      return(res)
     }
   ),
   private = list(

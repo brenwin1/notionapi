@@ -50,6 +50,8 @@ notion$pages$retrieve("23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba")
 \item \href{#method-PagesEndpoint-retrieve}{\code{PagesEndpoint$retrieve()}}
 \item \href{#method-PagesEndpoint-move}{\code{PagesEndpoint$move()}}
 \item \href{#method-PagesEndpoint-update}{\code{PagesEndpoint$update()}}
+\item \href{#method-PagesEndpoint-retrieve_markdown}{\code{PagesEndpoint$retrieve_markdown()}}
+\item \href{#method-PagesEndpoint-update_markdown}{\code{PagesEndpoint$update_markdown()}}
 }
 }
 \if{html}{\out{<hr>}}
@@ -214,6 +216,75 @@ for new integrations.}
 }
 \subsection{Details}{
 \href{https://developers.notion.com/reference/patch-page}{Endpoint documentation}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-PagesEndpoint-retrieve_markdown"></a>}}
+\if{latex}{\out{\hypertarget{method-PagesEndpoint-retrieve_markdown}{}}}
+\subsection{Method \code{retrieve_markdown()}}{
+Retrieve a page as markdown
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{PagesEndpoint$retrieve_markdown(page_id, include_transcript = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{page_id}}{Character (required). The ID of the page (or block) to
+to retrieve as markdown.}
+
+\item{\code{include_transcript}}{Boolean. Whether to include meeting note transcripts.
+Defaults to false.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+\href{https://developers.notion.com/reference/retrieve-page-markdown}{Endpoint documentation}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-PagesEndpoint-update_markdown"></a>}}
+\if{latex}{\out{\hypertarget{method-PagesEndpoint-update_markdown}{}}}
+\subsection{Method \code{update_markdown()}}{
+Update a page's content as markdown
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{PagesEndpoint$update_markdown(
+  page_id,
+  type,
+  update_content = NULL,
+  replace_content = NULL,
+  insert_content = NULL,
+  replace_content_range = NULL
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{page_id}}{Character (required). The ID of the page to update.}
+
+\item{\code{type}}{Character (required). The update command type.
+One of "update_content", "replace_content", "insert_content"
+and "replace_content_range". The first two are recommended.}
+
+\item{\code{update_content}}{Named list (JSON object). Update specific content
+using search-and-replace operations.}
+
+\item{\code{replace_content}}{Named list (JSON object). Replace the entire page content
+with new markdown.}
+
+\item{\code{insert_content}}{Named list (JSON object). Insert new content into
+the page.}
+
+\item{\code{replace_content_range}}{Named list (JSON object). Replace a range
+of content in the page.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+\href{https://developers.notion.com/reference/update-page-markdown}{Endpoint documentation}
 }
 
 }
