@@ -986,6 +986,253 @@ DatabasesEndpoint <- R6Class(
   cloneable = FALSE
 )
 
+#' R6 Class for DataSources Endpoint
+#'
+#' @description
+#' Handle all data sources operations in the Notion API
+#'
+#' **Note:** Access this endpoint through the client instance, e.g., `notion$datas_ources`. Not to be instantiated directly.
+#'
+#' @param data_source_id Character (required). ID of a Notion data source.
+#' @param start_cursor Character. For pagination. If provided, returns results starting from this cursor.
+#'   If NULL, returns the first page of results.
+#' @param page_size Integer. Number of items to return per page (1-100). Defaults to 100
+#'
+#' @returns A list containing the parsed API response.
+DataSourcesEndpoint <- R6Class(
+  "DataSourcesEndpoint",
+  public = list(
+    #' @description
+    #' Initialise data sources endpoint.
+    #' Not to be called directly, e.g., use `notion$datasources` instead.
+    #' @param client Notion Client instance
+    initialize = function(client) {
+      private$.client <- client
+    },
+
+    #' @description
+    #' Create a data source
+    #'
+    #' @param parent Named list (JSON object) (required). An object specifying
+    #'   the parent of the new data source to be created.
+    #' @param properties Named list (JSON object) (required). Property schema
+    #'   of data source.
+    #' @param title List of lists (JSON array). Title of data source.
+    #' @param icon Named list (JSON object). Page icon.
+    #'
+    #' @details
+    #' [Endpoint documentation](https://developers.notion.com/reference/create-a-data-source)
+    create = function(
+      parent,
+      properties,
+      title = NULL,
+      icon = NULL
+    ) {
+      check_json_object(parent, TRUE)
+      check_json_object(properties, TRUE)
+      check_json_array(title)
+      check_json_object(icon)
+
+      body_params <- parse_body_params(
+        parent = parent,
+        properties = properties,
+        title = title,
+        icon = icon
+      )
+
+      req <- notion_build_request(
+        private$.client$request(),
+        "data_sources",
+        "POST",
+        body_params = body_params
+      )
+
+      resp <- notion_perform_req(req)
+
+      res <- notion_handle_resp(resp)
+
+      return(res)
+    },
+
+    #' @description
+    #' Retrieve a data source
+    #'
+    #' @details
+    #' [Endpoint documentation](https://developers.notion.com/reference/retrieve-a-data-source)
+    retrieve = function(
+      data_source_id
+    ) {
+      check_string(data_source_id, TRUE)
+
+      req <- notion_build_request(
+        private$.client$request(),
+        c("data_sources", data_source_id),
+        "GET"
+      )
+
+      resp <- notion_perform_req(req)
+
+      res <- notion_handle_resp(resp)
+
+      return(res)
+    },
+
+    #' @description
+    #' List page templates available for a data source
+    #'
+    #' @param name Character. Name to filter templates by.
+    list_templates = function(
+      data_source_id,
+      name = NULL,
+      start_cursor = NULL,
+      page_size = NULL
+    ) {
+      check_string(data_source_id, TRUE)
+      check_string(name)
+      check_string(start_cursor)
+      check_int(page_size, 100)
+
+      query_params <- parse_query_params(
+        name = name,
+        start_cursor = start_cursor,
+        page_size = page_size
+      )
+
+      req <- notion_build_request(
+        private$.client$request(),
+        c("data_sources", data_source_id, "templates"),
+        "GET",
+        query_params,
+      )
+
+      resp <- notion_perform_req(req)
+
+      res <- notion_handle_resp(resp)
+
+      return(res)
+    },
+
+    #' @description
+    #' Update a data source
+    #'
+    #' @param title List of lists (JSON array). Title of data source.
+    #' @param icon Named list (JSON object). Page icon.'
+    #' @param properties Named list (JSON object). Key-value pairs representing
+    #'   the data source's properties.
+    #' @param in_trash Boolean. Whether the database should be moved to or from the trash.
+    #' @param parent Named list (JSON object). The parent of the data source,
+    #'   when moving it to a different database.
+    update = function(
+      data_source_id,
+      title = NULL,
+      icon = NULL,
+      properties = NULL,
+      in_trash = NULL,
+      parent = NULL
+    ) {
+      check_string(data_source_id)
+      check_json_array(title)
+      check_json_object(icon)
+      check_json_object(properties)
+      check_bool(in_trash)
+      check_json_object(parent)
+
+      body_params <- parse_body_params(
+        title = title,
+        icon = icon,
+        properties = properties,
+        in_trash = in_trash,
+        parent = parent
+      )
+
+      req <- notion_build_request(
+        private$.client$request(),
+        c("data_sources", data_source_id),
+        "PATCH",
+        body_params = body_params
+      )
+
+      resp <- notion_perform_req(req)
+
+      res <- notion_handle_resp(resp)
+
+      return(res)
+    },
+
+    #' @description
+    #' Query a data source
+    #'
+    #' @param filter_properties Character vector. Page property value IDs to include in the response schema.
+    #'   If NULL (default), all properties are returned.
+    #' @param sorts List of lists (JSON array). [Sort conditions](https://developers.notion.com/reference/sort-data-source-entries)
+    #'   to apply to the query
+    #' @param filter List of lists (JSON array). [Filter conditions](https://developers.notion.com/reference/filter-data-source-entries)
+    #'   to apply. to the query
+    #' @param in_trash Boolean. If `TRUE`, trashed pages are included in the results alongside
+    #'   non-trashed pages. If `FALSE` or `NULL` (default), only non-trashed pages are returned.
+    #' @param result_type Character. Filter results by type. Available options are
+    #'   "page" and "data_source". If `NULL` (default), all result types are returned.
+    query = function(
+      data_source_id,
+      filter_properties = NULL,
+      sorts = NULL,
+      filter = NULL,
+      start_cursor = NULL,
+      page_size = NULL,
+      in_trash = NULL,
+      result_type = NULL
+    ) {
+      check_string(data_source_id, TRUE)
+      check_string(
+        filter_properties,
+        multiple = TRUE
+      )
+      check_json_array(sorts)
+      check_json_object(filter)
+      check_string(start_cursor)
+      check_int(page_size, 100)
+      check_bool(in_trash)
+      check_string(result_type)
+
+      query_params <- if (!is.null(filter_properties)) {
+        filter_properties <- decode_query_param(filter_properties)
+
+        query_params <- parse_repeated_query_params(
+          filter_properties,
+          "filter_properties"
+        )
+      }
+
+      body_params <- parse_body_params(
+        sorts = sorts,
+        filter = filter,
+        start_cursor = start_cursor,
+        page_size = page_size,
+        in_trash = in_trash,
+        result_type = result_type
+      )
+
+      req <- notion_build_request(
+        private$.client$request(),
+        c("data_sources", data_source_id, "query"),
+        "POST",
+        query_params,
+        body_params
+      )
+
+      resp <- notion_perform_req(req)
+
+      res <- notion_handle_resp(resp)
+
+      return(res)
+    }
+  ),
+  private = list(
+    .client = NULL
+  ),
+  cloneable = FALSE
+)
+
 #' R6 Class for Comments Endpoint
 #'
 #' @description
