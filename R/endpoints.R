@@ -401,8 +401,8 @@ PagesEndpoint <- R6Class(
     #' Retrieve page properties
     #'
     #' @param page_id Character (required). The ID for a Notion page.
-    #' @param filter_properties Character. Page property value IDs to include in the response schema.
-    #'   If NULL, all properties are returned.
+    #' @param filter_properties Character vector. Page property value IDs to include in the response schema.
+    #'   If NULL (default), all properties are returned.
     #' @details
     #' [Endpoint documentation](https://developers.notion.com/reference/retrieve-a-page)
     retrieve = function(
