@@ -1233,6 +1233,384 @@ DataSourcesEndpoint <- R6Class(
   cloneable = FALSE
 )
 
+#' R6 Class for Views Endpoint
+#'
+#' @description
+#' Handle all views operations in the Notion API
+#'
+#' **Note:** Access this endpoint through the client instance, e.g., `notion$views`. Not to be instantiated directly.
+#'
+#' @param view_id ID of a Notion view.
+#' @param start_cursor Character. For pagination. If provided, returns results starting from this cursor.
+#'   If NULL, returns the first page of results.
+#' @param page_size Integer. Number of items to return per page (1-100). Defaults to 100
+#'
+#' @returns A list containing the parsed API response.
+ViewsEndpoint <- R6Class(
+  "ViewsEndpoint",
+  public = list(
+    #' @field queries Views Queries Endpoint
+    queries = NULL,
+
+    #' @description
+    #' Initialise views endpoint.
+    #' Not to be called directly, e.g., use `notion$views` instead.
+    #' @param client Notion Client instance
+    initialize = function(client) {
+      private$.client <- client
+      self$queries <- ViewsQueriesEndpoint$new(client)
+    },
+
+    #' @description
+    #' Create a view
+    #'
+    #' @param data_source_id Character (required). The ID of the data source this
+    #'   view is scoped to.
+    #' @param name Character (required). The name of the view.
+    #' @param type Character (required). The type of view to create.
+    #' @param database_id Character. The ID of the database to create a view in.
+    #'   Mutually exclusive with `view_id` and `create_database`
+    #' @param view_id Character. The ID of a dashboard view to add this view to
+    #'   as a widget. Mutually exclusive with `database_id` and `create_database`.
+    #' @param filter Named list (JSON object). Filter to apply to the view.
+    #' @param sorts List of lists (JSON array). Sorts to apply to the view.
+    #' @param quick_filters Named list (JSON object). Key-value pairs of quick filters
+    #'  to pin in the view's filter bar.
+    #' @param create_database Named list (JSON object). Create a new linked database
+    #'   block and add the view to it. Mutually exclusive with `database_id` and `view_id`
+    #' @param configuration Named list (JSON object). View presentation configuration.
+    #' @param position Named list (JSON object). Where to place the new view
+    #'   in the database's view tab bar. Only applicable when `database_id` is provided.
+    #'   Defaults to "end" (append).
+    #' @param placement Named list (JSON object). Where to place the new widget in a dashboard view.
+    #'   Only applicable when `view_id` is provided. Defaults to creating a new row at the end.
+    #'
+    #' @details
+    #' [Endpoint documentation](https://developers.notion.com/reference/create-view)
+    create = function(
+      data_source_id,
+      name,
+      type,
+      database_id = NULL,
+      view_id = NULL,
+      filter = NULL,
+      sorts = NULL,
+      quick_filters = NULL,
+      create_database = NULL,
+      configuration = NULL,
+      position = NULL,
+      placement = NULL
+    ) {
+      check_exclusive(database_id, view_id, create_database, .require = TRUE)
+      check_string(data_source_id, TRUE)
+      check_string(name, TRUE)
+      check_string(type, TRUE)
+      check_string(database_id)
+      check_string(view_id)
+      check_json_object(filter)
+      check_json_array(sorts)
+      check_json_object(quick_filters)
+      check_json_object(create_database)
+      check_json_object(configuration)
+      check_json_object(position)
+      check_json_object(placement)
+
+      body_params <- parse_body_params(
+        data_source_id = data_source_id,
+        name = name,
+        type = type,
+        database_id = database_id,
+        view_id = view_id,
+        filter = filter,
+        sorts = sorts,
+        quick_filters = quick_filters,
+        create_database = create_database,
+        configuration = configuration,
+        position = position,
+        placement = placement
+      )
+
+      req <- notion_build_request(
+        private$.client$request(),
+        "views",
+        "POST",
+        body_params = body_params
+      )
+
+      resp <- notion_perform_req(req)
+
+      res <- notion_handle_resp(resp)
+
+      return(res)
+    },
+
+    #' @description
+    #' Retrieve a view
+    #'
+    #' @details
+    #' [Endpoint documentation](https://developers.notion.com/reference/retrieve-a-view)
+    retrieve = function(
+      view_id
+    ) {
+      check_string(view_id, TRUE)
+
+      req <- notion_build_request(
+        private$.client$request(),
+        c("views", view_id),
+        "GET"
+      )
+
+      resp <- notion_perform_req(req)
+
+      res <- notion_handle_resp(resp)
+
+      return(res)
+    },
+
+    #' @description
+    #' Update a view
+    #'
+    #' @param name Character. New name for the view.
+    #' @param filter Named list (JSON object). Filter to apply to the view.
+    #' @param sorts List of lists (JSON array). Property sorts to apply to the view.
+    #' @param quick_filters Named list (JSON object). Key-value pairs of quick filters
+    #'   to add/update.
+    #' @param configuration Named list (JSON object). View presentation configuration.
+    #'
+    #' @details
+    #' [Endpoint documentation](https://developers.notion.com/reference/update-a-view)
+    update = function(
+      view_id,
+      name = NULL,
+      filter = NULL,
+      sorts = NULL,
+      quick_filters = NULL,
+      configuration = NULL
+    ) {
+      check_string(name)
+      check_json_object(filter)
+      check_json_array(sorts)
+      check_json_object(quick_filters)
+      check_json_object(configuration)
+
+      body_params <- parse_body_params(
+        name = name,
+        filter = filter,
+        sorts = sorts,
+        quick_filters = quick_filters,
+        configuration = configuration
+      )
+
+      req <- notion_build_request(
+        private$.client$request(),
+        c("views", view_id),
+        "PATCH",
+        body_params = body_params
+      )
+
+      resp <- notion_perform_req(req)
+
+      res <- notion_handle_resp(resp)
+
+      return(res)
+    },
+
+    #' @description
+    #' Delete a view
+    #'
+    #' @details
+    #' [Endpoint documentation](https://developers.notion.com/reference/delete-view)
+    delete = function(
+      view_id
+    ) {
+      check_string(view_id, TRUE)
+
+      req <- notion_build_request(
+        private$.client$request(),
+        c("views", view_id),
+        "DELETE"
+      )
+
+      resp <- notion_perform_req(req)
+
+      res <- notion_handle_resp(resp)
+
+      return(res)
+    },
+
+    #' @description
+    #' List all views in a database
+    #'
+    #' @param database_id Character. ID of a Notion database to list views for.
+    #'   At least one of `database_id` or `data_source_id` is required.
+    #' @param data_source_id Character. ID of a data source to list all views for,
+    #'   including linked views across the workspace. At least one of `database_id`
+    #'   or `data_source_id` is required.
+    #'
+    #' @details
+    #' [Endpoint documentation](https://developers.notion.com/reference/list-views)
+    list = function(
+      database_id = NULL,
+      data_source_id = NULL,
+      start_cursor = NULL,
+      page_size = NULL
+    ) {
+      check_exclusive(database_id, data_source_id, .require = TRUE)
+      check_string(database_id)
+      check_string(data_source_id)
+      check_string(start_cursor)
+      check_int(page_size, 100, FALSE)
+
+      query_params <- parse_query_params(
+        database_id = database_id,
+        data_source_id = data_source_id,
+        start_cursor = start_cursor,
+        page_size = page_size
+      )
+
+      req <- notion_build_request(
+        private$.client$request(),
+        c("views"),
+        "GET",
+        query_params
+      )
+
+      resp <- notion_perform_req(req)
+
+      res <- notion_handle_resp(resp)
+
+      return(res)
+    }
+  ),
+  private = list(
+    .client = NULL
+  ),
+  cloneable = FALSE
+)
+
+#' R6 Class for Views Queries Endpoint
+#'
+#' @description
+#' Handle all views queries operations in the Notion API
+#'
+#' **Note:** Access this endpoint through the client instance, e.g., `notion$views$queries`. Not to be instantiated directly.
+#'
+#' @param view_id Character (required). The ID of the view.
+#' @param query_id Character (required). The ID of the query.
+#'
+#' @returns A list containing the parsed API response.
+ViewsQueriesEndpoint <- R6Class(
+  "ViewsQueriesEndpoint",
+  public = list(
+    #' @description
+    #' Initialise pages properties endpoint.
+    #' Not to be called directly, e.g., use `notion$views$queries` instead.
+    #' @param client Notion Client instance
+    initialize = function(client) {
+      private$.client <- client
+    },
+
+    #' @description
+    #' Create a view query
+    #'
+    #' @param page_size Integer. Number of items to return per page (1-100). Defaults to 100.
+    #' @details
+    #' [Endpoint documentation](https://developers.notion.com/reference/create-view-query)
+    create = function(
+      view_id,
+      page_size = NULL
+    ) {
+      check_string(view_id, TRUE)
+      check_int(page_size, 100)
+
+      body_params <- parse_body_params(
+        page_size = page_size
+      )
+
+      req <- notion_build_request(
+        private$.client$request,
+        c("views", view_id, "queries"),
+        "POST",
+        body_params = body_params
+      )
+
+      resp <- notion_perform_req(req)
+
+      res <- notion_handle_resp(resp)
+
+      return(res)
+    },
+
+    #' @description
+    #' Get view query results
+    #'
+    #' @param start_cursor Character. For pagination. If provided, returns results starting from this cursor.
+    #'   If NULL, returns the first page of results.
+    #' @param page_size Integer. Number of items to return per page (1-100). Defaults to 100
+    #'
+    #' @details
+    #' [Endpoint documentation](https://developers.notion.com/reference/get-view-query-results)
+    results = function(
+      view_id,
+      query_id,
+      start_cursor = NULL,
+      page_size = NULL
+    ) {
+      check_string(view_id, TRUE)
+      check_string(query_id, TRUE)
+      check_string(start_cursor)
+      check_int(page_size, 100)
+
+      query_params <- parse_query_params(
+        start_cursor = start_cursor,
+        page_size = page_size
+      )
+
+      req <- notion_build_request(
+        private$.client$request(),
+        c("views", view_id, "queries", query_id),
+        "GET",
+        query_params = query_params
+      )
+
+      resp <- notion_perform_req(req)
+
+      res <- notion_handle_resp(resp)
+
+      return(res)
+    },
+
+    #' @description
+    #' Delete a view query
+    #'
+    #' @details
+    #' [Endpoint documentation](https://developers.notion.com/reference/delete-view-query)
+    delete = function(
+      view_id,
+      query_id
+    ) {
+      check_string(view_id, TRUE)
+      check_string(query_id, TRUE)
+
+      req <- notion_build_request(
+        private$.client$request(),
+        c("views", view_id, "queries", query_id),
+        "DELETE"
+      )
+
+      resp <- notion_perform_req(req)
+
+      res <- notion_handle_resp(resp)
+
+      return(res)
+    }
+  ),
+  private = list(
+    .client = NULL
+  ),
+  cloneable = FALSE
+)
+
 #' R6 Class for Comments Endpoint
 #'
 #' @description

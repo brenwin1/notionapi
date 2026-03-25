@@ -58,6 +58,10 @@ The only difference is that async methods return \href{https://rstudio.github.io
 }
 \item \code{databases}: Databases endpoint object (\link{DatabasesEndpoint})
 \item \code{data_sources}: Data sources endpoint object (\link{DataSourcesEndpoint})
+\item \code{views}: Views endpoint object (\link{ViewsEndpoint})
+\itemize{
+\item \code{views$queries}: Views queries endpoint object (\link{ViewsQueriesEndpoint})
+}
 \item \code{comments}: Comments endpoint object (\link{CommentsEndpoint})
 \item \code{search}: Search endpoint (see \code{NotionClient$search()} method below)
 \item \code{users}: Users endpoint object (\link{UsersEndpoint})
@@ -132,6 +136,8 @@ p2 \%...>\%
 \item{\code{databases}}{Databases endpoint object}
 
 \item{\code{data_sources}}{Data sources endpoint}
+
+\item{\code{views}}{Views endpoint}
 
 \item{\code{comments}}{Comments endpoint object}
 
