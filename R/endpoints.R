@@ -1611,6 +1611,237 @@ ViewsQueriesEndpoint <- R6Class(
   cloneable = FALSE
 )
 
+#' R6 Class for File Uploads Endpoint
+#'
+#' @description
+#' Handle all file uploads operations in the Notion API
+#'
+#' **Note:** Access this endpoint through the client instance, e.g., `notion$file_uploads`. Not to be instantiated directly.
+#'
+#' @param file_upload_id Character (required). Identifier for a Notion file upload object.
+#' @returns A list containing the parsed API response.
+FileUploadsEndpoint <- R6Class(
+  "FileUploadsEndpoint",
+
+  public = list(
+    #' @description
+    #' Initialise file uploads endpoint.
+    #' Not to be called directly, e.g., use `notion$file_uploads` instead.
+    #' @param client Notion Client instance
+    initialize = function(client) {
+      private$.client <- client
+    },
+
+    #' @description
+    #' Create a file upload
+    #'
+    #' @param mode Character. How the file is being sent. Use "multi_part" for
+    #'   files larger than 20MB. Use "external_url" for files that are temporarily
+    #'   hosted publicly elsewhere. Default is "single_part".
+    #' @param filename Character. Name of the file to be created. Required when `mode`
+    #'   is "multi_part". Must include an extension, or have one inferred from
+    #'   the `content_type` parameter.
+    #' @param content_type Character. MIME type of the file to be created.
+    #' @param number_of_parts Integer. When `mode` is "multi_part", the number of parts
+    #'   you are uploading.
+    #' @param external_url Character. When `mode` is "external_url", provide the
+    #'   HTTPS URL of a publicly accessible file to import into your workspace.
+    create = function(
+      mode = NULL,
+      filename = NULL,
+      content_type = NULL,
+      number_of_parts = NULL,
+      external_url = NULL
+    ) {
+      check_string(mode)
+      check_string(filename)
+      check_string(content_type)
+      check_int(number_of_parts, 10000)
+      check_string(external_url)
+
+      body_params <- parse_body_params(
+        mode = mode,
+        filename = filename,
+        content_type = content_type,
+        number_of_parts = number_of_parts,
+        external_url = external_url
+      )
+
+      req <- notion_build_request(
+        private$.client$request(),
+        c("file_uploads"),
+        "POST",
+        body_params = body_params
+      )
+
+      resp <- notion_perform_req(req)
+
+      res <- notion_handle_resp(resp)
+
+      return(res)
+    },
+
+    #' @description
+    #' Upload a file
+    #'
+    #' @param file Named list (JSON object). The raw binary file contents to upload.
+    #'   Must contain named elements:
+    #'  * `filename`. Character. The name of the file, including it's extension (e.g., "report.pdf")
+    #'  * `data`. Raw. The binary contents of the file, as returned by e.g., `readBin()`
+    #'  * `type`. Character. Optional. The MIME type of the file (e.g., "application/pdf", "image/png").
+    #'    If not supplied, the type is inferred from `filename` by `curl::form_file()`.
+    #'    Supported file types are listed [here](https://developers.notion.com/guides/data-apis/working-with-files-and-media#supported-file-types).
+    #' @param part_number Character. The current part number when uploading files greater
+    #'   than 20MB in parts. Must be an integer between 1 and 1,000
+    send = function(
+      file_upload_id,
+      file,
+      part_number = NULL
+    ) {
+      check_string(file_upload_id, TRUE)
+      check_json_object(file, TRUE)
+      check_string(part_number)
+
+      req <- notion_build_request(
+        private$.client$request(),
+        c("file_uploads", file_upload_id, "send"),
+        "POST"
+      )
+
+      tmp <- tempfile(
+        fileext = paste0(
+          ".",
+          tools::file_ext(file[["filename"]])
+        )
+      )
+
+      on.exit(
+        unlink(tmp)
+      )
+
+      writeBin(file[["data"]], tmp)
+
+      multipart_params <- list(
+        file = curl::form_file(
+          tmp,
+          file[["type"]],
+          file[["filename"]]
+        )
+      )
+
+      if (!is.null(part_number)) {
+        multipart_params[["part_number"]] <- part_number
+      }
+
+      req <- httr2::req_body_multipart(
+        req,
+        !!!multipart_params
+      )
+
+      resp <- notion_perform_req(req)
+
+      res <- notion_handle_resp(resp)
+
+      return(res)
+    },
+
+    #' @description
+    #' Complete a multi-part file upload
+    #'
+    #' @details
+    #' [Endpoint documentation](https://developers.notion.com/reference/complete-file-upload)
+    complete = function(
+      file_upload_id
+    ) {
+      check_string(
+        file_upload_id,
+        TRUE
+      )
+
+      req <- notion_build_request(
+        private$.client$request(),
+        c("file_uploads", file_upload_id, "complete"),
+        "POST"
+      )
+
+      resp <- notion_perform_req(req)
+
+      res <- notion_handle_resp(resp)
+
+      return(res)
+    },
+
+    #' @description
+    #' Retrieve a file upload
+    #'
+    #' @details
+    #' [Endpoint documentation](https://developers.notion.com/reference/retrieve-file-upload)
+    retrieve = function(
+      file_upload_id
+    ) {
+      check_string(
+        file_upload_id,
+        TRUE
+      )
+
+      req <- notion_build_request(
+        private$.client$request(),
+        c("file_uploads", file_upload_id)
+      )
+
+      resp <- notion_perform_req(req)
+
+      res <- notion_handle_resp(resp)
+
+      return(res)
+    },
+
+    #' @description
+    #' List file uploads
+    #'
+    #' @param status Character. If supplied, the endpoint will return file uploads with the specified status.
+    #'   Available options are "pending", "uploaded", "expired", "failed".
+    #' @param start_cursor Character. For pagination. If provided, returns results starting from this cursor.
+    #'   If NULL, returns the first page of results.
+    #' @param page_size Integer. Number of items to return per page (1-100). Defaults to 100
+    #'
+    #' @details
+    #' [Endpoint documentation](https://developers.notion.com/reference/list-file-uploads)
+    list = function(
+      status = NULL,
+      start_cursor = NULL,
+      page_size = NULL
+    ) {
+      check_string(status)
+      check_string(start_cursor)
+      check_int(page_size, 100)
+
+      query_params <- parse_query_params(
+        status = status,
+        start_cursor = start_cursor,
+        page_size = page_size
+      )
+
+      req <- notion_build_request(
+        private$.client$request(),
+        c("file_uploads"),
+        "GET",
+        query_params = query_params
+      )
+
+      resp <- notion_perform_req(req)
+
+      res <- notion_handle_resp(resp)
+
+      return(res)
+    }
+  ),
+  private = list(
+    .client = NULL
+  ),
+  cloneable = FALSE
+)
+
 #' R6 Class for Comments Endpoint
 #'
 #' @description

@@ -63,6 +63,7 @@ async_notion_client <- function(
 #' - `data_sources`: Data sources endpoint object ([DataSourcesEndpoint])
 #' - `views`: Views endpoint object ([ViewsEndpoint])
 #'   - `views$queries`: Views queries endpoint object ([ViewsQueriesEndpoint])
+#' - `file_uploads`: File uploads endpoint object ([FileUploadsEndpoint])
 #' - `comments`: Comments endpoint object ([CommentsEndpoint])
 # #' - `file_uploads`: File Uploads endpoint object (not implemented (yet))
 #' - `search`: Search endpoint (see `NotionClient$search()` method below)
@@ -134,16 +135,14 @@ NotionClient <- R6Class(
     pages = NULL,
     #' @field databases Databases endpoint object
     databases = NULL,
-    #' @field data_sources Data sources endpoint
+    #' @field data_sources Data sources endpoint object
     data_sources = NULL,
-    #' @field views Views endpoint
+    #' @field views Views endpoint object
     views = NULL,
+    #' @field file_uploads File uploads endpoint object
+    file_uploads = NULL,
     #' @field comments Comments endpoint object
     comments = NULL,
-
-    # #' @field file_uploads File Uploads endpoint object
-    # file_uploads = NULL,
-
     #' @field users Users endpoint object
     users = NULL,
 
@@ -170,8 +169,8 @@ NotionClient <- R6Class(
       self$databases <- DatabasesEndpoint$new(self)
       self$data_sources <- DataSourcesEndpoint$new(self)
       self$views <- ViewsEndpoint$new(self)
+      self$file_uploads <- FileUploadsEndpoint$new(self)
       self$comments <- CommentsEndpoint$new(self)
-      # self$file_uploads <- FileUploadsEndpoint$new(self)
       self$users <- UsersEndpoint$new(self)
     },
 
