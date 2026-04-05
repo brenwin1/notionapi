@@ -218,27 +218,27 @@ Print basic details of Notion Client
 Search all parent or child pages and databases shared with an integration
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{NotionClient$search(
-  query = NULL,
   sort = NULL,
-  filter = NULL,
+  query = NULL,
   start_cursor = NULL,
-  page_size = NULL
+  page_size = NULL,
+  filter = NULL
 )}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{query}}{Character. The search query string.}
-
 \item{\code{sort}}{Named list (JSON object). Sort condition to apply to the search results.}
 
-\item{\code{filter}}{List (JSON object). Filter condition to apply to the search results.}
+\item{\code{query}}{Character. The search query string.}
 
 \item{\code{start_cursor}}{Character. For pagination. If provided, returns results starting from this cursor.
 If NULL, returns the first page of results.}
 
 \item{\code{page_size}}{Integer. Number of items to return per page (1-100). Defaults to 100.}
+
+\item{\code{filter}}{List (JSON object). Filter condition to apply to the search results.}
 }
 \if{html}{\out{</div>}}
 }

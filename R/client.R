@@ -217,34 +217,34 @@ NotionClient <- R6Class(
     #' @description
     #' Search all parent or child pages and databases shared with an integration
     #'
-    #' @param query Character. The search query string.
     #' @param sort Named list (JSON object). Sort condition to apply to the search results.
+    #' @param query Character. The search query string.
     #' @param filter List (JSON object). Filter condition to apply to the search results.
-    #' @param page_size Integer. Number of items to return per page (1-100). Defaults to 100.
     #' @param start_cursor Character. For pagination. If provided, returns results starting from this cursor.
     #'   If NULL, returns the first page of results.
+    #' @param page_size Integer. Number of items to return per page (1-100). Defaults to 100.
     #'
     #' @details
     #' [Endpoint documentation](https://developers.notion.com/reference/post-search)
     search = function(
-      query = NULL,
       sort = NULL,
-      filter = NULL,
+      query = NULL,
       start_cursor = NULL,
-      page_size = NULL
+      page_size = NULL,
+      filter = NULL
     ) {
-      check_string(query, FALSE, FALSE)
-      check_json_object(sort, required = FALSE)
-      check_json_object(filter, FALSE)
-      check_string(start_cursor, FALSE)
-      check_int(page_size, 100, FALSE)
+      check_json_object(sort)
+      check_string(query)
+      check_string(start_cursor)
+      check_int(page_size, 100)
+      check_json_object(filter)
 
       body_params <- parse_body_params(
-        query = query,
         sort = sort,
-        filter = filter,
+        query = query,
         start_cursor = start_cursor,
-        page_size = page_size
+        page_size = page_size,
+        filter = filter
       )
 
       req <- notion_build_request(
