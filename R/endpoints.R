@@ -1888,32 +1888,34 @@ CommentsEndpoint <- R6Class(
     #' @description
     #' Create a comment
     #'
-    #' @param parent List (JSON object). The parent page where comment is created. Required if `discussion_id` is not provided
-    #' @param discussion_id Character. The ID of the discussion thread for the comment. Required if `parent` is not provided.
-    #' @param rich_text List of lists (JSON array) (required). [Rich text object(s)](https://developers.notion.com/reference/rich-text) representing the comment content.
-    #' @param attachments List of lists (JSON array). Attachments to include in the comment.
-    #' @param display_name Named list (JSON object). Custom display name of the comment.
+    #' @param rich_text List of lists (JSON array) (required). [Rich text object(s)](https://developers.notion.com/reference/rich-text) representing the content of the comment.
+    #' @param parent List (JSON object). The parent of the comment. This can be a page or a block.
+    #'   Required if `discussion_id` is not provided.
+    #' @param discussion_id Character. The ID of the discussion to comment on.
+    #'   Required if `parent` is not provided.
+    #' @param attachments List of lists (JSON array). An array of files to attach to the comment. Maximum of 3 allowed.
+    #' @param display_name Named list (JSON object). Display name for the comment.
     #'
     #' @details
     #' [Endpoint documentation](https://developers.notion.com/reference/create-a-comment)
     create = function(
+      rich_text,
       parent = NULL,
       discussion_id = NULL,
-      rich_text,
       attachments = NULL,
       display_name = NULL
     ) {
       check_exclusive(parent, discussion_id, .require = TRUE)
+      check_json_array(rich_text, TRUE)
       check_json_object(parent)
       check_string(discussion_id)
-      check_json_array(rich_text, TRUE)
       check_json_array(attachments)
       check_json_object(display_name)
 
       body_params <- parse_body_params(
+        rich_text = rich_text,
         parent = parent,
         discussion_id = discussion_id,
-        rich_text = rich_text,
         attachments = attachments,
         display_name = display_name
       )
@@ -1934,18 +1936,42 @@ CommentsEndpoint <- R6Class(
     #' @description
     #' Retrieve comments for a block
     #'
-    #' @param block_id Character. The ID for a Notion block.
+    #' @param comment_id Character (required). The ID of the comment to retrieve.
     #'
     #' @details
     #' [Endpoint documentation](https://developers.notion.com/reference/retrieve-a-comment)
     retrieve = function(
+      comment_id
+    ) {
+      check_string(comment_id, TRUE)
+
+      req <- notion_build_request(
+        private$.client$request(),
+        c("comments", comment_id),
+        "GET"
+      )
+
+      resp <- notion_perform_req(req)
+
+      res <- notion_handle_resp(resp)
+
+      res
+    },
+    #' @description
+    #' List comments
+    #'
+    #' @param block_id Character (required). The ID for a Notion block or page.
+    #' @param start_cursor Character. For pagination. If provided, returns results starting from this cursor.
+    #'   If NULL, returns the first page of results.
+    #' @param page_size Integer. Number of items to return per page (1-100). Defaults to 100.
+    list = function(
       block_id,
       start_cursor = NULL,
       page_size = NULL
     ) {
       check_string(block_id, TRUE)
-      check_string(start_cursor)
-      check_int(start_cursor, 100)
+      check_string(start_cursor, FALSE)
+      check_int(page_size, 100)
 
       query_params <- parse_query_params(
         block_id = block_id,
@@ -1956,7 +1982,8 @@ CommentsEndpoint <- R6Class(
       req <- notion_build_request(
         private$.client$request(),
         "comments",
-        query_params = query_params,
+        "GET",
+        query_params
       )
 
       resp <- notion_perform_req(req)

@@ -39,6 +39,7 @@ notion$comments$retrieve(block_id = "23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba")
 \item \href{#method-CommentsEndpoint-new}{\code{CommentsEndpoint$new()}}
 \item \href{#method-CommentsEndpoint-create}{\code{CommentsEndpoint$create()}}
 \item \href{#method-CommentsEndpoint-retrieve}{\code{CommentsEndpoint$retrieve()}}
+\item \href{#method-CommentsEndpoint-list}{\code{CommentsEndpoint$list()}}
 }
 }
 \if{html}{\out{<hr>}}
@@ -66,9 +67,9 @@ Not to be called directly, e.g., use \code{notion$comments} instead.
 Create a comment
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CommentsEndpoint$create(
+  rich_text,
   parent = NULL,
   discussion_id = NULL,
-  rich_text,
   attachments = NULL,
   display_name = NULL
 )}\if{html}{\out{</div>}}
@@ -77,15 +78,17 @@ Create a comment
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{parent}}{List (JSON object). The parent page where comment is created. Required if \code{discussion_id} is not provided}
+\item{\code{rich_text}}{List of lists (JSON array) (required). \href{https://developers.notion.com/reference/rich-text}{Rich text object(s)} representing the content of the comment.}
 
-\item{\code{discussion_id}}{Character. The ID of the discussion thread for the comment. Required if \code{parent} is not provided.}
+\item{\code{parent}}{List (JSON object). The parent of the comment. This can be a page or a block.
+Required if \code{discussion_id} is not provided.}
 
-\item{\code{rich_text}}{List of lists (JSON array) (required). \href{https://developers.notion.com/reference/rich-text}{Rich text object(s)} representing the comment content.}
+\item{\code{discussion_id}}{Character. The ID of the discussion to comment on.
+Required if \code{parent} is not provided.}
 
-\item{\code{attachments}}{List of lists (JSON array). Attachments to include in the comment.}
+\item{\code{attachments}}{List of lists (JSON array). An array of files to attach to the comment. Maximum of 3 allowed.}
 
-\item{\code{display_name}}{Named list (JSON object). Custom display name of the comment.}
+\item{\code{display_name}}{Named list (JSON object). Display name for the comment.}
 }
 \if{html}{\out{</div>}}
 }
@@ -100,13 +103,34 @@ Create a comment
 \subsection{Method \code{retrieve()}}{
 Retrieve comments for a block
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{CommentsEndpoint$retrieve(block_id, start_cursor = NULL, page_size = NULL)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{CommentsEndpoint$retrieve(comment_id)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{block_id}}{Character. The ID for a Notion block.}
+\item{\code{comment_id}}{Character (required). The ID of the comment to retrieve.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+\href{https://developers.notion.com/reference/retrieve-a-comment}{Endpoint documentation}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-CommentsEndpoint-list"></a>}}
+\if{latex}{\out{\hypertarget{method-CommentsEndpoint-list}{}}}
+\subsection{Method \code{list()}}{
+List comments
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{CommentsEndpoint$list(block_id, start_cursor = NULL, page_size = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{block_id}}{Character (required). The ID for a Notion block or page.}
 
 \item{\code{start_cursor}}{Character. For pagination. If provided, returns results starting from this cursor.
 If NULL, returns the first page of results.}
@@ -115,9 +139,5 @@ If NULL, returns the first page of results.}
 }
 \if{html}{\out{</div>}}
 }
-\subsection{Details}{
-\href{https://developers.notion.com/reference/retrieve-a-comment}{Endpoint documentation}
-}
-
 }
 }
