@@ -2117,3 +2117,68 @@ UsersEndpoint <- R6Class(
   ),
   cloneable = FALSE
 )
+
+#' R6 Class for Custom Emojis Endpoint
+#'
+#' @description
+#' Handle all custom emojis operations in the Notion API
+#'
+#' **Note:** Access this endpoint through the client instance, e.g., `notion$custom_emojis`. Not to be instantiated directly.
+#'
+#' @returns A list containing the parsed API response.
+CustomEmojisEndpoint <- R6Class(
+  "CustomEmojisEndpoint",
+  public = list(
+    #' @description
+    #' Initialise custom emojis endpoint.
+    #' Not to be called directly, e.g., use `notion$custom_emojis` instead.
+    #' @param client Notion Client instance
+    initialize = function(client) {
+      private$.client <- client
+    },
+
+    #' @description
+    #' List custom emojis
+    #'
+    #' @param start_cursor Character. For pagination. If provided, returns results starting from this cursor.
+    #'   If NULL, returns the first page of results.
+    #' @param page_size Integer. Number of items to return per page (1-100). Defaults to 100
+    #' @param name Character. Filters custom emojis by exact name match.
+    #'   Useful for resolving a custom emoji name to its ID.
+    #'
+    #' @details
+    #' [Endpoint documentation](https://developers.notion.com/reference/list-custom-emojis)
+    list = function(
+      start_cursor = NULL,
+      page_size = NULL,
+      name = NULL
+    ) {
+      check_string(start_cursor)
+      check_int(page_size, 100)
+      check_string(name)
+
+      query_params <- parse_query_params(
+        start_cursor = start_cursor,
+        page_size = page_size,
+        name = name
+      )
+
+      req <- notion_build_request(
+        private$.client$request(),
+        "custom_emojis",
+        "GET",
+        query_params
+      )
+
+      resp <- notion_perform_req(req)
+
+      res <- notion_handle_resp(resp)
+
+      return(res)
+    }
+  ),
+  private = list(
+    .client = NULL
+  ),
+  cloneable = FALSE
+)

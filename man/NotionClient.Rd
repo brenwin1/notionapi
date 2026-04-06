@@ -66,6 +66,7 @@ The only difference is that async methods return \href{https://rstudio.github.io
 \item \code{comments}: Comments endpoint object (\link{CommentsEndpoint})
 \item \code{search}: Search endpoint (see \code{NotionClient$search()} method below)
 \item \code{users}: Users endpoint object (\link{UsersEndpoint})
+\item \code{custom_emojis}: Custom emojis endpoint object (\link{CustomEmojisEndpoint})
 }
 }
 
@@ -145,6 +146,8 @@ p2 \%...>\%
 \item{\code{comments}}{Comments endpoint object}
 
 \item{\code{users}}{Users endpoint object}
+
+\item{\code{custom_emojis}}{Custom emojis endpoint object}
 }
 \if{html}{\out{</div>}}
 }

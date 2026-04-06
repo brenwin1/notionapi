@@ -68,6 +68,7 @@ async_notion_client <- function(
 # #' - `file_uploads`: File Uploads endpoint object (not implemented (yet))
 #' - `search`: Search endpoint (see `NotionClient$search()` method below)
 #' - `users`: Users endpoint object ([UsersEndpoint])
+#' - `custom_emojis`: Custom emojis endpoint object ([CustomEmojisEndpoint])
 #'
 #' @seealso [Notion API documentation](https://developers.notion.com/reference)
 #' @returns A Notion API client instance
@@ -145,6 +146,8 @@ NotionClient <- R6Class(
     comments = NULL,
     #' @field users Users endpoint object
     users = NULL,
+    #' @field custom_emojis Custom emojis endpoint object
+    custom_emojis = NULL,
 
     #' @description
     #' Initialise Notion Client
@@ -172,6 +175,7 @@ NotionClient <- R6Class(
       self$file_uploads <- FileUploadsEndpoint$new(self)
       self$comments <- CommentsEndpoint$new(self)
       self$users <- UsersEndpoint$new(self)
+      self$custom_emojis <- CustomEmojisEndpoint$new(self)
     },
 
     #' @description
