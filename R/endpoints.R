@@ -179,8 +179,8 @@ BlocksEndpoint <- R6Class(
 #' \dontshow{notionapi::vcr_example_end()}
 #'
 #' # ----- retrieve children of a block
-#' \dontshow{notionapi::vcr_example_start("notion-blocks-children-retrieve")}
-#' notion$blocks$children$retrieve("23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba")
+#' \dontshow{notionapi::vcr_example_start("notion-blocks-children-list")}
+#' notion$blocks$children$list("23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba")
 #' \dontshow{notionapi::vcr_example_end()}
 #'
 #' # ----- iterate through paginated results
@@ -191,7 +191,7 @@ BlocksEndpoint <- R6Class(
 #' i <- 1
 #'
 #' while (has_more) {
-#'   resps[[i]] <- notion$blocks$children$retrieve(
+#'   resps[[i]] <- notion$blocks$children$list(
 #'     "2926b407e3c44b49a1830609abe6744f",
 #'     start_cursor
 #'   )
@@ -216,7 +216,7 @@ BlocksChildrenEndpoint <- R6Class(
     #'
     #' @details
     #' [Endpoint documentation](https://developers.notion.com/reference/get-block-children)
-    retrieve = function(
+    list = function(
       block_id,
       start_cursor = NULL,
       page_size = NULL

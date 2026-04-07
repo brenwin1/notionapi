@@ -103,4 +103,4 @@ See [Pagination](https://developers.notion.com/reference/intro#pagination) secti
 
 Pagination parameters (`page_size` and `start_cursor`) are exposed as function arguments. 
 
-For an example, see [BlocksChildrenEndpoint retrieve()](https://brenwin1.github.io/notionapi/reference/BlocksChildrenEndpoint.html#ref-examples) method.
+For an example, see [BlocksChildrenEndpoint list()](https://brenwin1.github.io/notionapi/reference/BlocksChildrenEndpoint.html#ref-examples) method.

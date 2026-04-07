@@ -216,12 +216,12 @@ test_that("notion$blocks$children$append() works", {
   test_ids[["created_block_id"]] <<- resp[["results"]][[1]][["id"]]
 })
 
-test_that("notion$blocks$children$retrieve() works", {
+test_that("notion$blocks$children$list() works", {
   notion <- notion_client()
 
-  vcr::local_cassette("notion-blocks-children-retrieve")
+  vcr::local_cassette("notion-blocks-children-list")
 
-  resp <- notion$blocks$children$retrieve(
+  resp <- notion$blocks$children$list(
     test_ids[["created_page_id"]]
   )
 

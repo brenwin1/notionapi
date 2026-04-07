@@ -34,8 +34,8 @@ notion$blocks$children$append(
 \dontshow{notionapi::vcr_example_end()}
 
 # ----- retrieve children of a block
-\dontshow{notionapi::vcr_example_start("notion-blocks-children-retrieve")}
-notion$blocks$children$retrieve("23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba")
+\dontshow{notionapi::vcr_example_start("notion-blocks-children-list")}
+notion$blocks$children$list("23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba")
 \dontshow{notionapi::vcr_example_end()}
 
 # ----- iterate through paginated results
@@ -46,7 +46,7 @@ resps <- list()
 i <- 1
 
 while (has_more) {
-  resps[[i]] <- notion$blocks$children$retrieve(
+  resps[[i]] <- notion$blocks$children$list(
     "2926b407e3c44b49a1830609abe6744f",
     start_cursor
   )
@@ -61,7 +61,7 @@ while (has_more) {
 \subsection{Public methods}{
 \itemize{
 \item \href{#method-BlocksChildrenEndpoint-new}{\code{BlocksChildrenEndpoint$new()}}
-\item \href{#method-BlocksChildrenEndpoint-retrieve}{\code{BlocksChildrenEndpoint$retrieve()}}
+\item \href{#method-BlocksChildrenEndpoint-list}{\code{BlocksChildrenEndpoint$list()}}
 \item \href{#method-BlocksChildrenEndpoint-append}{\code{BlocksChildrenEndpoint$append()}}
 }
 }
@@ -84,16 +84,12 @@ Not to be called directly, e.g., use \code{notion$pages$children} instead.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-BlocksChildrenEndpoint-retrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-BlocksChildrenEndpoint-retrieve}{}}}
-\subsection{Method \code{retrieve()}}{
+\if{html}{\out{<a id="method-BlocksChildrenEndpoint-list"></a>}}
+\if{latex}{\out{\hypertarget{method-BlocksChildrenEndpoint-list}{}}}
+\subsection{Method \code{list()}}{
 Retrieve a block's children
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{BlocksChildrenEndpoint$retrieve(
-  block_id,
-  start_cursor = NULL,
-  page_size = NULL
-)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{BlocksChildrenEndpoint$list(block_id, start_cursor = NULL, page_size = NULL)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{

@@ -151,5 +151,5 @@ Pagination parameters (`page_size` and `start_cursor`) are exposed as
 function arguments.
 
 For an example, see [BlocksChildrenEndpoint
-retrieve()](https://brenwin1.github.io/notionapi/reference/BlocksChildrenEndpoint.html#ref-examples)
+list()](https://brenwin1.github.io/notionapi/reference/BlocksChildrenEndpoint.html#ref-examples)
 method.
