@@ -11,6 +11,71 @@ Handle all data sources operations in the Notion API
 
 \strong{Note:} Access this endpoint through the client instance, e.g., \code{notion$datas_ources}. Not to be instantiated directly.
 }
+\examples{
+\dontshow{if (notion_token_exists()) withAutoprint(\{ # examplesIf}
+notion <- notion_client()
+\dontshow{notionapi::vcr_example_start("notion-data-sources-create")}
+# ----- Create a data source
+notion$data_sources$create(
+  list(
+    database_id = "5f9759b2-ad71-4b66-880f-d0306614227b"
+  ),
+  properties = list(
+    Title = list(
+      title = no_config()
+    )
+  ),
+  title = list(list(
+    text = list(
+      content = "Test data source"
+    )
+  ))
+)
+\dontshow{notionapi::vcr_example_end()}
+\dontshow{notionapi::vcr_example_start("notion-data-sources-update")}
+# ----- Update data source
+notion$data_sources$update(
+  "33f33ea0-c1e4-81a7-af25-000b2a6ab72d",
+  properties = list(
+    Status = list(
+      status = list(
+        options = list(
+          list(
+            name = "To do",
+            color = "red"
+          ),
+          list(
+            name = "Done",
+            color = "green"
+          )
+        )
+      )
+    )
+  )
+)
+\dontshow{notionapi::vcr_example_end()}
+\dontshow{notionapi::vcr_example_start("notion-data-sources-retrieve")}
+# ----- Retrieve a data source
+notion$data_sources$retrieve("33f33ea0-c1e4-81a7-af25-000b2a6ab72d")
+\dontshow{notionapi::vcr_example_end()}
+\dontshow{notionapi::vcr_example_start("notion-data-sources-list-templates")}
+# ----- List data source templates
+notion$data_sources$list_templates("33f33ea0-c1e4-81a7-af25-000b2a6ab72d")
+\dontshow{notionapi::vcr_example_end()}
+\dontshow{notionapi::vcr_example_start("notion-data-sources-query")}
+# ----- Query a data source
+notion$data_sources$query(
+  "33f33ea0-c1e4-81a7-af25-000b2a6ab72d",
+  filter = list(
+    property = "Status",
+    status = list(
+      equals = "To do"
+    )
+  )
+)
+\dontshow{notionapi::vcr_example_end()}
+\dontshow{\}) # examplesIf}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

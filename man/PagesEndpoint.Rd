@@ -13,10 +13,9 @@ Handle all pages operations in the Notion API
 }
 \examples{
 \dontshow{if (notion_token_exists()) withAutoprint(\{ # examplesIf}
-\dontshow{notionapi::vcr_example_start("notion-pages-create")}
 notion <- notion_client()
-
-# ----- create a page
+\dontshow{notionapi::vcr_example_start("notion-pages-create")}
+# ----- Create a page
 notion$pages$create(
   list(page_id = "22f33ea0c1e480b99c77d1ab72aedff9"),
   list(
@@ -28,10 +27,48 @@ notion$pages$create(
   )
 )
 \dontshow{notionapi::vcr_example_end()}
-
-# ----- retrieve a page
 \dontshow{notionapi::vcr_example_start("notion-pages-retrieve")}
-notion$pages$retrieve("23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba")
+# ----- Retrieve a page
+notion$pages$retrieve("33f33ea0-c1e4-811a-9790-c5068b52c5d7")
+\dontshow{notionapi::vcr_example_end()}
+\dontshow{notionapi::vcr_example_start("notion-pages-move")}
+# ----- Move page into a database
+notion$pages$move(
+  "33f33ea0-c1e4-811a-9790-c5068b52c5d7",
+  list(
+    data_source_id = "33f33ea0-c1e4-8169-8c50-000b9925efd7"
+  )
+)
+\dontshow{notionapi::vcr_example_end()}
+\dontshow{notionapi::vcr_example_start("notion-pages-update")}
+# ----- Update a page
+notion$pages$update(
+  "33f33ea0-c1e4-811a-9790-c5068b52c5d7",
+  icon = list(
+    emoji = "🐶"
+  )
+)
+\dontshow{notionapi::vcr_example_end()}
+\dontshow{notionapi::vcr_example_start("notion-pages-retrieve-markdown")}
+# ----- Retrieve a page as markdown
+notion$pages$retrieve_markdown("33f33ea0-c1e4-811a-9790-c5068b52c5d7")
+\dontshow{notionapi::vcr_example_end()}
+\dontshow{notionapi::vcr_example_start("notion-pages-update-markdown")}
+# ----- Update/replace a page content
+notion$pages$update_markdown(
+  "33f33ea0-c1e4-811a-9790-c5068b52c5d7",
+  "replace_content",
+  replace_content = list(
+    new_str = '## Updated Test Heading\nUsed markdown{color="blue"}'
+  )
+)
+\dontshow{notionapi::vcr_example_end()}
+\dontshow{notionapi::vcr_example_start("notion-pages-trash")}
+# ----- Trash a page
+notion$pages$update(
+  "33f33ea0-c1e4-811a-9790-c5068b52c5d7",
+  in_trash = TRUE
+)
 \dontshow{notionapi::vcr_example_end()}
 \dontshow{\}) # examplesIf}
 }

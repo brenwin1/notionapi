@@ -9,32 +9,29 @@
 #' @returns A list containing the parsed API response.
 #'
 #' @examplesIf notion_token_exists()
-#' \dontshow{notionapi::vcr_example_start("notion-blocks-retrieve")}
 #' notion <- notion_client()
-#'
-#' # ----- retrieve a block
-#' notion$blocks$retrieve("23933ea0-c1e4-81dc-9f56-f3fa251a757f")
+#' \dontshow{notionapi::vcr_example_start("notion-blocks-retrieve")}
+#' # ----- Retrieve a block
+#' notion$blocks$retrieve("33f33ea0-c1e4-81cb-b1ae-d9eb58672111")
 #' \dontshow{notionapi::vcr_example_end()}
-#'
-#' # ----- update a block
 #' \dontshow{notionapi::vcr_example_start("notion-blocks-update")}
+#' # ----- Update a block
 #' notion$blocks$update(
-#'   "23933ea0-c1e4-81dc-9f56-f3fa251a757f",
+#'   "33f33ea0-c1e4-81cb-b1ae-d9eb58672111",
 #'   heading_2 = list(
-#'     rich_text = list(
-#'       list(
-#'         text = list(
-#'           content = "Updated Test Heading"
-#'         )
+#'     rich_text = list(list(
+#'       text = list(
+#'         content = "Updated Test Heading"
 #'       )
-#'     )
+#'     ))
 #'   )
 #' )
 #' \dontshow{notionapi::vcr_example_end()}
-#'
-#' # ----- delete a block
 #' \dontshow{notionapi::vcr_example_start("notion-blocks-delete")}
-#' notion$blocks$delete(block_id = "23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba")
+#' # ----- Delete a block
+#' notion$blocks$delete(
+#'   "33f33ea0-c1e4-81cb-b1ae-d9eb58672111"
+#' )
 #' \dontshow{notionapi::vcr_example_end()}
 BlocksEndpoint <- R6Class(
   "BlocksEndpoint",
@@ -159,13 +156,11 @@ BlocksEndpoint <- R6Class(
 #'
 #' @examplesIf notion_token_exists()
 #' notion <- notion_client()
-#'
-#' # ----- append children to a block
 #' \dontshow{notionapi::vcr_example_start("notion-blocks-children-append")}
+#' # ----- Append children to a block
 #' notion$blocks$children$append(
-#'   block_id = "23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba",
-#'   children = list(
-#'     # add a level 2 heading called "Test Heading"
+#'   "33f33ea0-c1e4-811a-9790-c5068b52c5d7",
+#'   list(
 #'     list(
 #'       object = "block",
 #'       heading_2 = list(
@@ -174,16 +169,15 @@ BlocksEndpoint <- R6Class(
 #'         ))
 #'       )
 #'     )
-#'   )
+#'   ),
+#'   position = list(type = "start")
 #' )
 #' \dontshow{notionapi::vcr_example_end()}
-#'
-#' # ----- retrieve children of a block
 #' \dontshow{notionapi::vcr_example_start("notion-blocks-children-list")}
-#' notion$blocks$children$list("23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba")
+#' # ----- Retrieve children of a block
+#' notion$blocks$children$list("33f33ea0-c1e4-811a-9790-c5068b52c5d7")
 #' \dontshow{notionapi::vcr_example_end()}
-#'
-#' # ----- iterate through paginated results
+#' # ----- Iterate through paginated results
 #' \dontrun{
 #' start_cursor <- NULL
 #' has_more <- FALSE
@@ -297,10 +291,9 @@ BlocksChildrenEndpoint <- R6Class(
 #' @returns A list containing the parsed API response.
 #'
 #' @examplesIf notion_token_exists()
-#' \dontshow{notionapi::vcr_example_start("notion-pages-create")}
 #' notion <- notion_client()
-#'
-#' # ----- create a page
+#' \dontshow{notionapi::vcr_example_start("notion-pages-create")}
+#' # ----- Create a page
 #' notion$pages$create(
 #'   list(page_id = "22f33ea0c1e480b99c77d1ab72aedff9"),
 #'   list(
@@ -312,10 +305,48 @@ BlocksChildrenEndpoint <- R6Class(
 #'   )
 #' )
 #' \dontshow{notionapi::vcr_example_end()}
-#'
-#' # ----- retrieve a page
 #' \dontshow{notionapi::vcr_example_start("notion-pages-retrieve")}
-#' notion$pages$retrieve("23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba")
+#' # ----- Retrieve a page
+#' notion$pages$retrieve("33f33ea0-c1e4-811a-9790-c5068b52c5d7")
+#' \dontshow{notionapi::vcr_example_end()}
+#' \dontshow{notionapi::vcr_example_start("notion-pages-move")}
+#' # ----- Move page into a database
+#' notion$pages$move(
+#'   "33f33ea0-c1e4-811a-9790-c5068b52c5d7",
+#'   list(
+#'     data_source_id = "33f33ea0-c1e4-8169-8c50-000b9925efd7"
+#'   )
+#' )
+#' \dontshow{notionapi::vcr_example_end()}
+#' \dontshow{notionapi::vcr_example_start("notion-pages-update")}
+#' # ----- Update a page
+#' notion$pages$update(
+#'   "33f33ea0-c1e4-811a-9790-c5068b52c5d7",
+#'   icon = list(
+#'     emoji = "🐶"
+#'   )
+#' )
+#' \dontshow{notionapi::vcr_example_end()}
+#' \dontshow{notionapi::vcr_example_start("notion-pages-retrieve-markdown")}
+#' # ----- Retrieve a page as markdown
+#' notion$pages$retrieve_markdown("33f33ea0-c1e4-811a-9790-c5068b52c5d7")
+#' \dontshow{notionapi::vcr_example_end()}
+#' \dontshow{notionapi::vcr_example_start("notion-pages-update-markdown")}
+#' # ----- Update/replace a page content
+#' notion$pages$update_markdown(
+#'   "33f33ea0-c1e4-811a-9790-c5068b52c5d7",
+#'   "replace_content",
+#'   replace_content = list(
+#'     new_str = '## Updated Test Heading\nUsed markdown{color="blue"}'
+#'   )
+#' )
+#' \dontshow{notionapi::vcr_example_end()}
+#' \dontshow{notionapi::vcr_example_start("notion-pages-trash")}
+#' # ----- Trash a page
+#' notion$pages$update(
+#'   "33f33ea0-c1e4-811a-9790-c5068b52c5d7",
+#'   in_trash = TRUE
+#' )
 #' \dontshow{notionapi::vcr_example_end()}
 PagesEndpoint <- R6Class(
   "PagesEndpoint",
@@ -651,24 +682,11 @@ PagesEndpoint <- R6Class(
 #'
 #' @examplesIf notion_token_exists()
 #' notion <- notion_client()
-#'
-#' # ----- retrieve a page property
 #' \dontshow{notionapi::vcr_example_start("notion-pages-properties-retrieve")}
+#' # ----- Retrieve a page property
 #' notion$pages$properties$retrieve(
-#'   "23933ea0-c1e4-8104-897b-f5a09269e561",
-#'   property_id = "q;L^"
-#' )
-#' \dontshow{notionapi::vcr_example_end()}
-#'
-#' # ----- update a page property
-#' \dontshow{notionapi::vcr_example_start("notion-pages-properties-update")}
-#' notion$pages$properties$update(
-#'   "23933ea0-c1e4-8104-897b-f5a09269e561",
-#'   list(
-#'     `In stock` = list(
-#'       checkbox = TRUE
-#'     )
-#'   )
+#'   "33f33ea0-c1e4-811a-9790-c5068b52c5d7",
+#'   "u%7Clh"
 #' )
 #' \dontshow{notionapi::vcr_example_end()}
 PagesPropertiesEndpoint <- R6Class(
@@ -743,90 +761,38 @@ PagesPropertiesEndpoint <- R6Class(
 #'
 #' @examplesIf notion_token_exists()
 #' notion <- notion_client()
-#'
-#' # ----- create a database
 #' \dontshow{notionapi::vcr_example_start("notion-databases-create")}
+#' # ----- Create a database
 #' notion$databases$create(
-#'   parent = list(page_id = "23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba"),
-#'   title = list(
-#'     list(
-#'       type = "text",
-#'       text = list(
-#'         content = "Grocery list"
-#'       )
-#'     )
+#'   list(
+#'     type = "page_id",
+#'     page_id = "22f33ea0c1e480b99c77d1ab72aedff9"
 #'   ),
-#'   properties = list(
-#'     Name = list(
-#'       title = no_config()
-#'     ),
-#'     `In stock` = list(
-#'       checkbox = no_config()
-#'     )
-#'   )
-#' )
-#' \dontshow{notionapi::vcr_example_end()}
-#'
-#' # ----- retrieve a database
-#' \dontshow{notionapi::vcr_example_start("notion-databases-retrieve")}
-#' notion$databases$retrieve(
-#'   "23933ea0-c1e4-8136-b37b-fa235c6f2a71"
-#' )
-#' \dontshow{notionapi::vcr_example_end()}
-#'
-#' # ----- update a database
-#' \dontshow{notionapi::vcr_example_start("notion-database-update")}
-#' notion$databases$update(
-#'   "23933ea0-c1e4-8136-b37b-fa235c6f2a71",
-#'   list(list(
+#'   title = list(list(
 #'     text = list(
-#'       content = "Today's grocery list"
+#'       content = "Test Database"
 #'     )
 #'   ))
 #' )
 #' \dontshow{notionapi::vcr_example_end()}
-#'
-#' # ----- query a database
-#' \dontshow{notionapi::vcr_example_start("notion-database-query")}
-#' notion$databases$query(
-#'   database_id = "23933ea0-c1e4-8136-b37b-fa235c6f2a71",
-#'   filter = list(
-#'     or = list(
-#'       list(
-#'         property = "In stock",
-#'         checkbox = list(equals = TRUE)
-#'       ),
-#'       list(
-#'         property = "Name",
-#'         title = list(contains = "kale")
-#'       )
-#'     )
-#'   ),
-#'   sorts = list(list(
-#'     property = "Name",
-#'     direction = "ascending"
-#'   ))
-#' )
+#' \dontshow{notionapi::vcr_example_start("notion-databases-retrieve")}
+#' # ----- Retrieve a database
+#' notion$databases$retrieve("5f9759b2-ad71-4b66-880f-d0306614227b")
 #' \dontshow{notionapi::vcr_example_end()}
-#'
-#' # ----- iterate through paginated results
-#' \dontrun{
-#' i <- 1
-#' resps <- list()
-#' has_more <- FALSE
-#' start_cursor <- NULL
-#'
-#' while (has_more) {
-#'   resps[[i]] <- notion$databases$query(
-#'     "22833ea0c1e481178e9cf1dcba79dbca",
-#'     start_cursor = start_cursor
+#' \dontshow{notionapi::vcr_example_start("notion-database-update")}
+#' # ----- Update a database
+#' notion$databases$update(
+#'   "5f9759b2-ad71-4b66-880f-d0306614227b",
+#'   description = list(list(
+#'     text = list(
+#'       content = "For testing purposes"
+#'     )
+#'   )),
+#'   icon = list(
+#'     emoji = "🤩"
 #'   )
-#'
-#'   has_more <- resps[[i]][["has_more"]]
-#'   start_cursor <- resps[[i]][["next_cursor"]]
-#'   i <- i + 1
-#' }
-#' }
+#' )
+#' \dontshow{notionapi::vcr_example_end()}
 DatabasesEndpoint <- R6Class(
   "DatabasesEndpoint",
   public = list(
@@ -999,6 +965,69 @@ DatabasesEndpoint <- R6Class(
 #' @param page_size Integer. Number of items to return per page (1-100). Defaults to 100
 #'
 #' @returns A list containing the parsed API response.
+#'
+#' @examplesIf notion_token_exists()
+#' notion <- notion_client()
+#' \dontshow{notionapi::vcr_example_start("notion-data-sources-create")}
+#' # ----- Create a data source
+#' notion$data_sources$create(
+#'   list(
+#'     database_id = "5f9759b2-ad71-4b66-880f-d0306614227b"
+#'   ),
+#'   properties = list(
+#'     Title = list(
+#'       title = no_config()
+#'     )
+#'   ),
+#'   title = list(list(
+#'     text = list(
+#'       content = "Test data source"
+#'     )
+#'   ))
+#' )
+#' \dontshow{notionapi::vcr_example_end()}
+#' \dontshow{notionapi::vcr_example_start("notion-data-sources-update")}
+#' # ----- Update data source
+#' notion$data_sources$update(
+#'   "33f33ea0-c1e4-81a7-af25-000b2a6ab72d",
+#'   properties = list(
+#'     Status = list(
+#'       status = list(
+#'         options = list(
+#'           list(
+#'             name = "To do",
+#'             color = "red"
+#'           ),
+#'           list(
+#'             name = "Done",
+#'             color = "green"
+#'           )
+#'         )
+#'       )
+#'     )
+#'   )
+#' )
+#' \dontshow{notionapi::vcr_example_end()}
+#' \dontshow{notionapi::vcr_example_start("notion-data-sources-retrieve")}
+#' # ----- Retrieve a data source
+#' notion$data_sources$retrieve("33f33ea0-c1e4-81a7-af25-000b2a6ab72d")
+#' \dontshow{notionapi::vcr_example_end()}
+#' \dontshow{notionapi::vcr_example_start("notion-data-sources-list-templates")}
+#' # ----- List data source templates
+#' notion$data_sources$list_templates("33f33ea0-c1e4-81a7-af25-000b2a6ab72d")
+#' \dontshow{notionapi::vcr_example_end()}
+#' \dontshow{notionapi::vcr_example_start("notion-data-sources-query")}
+#' # ----- Query a data source
+#' notion$data_sources$query(
+#'   "33f33ea0-c1e4-81a7-af25-000b2a6ab72d",
+#'   filter = list(
+#'     property = "Status",
+#'     status = list(
+#'       equals = "To do"
+#'     )
+#'   )
+#' )
+#' \dontshow{notionapi::vcr_example_end()}
 DataSourcesEndpoint <- R6Class(
   "DataSourcesEndpoint",
   public = list(
@@ -1246,6 +1275,34 @@ DataSourcesEndpoint <- R6Class(
 #' @param page_size Integer. Number of items to return per page (1-100). Defaults to 100
 #'
 #' @returns A list containing the parsed API response.
+#'
+#' @examplesIf notion_token_exists()
+#' notion <- notion_client()
+#' \dontshow{notionapi::vcr_example_start("notion-views-create")}
+#' # ----- Create a view
+#' notion$views$create(
+#'   "33f33ea0-c1e4-81a7-af25-000b2a6ab72d",
+#'   "Test view",
+#'   "table",
+#'   "5f9759b2-ad71-4b66-880f-d0306614227b"
+#' )
+#' \dontshow{notionapi::vcr_example_end()}
+#' \dontshow{notionapi::vcr_example_start("notion-views-retrieve")}
+#' # ----- Retrieve a view
+#' notion$views$retrieve("33f33ea0-c1e4-8145-9555-000c19cc8d71")
+#' \dontshow{notionapi::vcr_example_end()}
+#' \dontshow{notionapi::vcr_example_start("notion-views-list")}
+#' # ----- List views
+#' notion$views$list(data_source_id = "33f33ea0-c1e4-81a7-af25-000b2a6ab72d")
+#' \dontshow{notionapi::vcr_example_end()}
+#' \dontshow{notionapi::vcr_example_start("notion-views-update")}
+#' # ----- Update a view
+#' notion$views$update("33f33ea0-c1e4-8145-9555-000c19cc8d71", "Updated view name")
+#' \dontshow{notionapi::vcr_example_end()}
+#' \dontshow{notionapi::vcr_example_start("notion-views-delete")}
+#' # ----- Delete a view
+#' notion$views$delete("33f33ea0-c1e4-8145-9555-000c19cc8d71")
+#' \dontshow{notionapi::vcr_example_end()}
 ViewsEndpoint <- R6Class(
   "ViewsEndpoint",
   public = list(
@@ -1500,6 +1557,27 @@ ViewsEndpoint <- R6Class(
 #' @param query_id Character (required). The ID of the query.
 #'
 #' @returns A list containing the parsed API response.
+#'
+#' @examplesIf notion_token_exists()
+#' notion <- notion_client()
+#' \dontshow{notionapi::vcr_example_start("notion-views-queries-create")}
+#' # ----- Create a view query
+#' notion$views$queries$create("33f33ea0-c1e4-8145-9555-000c19cc8d71")
+#' \dontshow{notionapi::vcr_example_end()}
+#' \dontshow{notionapi::vcr_example_start("notion-views-queries-results")}
+#' # ----- Get view query results
+#' notion$views$queries$results(
+#'   "33f33ea0-c1e4-8145-9555-000c19cc8d71",
+#'   "ee90464c-bd8d-4882-bba6-792a1dba18c6"
+#' )
+#' \dontshow{notionapi::vcr_example_end()}
+#' \dontshow{notionapi::vcr_example_start("notion-views-queries-delete")}
+#' # ----- Delete a view query
+#' notion$views$queries$delete(
+#'   "33f33ea0-c1e4-8145-9555-000c19cc8d71",
+#'   "ee90464c-bd8d-4882-bba6-792a1dba18c6"
+#' )
+#' \dontshow{notionapi::vcr_example_end()}
 ViewsQueriesEndpoint <- R6Class(
   "ViewsQueriesEndpoint",
   public = list(
@@ -1529,7 +1607,7 @@ ViewsQueriesEndpoint <- R6Class(
       )
 
       req <- notion_build_request(
-        private$.client$request,
+        private$.client$request(),
         c("views", view_id, "queries"),
         "POST",
         body_params = body_params
@@ -1621,6 +1699,79 @@ ViewsQueriesEndpoint <- R6Class(
 #'
 #' @param file_upload_id Character (required). Identifier for a Notion file upload object.
 #' @returns A list containing the parsed API response.
+#'
+#' @examplesIf notion_token_exists()
+#' notion <- notion_client()
+#' \dontshow{notionapi::vcr_example_start("notion-file-uploads-single-part")}
+#' # ----- Direct upload (files <= 20MB)
+#' # Step 1: Create a File Upload object
+#' (resp <- notion$file_uploads$create("single_part"))
+#' file_upload_id <- resp[["id"]]
+#'
+#' # Step 2: Upload file contents
+#' #* replace with your file
+#' path <- file.path(tempdir(), "test.pdf")
+#' writeBin(charToRaw("placeholder"), path)
+#' raw <- readBin(path, "raw", file.size(path))
+#'
+#' notion$file_uploads$send(
+#'   file_upload_id,
+#'   list(
+#'     filename = basename(path),
+#'     data = raw
+#'   )
+#' )
+#'
+#' # Retrieve the file upload
+#' notion$file_uploads$retrieve(file_upload_id)
+#' \dontshow{notionapi::vcr_example_end()}
+#' \dontshow{notionapi::vcr_example_start("notion-file-uploads-multi-part")}
+#' # ----- Multi-part upload (files > 20MB)
+#' # Step 1: Split raw content into parts
+#' #* replace with your file
+#' raw <- as.raw(rep(65L, 11 * 1024 * 1024))
+#' mid <- ceiling(length(raw) / 2)
+#' parts <- list(raw[seq_len(mid)], raw[seq(mid + 1L, length(raw))])
+#'
+#' # Step 2: Create a File Upload object
+#' (resp <- notion$file_uploads$create(
+#'   mode = "multi_part",
+#'   filename = "test-large.txt",
+#'   number_of_parts = 2L
+#' ))
+#' file_upload_id <- resp[["id"]]
+#'
+#' # Step 3: Send each part
+#' for (i in seq_along(parts)) {
+#'   notion$file_uploads$send(
+#'     file_upload_id,
+#'     file = list(
+#'       filename = "test-large.txt",
+#'       data = parts[[i]]
+#'     ),
+#'     part_number = as.character(i)
+#'   )
+#' }
+#'
+#' # Step 4: Complete the upload
+#' notion$file_uploads$complete(
+#'   file_upload_id
+#' )
+#'
+#' # Retrieve the file upload
+#' notion$file_uploads$retrieve(
+#'   file_upload_id
+#' )
+#' \dontshow{notionapi::vcr_example_end()}
+#' \dontshow{notionapi::vcr_example_start("notion-file-uploads-external-url")}
+#' # ----- Import external files
+#' notion$file_uploads$create(
+#'   "external_url",
+#'   "dummy.pdf",
+#'   content_type = "application/pdf",
+#'   external_url = "https://github.com/brenwin1/notionapi/blob/main/tests/testthat/test.pdf"
+#' )
+#' \dontshow{notionapi::vcr_example_end()}
 FileUploadsEndpoint <- R6Class(
   "FileUploadsEndpoint",
 
@@ -1858,22 +2009,28 @@ FileUploadsEndpoint <- R6Class(
 #'
 #' @examplesIf notion_token_exists()
 #' notion <- notion_client()
-#'
-#' # ----- create comment
 #' \dontshow{notionapi::vcr_example_start("notion-comments-create")}
+#' # ----- Create comment
 #' notion$comments$create(
-#'   list(page_id = "23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba"),
-#'   rich_text = list(list(
-#'     text = list(
-#'       content = "Hello world"
+#'   parent = list(
+#'     page_id = "33f33ea0-c1e4-811a-9790-c5068b52c5d7"
+#'   ),
+#'   rich_text = list(
+#'     list(
+#'       text = list(
+#'         content = "Hello world!"
+#'       )
 #'     )
-#'   ))
+#'   )
 #' )
 #' \dontshow{notionapi::vcr_example_end()}
-#'
-#' # ----- retrieve comments
 #' \dontshow{notionapi::vcr_example_start("notion-comments-retrieve")}
-#' notion$comments$retrieve(block_id = "23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba")
+#' # ----- Retrieve comment
+#' notion$comments$retrieve("33f33ea0-c1e4-8131-8c6c-001df322f981")
+#' \dontshow{notionapi::vcr_example_end()}
+#' \dontshow{notionapi::vcr_example_start("notion-comments-list")}
+#' # ----- List un-resolved comments from a page or block
+#' notion$comments$list("33f33ea0-c1e4-811a-9790-c5068b52c5d7")
 #' \dontshow{notionapi::vcr_example_end()}
 CommentsEndpoint <- R6Class(
   "CommentsEndpoint",
@@ -2015,19 +2172,16 @@ CommentsEndpoint <- R6Class(
 #'
 #' @examplesIf notion_token_exists()
 #' notion <- notion_client()
-#'
-#' # ----- list all users
 #' \dontshow{notionapi::vcr_example_start("notion-users-list")}
+#' # ----- List all users
 #' notion$users$list()
 #' \dontshow{notionapi::vcr_example_end()}
-#'
-#' # ----- retrieve a user
 #' \dontshow{notionapi::vcr_example_start("notion-users-retrieve")}
-#' notion$users$retrieve(user_id = "fda12729-108d-4eb5-bbfb-a8f0886794d1")
+#' # ----- Retrieve a user
+#' notion$users$retrieve("fda12729-108d-4eb5-bbfb-a8f0886794d1")
 #' \dontshow{notionapi::vcr_example_end()}
-#'
-#' # ----- retrieve the bot User associated with the API token
 #' \dontshow{notionapi::vcr_example_start("notion-users-me")}
+#' # ----- Retrieve the bot User associated with the API token
 #' notion$users$me()
 #' \dontshow{notionapi::vcr_example_end()}
 UsersEndpoint <- R6Class(
@@ -2127,6 +2281,12 @@ UsersEndpoint <- R6Class(
 #' **Note:** Access this endpoint through the client instance, e.g., `notion$custom_emojis`. Not to be instantiated directly.
 #'
 #' @returns A list containing the parsed API response.
+#'
+#' @examplesIf notion_token_exists()
+#' notion <- notion_client()
+#' \dontshow{notionapi::vcr_example_start("notion-custom-emojis-list")}
+#' notion$custom_emojis$list()
+#' \dontshow{notionapi::vcr_example_end()}
 CustomEmojisEndpoint <- R6Class(
   "CustomEmojisEndpoint",
   public = list(

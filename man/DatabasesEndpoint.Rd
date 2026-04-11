@@ -14,90 +14,38 @@ Handle all databases operations in the Notion API
 \examples{
 \dontshow{if (notion_token_exists()) withAutoprint(\{ # examplesIf}
 notion <- notion_client()
-
-# ----- create a database
 \dontshow{notionapi::vcr_example_start("notion-databases-create")}
+# ----- Create a database
 notion$databases$create(
-  parent = list(page_id = "23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba"),
-  title = list(
-    list(
-      type = "text",
-      text = list(
-        content = "Grocery list"
-      )
-    )
+  list(
+    type = "page_id",
+    page_id = "22f33ea0c1e480b99c77d1ab72aedff9"
   ),
-  properties = list(
-    Name = list(
-      title = no_config()
-    ),
-    `In stock` = list(
-      checkbox = no_config()
-    )
-  )
-)
-\dontshow{notionapi::vcr_example_end()}
-
-# ----- retrieve a database
-\dontshow{notionapi::vcr_example_start("notion-databases-retrieve")}
-notion$databases$retrieve(
-  "23933ea0-c1e4-8136-b37b-fa235c6f2a71"
-)
-\dontshow{notionapi::vcr_example_end()}
-
-# ----- update a database
-\dontshow{notionapi::vcr_example_start("notion-database-update")}
-notion$databases$update(
-  "23933ea0-c1e4-8136-b37b-fa235c6f2a71",
-  list(list(
+  title = list(list(
     text = list(
-      content = "Today's grocery list"
+      content = "Test Database"
     )
   ))
 )
 \dontshow{notionapi::vcr_example_end()}
-
-# ----- query a database
-\dontshow{notionapi::vcr_example_start("notion-database-query")}
-notion$databases$query(
-  database_id = "23933ea0-c1e4-8136-b37b-fa235c6f2a71",
-  filter = list(
-    or = list(
-      list(
-        property = "In stock",
-        checkbox = list(equals = TRUE)
-      ),
-      list(
-        property = "Name",
-        title = list(contains = "kale")
-      )
-    )
-  ),
-  sorts = list(list(
-    property = "Name",
-    direction = "ascending"
-  ))
-)
+\dontshow{notionapi::vcr_example_start("notion-databases-retrieve")}
+# ----- Retrieve a database
+notion$databases$retrieve("5f9759b2-ad71-4b66-880f-d0306614227b")
 \dontshow{notionapi::vcr_example_end()}
-
-# ----- iterate through paginated results
-\dontrun{
-i <- 1
-resps <- list()
-has_more <- FALSE
-start_cursor <- NULL
-
-while (has_more) {
-  resps[[i]] <- notion$databases$query(
-    "22833ea0c1e481178e9cf1dcba79dbca",
-    start_cursor = start_cursor
+\dontshow{notionapi::vcr_example_start("notion-database-update")}
+# ----- Update a database
+notion$databases$update(
+  "5f9759b2-ad71-4b66-880f-d0306614227b",
+  description = list(list(
+    text = list(
+      content = "For testing purposes"
+    )
+  )),
+  icon = list(
+    emoji = "🤩"
   )
-
-  has_more <- resps[[i]][["has_more"]]
-  start_cursor <- resps[[i]][["next_cursor"]]
-  i <- i + 1
-}
-}
+)
+\dontshow{notionapi::vcr_example_end()}
 \dontshow{\}) # examplesIf}
 }
 \section{Methods}{

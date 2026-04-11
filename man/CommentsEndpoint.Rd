@@ -14,22 +14,28 @@ Handle all comments operations in the Notion API
 \examples{
 \dontshow{if (notion_token_exists()) withAutoprint(\{ # examplesIf}
 notion <- notion_client()
-
-# ----- create comment
 \dontshow{notionapi::vcr_example_start("notion-comments-create")}
+# ----- Create comment
 notion$comments$create(
-  list(page_id = "23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba"),
-  rich_text = list(list(
-    text = list(
-      content = "Hello world"
+  parent = list(
+    page_id = "33f33ea0-c1e4-811a-9790-c5068b52c5d7"
+  ),
+  rich_text = list(
+    list(
+      text = list(
+        content = "Hello world!"
+      )
     )
-  ))
+  )
 )
 \dontshow{notionapi::vcr_example_end()}
-
-# ----- retrieve comments
 \dontshow{notionapi::vcr_example_start("notion-comments-retrieve")}
-notion$comments$retrieve(block_id = "23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba")
+# ----- Retrieve comment
+notion$comments$retrieve("33f33ea0-c1e4-8131-8c6c-001df322f981")
+\dontshow{notionapi::vcr_example_end()}
+\dontshow{notionapi::vcr_example_start("notion-comments-list")}
+# ----- List un-resolved comments from a page or block
+notion$comments$list("33f33ea0-c1e4-811a-9790-c5068b52c5d7")
 \dontshow{notionapi::vcr_example_end()}
 \dontshow{\}) # examplesIf}
 }

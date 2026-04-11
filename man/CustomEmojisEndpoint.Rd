@@ -11,6 +11,14 @@ Handle all custom emojis operations in the Notion API
 
 \strong{Note:} Access this endpoint through the client instance, e.g., \code{notion$custom_emojis}. Not to be instantiated directly.
 }
+\examples{
+\dontshow{if (notion_token_exists()) withAutoprint(\{ # examplesIf}
+notion <- notion_client()
+\dontshow{notionapi::vcr_example_start("notion-custom-emojis-list")}
+notion$custom_emojis$list()
+\dontshow{notionapi::vcr_example_end()}
+\dontshow{\}) # examplesIf}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

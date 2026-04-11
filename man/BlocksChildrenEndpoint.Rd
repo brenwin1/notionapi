@@ -14,13 +14,11 @@ Handle all block children operations in the Notion API
 \examples{
 \dontshow{if (notion_token_exists()) withAutoprint(\{ # examplesIf}
 notion <- notion_client()
-
-# ----- append children to a block
 \dontshow{notionapi::vcr_example_start("notion-blocks-children-append")}
+# ----- Append children to a block
 notion$blocks$children$append(
-  block_id = "23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba",
-  children = list(
-    # add a level 2 heading called "Test Heading"
+  "33f33ea0-c1e4-811a-9790-c5068b52c5d7",
+  list(
     list(
       object = "block",
       heading_2 = list(
@@ -29,16 +27,15 @@ notion$blocks$children$append(
         ))
       )
     )
-  )
+  ),
+  position = list(type = "start")
 )
 \dontshow{notionapi::vcr_example_end()}
-
-# ----- retrieve children of a block
 \dontshow{notionapi::vcr_example_start("notion-blocks-children-list")}
-notion$blocks$children$list("23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba")
+# ----- Retrieve children of a block
+notion$blocks$children$list("33f33ea0-c1e4-811a-9790-c5068b52c5d7")
 \dontshow{notionapi::vcr_example_end()}
-
-# ----- iterate through paginated results
+# ----- Iterate through paginated results
 \dontrun{
 start_cursor <- NULL
 has_more <- FALSE

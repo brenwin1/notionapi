@@ -13,32 +13,29 @@ Handle all block operations in the Notion API
 }
 \examples{
 \dontshow{if (notion_token_exists()) withAutoprint(\{ # examplesIf}
-\dontshow{notionapi::vcr_example_start("notion-blocks-retrieve")}
 notion <- notion_client()
-
-# ----- retrieve a block
-notion$blocks$retrieve("23933ea0-c1e4-81dc-9f56-f3fa251a757f")
+\dontshow{notionapi::vcr_example_start("notion-blocks-retrieve")}
+# ----- Retrieve a block
+notion$blocks$retrieve("33f33ea0-c1e4-81cb-b1ae-d9eb58672111")
 \dontshow{notionapi::vcr_example_end()}
-
-# ----- update a block
 \dontshow{notionapi::vcr_example_start("notion-blocks-update")}
+# ----- Update a block
 notion$blocks$update(
-  "23933ea0-c1e4-81dc-9f56-f3fa251a757f",
+  "33f33ea0-c1e4-81cb-b1ae-d9eb58672111",
   heading_2 = list(
-    rich_text = list(
-      list(
-        text = list(
-          content = "Updated Test Heading"
-        )
+    rich_text = list(list(
+      text = list(
+        content = "Updated Test Heading"
       )
-    )
+    ))
   )
 )
 \dontshow{notionapi::vcr_example_end()}
-
-# ----- delete a block
 \dontshow{notionapi::vcr_example_start("notion-blocks-delete")}
-notion$blocks$delete(block_id = "23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba")
+# ----- Delete a block
+notion$blocks$delete(
+  "33f33ea0-c1e4-81cb-b1ae-d9eb58672111"
+)
 \dontshow{notionapi::vcr_example_end()}
 \dontshow{\}) # examplesIf}
 }

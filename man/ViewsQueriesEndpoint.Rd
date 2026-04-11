@@ -11,6 +11,29 @@ Handle all views queries operations in the Notion API
 
 \strong{Note:} Access this endpoint through the client instance, e.g., \code{notion$views$queries}. Not to be instantiated directly.
 }
+\examples{
+\dontshow{if (notion_token_exists()) withAutoprint(\{ # examplesIf}
+notion <- notion_client()
+\dontshow{notionapi::vcr_example_start("notion-views-queries-create")}
+# ----- Create a view query
+notion$views$queries$create("33f33ea0-c1e4-8145-9555-000c19cc8d71")
+\dontshow{notionapi::vcr_example_end()}
+\dontshow{notionapi::vcr_example_start("notion-views-queries-results")}
+# ----- Get view query results
+notion$views$queries$results(
+  "33f33ea0-c1e4-8145-9555-000c19cc8d71",
+  "ee90464c-bd8d-4882-bba6-792a1dba18c6"
+)
+\dontshow{notionapi::vcr_example_end()}
+\dontshow{notionapi::vcr_example_start("notion-views-queries-delete")}
+# ----- Delete a view query
+notion$views$queries$delete(
+  "33f33ea0-c1e4-8145-9555-000c19cc8d71",
+  "ee90464c-bd8d-4882-bba6-792a1dba18c6"
+)
+\dontshow{notionapi::vcr_example_end()}
+\dontshow{\}) # examplesIf}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

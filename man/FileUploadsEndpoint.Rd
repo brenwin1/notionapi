@@ -11,6 +11,81 @@ Handle all file uploads operations in the Notion API
 
 \strong{Note:} Access this endpoint through the client instance, e.g., \code{notion$file_uploads}. Not to be instantiated directly.
 }
+\examples{
+\dontshow{if (notion_token_exists()) withAutoprint(\{ # examplesIf}
+notion <- notion_client()
+\dontshow{notionapi::vcr_example_start("notion-file-uploads-single-part")}
+# ----- Direct upload (files <= 20MB)
+# Step 1: Create a File Upload object
+(resp <- notion$file_uploads$create("single_part"))
+file_upload_id <- resp[["id"]]
+
+# Step 2: Upload file contents
+#* replace with your file
+path <- file.path(tempdir(), "test.pdf")
+writeBin(charToRaw("placeholder"), path)
+raw <- readBin(path, "raw", file.size(path))
+
+notion$file_uploads$send(
+  file_upload_id,
+  list(
+    filename = basename(path),
+    data = raw
+  )
+)
+
+# Retrieve the file upload
+notion$file_uploads$retrieve(file_upload_id)
+\dontshow{notionapi::vcr_example_end()}
+\dontshow{notionapi::vcr_example_start("notion-file-uploads-multi-part")}
+# ----- Multi-part upload (files > 20MB)
+# Step 1: Split raw content into parts
+#* replace with your file
+raw <- as.raw(rep(65L, 11 * 1024 * 1024))
+mid <- ceiling(length(raw) / 2)
+parts <- list(raw[seq_len(mid)], raw[seq(mid + 1L, length(raw))])
+
+# Step 2: Create a File Upload object
+(resp <- notion$file_uploads$create(
+  mode = "multi_part",
+  filename = "test-large.txt",
+  number_of_parts = 2L
+))
+file_upload_id <- resp[["id"]]
+
+# Step 3: Send each part
+for (i in seq_along(parts)) {
+  notion$file_uploads$send(
+    file_upload_id,
+    file = list(
+      filename = "test-large.txt",
+      data = parts[[i]]
+    ),
+    part_number = as.character(i)
+  )
+}
+
+# Step 4: Complete the upload
+notion$file_uploads$complete(
+  file_upload_id
+)
+
+# Retrieve the file upload
+notion$file_uploads$retrieve(
+  file_upload_id
+)
+\dontshow{notionapi::vcr_example_end()}
+\dontshow{notionapi::vcr_example_start("notion-file-uploads-external-url")}
+# ----- Import external files
+notion$file_uploads$create(
+  "external_url",
+  "dummy.pdf",
+  content_type = "application/pdf",
+  external_url = "https://github.com/brenwin1/notionapi/blob/main/tests/testthat/test.pdf"
+)
+\dontshow{notionapi::vcr_example_end()}
+\dontshow{\}) # examplesIf}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

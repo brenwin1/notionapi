@@ -11,6 +11,36 @@ Handle all views operations in the Notion API
 
 \strong{Note:} Access this endpoint through the client instance, e.g., \code{notion$views}. Not to be instantiated directly.
 }
+\examples{
+\dontshow{if (notion_token_exists()) withAutoprint(\{ # examplesIf}
+notion <- notion_client()
+\dontshow{notionapi::vcr_example_start("notion-views-create")}
+# ----- Create a view
+notion$views$create(
+  "33f33ea0-c1e4-81a7-af25-000b2a6ab72d",
+  "Test view",
+  "table",
+  "5f9759b2-ad71-4b66-880f-d0306614227b"
+)
+\dontshow{notionapi::vcr_example_end()}
+\dontshow{notionapi::vcr_example_start("notion-views-retrieve")}
+# ----- Retrieve a view
+notion$views$retrieve("33f33ea0-c1e4-8145-9555-000c19cc8d71")
+\dontshow{notionapi::vcr_example_end()}
+\dontshow{notionapi::vcr_example_start("notion-views-list")}
+# ----- List views
+notion$views$list(data_source_id = "33f33ea0-c1e4-81a7-af25-000b2a6ab72d")
+\dontshow{notionapi::vcr_example_end()}
+\dontshow{notionapi::vcr_example_start("notion-views-update")}
+# ----- Update a view
+notion$views$update("33f33ea0-c1e4-8145-9555-000c19cc8d71", "Updated view name")
+\dontshow{notionapi::vcr_example_end()}
+\dontshow{notionapi::vcr_example_start("notion-views-delete")}
+# ----- Delete a view
+notion$views$delete("33f33ea0-c1e4-8145-9555-000c19cc8d71")
+\dontshow{notionapi::vcr_example_end()}
+\dontshow{\}) # examplesIf}
+}
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{

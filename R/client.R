@@ -77,19 +77,18 @@ async_notion_client <- function(
 #' @examplesIf notion_token_exists()
 #' # ----- Create a Notion client with default configuration
 #' notion <- notion_client()
-#'
-#' # search for pages and databases
 #' \dontshow{notionapi::vcr_example_start("notion-search")}
+#' # ----- Search for pages and databases
 #' notion$search(
-#'   "Test Page 2025-07-15",
+#'   query = "Test Page for notionapi",
 #'   page_size = 1,
 #'   filter = list(
-#'     value = "page",
-#'     property = "object"
+#'     property = "object",
+#'     value = "page"
 #'   ),
 #'   sort = list(
-#'     direction = "descending",
-#'     timestamp = "last_edited_time"
+#'     timestamp = "last_edited_time",
+#'     direction = "descending"
 #'   )
 #' )
 #' \dontshow{notionapi::vcr_example_end()}
