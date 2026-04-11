@@ -5,33 +5,30 @@ http_interactions:
   response:
     status: 200
     headers:
-      alt-svc: h3=":443"; ma=86400
-      cf-cache-status: DYNAMIC
-      cf-ray: 96389e3a5e14271a-MEL
-      content-encoding: gzip
-      content-security-policy: default-src 'none'
+      date: Sat, 11 Apr 2026 12:01:22 GMT
       content-type: application/json; charset=utf-8
-      date: Wed, 23 Jul 2025 05:01:07 GMT
-      etag: W/"21b-L8ow3DTIkoUrvL942fMeHlDXIho"
-      referrer-policy: strict-origin-when-cross-origin
+      cf-ray: 9ea9d612ca5da807-SYD
+      cf-cache-status: DYNAMIC
+      etag: W/"251-yFN/JkTu3v+qL8PHo227bqZLZLA"
       server: cloudflare
-      set-cookie:
-      - __cf_bm=ECeABKY8i_boHc6ntj5mbCFrlBxzZJxbICxsPhfEpFA-1753246867-1.0.1.1-BHvOH72Uzd1rrzr0kqDT7zGr.SeFZETKnKIreBGISVjsgn5hL3hNF2gTxAK1GbrgxM7jtfuQDVMHLTeNsQWpWVQp.nAe_s3L53NkRmV8cXs;
-        path=/; expires=Wed, 23-Jul-25 05:31:07 GMT; domain=.notion.com; HttpOnly;
-        Secure; SameSite=None
-      - _cfuvid=MJBDIj8_j_t9uG98h7ktAy4x.UBwJNuoD0eFG9M5cU8-1753246867950-0.0.1.1-604800000;
-        path=/; domain=.notion.com; HttpOnly; Secure; SameSite=None
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       vary: Accept-Encoding
+      content-security-policy: default-src 'none'
+      referrer-policy: strict-origin-when-cross-origin
       x-content-type-options: nosniff
       x-dns-prefetch-control: 'off'
       x-download-options: noopen
       x-frame-options: SAMEORIGIN
-      x-notion-request-id: fd112634-e4c9-4953-a557-43326deb3f41
+      x-notion-request-id: 8c6315bb-39f6-46a0-a71f-9d5870c9292a
       x-permitted-cross-domain-policies: none
       x-xss-protection: '0'
+      set-cookie: __cf_bm=n26obT9XtCHcHDof1SR.uqVf0jpCtRf1259QYbPjjyQ-1775908882.363534-1.0.1.1-Fu9kJpf38BWKqyF6IkYoD2BGXyi9axF7RpUqIMqHs.4OjVR1P0rbIBGUT0BvIEGqenKkk9zKlDnz85Pti3hj.iWHxhxpPw_Xc6uhWhhYX5qOyS3nS_diYJYr957A3q2x;
+        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sat, 11 Apr 2026 12:31:22
+        GMT
+      content-encoding: gzip
+      alt-svc: h3=":443"; ma=86400
     body:
       string: '{"object":"list","results":[{"object":"user","id":"fda12729-108d-4eb5-bbfb-a8f0886794d1","name":"Brenwin","avatar_url":null,"type":"person","person":{}},{"object":"user","id":"6b786605-e456-4237-9c61-5efaff23c081","name":"brenwin-internal","avatar_url":null,"type":"bot","bot":{"owner":{"type":"workspace","workspace":true},"workspace_name":"Brenwin''s
-        Notion","workspace_limits":{"max_file_upload_size_in_bytes":5368709120}}}],"next_cursor":null,"has_more":false,"type":"user","user":{},"request_id":"fd112634-e4c9-4953-a557-43326deb3f41"}'
-  recorded_at: 2025-07-23 05:01:07
-recorded_with: VCR-vcr/1.7.1.93
+        Notion","workspace_id":"8c95f187-450c-4f67-a013-54f17e298330","workspace_limits":{"max_file_upload_size_in_bytes":5368709120}}}],"next_cursor":null,"has_more":false,"type":"user","user":{},"request_id":"8c6315bb-39f6-46a0-a71f-9d5870c9292a"}'
+  recorded_at: 2026-04-11 12:01:22
+recorded_with: VCR-vcr/2.1.0

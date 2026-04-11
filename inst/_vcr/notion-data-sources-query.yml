@@ -1,0 +1,38 @@
+http_interactions:
+- request:
+    method: POST
+    uri: https://api.notion.com/v1/data_sources/33f33ea0-c1e4-81a7-af25-000b2a6ab72d/query
+    body:
+      string: '{"filter":{"property":"Status","status":{"equals":"To do"}}}'
+  response:
+    status: 200
+    headers:
+      date: Sat, 11 Apr 2026 12:01:55 GMT
+      content-type: application/json; charset=utf-8
+      cf-ray: 9ea9d6dc4ceca807-SYD
+      cf-cache-status: DYNAMIC
+      content-encoding: gzip
+      etag: W/"4ea-Xujxor066u60EDJ6SxLP52WZm3s"
+      server: cloudflare
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      vary: Accept-Encoding
+      content-security-policy: default-src 'none'
+      referrer-policy: strict-origin-when-cross-origin
+      x-content-type-options: nosniff
+      x-dns-prefetch-control: 'off'
+      x-download-options: noopen
+      x-frame-options: SAMEORIGIN
+      x-notion-request-id: 5b2fd6a0-605f-41d5-bf22-e28ebd8337c6
+      x-permitted-cross-domain-policies: none
+      x-xss-protection: '0'
+      set-cookie: __cf_bm=UsWnymYF_azOMPwykphwbUKjoAW10HPvQS2JCKqYFIo-1775908914.6019511-1.0.1.1-kG9H4jN4ofGlGi.3v7Mar6YNU017KGjOjhbYxQTlbTGW437xtaMQ1YBOM405hxidQQvHHwp4UYfTQOpBqTyNII1xFqsRAhA5doUJ07pYTn4frgoTXOSsEzYzF2COGhRq;
+        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sat, 11 Apr 2026 12:31:55
+        GMT
+      alt-svc: h3=":443"; ma=86400
+    body:
+      string: "{\"object\":\"list\",\"results\":[{\"object\":\"page\",\"id\":\"33f33ea0-c1e4-811a-9790-c5068b52c5d7\",\"created_time\":\"2026-04-11T12:01:00.000Z\",\"last_edited_time\":\"2026-04-11T12:01:00.000Z\",\"created_by\":{\"object\":\"user\",\"id\":\"6b786605-e456-4237-9c61-5efaff23c081\"},\"last_edited_by\":{\"object\":\"user\",\"id\":\"6b786605-e456-4237-9c61-5efaff23c081\"},\"cover\":null,\"icon\":{\"type\":\"emoji\",\"emoji\":\"\U0001F436\"},\"parent\":{\"type\":\"data_source_id\",\"data_source_id\":\"33f33ea0-c1e4-81a7-af25-000b2a6ab72d\",\"database_id\":\"5f9759b2-ad71-4b66-880f-d0306614227b\"},\"in_trash\":false,\"is_archived\":false,\"is_locked\":false,\"properties\":{\"Status\":{\"id\":\"u%7Clh\",\"type\":\"status\",\"status\":{\"id\":\"3ac028c6-120e-408e-a5ac-01babd8c42b9\",\"name\":\"To
+        do\",\"color\":\"red\"}},\"Title\":{\"id\":\"title\",\"type\":\"title\",\"title\":[{\"type\":\"text\",\"text\":{\"content\":\"Test
+        Page for notionapi\",\"link\":null},\"annotations\":{\"bold\":false,\"italic\":false,\"strikethrough\":false,\"underline\":false,\"code\":false,\"color\":\"default\"},\"plain_text\":\"Test
+        Page for notionapi\",\"href\":null}]}},\"url\":\"https://www.notion.so/Test-Page-for-notionapi-33f33ea0c1e4811a9790c5068b52c5d7\",\"public_url\":null}],\"next_cursor\":null,\"has_more\":false,\"type\":\"page_or_data_source\",\"page_or_data_source\":{},\"request_id\":\"5b2fd6a0-605f-41d5-bf22-e28ebd8337c6\"}"
+  recorded_at: 2026-04-11 12:01:55
+recorded_with: VCR-vcr/2.1.0

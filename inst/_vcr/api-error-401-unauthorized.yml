@@ -5,33 +5,30 @@ http_interactions:
   response:
     status: 401
     headers:
-      alt-svc: h3=":443"; ma=86400
-      cf-cache-status: DYNAMIC
-      cf-ray: 96389db4dc7e271a-MEL
-      content-length: '139'
-      content-security-policy: default-src 'none'
+      date: Sat, 11 Apr 2026 12:01:24 GMT
       content-type: application/json; charset=utf-8
-      date: Wed, 23 Jul 2025 05:00:54 GMT
-      etag: W/"8b-Ukjt1ig3fDFqzO6/l491YL9Seuw"
-      referrer-policy: strict-origin-when-cross-origin
+      content-length: '139'
+      cf-ray: 9ea9d621b8c3a807-SYD
+      cf-cache-status: DYNAMIC
+      etag: W/"8b-QLnTdp7j7QEk+z3c3s80hkoJ0Ww"
       server: cloudflare
-      set-cookie:
-      - __cf_bm=KAaFrWQEeaxyJYWfiZxdys494mP_ioSY0Kf_.KrgljM-1753246854-1.0.1.1-E02H9CI1YDc0TjbtwTiffrYsffmSgdt6EaQ3fFh2yoz4DJcgT6pVN6cdmv5G.cv3RO1XcvvXhg.CmMHB8Qa8XU.AqMxEPEm2AJX_P_EIU_Y;
-        path=/; expires=Wed, 23-Jul-25 05:30:54 GMT; domain=.notion.com; HttpOnly;
-        Secure; SameSite=None
-      - _cfuvid=8h4afmyvnkJfjpa5wELMQp8kANFg4tRKNZrP3BpABcE-1753246854055-0.0.1.1-604800000;
-        path=/; domain=.notion.com; HttpOnly; Secure; SameSite=None
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       vary: Accept-Encoding
+      content-security-policy: default-src 'none'
+      referrer-policy: strict-origin-when-cross-origin
       x-content-type-options: nosniff
       x-dns-prefetch-control: 'off'
       x-download-options: noopen
       x-frame-options: SAMEORIGIN
-      x-notion-request-id: 62942bf3-c19d-48a5-88cc-d0a5c9dbd7da
+      x-notion-request-id: f1473872-9477-43c7-9e63-cf84b1340eb5
       x-permitted-cross-domain-policies: none
       x-xss-protection: '0'
+      set-cookie: __cf_bm=cDwY.hA0hh_o4VE6pIymsKDzNYa1Ldqo9IpH3DFPHxY-1775908884.7597976-1.0.1.1-sRFdihvPHLtRxh34NGqUD7jaSmynTHO3d70uV8uejWrjncvCIDxZ26H6jrwrvcKY1_waa_QGGNdwBTbAX2m1rk6xgyjjNjHyhoxYDTS9UpudUTplGSS1QQtmvcGNtJ_.;
+        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sat, 11 Apr 2026 12:31:24
+        GMT
+      alt-svc: h3=":443"; ma=86400
     body:
       string: '{"object":"error","status":401,"code":"unauthorized","message":"API
-        token is invalid.","request_id":"62942bf3-c19d-48a5-88cc-d0a5c9dbd7da"}'
-  recorded_at: 2025-07-23 05:00:53
-recorded_with: VCR-vcr/1.7.1.93
+        token is invalid.","request_id":"f1473872-9477-43c7-9e63-cf84b1340eb5"}'
+  recorded_at: 2026-04-11 12:01:24
+recorded_with: VCR-vcr/2.1.0

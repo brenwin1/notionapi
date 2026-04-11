@@ -1,0 +1,37 @@
+http_interactions:
+- request:
+    method: PATCH
+    uri: https://api.notion.com/v1/pages/33f33ea0-c1e4-811a-9790-c5068b52c5d7/markdown
+    body:
+      string: '{"type":"replace_content","replace_content":{"new_str":"## Updated
+        Test Heading\nUsed markdown{color=\"blue\"}"}}'
+  response:
+    status: 200
+    headers:
+      date: Sat, 11 Apr 2026 12:01:42 GMT
+      content-type: application/json; charset=utf-8
+      cf-ray: 9ea9d68e298fa807-SYD
+      cf-cache-status: DYNAMIC
+      etag: W/"e8-Af092gufI4NEbJz8muJTWySFXCs"
+      server: cloudflare
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      vary: Accept-Encoding
+      content-security-policy: default-src 'none'
+      referrer-policy: strict-origin-when-cross-origin
+      x-content-type-options: nosniff
+      x-dns-prefetch-control: 'off'
+      x-download-options: noopen
+      x-frame-options: SAMEORIGIN
+      x-notion-request-id: 50877656-4ed1-4321-b7a1-285152569278
+      x-permitted-cross-domain-policies: none
+      x-xss-protection: '0'
+      set-cookie: __cf_bm=l5dHpq9cn_fPdJ33XGHchAnwdCbDkK1C5ajlqm4fCl0-1775908902.1089458-1.0.1.1-L0oIWgzU_SoYXAQxF9c2_6Yuj8cS5QUR3Irv9BrwyOZ2a5BhRcKSkiKLBtT.g8OXJGpRXgCphzlHRBmYP2RMipZtYyhyXcu4iTmxprHU5ajOQfj3xjEolkDb12P_c9nC;
+        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sat, 11 Apr 2026 12:31:42
+        GMT
+      content-encoding: gzip
+      alt-svc: h3=":443"; ma=86400
+    body:
+      string: '{"object":"page_markdown","id":"33f33ea0-c1e4-811a-9790-c5068b52c5d7","markdown":"##
+        Updated Test Heading\nUsed markdown {color=\"blue\"}","truncated":false,"unknown_block_ids":[],"request_id":"50877656-4ed1-4321-b7a1-285152569278"}'
+  recorded_at: 2026-04-11 12:01:42
+recorded_with: VCR-vcr/2.1.0

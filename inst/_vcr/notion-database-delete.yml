@@ -3,16 +3,16 @@ http_interactions:
     method: PATCH
     uri: https://api.notion.com/v1/databases/5f9759b2-ad71-4b66-880f-d0306614227b
     body:
-      string: "{\"description\":[{\"text\":{\"content\":\"For testing purposes\"}}],\"icon\":{\"emoji\":\"\U0001F929\"}}"
+      string: '{"in_trash":true}'
   response:
     status: 200
     headers:
-      date: Sat, 11 Apr 2026 12:01:49 GMT
+      date: Sat, 11 Apr 2026 12:02:11 GMT
       content-type: application/json; charset=utf-8
-      cf-ray: 9ea9d6b56adaa807-SYD
+      cf-ray: 9ea9d737becba807-SYD
       cf-cache-status: DYNAMIC
       content-encoding: gzip
-      etag: W/"412-78PjqOB9x9T6hp2VOCTwRXpBkos"
+      etag: W/"459-zLfUkpUqIeeErqKjyCE8EyJzGlg"
       server: cloudflare
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       vary: Accept-Encoding
@@ -22,11 +22,11 @@ http_interactions:
       x-dns-prefetch-control: 'off'
       x-download-options: noopen
       x-frame-options: SAMEORIGIN
-      x-notion-request-id: 65362dca-3fc6-4d05-a9e1-bc280bd3a755
+      x-notion-request-id: 8790515c-9dda-4693-b3e9-06d9c81f50d9
       x-permitted-cross-domain-policies: none
       x-xss-protection: '0'
-      set-cookie: __cf_bm=s8On_ZIcOBcpGmjpUoIaYJizvwK3c7rtHVr.j1LkPEg-1775908908.3891773-1.0.1.1-8liqyFpLZYYGkpnHqu6CXB_InsqCWjDzSd52TdTnu87WK79Qg7sLeb_0r36LvPWxTPBTuQW8uwsB9FeDmd8DZ2FLAzbfjajFLgwKfOtZOO2piMUoo2izz7YdITB57JnH;
-        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sat, 11 Apr 2026 12:31:49
+      set-cookie: __cf_bm=hENgvzz8cjkIklF1j9Un0dyqXvsPOJKUCNd8QdZVqmU-1775908929.2380767-1.0.1.1-vQOED3Uoes1Sp939bFeBRV8xQ9EYjG.BznxbTf4Qh9I7ZS7AxDj9V7Li.0igEPuHGOX4ef1YSKxLU8Mev2GBDcI4UlXLZxyC4l5bfUDLQDFc77lSEsgJkb3I3XgXx2xa;
+        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sat, 11 Apr 2026 12:32:11
         GMT
       alt-svc: h3=":443"; ma=86400
     body:
@@ -34,7 +34,8 @@ http_interactions:
         Database\",\"link\":null},\"annotations\":{\"bold\":false,\"italic\":false,\"strikethrough\":false,\"underline\":false,\"code\":false,\"color\":\"default\"},\"plain_text\":\"Test
         Database\",\"href\":null}],\"description\":[{\"type\":\"text\",\"text\":{\"content\":\"For
         testing purposes\",\"link\":null},\"annotations\":{\"bold\":false,\"italic\":false,\"strikethrough\":false,\"underline\":false,\"code\":false,\"color\":\"default\"},\"plain_text\":\"For
-        testing purposes\",\"href\":null}],\"parent\":{\"type\":\"page_id\",\"page_id\":\"22f33ea0-c1e4-80b9-9c77-d1ab72aedff9\"},\"is_inline\":false,\"in_trash\":false,\"is_locked\":false,\"created_time\":\"2026-04-11T12:01:45.055+00:00\",\"last_edited_time\":\"2026-04-11T12:01:45.055+00:00\",\"data_sources\":[{\"id\":\"a596f1d9-379c-4ae3-8d4a-707d9ca4a0b0\",\"name\":\"Test
-        Database\"}],\"icon\":{\"type\":\"emoji\",\"emoji\":\"\U0001F929\"},\"cover\":null,\"url\":\"https://www.notion.so/5f9759b2ad714b66880fd0306614227b\",\"public_url\":null,\"request_id\":\"65362dca-3fc6-4d05-a9e1-bc280bd3a755\"}"
-  recorded_at: 2026-04-11 12:01:49
+        testing purposes\",\"href\":null}],\"parent\":{\"type\":\"page_id\",\"page_id\":\"22f33ea0-c1e4-80b9-9c77-d1ab72aedff9\"},\"is_inline\":false,\"in_trash\":true,\"is_locked\":false,\"created_time\":\"2026-04-11T12:01:45.055+00:00\",\"last_edited_time\":\"2026-04-11T12:02:00.995+00:00\",\"data_sources\":[{\"id\":\"a596f1d9-379c-4ae3-8d4a-707d9ca4a0b0\",\"name\":\"Test
+        Database\"},{\"id\":\"33f33ea0-c1e4-81a7-af25-000b2a6ab72d\",\"name\":\"Test
+        data source\"}],\"icon\":{\"type\":\"emoji\",\"emoji\":\"\U0001F929\"},\"cover\":null,\"url\":\"https://www.notion.so/5f9759b2ad714b66880fd0306614227b\",\"public_url\":null,\"request_id\":\"8790515c-9dda-4693-b3e9-06d9c81f50d9\"}"
+  recorded_at: 2026-04-11 12:02:11
 recorded_with: VCR-vcr/2.1.0

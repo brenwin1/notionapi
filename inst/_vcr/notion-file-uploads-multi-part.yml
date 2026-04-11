@@ -1,0 +1,162 @@
+http_interactions:
+- request:
+    method: POST
+    uri: https://api.notion.com/v1/file_uploads
+  response:
+    status: 200
+    headers:
+      date: Sat, 11 Apr 2026 12:02:14 GMT
+      content-type: application/json; charset=utf-8
+      cf-ray: 9ea9d7529beda807-SYD
+      cf-cache-status: DYNAMIC
+      etag: W/"249-5CVZZ4fgfUWodPHKzwR8rrl7HWc"
+      server: cloudflare
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      vary: Accept-Encoding
+      content-security-policy: default-src 'none'
+      referrer-policy: strict-origin-when-cross-origin
+      x-content-type-options: nosniff
+      x-dns-prefetch-control: 'off'
+      x-download-options: noopen
+      x-frame-options: SAMEORIGIN
+      x-notion-request-id: 44b33001-393c-4dc7-850a-c8d881a2b317
+      x-permitted-cross-domain-policies: none
+      x-xss-protection: '0'
+      set-cookie: __cf_bm=AkM4unPv16g6Q.A4Ixm.GCRJqCoP5S.Atts67QbJW38-1775908933.5395715-1.0.1.1-4YXFyW65ES0r3F1_dHSPqJYHjPODUi6jD13BeuPnXXBEu82MkHw32lKSIMzE69MwEpFphNU1fI5q_qWru4s2f4wqRhL8Ptdo3_jJTiidFCz23oqmkK3onnUeor2guenx;
+        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sat, 11 Apr 2026 12:32:14
+        GMT
+      content-encoding: gzip
+      alt-svc: h3=":443"; ma=86400
+    body:
+      string: '{"object":"file_upload","id":"33f33ea0-c1e4-81e0-ac08-00b2d6067a9c","created_time":"2026-04-11T12:02:00.000Z","created_by":{"id":"6b786605-e456-4237-9c61-5efaff23c081","type":"bot"},"last_edited_time":"2026-04-11T12:02:00.000Z","expiry_time":"2026-04-11T13:02:00.000Z","upload_url":"https://api.notion.com/v1/file_uploads/33f33ea0-c1e4-81e0-ac08-00b2d6067a9c/send","in_trash":false,"status":"pending","filename":"test-large.txt","content_type":"text/plain;
+        charset=utf-8","content_length":null,"number_of_parts":{"total":2,"sent":0},"request_id":"44b33001-393c-4dc7-850a-c8d881a2b317"}'
+  recorded_at: 2026-04-11 12:02:14
+- request:
+    method: POST
+    uri: https://api.notion.com/v1/file_uploads/33f33ea0-c1e4-81e0-ac08-00b2d6067a9c/send
+  response:
+    status: 200
+    headers:
+      date: Sat, 11 Apr 2026 12:02:15 GMT
+      content-type: application/json; charset=utf-8
+      cf-ray: 9ea9d755dd5aa807-SYD
+      cf-cache-status: DYNAMIC
+      etag: W/"2b2-RUfJd9FP4TgBsPK94Jsava8YWCM"
+      server: cloudflare
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      vary: Accept-Encoding
+      content-security-policy: default-src 'none'
+      referrer-policy: strict-origin-when-cross-origin
+      x-content-type-options: nosniff
+      x-dns-prefetch-control: 'off'
+      x-download-options: noopen
+      x-frame-options: SAMEORIGIN
+      x-notion-request-id: 3de61c51-c678-47a7-8f3c-7ade397f946c
+      x-permitted-cross-domain-policies: none
+      x-xss-protection: '0'
+      set-cookie: __cf_bm=O8lrGRtqETMjkqaYvKB_TFDM4.SGQBieXu3tGts1azU-1775908934.0607338-1.0.1.1-iwfsiK5GnKzlzrYN47NJ.FyLviI0VW_AulbL.tx_QFqwzPKke9Pjy9DInD1c5phy06Ry0KvH_ZZbeEqeDQ6daKmFQuOkeCoPjiEm7D6VDftQtdtFKTLKjDwU8gedBITe;
+        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sat, 11 Apr 2026 12:32:15
+        GMT
+      content-encoding: gzip
+      alt-svc: h3=":443"; ma=86400
+    body:
+      string: '{"object":"file_upload","id":"33f33ea0-c1e4-81e0-ac08-00b2d6067a9c","created_time":"2026-04-11T12:02:00.000Z","created_by":{"id":"6b786605-e456-4237-9c61-5efaff23c081","type":"bot"},"last_edited_time":"2026-04-11T12:02:00.000Z","expiry_time":"2026-04-11T13:02:00.000Z","upload_url":"https://api.notion.com/v1/file_uploads/33f33ea0-c1e4-81e0-ac08-00b2d6067a9c/send","complete_url":"https://api.notion.com/v1/file_uploads/33f33ea0-c1e4-81e0-ac08-00b2d6067a9c/complete","in_trash":false,"status":"pending","filename":"test-large.txt","content_type":"text/plain;
+        charset=utf-8","content_length":5767168,"number_of_parts":{"total":2,"sent":1},"request_id":"3de61c51-c678-47a7-8f3c-7ade397f946c"}'
+  recorded_at: 2026-04-11 12:02:15
+- request:
+    method: POST
+    uri: https://api.notion.com/v1/file_uploads/33f33ea0-c1e4-81e0-ac08-00b2d6067a9c/send
+  response:
+    status: 200
+    headers:
+      date: Sat, 11 Apr 2026 12:02:17 GMT
+      content-type: application/json; charset=utf-8
+      cf-ray: 9ea9d7622b58a807-SYD
+      cf-cache-status: DYNAMIC
+      etag: W/"2b3-A5g38340m8udF/Ygomxyz+oFqV0"
+      server: cloudflare
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      vary: Accept-Encoding
+      content-security-policy: default-src 'none'
+      referrer-policy: strict-origin-when-cross-origin
+      x-content-type-options: nosniff
+      x-dns-prefetch-control: 'off'
+      x-download-options: noopen
+      x-frame-options: SAMEORIGIN
+      x-notion-request-id: 85ede217-7cd1-49f7-8442-dacccec1b7d9
+      x-permitted-cross-domain-policies: none
+      x-xss-protection: '0'
+      set-cookie: __cf_bm=3YiSSX.ofaew.N7VMh9ZHeRse768WJT8odxCRNTw0Cw-1775908936.028359-1.0.1.1-ZK43XOqgLRfzhO6AnQhNfL9rEsn5yeDpRmFrUxEmWu4p74u44Bbll9n6kVMxsXS1eSWw9YuI3kbOqpxHzKkwkq0MpAU.sb7LnD32pBnZUhBcnpKLkI9EHNG2g5K5ONp_;
+        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sat, 11 Apr 2026 12:32:17
+        GMT
+      content-encoding: gzip
+      alt-svc: h3=":443"; ma=86400
+    body:
+      string: '{"object":"file_upload","id":"33f33ea0-c1e4-81e0-ac08-00b2d6067a9c","created_time":"2026-04-11T12:02:00.000Z","created_by":{"id":"6b786605-e456-4237-9c61-5efaff23c081","type":"bot"},"last_edited_time":"2026-04-11T12:02:00.000Z","expiry_time":"2026-04-11T13:02:00.000Z","upload_url":"https://api.notion.com/v1/file_uploads/33f33ea0-c1e4-81e0-ac08-00b2d6067a9c/send","complete_url":"https://api.notion.com/v1/file_uploads/33f33ea0-c1e4-81e0-ac08-00b2d6067a9c/complete","in_trash":false,"status":"pending","filename":"test-large.txt","content_type":"text/plain;
+        charset=utf-8","content_length":11534336,"number_of_parts":{"total":2,"sent":2},"request_id":"85ede217-7cd1-49f7-8442-dacccec1b7d9"}'
+  recorded_at: 2026-04-11 12:02:17
+- request:
+    method: POST
+    uri: https://api.notion.com/v1/file_uploads/33f33ea0-c1e4-81e0-ac08-00b2d6067a9c/complete
+  response:
+    status: 200
+    headers:
+      date: Sat, 11 Apr 2026 12:02:18 GMT
+      content-type: application/json; charset=utf-8
+      cf-ray: 9ea9d76e38c2a807-SYD
+      cf-cache-status: DYNAMIC
+      etag: W/"1ee-mdON0fw6A6lV3cJmCYa5ZJ9vCVQ"
+      server: cloudflare
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      vary: Accept-Encoding
+      content-security-policy: default-src 'none'
+      referrer-policy: strict-origin-when-cross-origin
+      x-content-type-options: nosniff
+      x-dns-prefetch-control: 'off'
+      x-download-options: noopen
+      x-frame-options: SAMEORIGIN
+      x-notion-request-id: 47314d1f-801d-45db-8668-fa920086dd86
+      x-permitted-cross-domain-policies: none
+      x-xss-protection: '0'
+      set-cookie: __cf_bm=ytCgBryXPhCl6.boA2u0hOdESGNd_Vpwwws7MH7TMr0-1775908937.9509447-1.0.1.1-MIqEUfJx4nfCWY.dzz_1H0dhTxSZJIdCWlsaCcwIfXG24_84.sWMg10GkD5UQYcJGl7NRfHQsVNrnMXrjeVxdR.eGpf1vM9kZ_.SpCggQl8GLAIKD9ERIgNILFjk6eKl;
+        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sat, 11 Apr 2026 12:32:18
+        GMT
+      content-encoding: gzip
+      alt-svc: h3=":443"; ma=86400
+    body:
+      string: '{"object":"file_upload","id":"33f33ea0-c1e4-81e0-ac08-00b2d6067a9c","created_time":"2026-04-11T12:02:00.000Z","created_by":{"id":"6b786605-e456-4237-9c61-5efaff23c081","type":"bot"},"last_edited_time":"2026-04-11T12:02:00.000Z","expiry_time":"2026-04-11T13:02:00.000Z","in_trash":false,"status":"uploaded","filename":"test-large.txt","content_type":"text/plain;
+        charset=utf-8","content_length":11534336,"number_of_parts":{"total":2,"sent":2},"request_id":"47314d1f-801d-45db-8668-fa920086dd86"}'
+  recorded_at: 2026-04-11 12:02:18
+- request:
+    method: GET
+    uri: https://api.notion.com/v1/file_uploads/33f33ea0-c1e4-81e0-ac08-00b2d6067a9c
+  response:
+    status: 200
+    headers:
+      date: Sat, 11 Apr 2026 12:02:18 GMT
+      content-type: application/json; charset=utf-8
+      cf-ray: 9ea9d772bb0da807-SYD
+      cf-cache-status: DYNAMIC
+      etag: W/"1ee-8WrgepPEw38ZpFQ7aVcGZzSB0mE"
+      server: cloudflare
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      vary: Accept-Encoding
+      content-security-policy: default-src 'none'
+      referrer-policy: strict-origin-when-cross-origin
+      x-content-type-options: nosniff
+      x-dns-prefetch-control: 'off'
+      x-download-options: noopen
+      x-frame-options: SAMEORIGIN
+      x-notion-request-id: 3f02b466-18d2-45c0-8128-4c871bec9fc4
+      x-permitted-cross-domain-policies: none
+      x-xss-protection: '0'
+      set-cookie: __cf_bm=fdgSdIjXSW3QV8ouavvvQCMTdbyk82Enf3U4l3elFRk-1775908938.680333-1.0.1.1-dwICd1jPBcQA_6vcxuvc3IMD5vCUoM_XetrBJvBmL5MxXwTZ5kw92BCtMaA_cQ_q0apnNTbATZvVWya2M2qjVcQlDGbWq78b5uIs3wNer7kRiJbRp8ziIoThy2JMj39H;
+        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sat, 11 Apr 2026 12:32:18
+        GMT
+      content-encoding: gzip
+      alt-svc: h3=":443"; ma=86400
+    body:
+      string: '{"object":"file_upload","id":"33f33ea0-c1e4-81e0-ac08-00b2d6067a9c","created_time":"2026-04-11T12:02:00.000Z","created_by":{"id":"6b786605-e456-4237-9c61-5efaff23c081","type":"bot"},"last_edited_time":"2026-04-11T12:02:00.000Z","expiry_time":"2026-04-11T13:02:00.000Z","in_trash":false,"status":"uploaded","filename":"test-large.txt","content_type":"text/plain;
+        charset=utf-8","content_length":11534336,"number_of_parts":{"total":2,"sent":2},"request_id":"3f02b466-18d2-45c0-8128-4c871bec9fc4"}'
+  recorded_at: 2026-04-11 12:02:18
+recorded_with: VCR-vcr/2.1.0

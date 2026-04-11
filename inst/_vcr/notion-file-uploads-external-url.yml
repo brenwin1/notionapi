@@ -1,0 +1,37 @@
+http_interactions:
+- request:
+    method: POST
+    uri: https://api.notion.com/v1/file_uploads
+    body:
+      string: '{"mode":"external_url","filename":"dummy.pdf","content_type":"application/pdf","external_url":"https://github.com/brenwin1/notionapi/blob/main/tests/testthat/test.pdf"}'
+  response:
+    status: 400
+    headers:
+      date: Sat, 11 Apr 2026 12:02:19 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '230'
+      cf-ray: 9ea9d7745bada807-SYD
+      cf-cache-status: DYNAMIC
+      etag: W/"e6-dH/U4CWB1oLhbb/zzbVpopcwyC0"
+      server: cloudflare
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      vary: Accept-Encoding
+      content-security-policy: default-src 'none'
+      referrer-policy: strict-origin-when-cross-origin
+      x-content-type-options: nosniff
+      x-dns-prefetch-control: 'off'
+      x-download-options: noopen
+      x-frame-options: SAMEORIGIN
+      x-notion-request-id: ee1fcd15-7380-4375-919f-e07f2b89c9ef
+      x-permitted-cross-domain-policies: none
+      x-xss-protection: '0'
+      set-cookie: __cf_bm=qAkRzF6D3kfCuLbcsgj2meRoQXgJsIHc7__jKgGJzp4-1775908938.9338095-1.0.1.1-Yog_RNJNtvNLR1SRuzmluWS.JSUa3zGzOL4LvjEtpZWo8tT7VWk7hzRB2ldHcoTJtvJohOB5d0ZAvYhoM2JbIZjQXFze0SoMnpOGrVVT6th1601jF9_Z8.T2IhyV2xeZ;
+        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sat, 11 Apr 2026 12:32:19
+        GMT
+      alt-svc: h3=":443"; ma=86400
+    body:
+      string: '{"object":"error","status":400,"code":"validation_error","message":"Failed
+        to fetch the headers of the external URL. Ensure it''s a valid, publicly accessible
+        URL and try again.","request_id":"ee1fcd15-7380-4375-919f-e07f2b89c9ef"}'
+  recorded_at: 2026-04-11 12:02:19
+recorded_with: VCR-vcr/2.1.0

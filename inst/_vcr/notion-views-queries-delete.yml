@@ -1,0 +1,33 @@
+http_interactions:
+- request:
+    method: DELETE
+    uri: https://api.notion.com/v1/views/33f33ea0-c1e4-8145-9555-000c19cc8d71/queries/ee90464c-bd8d-4882-bba6-792a1dba18c6
+  response:
+    status: 200
+    headers:
+      date: Sat, 11 Apr 2026 12:02:00 GMT
+      content-type: application/json; charset=utf-8
+      cf-ray: 9ea9d701ef66a807-SYD
+      cf-cache-status: DYNAMIC
+      etag: W/"86-LvjjAlts4rK8LgeSI7aWqH/417o"
+      server: cloudflare
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      vary: Accept-Encoding
+      content-security-policy: default-src 'none'
+      referrer-policy: strict-origin-when-cross-origin
+      x-content-type-options: nosniff
+      x-dns-prefetch-control: 'off'
+      x-download-options: noopen
+      x-frame-options: SAMEORIGIN
+      x-notion-request-id: 81e8c359-8652-4655-89ac-8a7c13b875de
+      x-permitted-cross-domain-policies: none
+      x-xss-protection: '0'
+      set-cookie: __cf_bm=ZVbScWWnS2xS_l94dZhM1_kRS7KgbMORj5cJUf5vH94-1775908920.6234262-1.0.1.1-2uYycLMMWlj8OzhFE0zCjE7xGytyf55I4.xhKRA86QwdAiOYjfeMLpg3h4UYaSC_X9rvH4XjZxGlYWjwzz7p0DWPQJy2ZtS41Epywbvmz1bYVl9FFLnPp.jaXa7YJi5l;
+        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sat, 11 Apr 2026 12:32:00
+        GMT
+      content-encoding: gzip
+      alt-svc: h3=":443"; ma=86400
+    body:
+      string: '{"object":"view_query","id":"ee90464c-bd8d-4882-bba6-792a1dba18c6","deleted":true,"request_id":"81e8c359-8652-4655-89ac-8a7c13b875de"}'
+  recorded_at: 2026-04-11 12:02:00
+recorded_with: VCR-vcr/2.1.0

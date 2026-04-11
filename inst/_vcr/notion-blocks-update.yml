@@ -1,41 +1,37 @@
 http_interactions:
 - request:
     method: PATCH
-    uri: https://api.notion.com/v1/blocks/23933ea0-c1e4-81dc-9f56-f3fa251a757f
+    uri: https://api.notion.com/v1/blocks/33f33ea0-c1e4-81cb-b1ae-d9eb58672111
     body:
-      string: '{"archived":false,"heading_2":{"rich_text":[{"text":{"content":"Updated
-        Test Heading"}}]}}'
+      string: '{"heading_2":{"rich_text":[{"text":{"content":"Updated Test Heading"}}]}}'
   response:
     status: 200
     headers:
-      alt-svc: h3=":443"; ma=86400
-      cf-cache-status: DYNAMIC
-      cf-ray: 96389e078d91271a-MEL
-      content-encoding: gzip
-      content-security-policy: default-src 'none'
+      date: Sat, 11 Apr 2026 12:01:41 GMT
       content-type: application/json; charset=utf-8
-      date: Wed, 23 Jul 2025 05:00:59 GMT
-      etag: W/"328-9MMmcOC9LLEEDvoH2KDq6DNSt3Q"
-      referrer-policy: strict-origin-when-cross-origin
+      cf-ray: 9ea9d6723c37a807-SYD
+      cf-cache-status: DYNAMIC
+      etag: W/"317-3G+3Ua+UpGiHRjlo6+Nu8H7zCKQ"
       server: cloudflare
-      set-cookie:
-      - __cf_bm=D3akXSlCj0bW4nTicjlsBjeFNYhJUKIU0DD1Cs5D62o-1753246859-1.0.1.1-_U.jTLvVzBwNag0OfcQ0jvjT1mTvhYghZnE6ivZ0jteUbPbVkOUZ.EqjMqhM3gwyQVUsXGUIQ0kczfUqNwMjs8etpIKhrbRNgRMMNVl6U0Y;
-        path=/; expires=Wed, 23-Jul-25 05:30:59 GMT; domain=.notion.com; HttpOnly;
-        Secure; SameSite=None
-      - _cfuvid=4xqUy1O475tTVoNT5D4inqEAw_Di.J8Y8BZk.VfuxjE-1753246859836-0.0.1.1-604800000;
-        path=/; domain=.notion.com; HttpOnly; Secure; SameSite=None
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       vary: Accept-Encoding
+      content-security-policy: default-src 'none'
+      referrer-policy: strict-origin-when-cross-origin
       x-content-type-options: nosniff
       x-dns-prefetch-control: 'off'
       x-download-options: noopen
       x-frame-options: SAMEORIGIN
-      x-notion-request-id: 648d96cd-0c96-455e-b2e1-7a35eb889dd4
+      x-notion-request-id: 147a5ab3-afe0-475a-b9a1-750279ec3a83
       x-permitted-cross-domain-policies: none
       x-xss-protection: '0'
+      set-cookie: __cf_bm=F7NI9NWqbx3KtWAeFsPm3oGAAGRL9LERB1k4s1ifsYs-1775908897.6315086-1.0.1.1-db0Hcc1ac.xQ_6.51iK8HD877q4njerLHXwZ9tlNMgYeTZ6WL2r8gKAsoEc10DcdJRGKR8_1e5AwmT3oD4zxu2S.DHPQnMXYcRNCkxYt41oCK4t26tya1yTFDjGVFmNM;
+        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sat, 11 Apr 2026 12:31:41
+        GMT
+      content-encoding: gzip
+      alt-svc: h3=":443"; ma=86400
     body:
-      string: '{"object":"block","id":"23933ea0-c1e4-81dc-9f56-f3fa251a757f","parent":{"type":"page_id","page_id":"23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba"},"created_time":"2025-07-23T05:00:00.000Z","last_edited_time":"2025-07-23T05:00:00.000Z","created_by":{"object":"user","id":"6b786605-e456-4237-9c61-5efaff23c081"},"last_edited_by":{"object":"user","id":"6b786605-e456-4237-9c61-5efaff23c081"},"has_children":false,"archived":false,"in_trash":false,"type":"heading_2","heading_2":{"rich_text":[{"type":"text","text":{"content":"Updated
+      string: '{"object":"block","id":"33f33ea0-c1e4-81cb-b1ae-d9eb58672111","parent":{"type":"page_id","page_id":"33f33ea0-c1e4-811a-9790-c5068b52c5d7"},"created_time":"2026-04-11T12:01:00.000Z","last_edited_time":"2026-04-11T12:01:00.000Z","created_by":{"object":"user","id":"6b786605-e456-4237-9c61-5efaff23c081"},"last_edited_by":{"object":"user","id":"6b786605-e456-4237-9c61-5efaff23c081"},"has_children":false,"in_trash":false,"type":"heading_2","heading_2":{"rich_text":[{"type":"text","text":{"content":"Updated
         Test Heading","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Updated
-        Test Heading","href":null}],"is_toggleable":false,"color":"default"},"request_id":"648d96cd-0c96-455e-b2e1-7a35eb889dd4"}'
-  recorded_at: 2025-07-23 05:00:59
-recorded_with: VCR-vcr/1.7.1.93
+        Test Heading","href":null}],"is_toggleable":false,"color":"default"},"request_id":"147a5ab3-afe0-475a-b9a1-750279ec3a83"}'
+  recorded_at: 2026-04-11 12:01:41
+recorded_with: VCR-vcr/2.1.0

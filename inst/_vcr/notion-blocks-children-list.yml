@@ -1,18 +1,15 @@
 http_interactions:
 - request:
-    method: PATCH
+    method: GET
     uri: https://api.notion.com/v1/blocks/33f33ea0-c1e4-811a-9790-c5068b52c5d7/children
-    body:
-      string: '{"children":[{"object":"block","heading_2":{"rich_text":[{"text":{"content":"Test
-        Heading"}}]}}],"position":{"type":"start"}}'
   response:
     status: 200
     headers:
       date: Sat, 11 Apr 2026 12:01:36 GMT
       content-type: application/json; charset=utf-8
-      cf-ray: 9ea9d6403ebda807-SYD
+      cf-ray: 9ea9d66c9993a807-SYD
       cf-cache-status: DYNAMIC
-      etag: W/"363-oaWDS87CYij8GQvpOUxEgLyaN6Q"
+      etag: W/"363-+rGvq1ToPXygty2vrk9Dhd0QZ+w"
       server: cloudflare
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       vary: Accept-Encoding
@@ -22,10 +19,10 @@ http_interactions:
       x-dns-prefetch-control: 'off'
       x-download-options: noopen
       x-frame-options: SAMEORIGIN
-      x-notion-request-id: d89c5b7f-b35e-49ed-b656-0a94c977595e
+      x-notion-request-id: 488a258c-69d0-4e1d-ba32-53a477fd316b
       x-permitted-cross-domain-policies: none
       x-xss-protection: '0'
-      set-cookie: __cf_bm=GdlvYt_XBuEF8RcBANHeCo_fLlOJUG3wlg4h71AhWg8-1775908889.6329286-1.0.1.1-MbCQ8O1AeRyt2p95vCCO6UmO_.JU0OpdZy3hI1BJ5BmtcrrbhgGgDVS2ULsyO1crk2cAXdYNF33dAzC1nNhIHUeGlgm7JKdVozewHT19O_V43OutO1tGzlvkuWXGYG2I;
+      set-cookie: __cf_bm=NhanXaRlaUXjtmSS36u_zRz2mToTOq.J4fkcIle.nbs-1775908896.7386146-1.0.1.1-Cq9NjN1QB5D3zh_2DJsftjKvsATpQB6cPwufvVrAEsbWxhV1OImjbQXsELG64u1haP6oHNakDGTfU2E9BH535t3_gWxshVkFjhcH2F.7d_bTo7dfWdmQXfA_wihIKhsE;
         HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sat, 11 Apr 2026 12:31:36
         GMT
       content-encoding: gzip
@@ -33,6 +30,6 @@ http_interactions:
     body:
       string: '{"object":"list","results":[{"object":"block","id":"33f33ea0-c1e4-81cb-b1ae-d9eb58672111","parent":{"type":"page_id","page_id":"33f33ea0-c1e4-811a-9790-c5068b52c5d7"},"created_time":"2026-04-11T12:01:00.000Z","last_edited_time":"2026-04-11T12:01:00.000Z","created_by":{"object":"user","id":"6b786605-e456-4237-9c61-5efaff23c081"},"last_edited_by":{"object":"user","id":"6b786605-e456-4237-9c61-5efaff23c081"},"has_children":false,"in_trash":false,"type":"heading_2","heading_2":{"rich_text":[{"type":"text","text":{"content":"Test
         Heading","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Test
-        Heading","href":null}],"is_toggleable":false,"color":"default"}}],"next_cursor":null,"has_more":false,"type":"block","block":{},"request_id":"d89c5b7f-b35e-49ed-b656-0a94c977595e"}'
-  recorded_at: 2026-04-11 12:01:36
+        Heading","href":null}],"is_toggleable":false,"color":"default"}}],"next_cursor":null,"has_more":false,"type":"block","block":{},"request_id":"488a258c-69d0-4e1d-ba32-53a477fd316b"}'
+  recorded_at: 2026-04-11 12:01:37
 recorded_with: VCR-vcr/2.1.0

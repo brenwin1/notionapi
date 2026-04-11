@@ -1,0 +1,33 @@
+http_interactions:
+- request:
+    method: GET
+    uri: https://api.notion.com/v1/custom_emojis
+  response:
+    status: 200
+    headers:
+      date: Sat, 11 Apr 2026 12:02:20 GMT
+      content-type: application/json; charset=utf-8
+      cf-ray: 9ea9d77d6859a807-SYD
+      cf-cache-status: DYNAMIC
+      etag: W/"8c-VewQN32GgO6iVnsy/C3bEeEUpPg"
+      server: cloudflare
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      vary: Accept-Encoding
+      content-security-policy: default-src 'none'
+      referrer-policy: strict-origin-when-cross-origin
+      x-content-type-options: nosniff
+      x-dns-prefetch-control: 'off'
+      x-download-options: noopen
+      x-frame-options: SAMEORIGIN
+      x-notion-request-id: 341e417e-dbbe-4086-bbd8-c63b7b86357c
+      x-permitted-cross-domain-policies: none
+      x-xss-protection: '0'
+      set-cookie: __cf_bm=3xZ.sPbCaZP7rgYyEcHHNqwWVAdx45sS4SYf6vjBEqc-1775908940.3897815-1.0.1.1-GnSgLYWYh.LWgRUvT3j6LbG4yWN.CntyORY1pFTGkgivViEx6pkspm5sliEph6fk1DPckn6nk3uVrte8DcQ08Utiper2COqlPAQDxfqJZm_mRsnMJUxOq7JbWaT7Sake;
+        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sat, 11 Apr 2026 12:32:20
+        GMT
+      content-encoding: gzip
+      alt-svc: h3=":443"; ma=86400
+    body:
+      string: '{"object":"list","type":"custom_emoji","results":[],"has_more":false,"next_cursor":null,"request_id":"341e417e-dbbe-4086-bbd8-c63b7b86357c"}'
+  recorded_at: 2026-04-11 12:02:20
+recorded_with: VCR-vcr/2.1.0

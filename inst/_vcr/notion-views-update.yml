@@ -1,0 +1,36 @@
+http_interactions:
+- request:
+    method: PATCH
+    uri: https://api.notion.com/v1/views/33f33ea0-c1e4-8145-9555-000c19cc8d71
+    body:
+      string: '{"name":"Updated view name"}'
+  response:
+    status: 200
+    headers:
+      date: Sat, 11 Apr 2026 12:01:57 GMT
+      content-type: application/json; charset=utf-8
+      cf-ray: 9ea9d6eb2dada807-SYD
+      cf-cache-status: DYNAMIC
+      etag: W/"2d7-kwdyNDtaCuggSnnk/rqPp1ckgB8"
+      server: cloudflare
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      vary: Accept-Encoding
+      content-security-policy: default-src 'none'
+      referrer-policy: strict-origin-when-cross-origin
+      x-content-type-options: nosniff
+      x-dns-prefetch-control: 'off'
+      x-download-options: noopen
+      x-frame-options: SAMEORIGIN
+      x-notion-request-id: e6032d99-e6dd-491d-a257-b1f4ffe78e72
+      x-permitted-cross-domain-policies: none
+      x-xss-protection: '0'
+      set-cookie: __cf_bm=AHaZyjIYHHl4W7cx.oHhwteIlwryRL506wIIlWc4yZM-1775908916.986064-1.0.1.1-6TFqfcSaU5pxMrZYeK_NYjM.c1NRe35_YORxvaTvQQY_7GZCwOLAOOTLQW3UPApphkb8_f5yHZWi.w1Ynaka2uYXIapuOloT4JrYow_ct1IY4ZD5y09CrKMSQpCl3duu;
+        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sat, 11 Apr 2026 12:31:57
+        GMT
+      content-encoding: gzip
+      alt-svc: h3=":443"; ma=86400
+    body:
+      string: '{"object":"view","id":"33f33ea0-c1e4-8145-9555-000c19cc8d71","parent":{"type":"database_id","database_id":"5f9759b2-ad71-4b66-880f-d0306614227b"},"data_source_id":"33f33ea0-c1e4-81a7-af25-000b2a6ab72d","name":"Updated
+        view name","type":"table","created_time":"2026-04-11T12:01:55.560+00:00","created_by":{"object":"user","id":"6b786605-e456-4237-9c61-5efaff23c081"},"last_edited_time":"2026-04-11T12:01:57.129+00:00","last_edited_by":{"object":"user","id":"6b786605-e456-4237-9c61-5efaff23c081"},"url":"https://www.notion.so/5f9759b2ad714b66880fd0306614227b?v=33f33ea0c1e481459555000c19cc8d71","filter":null,"sorts":null,"quick_filters":null,"configuration":{"type":"table"},"request_id":"e6032d99-e6dd-491d-a257-b1f4ffe78e72"}'
+  recorded_at: 2026-04-11 12:01:57
+recorded_with: VCR-vcr/2.1.0
