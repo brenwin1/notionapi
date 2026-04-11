@@ -1387,6 +1387,7 @@ ViewsEndpoint <- R6Class(
       quick_filters = NULL,
       configuration = NULL
     ) {
+      check_string(view_id, TRUE)
       check_string(name)
       check_json_object(filter)
       check_json_array(sorts)
