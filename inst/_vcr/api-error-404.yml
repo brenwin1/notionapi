@@ -5,11 +5,11 @@ http_interactions:
   response:
     status: 404
     headers:
-      date: Sun, 12 Apr 2026 08:10:52 GMT
+      date: Sun, 12 Apr 2026 21:18:37 GMT
       content-type: application/json; charset=utf-8
-      cf-ray: 9eb0c1c9d9085726-SYD
+      cf-ray: 9eb543ba5c85e7e1-SYD
       cf-cache-status: DYNAMIC
-      etag: W/"16b-7TpuUTmlO1PVhYsXNIPppf6fzt0"
+      etag: W/"16b-u//g0N4dDbVS2Nqu+LKQh+2kZQA"
       server: cloudflare
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       vary: Accept-Encoding
@@ -19,17 +19,17 @@ http_interactions:
       x-dns-prefetch-control: 'off'
       x-download-options: noopen
       x-frame-options: SAMEORIGIN
-      x-notion-request-id: 661cae61-a0d8-45fb-a00d-bf126063238f
+      x-notion-request-id: 49086352-60b2-4c1e-ab9b-7121be2859d7
       x-permitted-cross-domain-policies: none
       x-xss-protection: '0'
-      set-cookie: __cf_bm=rfwc2n7jOljG3gdFiQP0T20ZGCxTRB7NoW7TxcJV59k-1775981451.8179376-1.0.1.1-0OIWAJrbeA7K_XVsyaOjex0MKDq.Om0KDqic3wDxk5X1YoMJTv1d0kiLXocuLaEuJABLuDJAulPtC.ddVn.oi53WEcN99d3Q7y_rOJus1yn5wX1w_tL1TQNpwjW3wMh9;
-        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sun, 12 Apr 2026 08:40:52
+      set-cookie: __cf_bm=h9g0daUHVmD8e0K5ZNaE1oQFublI6qA8WI_lLU3z02c-1776028717.1803164-1.0.1.1-oWMMTUmleEav7QhPymXr1HIc4gUBr93.WifQK1pGc2Fr4_65eSDJoo9ayN3T41JLMErXFfFzPJZwpYzfxUW1OKqJnQP3B6uR4vz4crqRleR68rJIqQD8YapPDl_guOcx;
+        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sun, 12 Apr 2026 21:48:37
         GMT
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
       string: '{"object":"error","status":404,"code":"object_not_found","message":"Could
         not find block with ID: 12345ea0-c1e4-808c-95d2-c6b376c4fe2f. Make sure the
-        relevant pages and databases are shared with your integration \"brenwin-internal\".","additional_data":{"integration_id":"6b786605-e456-4237-9c61-5efaff23c081"},"request_id":"661cae61-a0d8-45fb-a00d-bf126063238f"}'
-  recorded_at: 2026-04-12 08:10:52
+        relevant pages and databases are shared with your integration \"brenwin-internal\".","additional_data":{"integration_id":"6b786605-e456-4237-9c61-5efaff23c081"},"request_id":"49086352-60b2-4c1e-ab9b-7121be2859d7"}'
+  recorded_at: 2026-04-12 21:18:37
 recorded_with: VCR-vcr/2.1.0

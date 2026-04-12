@@ -1,18 +1,18 @@
 http_interactions:
 - request:
     method: PATCH
-    uri: https://api.notion.com/v1/blocks/34033ea0-c1e4-8181-a411-fcffc69c690a/children
+    uri: https://api.notion.com/v1/blocks/34033ea0-c1e4-81c4-afa0-d1ec98de4bec/children
     body:
       string: '{"children":[{"object":"block","heading_2":{"rich_text":[{"text":{"content":"Test
         Heading"}}]}}],"position":{"type":"start"}}'
   response:
     status: 200
     headers:
-      date: Sun, 12 Apr 2026 08:11:02 GMT
+      date: Sun, 12 Apr 2026 21:18:45 GMT
       content-type: application/json; charset=utf-8
-      cf-ray: 9eb0c206aae15726-SYD
+      cf-ray: 9eb543e7c89ce7e1-SYD
       cf-cache-status: DYNAMIC
-      etag: W/"363-F6kgOcMmEzE/8+ZJDs0j3mLHMBY"
+      etag: W/"363-EeVeWhGj0+aorSiagDBxq0k4yPs"
       server: cloudflare
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       vary: Accept-Encoding
@@ -22,17 +22,17 @@ http_interactions:
       x-dns-prefetch-control: 'off'
       x-download-options: noopen
       x-frame-options: SAMEORIGIN
-      x-notion-request-id: c3e5b37b-0ce0-4b57-be0c-52da4870a541
+      x-notion-request-id: a84673e4-c0c6-4f23-b579-4b93eae2ef3d
       x-permitted-cross-domain-policies: none
       x-xss-protection: '0'
-      set-cookie: __cf_bm=Ixc6pxA6wo2wLCyGdKhyjvGd.307OiVjootaULP83wI-1775981461.5490065-1.0.1.1-2meWfVpiQWrQIXFs9O40nEffObWdIv6rFo12aimScGc1hAsCx6tXr4PFiES_a7t1cskoOMfByXiuC3jOZx_24OEytt_s7tvSbzxbNajGbxIFsAUQAdUMYxhUvQKMUkaL;
-        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sun, 12 Apr 2026 08:41:02
+      set-cookie: __cf_bm=C3cH_ib8O5uDYwBiBirmuBHbihxMQ62DcaoK1ID6Zi0-1776028724.4464114-1.0.1.1-q6rDDw9uJaa4G4Of.OgLMyQMREgVuq39L1SyQpbYKzHtstdGkxX_wNEeL.KS83tlholcaTMTCGlRFCjWwiqbyYg.t45yA7H7SVSE3XZ7Oy.Q20bRie1nx2nShWyEDcSh;
+        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sun, 12 Apr 2026 21:48:45
         GMT
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
-      string: '{"object":"list","results":[{"object":"block","id":"34033ea0-c1e4-8137-9ae8-e09c23601f12","parent":{"type":"page_id","page_id":"34033ea0-c1e4-8181-a411-fcffc69c690a"},"created_time":"2026-04-12T08:11:00.000Z","last_edited_time":"2026-04-12T08:11:00.000Z","created_by":{"object":"user","id":"6b786605-e456-4237-9c61-5efaff23c081"},"last_edited_by":{"object":"user","id":"6b786605-e456-4237-9c61-5efaff23c081"},"has_children":false,"in_trash":false,"type":"heading_2","heading_2":{"rich_text":[{"type":"text","text":{"content":"Test
+      string: '{"object":"list","results":[{"object":"block","id":"34033ea0-c1e4-8123-be95-e77dcc78e47d","parent":{"type":"page_id","page_id":"34033ea0-c1e4-81c4-afa0-d1ec98de4bec"},"created_time":"2026-04-12T21:18:00.000Z","last_edited_time":"2026-04-12T21:18:00.000Z","created_by":{"object":"user","id":"6b786605-e456-4237-9c61-5efaff23c081"},"last_edited_by":{"object":"user","id":"6b786605-e456-4237-9c61-5efaff23c081"},"has_children":false,"in_trash":false,"type":"heading_2","heading_2":{"rich_text":[{"type":"text","text":{"content":"Test
         Heading","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Test
-        Heading","href":null}],"is_toggleable":false,"color":"default"}}],"next_cursor":null,"has_more":false,"type":"block","block":{},"request_id":"c3e5b37b-0ce0-4b57-be0c-52da4870a541"}'
-  recorded_at: 2026-04-12 08:11:02
+        Heading","href":null}],"is_toggleable":false,"color":"default"}}],"next_cursor":null,"has_more":false,"type":"block","block":{},"request_id":"a84673e4-c0c6-4f23-b579-4b93eae2ef3d"}'
+  recorded_at: 2026-04-12 21:18:45
 recorded_with: VCR-vcr/2.1.0

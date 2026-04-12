@@ -30,19 +30,22 @@ notion$databases$create(
 \dontshow{notionapi::vcr_example_end()}
 \dontshow{notionapi::vcr_example_start("notion-databases-retrieve")}
 # ----- Retrieve a database
-notion$databases$retrieve("efab1bec-0094-4afe-a90c-c9b72d538b4b")
+notion$databases$retrieve("ffec20ee-1450-4da8-9904-f4babba0e9c0")
 \dontshow{notionapi::vcr_example_end()}
 \dontshow{notionapi::vcr_example_start("notion-database-update")}
 # ----- Update a database
 notion$databases$update(
-  "efab1bec-0094-4afe-a90c-c9b72d538b4b",
+  "ffec20ee-1450-4da8-9904-f4babba0e9c0",
   description = list(list(
     text = list(
       content = "For testing purposes"
     )
   )),
   icon = list(
-    emoji = "🤩"
+    icon = list(
+      name = "calendar",
+      color = "gray"
+    )
   )
 )
 \dontshow{notionapi::vcr_example_end()}

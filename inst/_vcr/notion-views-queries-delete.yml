@@ -1,15 +1,15 @@
 http_interactions:
 - request:
     method: DELETE
-    uri: https://api.notion.com/v1/views/34033ea0-c1e4-81e1-942f-000c08810f61/queries/a966d86e-5211-47cb-8a1e-f05bc0a33494
+    uri: https://api.notion.com/v1/views/34033ea0-c1e4-8192-ac14-000cdad096ce/queries/9af03bd1-ed79-4842-a57c-0bc04fb61be2
   response:
     status: 200
     headers:
-      date: Sun, 12 Apr 2026 08:11:21 GMT
+      date: Sun, 12 Apr 2026 21:19:02 GMT
       content-type: application/json; charset=utf-8
-      cf-ray: 9eb0c2831a165726-SYD
+      cf-ray: 9eb54456884ce7e1-SYD
       cf-cache-status: DYNAMIC
-      etag: W/"86-Pg1vA2GYyxoY4V2432bSSZf2wWc"
+      etag: W/"86-W/sSlACZ3ZQoe3ZFKWpN/QjHzgk"
       server: cloudflare
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       vary: Accept-Encoding
@@ -19,15 +19,15 @@ http_interactions:
       x-dns-prefetch-control: 'off'
       x-download-options: noopen
       x-frame-options: SAMEORIGIN
-      x-notion-request-id: 2ea9dd88-3bbe-4fbc-8017-4229f5ceb8d6
+      x-notion-request-id: ce52ec95-7257-4372-b08f-0fca3da2e0f1
       x-permitted-cross-domain-policies: none
       x-xss-protection: '0'
-      set-cookie: __cf_bm=WZXBKtavAyBaFscIRchroiXHru25.D.zJ07.WnNvl9A-1775981481.457046-1.0.1.1-iWwH8wiPtNh2iL_EdIwZHR3TwPW3xtLwPvJS2X81GX95d3TC5HHYyRnBOJL.WyRHHjOL2wJKoeMBwV7k0B2zuZv0G5VaeZIz9MPEiVSEZzT1MlHjXDV2CD_FU5ywUYhY;
-        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sun, 12 Apr 2026 08:41:21
+      set-cookie: __cf_bm=Yu_Ple9jPS6DYZ4UhBOr3Sb.ygOftfJBCJi3cxyy3Ho-1776028742.1699529-1.0.1.1-qAGNDh9POjMgqG6yb7M0AoPZxU24HgVlUk8sROuNtoMiDXe.Vh1DOo8G1JE.Y2MQ14J44atOqBfsEOfjHaP6GIbozt5hqkHKedokJO86V5fNavqrnRwFUfH09uiTf.xs;
+        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sun, 12 Apr 2026 21:49:02
         GMT
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
-      string: '{"object":"view_query","id":"a966d86e-5211-47cb-8a1e-f05bc0a33494","deleted":true,"request_id":"2ea9dd88-3bbe-4fbc-8017-4229f5ceb8d6"}'
-  recorded_at: 2026-04-12 08:11:21
+      string: '{"object":"view_query","id":"9af03bd1-ed79-4842-a57c-0bc04fb61be2","deleted":true,"request_id":"ce52ec95-7257-4372-b08f-0fca3da2e0f1"}'
+  recorded_at: 2026-04-12 21:19:02
 recorded_with: VCR-vcr/2.1.0

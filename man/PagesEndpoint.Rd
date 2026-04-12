@@ -29,41 +29,44 @@ notion$pages$create(
 \dontshow{notionapi::vcr_example_end()}
 \dontshow{notionapi::vcr_example_start("notion-pages-retrieve")}
 # ----- Retrieve a page
-notion$pages$retrieve("34033ea0-c1e4-8181-a411-fcffc69c690a")
+notion$pages$retrieve("34033ea0-c1e4-81c4-afa0-d1ec98de4bec")
 \dontshow{notionapi::vcr_example_end()}
 \dontshow{notionapi::vcr_example_start("notion-pages-move")}
 # ----- Move page into a database
 notion$pages$move(
-  "34033ea0-c1e4-8181-a411-fcffc69c690a",
+  "34033ea0-c1e4-81c4-afa0-d1ec98de4bec",
   list(
-    data_source_id = "34033ea0-c1e4-81a2-aaf4-000b260f79c9"
+    data_source_id = "34033ea0-c1e4-8112-bc3a-000bc940aa45"
   )
 )
 \dontshow{notionapi::vcr_example_end()}
 \dontshow{notionapi::vcr_example_start("notion-pages-update")}
 # ----- Update a page
 notion$pages$update(
-  "34033ea0-c1e4-8181-a411-fcffc69c690a",
+  "34033ea0-c1e4-81c4-afa0-d1ec98de4bec",
   icon = list(
-    emoji = "🐶"
+    icon = list(
+      name = "pizza",
+      color = "blue"
+    )
   )
 )
 \dontshow{notionapi::vcr_example_end()}
 \dontshow{notionapi::vcr_example_start("notion-pages-update-null")}
 # ----- Use `NA` to send JSON `null` — below removes the page's icon
 notion$pages$update(
-  "34033ea0-c1e4-8181-a411-fcffc69c690a",
+  "34033ea0-c1e4-81c4-afa0-d1ec98de4bec",
   icon = NA
 )
 \dontshow{notionapi::vcr_example_end()}
 \dontshow{notionapi::vcr_example_start("notion-pages-retrieve-markdown")}
 # ----- Retrieve a page as markdown
-notion$pages$retrieve_markdown("34033ea0-c1e4-8181-a411-fcffc69c690a")
+notion$pages$retrieve_markdown("34033ea0-c1e4-81c4-afa0-d1ec98de4bec")
 \dontshow{notionapi::vcr_example_end()}
 \dontshow{notionapi::vcr_example_start("notion-pages-update-markdown")}
 # ----- Update/replace a page content
 notion$pages$update_markdown(
-  "34033ea0-c1e4-8181-a411-fcffc69c690a",
+  "34033ea0-c1e4-81c4-afa0-d1ec98de4bec",
   "replace_content",
   replace_content = list(
     new_str = '## Updated Test Heading\nUsed markdown{color="blue"}'
@@ -73,7 +76,7 @@ notion$pages$update_markdown(
 \dontshow{notionapi::vcr_example_start("notion-pages-trash")}
 # ----- Trash a page
 notion$pages$update(
-  "34033ea0-c1e4-8181-a411-fcffc69c690a",
+  "34033ea0-c1e4-81c4-afa0-d1ec98de4bec",
   in_trash = TRUE
 )
 \dontshow{notionapi::vcr_example_end()}

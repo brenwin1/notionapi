@@ -1,17 +1,17 @@
 http_interactions:
 - request:
     method: PATCH
-    uri: https://api.notion.com/v1/pages/34033ea0-c1e4-8181-a411-fcffc69c690a
+    uri: https://api.notion.com/v1/pages/34033ea0-c1e4-81c4-afa0-d1ec98de4bec
     body:
-      string: "{\"icon\":{\"emoji\":\"\U0001F436\"}}"
+      string: '{"icon":{"icon":{"name":"pizza","color":"blue"}}}'
   response:
     status: 200
     headers:
-      date: Sun, 12 Apr 2026 08:10:56 GMT
+      date: Sun, 12 Apr 2026 21:18:42 GMT
       content-type: application/json; charset=utf-8
-      cf-ray: 9eb0c1d44c1e5726-SYD
+      cf-ray: 9eb543d44effe7e1-SYD
       cf-cache-status: DYNAMIC
-      etag: W/"3b2-1OIl5NBqRDmCPL2h21nHDViuDHY"
+      etag: W/"3c9-wpnXrASCdEc74i7TBOcQC9CjKnU"
       server: cloudflare
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       vary: Accept-Encoding
@@ -21,17 +21,17 @@ http_interactions:
       x-dns-prefetch-control: 'off'
       x-download-options: noopen
       x-frame-options: SAMEORIGIN
-      x-notion-request-id: d4920b91-f85e-49ff-ba30-8573b8784ebb
+      x-notion-request-id: a6225487-5bf3-45ca-a5c9-a0e89c7e1e24
       x-permitted-cross-domain-policies: none
       x-xss-protection: '0'
-      set-cookie: __cf_bm=.NFt074uk98i.MtZSXX3R.kIZbVpEMBtQU4zOH_N0FE-1775981453.4907486-1.0.1.1-Uouz0d8hFtyTLQoScfavzkUpKJmcMUh5.0ObxQr2KPEYYwfN1dc6ObpzqnUFznUC7A1.z2KBL9GjOPnqNN2nF8f9Nd9Vzhzuop7IjxB346ftUJeUDMZTa2mqNkvbwrgw;
-        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sun, 12 Apr 2026 08:40:56
+      set-cookie: __cf_bm=YGQyBBzjirUkwfiLATC5XnLtaOqgh.Saa5KHGXRwbMI-1776028721.324214-1.0.1.1-FpKj4LxyLD.FveMorOuN2HxCuBeyUx2YmKKEeWkn.ACpZiyRiNfywfYkKrqORdKH2ngk2uKoVpNJFl3LjDsQgEpK8WQ4SnnqUbO4rUB4.92Md0gmNvOOXwiOyPnASXmX;
+        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sun, 12 Apr 2026 21:48:42
         GMT
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
-      string: "{\"object\":\"page\",\"id\":\"34033ea0-c1e4-8181-a411-fcffc69c690a\",\"created_time\":\"2026-04-12T08:10:00.000Z\",\"last_edited_time\":\"2026-04-12T08:10:00.000Z\",\"created_by\":{\"object\":\"user\",\"id\":\"6b786605-e456-4237-9c61-5efaff23c081\"},\"last_edited_by\":{\"object\":\"user\",\"id\":\"6b786605-e456-4237-9c61-5efaff23c081\"},\"cover\":null,\"icon\":{\"type\":\"emoji\",\"emoji\":\"\U0001F436\"},\"parent\":{\"type\":\"page_id\",\"page_id\":\"22f33ea0-c1e4-80b9-9c77-d1ab72aedff9\"},\"in_trash\":false,\"is_archived\":false,\"is_locked\":false,\"properties\":{\"title\":{\"id\":\"title\",\"type\":\"title\",\"title\":[{\"type\":\"text\",\"text\":{\"content\":\"Test
-        Page for notionapi\",\"link\":null},\"annotations\":{\"bold\":false,\"italic\":false,\"strikethrough\":false,\"underline\":false,\"code\":false,\"color\":\"default\"},\"plain_text\":\"Test
-        Page for notionapi\",\"href\":null}]}},\"url\":\"https://www.notion.so/Test-Page-for-notionapi-34033ea0c1e48181a411fcffc69c690a\",\"public_url\":null,\"request_id\":\"d4920b91-f85e-49ff-ba30-8573b8784ebb\"}"
-  recorded_at: 2026-04-12 08:10:56
+      string: '{"object":"page","id":"34033ea0-c1e4-81c4-afa0-d1ec98de4bec","created_time":"2026-04-12T21:18:00.000Z","last_edited_time":"2026-04-12T21:18:00.000Z","created_by":{"object":"user","id":"6b786605-e456-4237-9c61-5efaff23c081"},"last_edited_by":{"object":"user","id":"6b786605-e456-4237-9c61-5efaff23c081"},"cover":null,"icon":{"type":"icon","icon":{"name":"pizza","color":"blue"}},"parent":{"type":"page_id","page_id":"22f33ea0-c1e4-80b9-9c77-d1ab72aedff9"},"in_trash":false,"is_archived":false,"is_locked":false,"properties":{"title":{"id":"title","type":"title","title":[{"type":"text","text":{"content":"Test
+        Page for notionapi","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Test
+        Page for notionapi","href":null}]}},"url":"https://www.notion.so/Test-Page-for-notionapi-34033ea0c1e481c4afa0d1ec98de4bec","public_url":null,"request_id":"a6225487-5bf3-45ca-a5c9-a0e89c7e1e24"}'
+  recorded_at: 2026-04-12 21:18:42
 recorded_with: VCR-vcr/2.1.0

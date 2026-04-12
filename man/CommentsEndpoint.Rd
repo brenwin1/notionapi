@@ -18,7 +18,7 @@ notion <- notion_client()
 # ----- Create comment
 notion$comments$create(
   parent = list(
-    page_id = "34033ea0-c1e4-8181-a411-fcffc69c690a"
+    page_id = "34033ea0-c1e4-81c4-afa0-d1ec98de4bec"
   ),
   rich_text = list(
     list(
@@ -31,11 +31,11 @@ notion$comments$create(
 \dontshow{notionapi::vcr_example_end()}
 \dontshow{notionapi::vcr_example_start("notion-comments-retrieve")}
 # ----- Retrieve comment
-notion$comments$retrieve("34033ea0-c1e4-81a9-ba52-001d7629e201")
+notion$comments$retrieve("34033ea0-c1e4-8193-a220-001d29ae83c5")
 \dontshow{notionapi::vcr_example_end()}
 \dontshow{notionapi::vcr_example_start("notion-comments-list")}
 # ----- List un-resolved comments from a page or block
-notion$comments$list("34033ea0-c1e4-8181-a411-fcffc69c690a")
+notion$comments$list("34033ea0-c1e4-81c4-afa0-d1ec98de4bec")
 \dontshow{notionapi::vcr_example_end()}
 \dontshow{\}) # examplesIf}
 }

@@ -18,7 +18,7 @@ notion <- notion_client()
 # ----- Create a data source
 notion$data_sources$create(
   list(
-    database_id = "efab1bec-0094-4afe-a90c-c9b72d538b4b"
+    database_id = "ffec20ee-1450-4da8-9904-f4babba0e9c0"
   ),
   properties = list(
     Title = list(
@@ -35,7 +35,7 @@ notion$data_sources$create(
 \dontshow{notionapi::vcr_example_start("notion-data-sources-update")}
 # ----- Update data source
 notion$data_sources$update(
-  "34033ea0-c1e4-81a2-aaf4-000b260f79c9",
+  "34033ea0-c1e4-8112-bc3a-000bc940aa45",
   properties = list(
     Status = list(
       status = list(
@@ -56,16 +56,16 @@ notion$data_sources$update(
 \dontshow{notionapi::vcr_example_end()}
 \dontshow{notionapi::vcr_example_start("notion-data-sources-retrieve")}
 # ----- Retrieve a data source
-notion$data_sources$retrieve("34033ea0-c1e4-81a2-aaf4-000b260f79c9")
+notion$data_sources$retrieve("34033ea0-c1e4-8112-bc3a-000bc940aa45")
 \dontshow{notionapi::vcr_example_end()}
 \dontshow{notionapi::vcr_example_start("notion-data-sources-list-templates")}
 # ----- List data source templates
-notion$data_sources$list_templates("34033ea0-c1e4-81a2-aaf4-000b260f79c9")
+notion$data_sources$list_templates("34033ea0-c1e4-8112-bc3a-000bc940aa45")
 \dontshow{notionapi::vcr_example_end()}
 \dontshow{notionapi::vcr_example_start("notion-data-sources-query")}
 # ----- Query a data source
 notion$data_sources$query(
-  "34033ea0-c1e4-81a2-aaf4-000b260f79c9",
+  "34033ea0-c1e4-8112-bc3a-000bc940aa45",
   filter = list(
     property = "Status",
     status = list(

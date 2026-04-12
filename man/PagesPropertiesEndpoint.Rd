@@ -17,8 +17,8 @@ notion <- notion_client()
 \dontshow{notionapi::vcr_example_start("notion-pages-properties-retrieve")}
 # ----- Retrieve a page property
 notion$pages$properties$retrieve(
-  "34033ea0-c1e4-8181-a411-fcffc69c690a",
-  "BvMv"
+  "34033ea0-c1e4-81c4-afa0-d1ec98de4bec",
+  "\%60w\%5CX"
 )
 \dontshow{notionapi::vcr_example_end()}
 \dontshow{\}) # examplesIf}
