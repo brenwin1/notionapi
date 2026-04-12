@@ -168,52 +168,52 @@ If NULL, returns the first page of results.</p></dd>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">notion</span> <span class="op">&lt;-</span> <span class="fu"><a href="NotionClient.html">notion_client</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co"># ----- Create a view query</span></span></span>
-<span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">views</span><span class="op">$</span><span class="va">queries</span><span class="op">$</span><span class="fu">create</span><span class="op">(</span><span class="st">"34033ea0-c1e4-81e1-942f-000c08810f61"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">views</span><span class="op">$</span><span class="va">queries</span><span class="op">$</span><span class="fu">create</span><span class="op">(</span><span class="st">"34033ea0-c1e4-8192-ac14-000cdad096ce"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "view_query",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "a966d86e-5211-47cb-8a1e-f05bc0a33494",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "view_id": "34033ea0-c1e4-81e1-942f-000c08810f61",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "expires_at": "2026-04-12T08:26:21.052+00:00",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "9af03bd1-ed79-4842-a57c-0bc04fb61be2",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "view_id": "34033ea0-c1e4-8192-ac14-000cdad096ce",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "expires_at": "2026-04-12T21:34:01.702+00:00",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "total_count": 1,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "results": [</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       "object": "page",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       "id": "34033ea0-c1e4-8181-a411-fcffc69c690a"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "id": "34033ea0-c1e4-81c4-afa0-d1ec98de4bec"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     }</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ],</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "next_cursor": {},</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "has_more": false,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "06e3276d-92e6-4e33-b670-155a8d72c0b3"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "b1c06f37-06d3-4633-9df2-a87eb48b8222"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
 <span class="r-in"><span><span class="co"># ----- Get view query results</span></span></span>
 <span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">views</span><span class="op">$</span><span class="va">queries</span><span class="op">$</span><span class="fu">results</span><span class="op">(</span></span></span>
-<span class="r-in"><span>  <span class="st">"34033ea0-c1e4-81e1-942f-000c08810f61"</span>,</span></span>
-<span class="r-in"><span>  <span class="st">"a966d86e-5211-47cb-8a1e-f05bc0a33494"</span></span></span>
+<span class="r-in"><span>  <span class="st">"34033ea0-c1e4-8192-ac14-000cdad096ce"</span>,</span></span>
+<span class="r-in"><span>  <span class="st">"9af03bd1-ed79-4842-a57c-0bc04fb61be2"</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "list",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "results": [</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       "object": "page",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       "id": "34033ea0-c1e4-8181-a411-fcffc69c690a"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "id": "34033ea0-c1e4-81c4-afa0-d1ec98de4bec"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     }</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ],</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "next_cursor": {},</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "has_more": false,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "type": "page",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "page": {},</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "9f94354e-84f9-45d3-beeb-e5f0b3abab48"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "ae56e2b0-35d2-407c-9622-687618c03bb5"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
 <span class="r-in"><span><span class="co"># ----- Delete a view query</span></span></span>
 <span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">views</span><span class="op">$</span><span class="va">queries</span><span class="op">$</span><span class="fu">delete</span><span class="op">(</span></span></span>
-<span class="r-in"><span>  <span class="st">"34033ea0-c1e4-81e1-942f-000c08810f61"</span>,</span></span>
-<span class="r-in"><span>  <span class="st">"a966d86e-5211-47cb-8a1e-f05bc0a33494"</span></span></span>
+<span class="r-in"><span>  <span class="st">"34033ea0-c1e4-8192-ac14-000cdad096ce"</span>,</span></span>
+<span class="r-in"><span>  <span class="st">"9af03bd1-ed79-4842-a57c-0bc04fb61be2"</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "view_query",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "a966d86e-5211-47cb-8a1e-f05bc0a33494",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "9af03bd1-ed79-4842-a57c-0bc04fb61be2",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "deleted": true,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "2ea9dd88-3bbe-4fbc-8017-4229f5ceb8d6"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "ce52ec95-7257-4372-b08f-0fca3da2e0f1"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
 </code></pre></div>
     </div>

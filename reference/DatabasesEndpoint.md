@@ -197,7 +197,7 @@ notion$databases$create(
 )
 #> {
 #>   "object": "database",
-#>   "id": "efab1bec-0094-4afe-a90c-c9b72d538b4b",
+#>   "id": "ffec20ee-1450-4da8-9904-f4babba0e9c0",
 #>   "title": [
 #>     {
 #>       "type": "text",
@@ -225,25 +225,25 @@ notion$databases$create(
 #>   "is_inline": false,
 #>   "in_trash": false,
 #>   "is_locked": false,
-#>   "created_time": "2026-04-12T08:11:07.514+00:00",
-#>   "last_edited_time": "2026-04-12T08:11:07.514+00:00",
+#>   "created_time": "2026-04-12T21:18:49.084+00:00",
+#>   "last_edited_time": "2026-04-12T21:18:49.084+00:00",
 #>   "data_sources": [
 #>     {
-#>       "id": "4b00477f-d3cf-4c86-a677-a10075c11fd2",
+#>       "id": "b55b16c7-12f3-4e1c-bfbf-759e9cd08f91",
 #>       "name": "Test Database"
 #>     }
 #>   ],
 #>   "icon": {},
 #>   "cover": {},
-#>   "url": "https://www.notion.so/efab1bec00944afea90cc9b72d538b4b",
+#>   "url": "https://www.notion.so/ffec20ee14504da89904f4babba0e9c0",
 #>   "public_url": {},
-#>   "request_id": "a38576d0-12fa-4266-9e14-49373e12fd99"
+#>   "request_id": "90bcb8d7-d204-4e7b-bbae-8b623fc4cebd"
 #> } 
 # ----- Retrieve a database
-notion$databases$retrieve("efab1bec-0094-4afe-a90c-c9b72d538b4b")
+notion$databases$retrieve("ffec20ee-1450-4da8-9904-f4babba0e9c0")
 #> {
 #>   "object": "database",
-#>   "id": "efab1bec-0094-4afe-a90c-c9b72d538b4b",
+#>   "id": "ffec20ee-1450-4da8-9904-f4babba0e9c0",
 #>   "title": [
 #>     {
 #>       "type": "text",
@@ -271,35 +271,38 @@ notion$databases$retrieve("efab1bec-0094-4afe-a90c-c9b72d538b4b")
 #>   "is_inline": false,
 #>   "in_trash": false,
 #>   "is_locked": false,
-#>   "created_time": "2026-04-12T08:11:07.514+00:00",
-#>   "last_edited_time": "2026-04-12T08:11:07.514+00:00",
+#>   "created_time": "2026-04-12T21:18:49.084+00:00",
+#>   "last_edited_time": "2026-04-12T21:18:49.084+00:00",
 #>   "data_sources": [
 #>     {
-#>       "id": "4b00477f-d3cf-4c86-a677-a10075c11fd2",
+#>       "id": "b55b16c7-12f3-4e1c-bfbf-759e9cd08f91",
 #>       "name": "Test Database"
 #>     }
 #>   ],
 #>   "icon": {},
 #>   "cover": {},
-#>   "url": "https://www.notion.so/efab1bec00944afea90cc9b72d538b4b",
+#>   "url": "https://www.notion.so/ffec20ee14504da89904f4babba0e9c0",
 #>   "public_url": {},
-#>   "request_id": "e3ea8198-6336-42e9-bffe-76746fc3a309"
+#>   "request_id": "b1c53cf5-7ec6-4d58-883a-825b8b388dc6"
 #> } 
 # ----- Update a database
 notion$databases$update(
-  "efab1bec-0094-4afe-a90c-c9b72d538b4b",
+  "ffec20ee-1450-4da8-9904-f4babba0e9c0",
   description = list(list(
     text = list(
       content = "For testing purposes"
     )
   )),
   icon = list(
-    emoji = "🤩"
+    icon = list(
+      name = "calendar",
+      color = "gray"
+    )
   )
 )
 #> {
 #>   "object": "database",
-#>   "id": "efab1bec-0094-4afe-a90c-c9b72d538b4b",
+#>   "id": "ffec20ee-1450-4da8-9904-f4babba0e9c0",
 #>   "title": [
 #>     {
 #>       "type": "text",
@@ -345,21 +348,24 @@ notion$databases$update(
 #>   "is_inline": false,
 #>   "in_trash": false,
 #>   "is_locked": false,
-#>   "created_time": "2026-04-12T08:11:07.514+00:00",
-#>   "last_edited_time": "2026-04-12T08:11:07.514+00:00",
+#>   "created_time": "2026-04-12T21:18:49.084+00:00",
+#>   "last_edited_time": "2026-04-12T21:18:49.084+00:00",
 #>   "data_sources": [
 #>     {
-#>       "id": "4b00477f-d3cf-4c86-a677-a10075c11fd2",
+#>       "id": "b55b16c7-12f3-4e1c-bfbf-759e9cd08f91",
 #>       "name": "Test Database"
 #>     }
 #>   ],
 #>   "icon": {
-#>     "type": "emoji",
-#>     "emoji": "🤩"
+#>     "type": "icon",
+#>     "icon": {
+#>       "name": "calendar",
+#>       "color": "gray"
+#>     }
 #>   },
 #>   "cover": {},
-#>   "url": "https://www.notion.so/efab1bec00944afea90cc9b72d538b4b",
+#>   "url": "https://www.notion.so/ffec20ee14504da89904f4babba0e9c0",
 #>   "public_url": {},
-#>   "request_id": "59b336e3-8e9e-4935-b56c-f7d1e2293657"
+#>   "request_id": "3da849db-72e8-4a9d-855a-4322af514f22"
 #> } 
 ```

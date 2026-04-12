@@ -367,7 +367,7 @@ notion$search(
 #>       "object": "page",
 #>       "id": "22f33ea0-c1e4-80b9-9c77-d1ab72aedff9",
 #>       "created_time": "2025-07-13T12:29:00.000Z",
-#>       "last_edited_time": "2026-04-12T08:11:00.000Z",
+#>       "last_edited_time": "2026-04-12T21:18:00.000Z",
 #>       "created_by": {
 #>         "object": "user",
 #>         "id": "fda12729-108d-4eb5-bbfb-a8f0886794d1"
@@ -417,11 +417,11 @@ notion$search(
 #>       "public_url": {}
 #>     }
 #>   ],
-#>   "next_cursor": "34033ea0-c1e4-8181-a411-fcffc69c690a",
+#>   "next_cursor": "34033ea0-c1e4-81c4-afa0-d1ec98de4bec",
 #>   "has_more": true,
 #>   "type": "page_or_data_source",
 #>   "page_or_data_source": {},
-#>   "request_id": "9a1e7078-93ef-41b2-8975-cc28feb8155e"
+#>   "request_id": "8cb9c912-678e-43c6-9ed0-469281feeed4"
 #> } 
 
 # ----- Async client

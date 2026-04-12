@@ -274,132 +274,132 @@ documentation](https://developers.notion.com/reference/list-views)
 notion <- notion_client()
 # ----- Create a view
 notion$views$create(
-  "34033ea0-c1e4-81a2-aaf4-000b260f79c9",
+  "34033ea0-c1e4-8112-bc3a-000bc940aa45",
   "Test view",
   "table",
-  "efab1bec-0094-4afe-a90c-c9b72d538b4b"
+  "ffec20ee-1450-4da8-9904-f4babba0e9c0"
 )
 #> {
 #>   "object": "view",
-#>   "id": "34033ea0-c1e4-81e1-942f-000c08810f61",
+#>   "id": "34033ea0-c1e4-8192-ac14-000cdad096ce",
 #>   "parent": {
 #>     "type": "database_id",
-#>     "database_id": "efab1bec-0094-4afe-a90c-c9b72d538b4b"
+#>     "database_id": "ffec20ee-1450-4da8-9904-f4babba0e9c0"
 #>   },
-#>   "data_source_id": "34033ea0-c1e4-81a2-aaf4-000b260f79c9",
+#>   "data_source_id": "34033ea0-c1e4-8112-bc3a-000bc940aa45",
 #>   "name": "Test view",
 #>   "type": "table",
-#>   "created_time": "2026-04-12T08:11:18.760+00:00",
+#>   "created_time": "2026-04-12T21:18:58.550+00:00",
 #>   "created_by": {
 #>     "object": "user",
 #>     "id": "6b786605-e456-4237-9c61-5efaff23c081"
 #>   },
-#>   "last_edited_time": "2026-04-12T08:11:18.760+00:00",
+#>   "last_edited_time": "2026-04-12T21:18:58.550+00:00",
 #>   "last_edited_by": {
 #>     "object": "user",
 #>     "id": "6b786605-e456-4237-9c61-5efaff23c081"
 #>   },
-#>   "url": "https://www.notion.so/efab1bec00944afea90cc9b72d538b4b?v=34033ea0c1e481e1942f000c08810f61",
+#>   "url": "https://www.notion.so/ffec20ee14504da89904f4babba0e9c0?v=34033ea0c1e48192ac14000cdad096ce",
 #>   "filter": {},
 #>   "sorts": {},
 #>   "quick_filters": {},
 #>   "configuration": {
 #>     "type": "table"
 #>   },
-#>   "request_id": "0e7ffe44-e3c0-4b17-9e70-6eb7e890de2f"
+#>   "request_id": "9df04e44-b651-4065-b650-7e7c46b01fb2"
 #> } 
 # ----- Retrieve a view
-notion$views$retrieve("34033ea0-c1e4-81e1-942f-000c08810f61")
+notion$views$retrieve("34033ea0-c1e4-8192-ac14-000cdad096ce")
 #> {
 #>   "object": "view",
-#>   "id": "34033ea0-c1e4-81e1-942f-000c08810f61",
+#>   "id": "34033ea0-c1e4-8192-ac14-000cdad096ce",
 #>   "parent": {
 #>     "type": "database_id",
-#>     "database_id": "efab1bec-0094-4afe-a90c-c9b72d538b4b"
+#>     "database_id": "ffec20ee-1450-4da8-9904-f4babba0e9c0"
 #>   },
-#>   "data_source_id": "34033ea0-c1e4-81a2-aaf4-000b260f79c9",
+#>   "data_source_id": "34033ea0-c1e4-8112-bc3a-000bc940aa45",
 #>   "name": "Test view",
 #>   "type": "table",
-#>   "created_time": "2026-04-12T08:11:18.760+00:00",
+#>   "created_time": "2026-04-12T21:18:58.550+00:00",
 #>   "created_by": {
 #>     "object": "user",
 #>     "id": "6b786605-e456-4237-9c61-5efaff23c081"
 #>   },
-#>   "last_edited_time": "2026-04-12T08:11:18.760+00:00",
+#>   "last_edited_time": "2026-04-12T21:18:58.550+00:00",
 #>   "last_edited_by": {
 #>     "object": "user",
 #>     "id": "6b786605-e456-4237-9c61-5efaff23c081"
 #>   },
-#>   "url": "https://www.notion.so/efab1bec00944afea90cc9b72d538b4b?v=34033ea0c1e481e1942f000c08810f61",
+#>   "url": "https://www.notion.so/ffec20ee14504da89904f4babba0e9c0?v=34033ea0c1e48192ac14000cdad096ce",
 #>   "filter": {},
 #>   "sorts": {},
 #>   "quick_filters": {},
 #>   "configuration": {
 #>     "type": "table"
 #>   },
-#>   "request_id": "968184bf-37da-4160-9347-f555ca05836c"
+#>   "request_id": "8586abdb-5f05-4f2a-ae69-0861525ccca5"
 #> } 
 # ----- List views
-notion$views$list(data_source_id = "34033ea0-c1e4-81a2-aaf4-000b260f79c9")
+notion$views$list(data_source_id = "34033ea0-c1e4-8112-bc3a-000bc940aa45")
 #> {
 #>   "object": "list",
 #>   "results": [
 #>     {
 #>       "object": "view",
-#>       "id": "34033ea0-c1e4-8198-bd0c-000c97c2d0bf"
+#>       "id": "34033ea0-c1e4-818e-9c98-000c019044bd"
 #>     },
 #>     {
 #>       "object": "view",
-#>       "id": "34033ea0-c1e4-81e1-942f-000c08810f61"
+#>       "id": "34033ea0-c1e4-8192-ac14-000cdad096ce"
 #>     }
 #>   ],
 #>   "next_cursor": {},
 #>   "has_more": false,
 #>   "type": "view",
 #>   "view": {},
-#>   "request_id": "fe2d429e-e976-43fa-96e3-0f274913ee05"
+#>   "request_id": "2f24742c-6e72-4599-abc3-4232451dc7be"
 #> } 
 # ----- Update a view
-notion$views$update("34033ea0-c1e4-81e1-942f-000c08810f61", "Updated view name")
+notion$views$update("34033ea0-c1e4-8192-ac14-000cdad096ce", "Updated view name")
 #> {
 #>   "object": "view",
-#>   "id": "34033ea0-c1e4-81e1-942f-000c08810f61",
+#>   "id": "34033ea0-c1e4-8192-ac14-000cdad096ce",
 #>   "parent": {
 #>     "type": "database_id",
-#>     "database_id": "efab1bec-0094-4afe-a90c-c9b72d538b4b"
+#>     "database_id": "ffec20ee-1450-4da8-9904-f4babba0e9c0"
 #>   },
-#>   "data_source_id": "34033ea0-c1e4-81a2-aaf4-000b260f79c9",
+#>   "data_source_id": "34033ea0-c1e4-8112-bc3a-000bc940aa45",
 #>   "name": "Updated view name",
 #>   "type": "table",
-#>   "created_time": "2026-04-12T08:11:18.760+00:00",
+#>   "created_time": "2026-04-12T21:18:58.550+00:00",
 #>   "created_by": {
 #>     "object": "user",
 #>     "id": "6b786605-e456-4237-9c61-5efaff23c081"
 #>   },
-#>   "last_edited_time": "2026-04-12T08:11:19.830+00:00",
+#>   "last_edited_time": "2026-04-12T21:18:59.977+00:00",
 #>   "last_edited_by": {
 #>     "object": "user",
 #>     "id": "6b786605-e456-4237-9c61-5efaff23c081"
 #>   },
-#>   "url": "https://www.notion.so/efab1bec00944afea90cc9b72d538b4b?v=34033ea0c1e481e1942f000c08810f61",
+#>   "url": "https://www.notion.so/ffec20ee14504da89904f4babba0e9c0?v=34033ea0c1e48192ac14000cdad096ce",
 #>   "filter": {},
 #>   "sorts": {},
 #>   "quick_filters": {},
 #>   "configuration": {
 #>     "type": "table"
 #>   },
-#>   "request_id": "58536839-aea8-4698-b2cd-edc31c4f50d6"
+#>   "request_id": "1396db86-43d6-43f5-8f9c-a24d72815839"
 #> } 
 # ----- Delete a view
-notion$views$delete("34033ea0-c1e4-81e1-942f-000c08810f61")
+notion$views$delete("34033ea0-c1e4-8192-ac14-000cdad096ce")
 #> {
 #>   "object": "view",
-#>   "id": "34033ea0-c1e4-81e1-942f-000c08810f61",
+#>   "id": "34033ea0-c1e4-8192-ac14-000cdad096ce",
 #>   "parent": {
 #>     "type": "database_id",
-#>     "database_id": "efab1bec-0094-4afe-a90c-c9b72d538b4b"
+#>     "database_id": "ffec20ee-1450-4da8-9904-f4babba0e9c0"
 #>   },
 #>   "type": "table",
-#>   "request_id": "d83da7a4-f8a9-4591-8e7e-84040da1659f"
+#>   "request_id": "b3ac0c2a-64a7-4102-b4a6-e5a066003751"
 #> } 
 ```

@@ -233,21 +233,21 @@ If NULL, returns the first page of results.</p></dd>
 <span class="r-in"><span><span class="op">(</span><span class="va">resp</span> <span class="op">&lt;-</span> <span class="va">notion</span><span class="op">$</span><span class="va">file_uploads</span><span class="op">$</span><span class="fu">create</span><span class="op">(</span><span class="st">"single_part"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "file_upload",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "34033ea0-c1e4-818c-93d0-00b215647918",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2026-04-12T08:11:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "34033ea0-c1e4-81d1-b9cd-00b2c74cf6cc",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2026-04-12T21:19:00.000Z",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "created_by": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "type": "bot"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2026-04-12T08:11:00.000Z",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "expiry_time": "2026-04-12T09:11:00.000Z",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "upload_url": "https://api.notion.com/v1/file_uploads/34033ea0-c1e4-818c-93d0-00b215647918/send",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2026-04-12T21:19:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "expiry_time": "2026-04-12T22:19:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "upload_url": "https://api.notion.com/v1/file_uploads/34033ea0-c1e4-81d1-b9cd-00b2c74cf6cc/send",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "in_trash": false,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "status": "pending",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "filename": {},</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "content_type": {},</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "content_length": {},</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "faa76351-7492-4eb5-b6bc-8765d8fe13ae"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "09c2af3a-2f16-4ab1-9bb8-6b22b513ac9f"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
 <span class="r-in"><span><span class="va">file_upload_id</span> <span class="op">&lt;-</span> <span class="va">resp</span><span class="op">[[</span><span class="st">"id"</span><span class="op">]</span><span class="op">]</span></span></span>
 <span class="r-in"><span></span></span>
@@ -266,40 +266,40 @@ If NULL, returns the first page of results.</p></dd>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "file_upload",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "34033ea0-c1e4-818c-93d0-00b215647918",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2026-04-12T08:11:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "34033ea0-c1e4-81d1-b9cd-00b2c74cf6cc",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2026-04-12T21:19:00.000Z",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "created_by": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "type": "bot"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2026-04-12T08:11:00.000Z",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "expiry_time": "2026-04-12T09:11:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2026-04-12T21:19:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "expiry_time": "2026-04-12T22:19:00.000Z",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "in_trash": false,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "status": "uploaded",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "filename": "test.pdf",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "content_type": "application/pdf",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "content_length": 40666,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "7fe6964c-79de-4e20-85ef-f374ca038b6b"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "a61439bc-0cdb-4178-b706-ff85d2df6c21"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Retrieve the file upload</span></span></span>
 <span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">file_uploads</span><span class="op">$</span><span class="fu">retrieve</span><span class="op">(</span><span class="va">file_upload_id</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "file_upload",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "34033ea0-c1e4-818c-93d0-00b215647918",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2026-04-12T08:11:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "34033ea0-c1e4-81d1-b9cd-00b2c74cf6cc",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2026-04-12T21:19:00.000Z",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "created_by": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "type": "bot"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2026-04-12T08:11:00.000Z",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "expiry_time": "2026-04-12T09:11:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2026-04-12T21:19:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "expiry_time": "2026-04-12T22:19:00.000Z",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "in_trash": false,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "status": "uploaded",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "filename": "test.pdf",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "content_type": "application/pdf",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "content_length": 40666,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "e1614ebc-a66f-419f-8323-79ab382bb691"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "5f731bc2-7740-4dc8-88b9-50f6fa41306b"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
 <span class="r-in"><span><span class="co"># ----- Multi-part upload (files &gt; 20MB)</span></span></span>
 <span class="r-in"><span><span class="co"># Step 1: Split raw content into parts</span></span></span>
@@ -316,15 +316,15 @@ If NULL, returns the first page of results.</p></dd>
 <span class="r-in"><span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "file_upload",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "34033ea0-c1e4-812d-9565-00b219008b06",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2026-04-12T08:11:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "34033ea0-c1e4-8103-b3a0-00b2e89d59b5",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2026-04-12T21:19:00.000Z",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "created_by": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "type": "bot"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2026-04-12T08:11:00.000Z",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "expiry_time": "2026-04-12T09:11:00.000Z",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "upload_url": "https://api.notion.com/v1/file_uploads/34033ea0-c1e4-812d-9565-00b219008b06/send",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2026-04-12T21:19:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "expiry_time": "2026-04-12T22:19:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "upload_url": "https://api.notion.com/v1/file_uploads/34033ea0-c1e4-8103-b3a0-00b2e89d59b5/send",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "in_trash": false,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "status": "pending",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "filename": "test-large.txt",</span>
@@ -334,7 +334,7 @@ If NULL, returns the first page of results.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "total": 2,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "sent": 0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "ff5b7545-01fa-4b2d-a9d9-28c1634979db"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "6c7a125e-1e50-4edb-bc17-c94144fad02c"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
 <span class="r-in"><span><span class="va">file_upload_id</span> <span class="op">&lt;-</span> <span class="va">resp</span><span class="op">[[</span><span class="st">"id"</span><span class="op">]</span><span class="op">]</span></span></span>
 <span class="r-in"><span></span></span>
@@ -356,14 +356,14 @@ If NULL, returns the first page of results.</p></dd>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "file_upload",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "34033ea0-c1e4-812d-9565-00b219008b06",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2026-04-12T08:11:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "34033ea0-c1e4-8103-b3a0-00b2e89d59b5",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2026-04-12T21:19:00.000Z",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "created_by": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "type": "bot"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2026-04-12T08:11:00.000Z",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "expiry_time": "2026-04-12T09:11:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2026-04-12T21:19:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "expiry_time": "2026-04-12T22:19:00.000Z",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "in_trash": false,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "status": "uploaded",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "filename": "test-large.txt",</span>
@@ -373,7 +373,7 @@ If NULL, returns the first page of results.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "total": 2,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "sent": 2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "b1bea9d5-20bb-4117-b06c-ae650a6e0b1a"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "cb97c5a6-720d-4fad-97db-daeb43f04987"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Retrieve the file upload</span></span></span>
@@ -382,14 +382,14 @@ If NULL, returns the first page of results.</p></dd>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "file_upload",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "34033ea0-c1e4-812d-9565-00b219008b06",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2026-04-12T08:11:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "34033ea0-c1e4-8103-b3a0-00b2e89d59b5",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2026-04-12T21:19:00.000Z",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "created_by": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "type": "bot"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2026-04-12T08:11:00.000Z",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "expiry_time": "2026-04-12T09:11:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2026-04-12T21:19:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "expiry_time": "2026-04-12T22:19:00.000Z",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "in_trash": false,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "status": "uploaded",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "filename": "test-large.txt",</span>
@@ -399,7 +399,7 @@ If NULL, returns the first page of results.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "total": 2,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "sent": 2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "9e291c04-a262-4ed9-9fa9-f1dcb5d56f8b"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "72253f12-2f6d-4f99-9ccc-082640709387"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
 <span class="r-in"><span><span class="co"># ----- Import external files</span></span></span>
 <span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">file_uploads</span><span class="op">$</span><span class="fu">create</span><span class="op">(</span></span></span>
@@ -410,21 +410,21 @@ If NULL, returns the first page of results.</p></dd>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "file_upload",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "34033ea0-c1e4-81cf-a859-00b21dd260e6",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2026-04-12T08:11:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "34033ea0-c1e4-81c3-9f44-00b285881ad3",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2026-04-12T21:19:00.000Z",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "created_by": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "type": "bot"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2026-04-12T08:11:00.000Z",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "expiry_time": "2026-04-12T09:11:00.000Z",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "upload_url": "https://api.notion.com/v1/file_uploads/34033ea0-c1e4-81cf-a859-00b21dd260e6/send",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2026-04-12T21:19:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "expiry_time": "2026-04-12T22:19:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "upload_url": "https://api.notion.com/v1/file_uploads/34033ea0-c1e4-81c3-9f44-00b285881ad3/send",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "in_trash": false,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "status": "pending",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "filename": "dummy.pdf",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "content_type": "application/pdf",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "content_length": {},</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "db0b6358-7cdf-4e5a-9f3b-e716f02cc8c0"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "9d9a832b-bd1f-434a-9a89-efbf582ccae8"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
 </code></pre></div>
     </div>

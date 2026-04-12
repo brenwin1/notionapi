@@ -309,133 +309,133 @@ If NULL, returns the first page of results.</p></dd>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">notion</span> <span class="op">&lt;-</span> <span class="fu"><a href="NotionClient.html">notion_client</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co"># ----- Create a view</span></span></span>
 <span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">views</span><span class="op">$</span><span class="fu">create</span><span class="op">(</span></span></span>
-<span class="r-in"><span>  <span class="st">"34033ea0-c1e4-81a2-aaf4-000b260f79c9"</span>,</span></span>
+<span class="r-in"><span>  <span class="st">"34033ea0-c1e4-8112-bc3a-000bc940aa45"</span>,</span></span>
 <span class="r-in"><span>  <span class="st">"Test view"</span>,</span></span>
 <span class="r-in"><span>  <span class="st">"table"</span>,</span></span>
-<span class="r-in"><span>  <span class="st">"efab1bec-0094-4afe-a90c-c9b72d538b4b"</span></span></span>
+<span class="r-in"><span>  <span class="st">"ffec20ee-1450-4da8-9904-f4babba0e9c0"</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "view",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "34033ea0-c1e4-81e1-942f-000c08810f61",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "34033ea0-c1e4-8192-ac14-000cdad096ce",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "parent": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "type": "database_id",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "database_id": "efab1bec-0094-4afe-a90c-c9b72d538b4b"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "database_id": "ffec20ee-1450-4da8-9904-f4babba0e9c0"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "data_source_id": "34033ea0-c1e4-81a2-aaf4-000b260f79c9",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "data_source_id": "34033ea0-c1e4-8112-bc3a-000bc940aa45",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "name": "Test view",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "type": "table",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2026-04-12T08:11:18.760+00:00",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2026-04-12T21:18:58.550+00:00",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "created_by": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "object": "user",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2026-04-12T08:11:18.760+00:00",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2026-04-12T21:18:58.550+00:00",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_by": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "object": "user",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "url": "https://www.notion.so/efab1bec00944afea90cc9b72d538b4b?v=34033ea0c1e481e1942f000c08810f61",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "url": "https://www.notion.so/ffec20ee14504da89904f4babba0e9c0?v=34033ea0c1e48192ac14000cdad096ce",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "filter": {},</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "sorts": {},</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "quick_filters": {},</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "configuration": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "type": "table"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "0e7ffe44-e3c0-4b17-9e70-6eb7e890de2f"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "9df04e44-b651-4065-b650-7e7c46b01fb2"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
 <span class="r-in"><span><span class="co"># ----- Retrieve a view</span></span></span>
-<span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">views</span><span class="op">$</span><span class="fu">retrieve</span><span class="op">(</span><span class="st">"34033ea0-c1e4-81e1-942f-000c08810f61"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">views</span><span class="op">$</span><span class="fu">retrieve</span><span class="op">(</span><span class="st">"34033ea0-c1e4-8192-ac14-000cdad096ce"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "view",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "34033ea0-c1e4-81e1-942f-000c08810f61",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "34033ea0-c1e4-8192-ac14-000cdad096ce",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "parent": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "type": "database_id",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "database_id": "efab1bec-0094-4afe-a90c-c9b72d538b4b"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "database_id": "ffec20ee-1450-4da8-9904-f4babba0e9c0"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "data_source_id": "34033ea0-c1e4-81a2-aaf4-000b260f79c9",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "data_source_id": "34033ea0-c1e4-8112-bc3a-000bc940aa45",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "name": "Test view",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "type": "table",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2026-04-12T08:11:18.760+00:00",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2026-04-12T21:18:58.550+00:00",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "created_by": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "object": "user",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2026-04-12T08:11:18.760+00:00",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2026-04-12T21:18:58.550+00:00",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_by": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "object": "user",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "url": "https://www.notion.so/efab1bec00944afea90cc9b72d538b4b?v=34033ea0c1e481e1942f000c08810f61",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "url": "https://www.notion.so/ffec20ee14504da89904f4babba0e9c0?v=34033ea0c1e48192ac14000cdad096ce",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "filter": {},</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "sorts": {},</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "quick_filters": {},</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "configuration": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "type": "table"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "968184bf-37da-4160-9347-f555ca05836c"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "8586abdb-5f05-4f2a-ae69-0861525ccca5"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
 <span class="r-in"><span><span class="co"># ----- List views</span></span></span>
-<span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">views</span><span class="op">$</span><span class="fu">list</span><span class="op">(</span>data_source_id <span class="op">=</span> <span class="st">"34033ea0-c1e4-81a2-aaf4-000b260f79c9"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">views</span><span class="op">$</span><span class="fu">list</span><span class="op">(</span>data_source_id <span class="op">=</span> <span class="st">"34033ea0-c1e4-8112-bc3a-000bc940aa45"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "list",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "results": [</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       "object": "view",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       "id": "34033ea0-c1e4-8198-bd0c-000c97c2d0bf"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "id": "34033ea0-c1e4-818e-9c98-000c019044bd"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     },</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       "object": "view",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       "id": "34033ea0-c1e4-81e1-942f-000c08810f61"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "id": "34033ea0-c1e4-8192-ac14-000cdad096ce"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     }</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ],</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "next_cursor": {},</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "has_more": false,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "type": "view",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "view": {},</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "fe2d429e-e976-43fa-96e3-0f274913ee05"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "2f24742c-6e72-4599-abc3-4232451dc7be"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
 <span class="r-in"><span><span class="co"># ----- Update a view</span></span></span>
-<span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">views</span><span class="op">$</span><span class="fu">update</span><span class="op">(</span><span class="st">"34033ea0-c1e4-81e1-942f-000c08810f61"</span>, <span class="st">"Updated view name"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">views</span><span class="op">$</span><span class="fu">update</span><span class="op">(</span><span class="st">"34033ea0-c1e4-8192-ac14-000cdad096ce"</span>, <span class="st">"Updated view name"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "view",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "34033ea0-c1e4-81e1-942f-000c08810f61",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "34033ea0-c1e4-8192-ac14-000cdad096ce",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "parent": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "type": "database_id",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "database_id": "efab1bec-0094-4afe-a90c-c9b72d538b4b"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "database_id": "ffec20ee-1450-4da8-9904-f4babba0e9c0"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "data_source_id": "34033ea0-c1e4-81a2-aaf4-000b260f79c9",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "data_source_id": "34033ea0-c1e4-8112-bc3a-000bc940aa45",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "name": "Updated view name",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "type": "table",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2026-04-12T08:11:18.760+00:00",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2026-04-12T21:18:58.550+00:00",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "created_by": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "object": "user",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2026-04-12T08:11:19.830+00:00",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2026-04-12T21:18:59.977+00:00",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_by": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "object": "user",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "url": "https://www.notion.so/efab1bec00944afea90cc9b72d538b4b?v=34033ea0c1e481e1942f000c08810f61",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "url": "https://www.notion.so/ffec20ee14504da89904f4babba0e9c0?v=34033ea0c1e48192ac14000cdad096ce",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "filter": {},</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "sorts": {},</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "quick_filters": {},</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "configuration": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "type": "table"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "58536839-aea8-4698-b2cd-edc31c4f50d6"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "1396db86-43d6-43f5-8f9c-a24d72815839"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
 <span class="r-in"><span><span class="co"># ----- Delete a view</span></span></span>
-<span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">views</span><span class="op">$</span><span class="fu">delete</span><span class="op">(</span><span class="st">"34033ea0-c1e4-81e1-942f-000c08810f61"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">views</span><span class="op">$</span><span class="fu">delete</span><span class="op">(</span><span class="st">"34033ea0-c1e4-8192-ac14-000cdad096ce"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "view",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "34033ea0-c1e4-81e1-942f-000c08810f61",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "34033ea0-c1e4-8192-ac14-000cdad096ce",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "parent": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "type": "database_id",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "database_id": "efab1bec-0094-4afe-a90c-c9b72d538b4b"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "database_id": "ffec20ee-1450-4da8-9904-f4babba0e9c0"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "type": "table",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "d83da7a4-f8a9-4591-8e7e-84040da1659f"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "b3ac0c2a-64a7-4102-b4a6-e5a066003751"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
 </code></pre></div>
     </div>

@@ -132,51 +132,51 @@ documentation](https://developers.notion.com/reference/delete-view-query)
 ``` r
 notion <- notion_client()
 # ----- Create a view query
-notion$views$queries$create("34033ea0-c1e4-81e1-942f-000c08810f61")
+notion$views$queries$create("34033ea0-c1e4-8192-ac14-000cdad096ce")
 #> {
 #>   "object": "view_query",
-#>   "id": "a966d86e-5211-47cb-8a1e-f05bc0a33494",
-#>   "view_id": "34033ea0-c1e4-81e1-942f-000c08810f61",
-#>   "expires_at": "2026-04-12T08:26:21.052+00:00",
+#>   "id": "9af03bd1-ed79-4842-a57c-0bc04fb61be2",
+#>   "view_id": "34033ea0-c1e4-8192-ac14-000cdad096ce",
+#>   "expires_at": "2026-04-12T21:34:01.702+00:00",
 #>   "total_count": 1,
 #>   "results": [
 #>     {
 #>       "object": "page",
-#>       "id": "34033ea0-c1e4-8181-a411-fcffc69c690a"
+#>       "id": "34033ea0-c1e4-81c4-afa0-d1ec98de4bec"
 #>     }
 #>   ],
 #>   "next_cursor": {},
 #>   "has_more": false,
-#>   "request_id": "06e3276d-92e6-4e33-b670-155a8d72c0b3"
+#>   "request_id": "b1c06f37-06d3-4633-9df2-a87eb48b8222"
 #> } 
 # ----- Get view query results
 notion$views$queries$results(
-  "34033ea0-c1e4-81e1-942f-000c08810f61",
-  "a966d86e-5211-47cb-8a1e-f05bc0a33494"
+  "34033ea0-c1e4-8192-ac14-000cdad096ce",
+  "9af03bd1-ed79-4842-a57c-0bc04fb61be2"
 )
 #> {
 #>   "object": "list",
 #>   "results": [
 #>     {
 #>       "object": "page",
-#>       "id": "34033ea0-c1e4-8181-a411-fcffc69c690a"
+#>       "id": "34033ea0-c1e4-81c4-afa0-d1ec98de4bec"
 #>     }
 #>   ],
 #>   "next_cursor": {},
 #>   "has_more": false,
 #>   "type": "page",
 #>   "page": {},
-#>   "request_id": "9f94354e-84f9-45d3-beeb-e5f0b3abab48"
+#>   "request_id": "ae56e2b0-35d2-407c-9622-687618c03bb5"
 #> } 
 # ----- Delete a view query
 notion$views$queries$delete(
-  "34033ea0-c1e4-81e1-942f-000c08810f61",
-  "a966d86e-5211-47cb-8a1e-f05bc0a33494"
+  "34033ea0-c1e4-8192-ac14-000cdad096ce",
+  "9af03bd1-ed79-4842-a57c-0bc04fb61be2"
 )
 #> {
 #>   "object": "view_query",
-#>   "id": "a966d86e-5211-47cb-8a1e-f05bc0a33494",
+#>   "id": "9af03bd1-ed79-4842-a57c-0bc04fb61be2",
 #>   "deleted": true,
-#>   "request_id": "2ea9dd88-3bbe-4fbc-8017-4229f5ceb8d6"
+#>   "request_id": "ce52ec95-7257-4372-b08f-0fca3da2e0f1"
 #> } 
 ```

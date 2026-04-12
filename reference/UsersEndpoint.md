@@ -140,7 +140,7 @@ notion$users$list()
 #>   "has_more": false,
 #>   "type": "user",
 #>   "user": {},
-#>   "request_id": "126d9923-9e2b-4fcb-aed3-fdb08e1b6857"
+#>   "request_id": "51455bfd-248a-473d-9934-61a0e620adcd"
 #> } 
 # ----- Retrieve a user
 notion$users$retrieve("fda12729-108d-4eb5-bbfb-a8f0886794d1")
@@ -151,7 +151,7 @@ notion$users$retrieve("fda12729-108d-4eb5-bbfb-a8f0886794d1")
 #>   "avatar_url": {},
 #>   "type": "person",
 #>   "person": {},
-#>   "request_id": "323e473c-f861-43ea-bfc1-a8fb2daeaf5d"
+#>   "request_id": "4b9c365b-111b-4953-8001-62ed473f5d25"
 #> } 
 # ----- Retrieve the bot User associated with the API token
 notion$users$me()
@@ -172,6 +172,6 @@ notion$users$me()
 #>       "max_file_upload_size_in_bytes": 5368709120
 #>     }
 #>   },
-#>   "request_id": "735487fd-fc58-4aa0-836d-f0d4d320e7c6"
+#>   "request_id": "1fbcf654-9565-4142-a863-c4ab23392e5d"
 #> } 
 ```

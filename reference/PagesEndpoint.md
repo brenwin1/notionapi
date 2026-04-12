@@ -336,9 +336,9 @@ notion$pages$create(
 )
 #> {
 #>   "object": "page",
-#>   "id": "34033ea0-c1e4-8181-a411-fcffc69c690a",
-#>   "created_time": "2026-04-12T08:10:00.000Z",
-#>   "last_edited_time": "2026-04-12T08:10:00.000Z",
+#>   "id": "34033ea0-c1e4-81c4-afa0-d1ec98de4bec",
+#>   "created_time": "2026-04-12T21:18:00.000Z",
+#>   "last_edited_time": "2026-04-12T21:18:00.000Z",
 #>   "created_by": {
 #>     "object": "user",
 #>     "id": "6b786605-e456-4237-9c61-5efaff23c081"
@@ -381,17 +381,17 @@ notion$pages$create(
 #>       ]
 #>     }
 #>   },
-#>   "url": "https://www.notion.so/Test-Page-for-notionapi-34033ea0c1e48181a411fcffc69c690a",
+#>   "url": "https://www.notion.so/Test-Page-for-notionapi-34033ea0c1e481c4afa0d1ec98de4bec",
 #>   "public_url": {},
-#>   "request_id": "6c1f40b5-5d1b-46a8-908a-77c36853ee67"
+#>   "request_id": "27988275-4bb1-4fac-a1fd-f91935b37be4"
 #> } 
 # ----- Retrieve a page
-notion$pages$retrieve("34033ea0-c1e4-8181-a411-fcffc69c690a")
+notion$pages$retrieve("34033ea0-c1e4-81c4-afa0-d1ec98de4bec")
 #> {
 #>   "object": "page",
-#>   "id": "34033ea0-c1e4-8181-a411-fcffc69c690a",
-#>   "created_time": "2026-04-12T08:10:00.000Z",
-#>   "last_edited_time": "2026-04-12T08:10:00.000Z",
+#>   "id": "34033ea0-c1e4-81c4-afa0-d1ec98de4bec",
+#>   "created_time": "2026-04-12T21:18:00.000Z",
+#>   "last_edited_time": "2026-04-12T21:18:00.000Z",
 #>   "created_by": {
 #>     "object": "user",
 #>     "id": "6b786605-e456-4237-9c61-5efaff23c081"
@@ -434,22 +434,22 @@ notion$pages$retrieve("34033ea0-c1e4-8181-a411-fcffc69c690a")
 #>       ]
 #>     }
 #>   },
-#>   "url": "https://www.notion.so/Test-Page-for-notionapi-34033ea0c1e48181a411fcffc69c690a",
+#>   "url": "https://www.notion.so/Test-Page-for-notionapi-34033ea0c1e481c4afa0d1ec98de4bec",
 #>   "public_url": {},
-#>   "request_id": "a46700f7-201f-42ba-91eb-737e90ce0e19"
+#>   "request_id": "e4154030-4256-4516-bbb5-2aa06bd63b43"
 #> } 
 # ----- Move page into a database
 notion$pages$move(
-  "34033ea0-c1e4-8181-a411-fcffc69c690a",
+  "34033ea0-c1e4-81c4-afa0-d1ec98de4bec",
   list(
-    data_source_id = "34033ea0-c1e4-81a2-aaf4-000b260f79c9"
+    data_source_id = "34033ea0-c1e4-8112-bc3a-000bc940aa45"
   )
 )
 #> {
 #>   "object": "page",
-#>   "id": "34033ea0-c1e4-8181-a411-fcffc69c690a",
-#>   "created_time": "2026-04-12T08:10:00.000Z",
-#>   "last_edited_time": "2026-04-12T08:11:00.000Z",
+#>   "id": "34033ea0-c1e4-81c4-afa0-d1ec98de4bec",
+#>   "created_time": "2026-04-12T21:18:00.000Z",
+#>   "last_edited_time": "2026-04-12T21:18:00.000Z",
 #>   "created_by": {
 #>     "object": "user",
 #>     "id": "6b786605-e456-4237-9c61-5efaff23c081"
@@ -462,18 +462,18 @@ notion$pages$move(
 #>   "icon": {},
 #>   "parent": {
 #>     "type": "data_source_id",
-#>     "data_source_id": "34033ea0-c1e4-81a2-aaf4-000b260f79c9",
-#>     "database_id": "efab1bec-0094-4afe-a90c-c9b72d538b4b"
+#>     "data_source_id": "34033ea0-c1e4-8112-bc3a-000bc940aa45",
+#>     "database_id": "ffec20ee-1450-4da8-9904-f4babba0e9c0"
 #>   },
 #>   "in_trash": false,
 #>   "is_archived": false,
 #>   "is_locked": false,
 #>   "properties": {
 #>     "Status": {
-#>       "id": "BvMv",
+#>       "id": "%60w%5CX",
 #>       "type": "status",
 #>       "status": {
-#>         "id": "d240ac03-dfab-4eb3-8a98-2330b66c38f7",
+#>         "id": "c8f1b3f9-4927-44c4-9901-f94d31e7c351",
 #>         "name": "To do",
 #>         "color": "red"
 #>       }
@@ -502,22 +502,25 @@ notion$pages$move(
 #>       ]
 #>     }
 #>   },
-#>   "url": "https://www.notion.so/Test-Page-for-notionapi-34033ea0c1e48181a411fcffc69c690a",
+#>   "url": "https://www.notion.so/Test-Page-for-notionapi-34033ea0c1e481c4afa0d1ec98de4bec",
 #>   "public_url": {},
-#>   "request_id": "14c4f563-c698-45ee-b2c6-5db0b27b3176"
+#>   "request_id": "da21e900-05bd-4ba8-80f9-f777ba07d2e7"
 #> } 
 # ----- Update a page
 notion$pages$update(
-  "34033ea0-c1e4-8181-a411-fcffc69c690a",
+  "34033ea0-c1e4-81c4-afa0-d1ec98de4bec",
   icon = list(
-    emoji = "🐶"
+    icon = list(
+      name = "pizza",
+      color = "blue"
+    )
   )
 )
 #> {
 #>   "object": "page",
-#>   "id": "34033ea0-c1e4-8181-a411-fcffc69c690a",
-#>   "created_time": "2026-04-12T08:10:00.000Z",
-#>   "last_edited_time": "2026-04-12T08:10:00.000Z",
+#>   "id": "34033ea0-c1e4-81c4-afa0-d1ec98de4bec",
+#>   "created_time": "2026-04-12T21:18:00.000Z",
+#>   "last_edited_time": "2026-04-12T21:18:00.000Z",
 #>   "created_by": {
 #>     "object": "user",
 #>     "id": "6b786605-e456-4237-9c61-5efaff23c081"
@@ -528,8 +531,11 @@ notion$pages$update(
 #>   },
 #>   "cover": {},
 #>   "icon": {
-#>     "type": "emoji",
-#>     "emoji": "🐶"
+#>     "type": "icon",
+#>     "icon": {
+#>       "name": "pizza",
+#>       "color": "blue"
+#>     }
 #>   },
 #>   "parent": {
 #>     "type": "page_id",
@@ -563,20 +569,20 @@ notion$pages$update(
 #>       ]
 #>     }
 #>   },
-#>   "url": "https://www.notion.so/Test-Page-for-notionapi-34033ea0c1e48181a411fcffc69c690a",
+#>   "url": "https://www.notion.so/Test-Page-for-notionapi-34033ea0c1e481c4afa0d1ec98de4bec",
 #>   "public_url": {},
-#>   "request_id": "d4920b91-f85e-49ff-ba30-8573b8784ebb"
+#>   "request_id": "a6225487-5bf3-45ca-a5c9-a0e89c7e1e24"
 #> } 
 # ----- Use `NA` to send JSON `null` — below removes the page's icon
 notion$pages$update(
-  "34033ea0-c1e4-8181-a411-fcffc69c690a",
+  "34033ea0-c1e4-81c4-afa0-d1ec98de4bec",
   icon = NA
 )
 #> {
 #>   "object": "page",
-#>   "id": "34033ea0-c1e4-8181-a411-fcffc69c690a",
-#>   "created_time": "2026-04-12T08:10:00.000Z",
-#>   "last_edited_time": "2026-04-12T08:10:00.000Z",
+#>   "id": "34033ea0-c1e4-81c4-afa0-d1ec98de4bec",
+#>   "created_time": "2026-04-12T21:18:00.000Z",
+#>   "last_edited_time": "2026-04-12T21:18:00.000Z",
 #>   "created_by": {
 #>     "object": "user",
 #>     "id": "6b786605-e456-4237-9c61-5efaff23c081"
@@ -619,23 +625,23 @@ notion$pages$update(
 #>       ]
 #>     }
 #>   },
-#>   "url": "https://www.notion.so/Test-Page-for-notionapi-34033ea0c1e48181a411fcffc69c690a",
+#>   "url": "https://www.notion.so/Test-Page-for-notionapi-34033ea0c1e481c4afa0d1ec98de4bec",
 #>   "public_url": {},
-#>   "request_id": "493613d8-e089-40c5-a1d9-45866fed19a1"
+#>   "request_id": "f26d7cc4-7f33-42c2-8ec2-0ffa6094823d"
 #> } 
 # ----- Retrieve a page as markdown
-notion$pages$retrieve_markdown("34033ea0-c1e4-8181-a411-fcffc69c690a")
+notion$pages$retrieve_markdown("34033ea0-c1e4-81c4-afa0-d1ec98de4bec")
 #> {
 #>   "object": "page_markdown",
-#>   "id": "34033ea0-c1e4-8181-a411-fcffc69c690a",
+#>   "id": "34033ea0-c1e4-81c4-afa0-d1ec98de4bec",
 #>   "markdown": "## Updated Test Heading",
 #>   "truncated": false,
 #>   "unknown_block_ids": [],
-#>   "request_id": "644d1b20-faa9-41b6-b9eb-dc6d3b14d51a"
+#>   "request_id": "c9b3fd1c-b69f-425e-b9eb-60db8ed7ac65"
 #> } 
 # ----- Update/replace a page content
 notion$pages$update_markdown(
-  "34033ea0-c1e4-8181-a411-fcffc69c690a",
+  "34033ea0-c1e4-81c4-afa0-d1ec98de4bec",
   "replace_content",
   replace_content = list(
     new_str = '## Updated Test Heading\nUsed markdown{color="blue"}'
@@ -643,22 +649,22 @@ notion$pages$update_markdown(
 )
 #> {
 #>   "object": "page_markdown",
-#>   "id": "34033ea0-c1e4-8181-a411-fcffc69c690a",
+#>   "id": "34033ea0-c1e4-81c4-afa0-d1ec98de4bec",
 #>   "markdown": "## Updated Test Heading\nUsed markdown {color=\"blue\"}",
 #>   "truncated": false,
 #>   "unknown_block_ids": [],
-#>   "request_id": "068f9057-33d2-4ee2-be77-c0a43f75ac58"
+#>   "request_id": "35a2bf6b-0ac7-4088-a9a6-27421ffe06c9"
 #> } 
 # ----- Trash a page
 notion$pages$update(
-  "34033ea0-c1e4-8181-a411-fcffc69c690a",
+  "34033ea0-c1e4-81c4-afa0-d1ec98de4bec",
   in_trash = TRUE
 )
 #> {
 #>   "object": "page",
-#>   "id": "34033ea0-c1e4-8181-a411-fcffc69c690a",
-#>   "created_time": "2026-04-12T08:10:00.000Z",
-#>   "last_edited_time": "2026-04-12T08:11:00.000Z",
+#>   "id": "34033ea0-c1e4-81c4-afa0-d1ec98de4bec",
+#>   "created_time": "2026-04-12T21:18:00.000Z",
+#>   "last_edited_time": "2026-04-12T21:19:00.000Z",
 #>   "created_by": {
 #>     "object": "user",
 #>     "id": "6b786605-e456-4237-9c61-5efaff23c081"
@@ -671,18 +677,18 @@ notion$pages$update(
 #>   "icon": {},
 #>   "parent": {
 #>     "type": "data_source_id",
-#>     "data_source_id": "34033ea0-c1e4-81a2-aaf4-000b260f79c9",
-#>     "database_id": "efab1bec-0094-4afe-a90c-c9b72d538b4b"
+#>     "data_source_id": "34033ea0-c1e4-8112-bc3a-000bc940aa45",
+#>     "database_id": "ffec20ee-1450-4da8-9904-f4babba0e9c0"
 #>   },
 #>   "in_trash": true,
 #>   "is_archived": false,
 #>   "is_locked": false,
 #>   "properties": {
 #>     "Status": {
-#>       "id": "BvMv",
+#>       "id": "%60w%5CX",
 #>       "type": "status",
 #>       "status": {
-#>         "id": "d240ac03-dfab-4eb3-8a98-2330b66c38f7",
+#>         "id": "c8f1b3f9-4927-44c4-9901-f94d31e7c351",
 #>         "name": "To do",
 #>         "color": "red"
 #>       }
@@ -711,8 +717,8 @@ notion$pages$update(
 #>       ]
 #>     }
 #>   },
-#>   "url": "https://www.notion.so/Test-Page-for-notionapi-34033ea0c1e48181a411fcffc69c690a",
+#>   "url": "https://www.notion.so/Test-Page-for-notionapi-34033ea0c1e481c4afa0d1ec98de4bec",
 #>   "public_url": {},
-#>   "request_id": "4341af17-7de4-45da-9741-9da796127da5"
+#>   "request_id": "076984c7-e5ec-4ced-8346-c9d13f805afe"
 #> } 
 ```

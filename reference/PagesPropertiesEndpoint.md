@@ -79,18 +79,18 @@ documentation](https://developers.notion.com/reference/retrieve-a-page-property)
 notion <- notion_client()
 # ----- Retrieve a page property
 notion$pages$properties$retrieve(
-  "34033ea0-c1e4-8181-a411-fcffc69c690a",
-  "BvMv"
+  "34033ea0-c1e4-81c4-afa0-d1ec98de4bec",
+  "%60w%5CX"
 )
 #> {
 #>   "object": "property_item",
 #>   "type": "status",
-#>   "id": "BvMv",
+#>   "id": "%60w%5CX",
 #>   "status": {
-#>     "id": "d240ac03-dfab-4eb3-8a98-2330b66c38f7",
+#>     "id": "c8f1b3f9-4927-44c4-9901-f94d31e7c351",
 #>     "name": "To do",
 #>     "color": "red"
 #>   },
-#>   "request_id": "b72cd44e-0352-41b6-bde8-e9eec5e64b1f"
+#>   "request_id": "9e3ed29e-1368-4f33-8d71-1dd83a52020d"
 #> } 
 ```

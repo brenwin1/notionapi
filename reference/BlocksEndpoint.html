@@ -161,16 +161,16 @@ with a named list value containing the block configuration.</p></dd>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">notion</span> <span class="op">&lt;-</span> <span class="fu"><a href="NotionClient.html">notion_client</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co"># ----- Retrieve a block</span></span></span>
-<span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">blocks</span><span class="op">$</span><span class="fu">retrieve</span><span class="op">(</span><span class="st">"34033ea0-c1e4-8137-9ae8-e09c23601f12"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">blocks</span><span class="op">$</span><span class="fu">retrieve</span><span class="op">(</span><span class="st">"34033ea0-c1e4-8123-be95-e77dcc78e47d"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "block",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "34033ea0-c1e4-8137-9ae8-e09c23601f12",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "34033ea0-c1e4-8123-be95-e77dcc78e47d",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "parent": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "type": "page_id",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "page_id": "34033ea0-c1e4-8181-a411-fcffc69c690a"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "page_id": "34033ea0-c1e4-81c4-afa0-d1ec98de4bec"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2026-04-12T08:11:00.000Z",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2026-04-12T08:11:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2026-04-12T21:18:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2026-04-12T21:18:00.000Z",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "created_by": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "object": "user",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
@@ -205,11 +205,11 @@ with a named list value containing the block configuration.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "is_toggleable": false,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "color": "default"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "2bd93a52-1f5b-4d04-af48-f50d2afcc524"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "07e66343-4493-4f39-b6bd-d8b85878d17c"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
 <span class="r-in"><span><span class="co"># ----- Update a block</span></span></span>
 <span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">blocks</span><span class="op">$</span><span class="fu">update</span><span class="op">(</span></span></span>
-<span class="r-in"><span>  <span class="st">"34033ea0-c1e4-8137-9ae8-e09c23601f12"</span>,</span></span>
+<span class="r-in"><span>  <span class="st">"34033ea0-c1e4-8123-be95-e77dcc78e47d"</span>,</span></span>
 <span class="r-in"><span>  heading_2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>    rich_text <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>      text <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
@@ -220,13 +220,13 @@ with a named list value containing the block configuration.</p></dd>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "block",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "34033ea0-c1e4-8137-9ae8-e09c23601f12",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "34033ea0-c1e4-8123-be95-e77dcc78e47d",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "parent": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "type": "page_id",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "page_id": "34033ea0-c1e4-8181-a411-fcffc69c690a"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "page_id": "34033ea0-c1e4-81c4-afa0-d1ec98de4bec"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2026-04-12T08:11:00.000Z",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2026-04-12T08:11:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2026-04-12T21:18:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2026-04-12T21:18:00.000Z",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "created_by": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "object": "user",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
@@ -261,21 +261,21 @@ with a named list value containing the block configuration.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "is_toggleable": false,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "color": "default"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "7160efee-ec16-4e88-8b54-a50a95b8bb1d"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "fc039cff-8ef4-40a7-a6e0-8a289e5aa104"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
 <span class="r-in"><span><span class="co"># ----- Delete a block</span></span></span>
 <span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">blocks</span><span class="op">$</span><span class="fu">delete</span><span class="op">(</span></span></span>
-<span class="r-in"><span>  <span class="st">"34033ea0-c1e4-8137-9ae8-e09c23601f12"</span></span></span>
+<span class="r-in"><span>  <span class="st">"34033ea0-c1e4-8123-be95-e77dcc78e47d"</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "block",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "34033ea0-c1e4-8137-9ae8-e09c23601f12",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "34033ea0-c1e4-8123-be95-e77dcc78e47d",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "parent": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "type": "page_id",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "page_id": "34033ea0-c1e4-8181-a411-fcffc69c690a"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "page_id": "34033ea0-c1e4-81c4-afa0-d1ec98de4bec"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2026-04-12T08:11:00.000Z",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2026-04-12T08:11:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2026-04-12T21:18:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2026-04-12T21:19:00.000Z",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "created_by": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "object": "user",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
@@ -310,7 +310,7 @@ with a named list value containing the block configuration.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "is_toggleable": false,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "color": "default"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "d4f8d754-672c-4751-bfb3-d1d6a8ba5f0d"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "87b68305-aec0-4047-8d58-ccf10945cfea"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
 </code></pre></div>
     </div>

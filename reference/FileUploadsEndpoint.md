@@ -208,21 +208,21 @@ notion <- notion_client()
 (resp <- notion$file_uploads$create("single_part"))
 #> {
 #>   "object": "file_upload",
-#>   "id": "34033ea0-c1e4-818c-93d0-00b215647918",
-#>   "created_time": "2026-04-12T08:11:00.000Z",
+#>   "id": "34033ea0-c1e4-81d1-b9cd-00b2c74cf6cc",
+#>   "created_time": "2026-04-12T21:19:00.000Z",
 #>   "created_by": {
 #>     "id": "6b786605-e456-4237-9c61-5efaff23c081",
 #>     "type": "bot"
 #>   },
-#>   "last_edited_time": "2026-04-12T08:11:00.000Z",
-#>   "expiry_time": "2026-04-12T09:11:00.000Z",
-#>   "upload_url": "https://api.notion.com/v1/file_uploads/34033ea0-c1e4-818c-93d0-00b215647918/send",
+#>   "last_edited_time": "2026-04-12T21:19:00.000Z",
+#>   "expiry_time": "2026-04-12T22:19:00.000Z",
+#>   "upload_url": "https://api.notion.com/v1/file_uploads/34033ea0-c1e4-81d1-b9cd-00b2c74cf6cc/send",
 #>   "in_trash": false,
 #>   "status": "pending",
 #>   "filename": {},
 #>   "content_type": {},
 #>   "content_length": {},
-#>   "request_id": "faa76351-7492-4eb5-b6bc-8765d8fe13ae"
+#>   "request_id": "09c2af3a-2f16-4ab1-9bb8-6b22b513ac9f"
 #> } 
 file_upload_id <- resp[["id"]]
 
@@ -241,40 +241,40 @@ notion$file_uploads$send(
 )
 #> {
 #>   "object": "file_upload",
-#>   "id": "34033ea0-c1e4-818c-93d0-00b215647918",
-#>   "created_time": "2026-04-12T08:11:00.000Z",
+#>   "id": "34033ea0-c1e4-81d1-b9cd-00b2c74cf6cc",
+#>   "created_time": "2026-04-12T21:19:00.000Z",
 #>   "created_by": {
 #>     "id": "6b786605-e456-4237-9c61-5efaff23c081",
 #>     "type": "bot"
 #>   },
-#>   "last_edited_time": "2026-04-12T08:11:00.000Z",
-#>   "expiry_time": "2026-04-12T09:11:00.000Z",
+#>   "last_edited_time": "2026-04-12T21:19:00.000Z",
+#>   "expiry_time": "2026-04-12T22:19:00.000Z",
 #>   "in_trash": false,
 #>   "status": "uploaded",
 #>   "filename": "test.pdf",
 #>   "content_type": "application/pdf",
 #>   "content_length": 40666,
-#>   "request_id": "7fe6964c-79de-4e20-85ef-f374ca038b6b"
+#>   "request_id": "a61439bc-0cdb-4178-b706-ff85d2df6c21"
 #> } 
 
 # Retrieve the file upload
 notion$file_uploads$retrieve(file_upload_id)
 #> {
 #>   "object": "file_upload",
-#>   "id": "34033ea0-c1e4-818c-93d0-00b215647918",
-#>   "created_time": "2026-04-12T08:11:00.000Z",
+#>   "id": "34033ea0-c1e4-81d1-b9cd-00b2c74cf6cc",
+#>   "created_time": "2026-04-12T21:19:00.000Z",
 #>   "created_by": {
 #>     "id": "6b786605-e456-4237-9c61-5efaff23c081",
 #>     "type": "bot"
 #>   },
-#>   "last_edited_time": "2026-04-12T08:11:00.000Z",
-#>   "expiry_time": "2026-04-12T09:11:00.000Z",
+#>   "last_edited_time": "2026-04-12T21:19:00.000Z",
+#>   "expiry_time": "2026-04-12T22:19:00.000Z",
 #>   "in_trash": false,
 #>   "status": "uploaded",
 #>   "filename": "test.pdf",
 #>   "content_type": "application/pdf",
 #>   "content_length": 40666,
-#>   "request_id": "e1614ebc-a66f-419f-8323-79ab382bb691"
+#>   "request_id": "5f731bc2-7740-4dc8-88b9-50f6fa41306b"
 #> } 
 # ----- Multi-part upload (files > 20MB)
 # Step 1: Split raw content into parts
@@ -291,15 +291,15 @@ parts <- list(raw[seq_len(mid)], raw[seq(mid + 1L, length(raw))])
 ))
 #> {
 #>   "object": "file_upload",
-#>   "id": "34033ea0-c1e4-812d-9565-00b219008b06",
-#>   "created_time": "2026-04-12T08:11:00.000Z",
+#>   "id": "34033ea0-c1e4-8103-b3a0-00b2e89d59b5",
+#>   "created_time": "2026-04-12T21:19:00.000Z",
 #>   "created_by": {
 #>     "id": "6b786605-e456-4237-9c61-5efaff23c081",
 #>     "type": "bot"
 #>   },
-#>   "last_edited_time": "2026-04-12T08:11:00.000Z",
-#>   "expiry_time": "2026-04-12T09:11:00.000Z",
-#>   "upload_url": "https://api.notion.com/v1/file_uploads/34033ea0-c1e4-812d-9565-00b219008b06/send",
+#>   "last_edited_time": "2026-04-12T21:19:00.000Z",
+#>   "expiry_time": "2026-04-12T22:19:00.000Z",
+#>   "upload_url": "https://api.notion.com/v1/file_uploads/34033ea0-c1e4-8103-b3a0-00b2e89d59b5/send",
 #>   "in_trash": false,
 #>   "status": "pending",
 #>   "filename": "test-large.txt",
@@ -309,7 +309,7 @@ parts <- list(raw[seq_len(mid)], raw[seq(mid + 1L, length(raw))])
 #>     "total": 2,
 #>     "sent": 0
 #>   },
-#>   "request_id": "ff5b7545-01fa-4b2d-a9d9-28c1634979db"
+#>   "request_id": "6c7a125e-1e50-4edb-bc17-c94144fad02c"
 #> } 
 file_upload_id <- resp[["id"]]
 
@@ -331,14 +331,14 @@ notion$file_uploads$complete(
 )
 #> {
 #>   "object": "file_upload",
-#>   "id": "34033ea0-c1e4-812d-9565-00b219008b06",
-#>   "created_time": "2026-04-12T08:11:00.000Z",
+#>   "id": "34033ea0-c1e4-8103-b3a0-00b2e89d59b5",
+#>   "created_time": "2026-04-12T21:19:00.000Z",
 #>   "created_by": {
 #>     "id": "6b786605-e456-4237-9c61-5efaff23c081",
 #>     "type": "bot"
 #>   },
-#>   "last_edited_time": "2026-04-12T08:11:00.000Z",
-#>   "expiry_time": "2026-04-12T09:11:00.000Z",
+#>   "last_edited_time": "2026-04-12T21:19:00.000Z",
+#>   "expiry_time": "2026-04-12T22:19:00.000Z",
 #>   "in_trash": false,
 #>   "status": "uploaded",
 #>   "filename": "test-large.txt",
@@ -348,7 +348,7 @@ notion$file_uploads$complete(
 #>     "total": 2,
 #>     "sent": 2
 #>   },
-#>   "request_id": "b1bea9d5-20bb-4117-b06c-ae650a6e0b1a"
+#>   "request_id": "cb97c5a6-720d-4fad-97db-daeb43f04987"
 #> } 
 
 # Retrieve the file upload
@@ -357,14 +357,14 @@ notion$file_uploads$retrieve(
 )
 #> {
 #>   "object": "file_upload",
-#>   "id": "34033ea0-c1e4-812d-9565-00b219008b06",
-#>   "created_time": "2026-04-12T08:11:00.000Z",
+#>   "id": "34033ea0-c1e4-8103-b3a0-00b2e89d59b5",
+#>   "created_time": "2026-04-12T21:19:00.000Z",
 #>   "created_by": {
 #>     "id": "6b786605-e456-4237-9c61-5efaff23c081",
 #>     "type": "bot"
 #>   },
-#>   "last_edited_time": "2026-04-12T08:11:00.000Z",
-#>   "expiry_time": "2026-04-12T09:11:00.000Z",
+#>   "last_edited_time": "2026-04-12T21:19:00.000Z",
+#>   "expiry_time": "2026-04-12T22:19:00.000Z",
 #>   "in_trash": false,
 #>   "status": "uploaded",
 #>   "filename": "test-large.txt",
@@ -374,7 +374,7 @@ notion$file_uploads$retrieve(
 #>     "total": 2,
 #>     "sent": 2
 #>   },
-#>   "request_id": "9e291c04-a262-4ed9-9fa9-f1dcb5d56f8b"
+#>   "request_id": "72253f12-2f6d-4f99-9ccc-082640709387"
 #> } 
 # ----- Import external files
 notion$file_uploads$create(
@@ -385,20 +385,20 @@ notion$file_uploads$create(
 )
 #> {
 #>   "object": "file_upload",
-#>   "id": "34033ea0-c1e4-81cf-a859-00b21dd260e6",
-#>   "created_time": "2026-04-12T08:11:00.000Z",
+#>   "id": "34033ea0-c1e4-81c3-9f44-00b285881ad3",
+#>   "created_time": "2026-04-12T21:19:00.000Z",
 #>   "created_by": {
 #>     "id": "6b786605-e456-4237-9c61-5efaff23c081",
 #>     "type": "bot"
 #>   },
-#>   "last_edited_time": "2026-04-12T08:11:00.000Z",
-#>   "expiry_time": "2026-04-12T09:11:00.000Z",
-#>   "upload_url": "https://api.notion.com/v1/file_uploads/34033ea0-c1e4-81cf-a859-00b21dd260e6/send",
+#>   "last_edited_time": "2026-04-12T21:19:00.000Z",
+#>   "expiry_time": "2026-04-12T22:19:00.000Z",
+#>   "upload_url": "https://api.notion.com/v1/file_uploads/34033ea0-c1e4-81c3-9f44-00b285881ad3/send",
 #>   "in_trash": false,
 #>   "status": "pending",
 #>   "filename": "dummy.pdf",
 #>   "content_type": "application/pdf",
 #>   "content_length": {},
-#>   "request_id": "db0b6358-7cdf-4e5a-9f3b-e716f02cc8c0"
+#>   "request_id": "9d9a832b-bd1f-434a-9a89-efbf582ccae8"
 #> } 
 ```

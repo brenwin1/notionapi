@@ -104,7 +104,7 @@ documentation](https://developers.notion.com/reference/patch-block-children)
 notion <- notion_client()
 # ----- Append children to a block
 notion$blocks$children$append(
-  "34033ea0-c1e4-8181-a411-fcffc69c690a",
+  "34033ea0-c1e4-81c4-afa0-d1ec98de4bec",
   list(
     list(
       object = "block",
@@ -122,13 +122,13 @@ notion$blocks$children$append(
 #>   "results": [
 #>     {
 #>       "object": "block",
-#>       "id": "34033ea0-c1e4-8137-9ae8-e09c23601f12",
+#>       "id": "34033ea0-c1e4-8123-be95-e77dcc78e47d",
 #>       "parent": {
 #>         "type": "page_id",
-#>         "page_id": "34033ea0-c1e4-8181-a411-fcffc69c690a"
+#>         "page_id": "34033ea0-c1e4-81c4-afa0-d1ec98de4bec"
 #>       },
-#>       "created_time": "2026-04-12T08:11:00.000Z",
-#>       "last_edited_time": "2026-04-12T08:11:00.000Z",
+#>       "created_time": "2026-04-12T21:18:00.000Z",
+#>       "last_edited_time": "2026-04-12T21:18:00.000Z",
 #>       "created_by": {
 #>         "object": "user",
 #>         "id": "6b786605-e456-4237-9c61-5efaff23c081"
@@ -169,22 +169,22 @@ notion$blocks$children$append(
 #>   "has_more": false,
 #>   "type": "block",
 #>   "block": {},
-#>   "request_id": "c3e5b37b-0ce0-4b57-be0c-52da4870a541"
+#>   "request_id": "a84673e4-c0c6-4f23-b579-4b93eae2ef3d"
 #> } 
 # ----- Retrieve children of a block
-notion$blocks$children$list("34033ea0-c1e4-8181-a411-fcffc69c690a")
+notion$blocks$children$list("34033ea0-c1e4-81c4-afa0-d1ec98de4bec")
 #> {
 #>   "object": "list",
 #>   "results": [
 #>     {
 #>       "object": "block",
-#>       "id": "34033ea0-c1e4-8137-9ae8-e09c23601f12",
+#>       "id": "34033ea0-c1e4-8123-be95-e77dcc78e47d",
 #>       "parent": {
 #>         "type": "page_id",
-#>         "page_id": "34033ea0-c1e4-8181-a411-fcffc69c690a"
+#>         "page_id": "34033ea0-c1e4-81c4-afa0-d1ec98de4bec"
 #>       },
-#>       "created_time": "2026-04-12T08:11:00.000Z",
-#>       "last_edited_time": "2026-04-12T08:11:00.000Z",
+#>       "created_time": "2026-04-12T21:18:00.000Z",
+#>       "last_edited_time": "2026-04-12T21:18:00.000Z",
 #>       "created_by": {
 #>         "object": "user",
 #>         "id": "6b786605-e456-4237-9c61-5efaff23c081"
@@ -225,7 +225,7 @@ notion$blocks$children$list("34033ea0-c1e4-8181-a411-fcffc69c690a")
 #>   "has_more": false,
 #>   "type": "block",
 #>   "block": {},
-#>   "request_id": "c8091f76-da85-4f92-a29e-f913af12170a"
+#>   "request_id": "4ba0ee62-19b9-4bca-88cb-095118508e71"
 #> } 
 # ----- Iterate through paginated results
 if (FALSE) { # \dontrun{
