@@ -19,8 +19,7 @@ Imports:
     httr2,
     jsonlite,
     R6,
-    rlang,
-    tools
+    rlang
 Suggests: 
     curl,
     promises,
