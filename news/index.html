@@ -33,6 +33,20 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="notionapi-development-version">notionapi (development version)<a class="anchor" aria-label="anchor" href="#notionapi-development-version"></a></h2>
+<div class="section level3">
+<h3 id="breaking-changes-development-version">Breaking changes<a class="anchor" aria-label="anchor" href="#breaking-changes-development-version"></a></h3>
+<ul><li>Notion API version updated to <code>2025-09-03</code> (previously <code>2022-06-28</code>).</li>
+</ul></div>
+<div class="section level3">
+<h3 id="new-features-development-version">New features<a class="anchor" aria-label="anchor" href="#new-features-development-version"></a></h3>
+<ul><li><p><code>BlocksChildrenEndpoint$append()</code> gains <code>position</code> parameter to control block insertion placement.</p></li>
+<li><p><code>BlocksEndpoint</code> methods gain <code>in_trash</code> argument.</p></li>
+</ul></div>
+<div class="section level3">
+<h3 id="deprecations-development-version">Deprecations<a class="anchor" aria-label="anchor" href="#deprecations-development-version"></a></h3>
+<ul><li><p><code>BlocksChildrenEndpoint$append()</code>: <code>after</code> parameter deprecated by Notion API in favor of <code>position</code>.</p></li>
+<li><p><code>BlocksEndpoint</code>: <code>archived</code> parameter deprecated in favor of <code>in_trash</code>.</p></li>
+</ul></div>
 </div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.1.0" id="notionapi-010">notionapi 0.1.0<a class="anchor" aria-label="anchor" href="#notionapi-010"></a></h2><p class="text-muted">CRAN release: 2025-09-02</p>
@@ -47,7 +61,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer></div>

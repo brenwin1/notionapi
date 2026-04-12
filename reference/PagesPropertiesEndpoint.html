@@ -52,7 +52,6 @@ Note: Access this endpoint through the client instance, e.g., notion$pages$prope
 
 <ul><li><p><a href="#method-PagesPropertiesEndpoint-new"><code>PagesPropertiesEndpoint$new()</code></a></p></li>
 <li><p><a href="#method-PagesPropertiesEndpoint-retrieve"><code>PagesPropertiesEndpoint$retrieve()</code></a></p></li>
-<li><p><a href="#method-PagesPropertiesEndpoint-update"><code>PagesPropertiesEndpoint$update()</code></a></p></li>
 </ul></div><p></p><hr><a id="method-PagesPropertiesEndpoint-new"></a><div class="section">
 <h3 id="method-new-">Method <code>new()</code><a class="anchor" aria-label="anchor" href="#method-new-"></a></h3>
 <p>Initialise pages properties endpoint.
@@ -77,8 +76,8 @@ Not to be called directly, e.g., use <code>notion$pages$properties</code> instea
 <p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">PagesPropertiesEndpoint</span><span class="op">$</span><span class="fu">retrieve</span><span class="op">(</span></span>
 <span>  <span class="va">page_id</span>,</span>
 <span>  <span class="va">property_id</span>,</span>
-<span>  page_size <span class="op">=</span> <span class="fl">100</span>,</span>
-<span>  start_cursor <span class="op">=</span> <span class="cn">NULL</span></span>
+<span>  start_cursor <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  page_size <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 
@@ -92,13 +91,13 @@ Not to be called directly, e.g., use <code>notion$pages$properties</code> instea
 <dd><p>Character (required). The ID of the property to retrieve.</p></dd>
 
 
-<dt><code>page_size</code></dt>
-<dd><p>Integer. Number of items to return per page (1-100). Defaults to 100.</p></dd>
-
-
 <dt><code>start_cursor</code></dt>
 <dd><p>Character. For pagination. If provided, returns results starting from this cursor.
 If NULL, returns the first page of results.</p></dd>
+
+
+<dt><code>page_size</code></dt>
+<dd><p>Integer. Number of items to return per page (1-100). Defaults to 100.</p></dd>
 
 
 </dl><p></p></div>
@@ -109,50 +108,6 @@ If NULL, returns the first page of results.</p></dd>
 </div>
 
 
-</div><p></p><hr><a id="method-PagesPropertiesEndpoint-update"></a><div class="section">
-<h3 id="method-update-">Method <code><a href="https://rdrr.io/r/stats/update.html" class="external-link">update()</a></code><a class="anchor" aria-label="anchor" href="#method-update-"></a></h3>
-<p>Update a page property</p><div class="section">
-<h4 id="usage-2">Usage<a class="anchor" aria-label="anchor" href="#usage-2"></a></h4>
-<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">PagesPropertiesEndpoint</span><span class="op">$</span><span class="fu">update</span><span class="op">(</span></span>
-<span>  <span class="va">page_id</span>,</span>
-<span>  properties <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  in_trash <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  icon <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  cover <span class="op">=</span> <span class="cn">NULL</span></span>
-<span><span class="op">)</span></span></code></pre></div><p></p></div>
-</div>
-
-<div class="section">
-<h4 id="arguments-2">Arguments<a class="anchor" aria-label="anchor" href="#arguments-2"></a></h4>
-<p></p><div class="arguments"><dl><dt><code>page_id</code></dt>
-<dd><p>Character (required). The ID for a Notion page.</p></dd>
-
-
-<dt><code>properties</code></dt>
-<dd><p>Named list (JSON object). Page properties to update as key-value pairs.</p></dd>
-
-
-<dt><code>in_trash</code></dt>
-<dd><p>Boolean. Set to TRUE to move the block to trash (delete).
-Set to FALSE to restore the block Defaults to FALSE.</p></dd>
-
-
-<dt><code>icon</code></dt>
-<dd><p>Named list (JSON object). An icon for the page.</p></dd>
-
-
-<dt><code>cover</code></dt>
-<dd><p>Named list (JSON object). A cover image for the page.</p></dd>
-
-
-</dl><p></p></div>
-</div>
-<div class="section">
-<h4 id="details-1">Details<a class="anchor" aria-label="anchor" href="#details-1"></a></h4>
-<p><a href="https://developers.notion.com/reference/patch-page" class="external-link">Endpoint documentation</a></p>
-</div>
-
-
 </div>
 
     </div>
@@ -160,83 +115,21 @@ Set to FALSE to restore the block Defaults to FALSE.</p></dd>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">notion</span> <span class="op">&lt;-</span> <span class="fu"><a href="NotionClient.html">notion_client</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># ----- retrieve a page property</span></span></span>
+<span class="r-in"><span><span class="co"># ----- Retrieve a page property</span></span></span>
 <span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">pages</span><span class="op">$</span><span class="va">properties</span><span class="op">$</span><span class="fu">retrieve</span><span class="op">(</span></span></span>
-<span class="r-in"><span>  <span class="st">"23933ea0-c1e4-8104-897b-f5a09269e561"</span>,</span></span>
-<span class="r-in"><span>  property_id <span class="op">=</span> <span class="st">"q;L^"</span></span></span>
+<span class="r-in"><span>  <span class="st">"34033ea0-c1e4-8181-a411-fcffc69c690a"</span>,</span></span>
+<span class="r-in"><span>  <span class="st">"BvMv"</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "property_item",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "type": "checkbox",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "q%3BL%5E",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "checkbox": true,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "7905abd5-ea30-4e4b-95c3-f2a49113b047"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># ----- update a page property</span></span></span>
-<span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">pages</span><span class="op">$</span><span class="va">properties</span><span class="op">$</span><span class="fu">update</span><span class="op">(</span></span></span>
-<span class="r-in"><span>  <span class="st">"23933ea0-c1e4-8104-897b-f5a09269e561"</span>,</span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>    `In stock` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>      checkbox <span class="op">=</span> <span class="cn">TRUE</span></span></span>
-<span class="r-in"><span>    <span class="op">)</span></span></span>
-<span class="r-in"><span>  <span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "page",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "23933ea0-c1e4-8104-897b-f5a09269e561",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2025-07-23T05:01:00.000Z",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2025-07-23T05:01:00.000Z",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_by": {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "object": "user",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "type": "status",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "BvMv",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "status": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "d240ac03-dfab-4eb3-8a98-2330b66c38f7",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "name": "To do",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "color": "red"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_by": {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "object": "user",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "cover": {},</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "icon": {},</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "parent": {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "type": "database_id",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "database_id": "23933ea0-c1e4-8136-b37b-fa235c6f2a71"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "archived": false,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "in_trash": false,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "properties": {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "In stock": {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       "id": "q%3BL%5E",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       "type": "checkbox",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       "checkbox": true</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "Name": {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       "id": "title",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       "type": "title",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       "title": [</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           "type": "text",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           "text": {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             "content": "Tuscan Kale",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             "link": {}</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           "annotations": {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             "bold": false,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             "italic": false,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             "strikethrough": false,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             "underline": false,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             "code": false,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             "color": "default"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           "plain_text": "Tuscan Kale",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           "href": {}</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       ]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "url": "https://www.notion.so/Tuscan-Kale-23933ea0c1e48104897bf5a09269e561",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "public_url": {},</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "2392c4f7-29f1-4947-938d-0fe7ba006966"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "b72cd44e-0352-41b6-bde8-e9eec5e64b1f"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
 </code></pre></div>
     </div>
@@ -249,7 +142,7 @@ Set to FALSE to restore the block Defaults to FALSE.</p></dd>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer></div>

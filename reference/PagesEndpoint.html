@@ -61,6 +61,10 @@ Note: Access this endpoint through the client instance, e.g., notion$pages. Not 
 <ul><li><p><a href="#method-PagesEndpoint-new"><code>PagesEndpoint$new()</code></a></p></li>
 <li><p><a href="#method-PagesEndpoint-create"><code>PagesEndpoint$create()</code></a></p></li>
 <li><p><a href="#method-PagesEndpoint-retrieve"><code>PagesEndpoint$retrieve()</code></a></p></li>
+<li><p><a href="#method-PagesEndpoint-move"><code>PagesEndpoint$move()</code></a></p></li>
+<li><p><a href="#method-PagesEndpoint-update"><code>PagesEndpoint$update()</code></a></p></li>
+<li><p><a href="#method-PagesEndpoint-retrieve_markdown"><code>PagesEndpoint$retrieve_markdown()</code></a></p></li>
+<li><p><a href="#method-PagesEndpoint-update_markdown"><code>PagesEndpoint$update_markdown()</code></a></p></li>
 </ul></div><p></p><hr><a id="method-PagesEndpoint-new"></a><div class="section">
 <h3 id="method-new-">Method <code>new()</code><a class="anchor" aria-label="anchor" href="#method-new-"></a></h3>
 <p>Initialise pages endpoint.
@@ -84,33 +88,56 @@ Not to be called directly, e.g., use <code>notion$pages</code> instead.</p><div 
 <h4 id="usage-1">Usage<a class="anchor" aria-label="anchor" href="#usage-1"></a></h4>
 <p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">PagesEndpoint</span><span class="op">$</span><span class="fu">create</span><span class="op">(</span></span>
 <span>  <span class="va">parent</span>,</span>
-<span>  <span class="va">properties</span>,</span>
-<span>  children <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  properties <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  icon <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  cover <span class="op">=</span> <span class="cn">NULL</span></span>
+<span>  cover <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  content <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  children <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  markdown <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  template <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  position <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 
 <div class="section">
 <h4 id="arguments-1">Arguments<a class="anchor" aria-label="anchor" href="#arguments-1"></a></h4>
 <p></p><div class="arguments"><dl><dt><code>parent</code></dt>
-<dd><p>Named list (JSON object) (required). The parent page or database where the new page is inserted.</p></dd>
+<dd><p>Named list (JSON object) (required). The parent under which the new page is created.</p></dd>
 
 
 <dt><code>properties</code></dt>
-<dd><p>Named list (JSON object) (required). Key-value pairs representing the properties of the page.</p></dd>
+<dd><p>Named list (JSON object). Key-value pairs representing the page's properties.</p></dd>
+
+
+<dt><code>icon</code></dt>
+<dd><p>Named list (JSON object). The page icon.</p></dd>
+
+
+<dt><code>cover</code></dt>
+<dd><p>Named list (JSON object). The page cover image.</p></dd>
+
+
+<dt><code>content</code></dt>
+<dd><p>List of lists (JSON array). Block objects to append as children to the page.</p></dd>
 
 
 <dt><code>children</code></dt>
 <dd><p>List of lists (JSON array). Block objects to append as children to the page.</p></dd>
 
 
-<dt><code>icon</code></dt>
-<dd><p>Named list (JSON object). An icon for the page.</p></dd>
+<dt><code>markdown</code></dt>
+<dd><p>Character. Page content as Notion-flavored Markdown.
+Mutually exclusive with content/children.</p></dd>
 
 
-<dt><code>cover</code></dt>
-<dd><p>Named list (JSON object). A cover image for the page.</p></dd>
+<dt><code>template</code></dt>
+<dd><p>Named list (JSON object). A data source template apply to the new page.
+Cannot be combined with children.</p></dd>
+
+
+<dt><code>position</code></dt>
+<dd><p>Named list (JSON object). Controls where new blocks are inserted
+among parent's children. Defaults to end of parent block's children when omitted.</p></dd>
 
 
 </dl><p></p></div>
@@ -131,12 +158,12 @@ Not to be called directly, e.g., use <code>notion$pages</code> instead.</p><div 
 <div class="section">
 <h4 id="arguments-2">Arguments<a class="anchor" aria-label="anchor" href="#arguments-2"></a></h4>
 <p></p><div class="arguments"><dl><dt><code>page_id</code></dt>
-<dd><p>Character (required.). The ID for a Notion page.</p></dd>
+<dd><p>Character (required). The ID for a Notion page.</p></dd>
 
 
 <dt><code>filter_properties</code></dt>
-<dd><p>Character. Page property value IDs to include in the response schema.
-If NULL, all properties are returned.</p></dd>
+<dd><p>Character vector. Page property value IDs to include in the response schema.
+If NULL (default), all properties are returned.</p></dd>
 
 
 </dl><p></p></div>
@@ -147,6 +174,178 @@ If NULL, all properties are returned.</p></dd>
 </div>
 
 
+</div><p></p><hr><a id="method-PagesEndpoint-move"></a><div class="section">
+<h3 id="method-move-">Method <code>move()</code><a class="anchor" aria-label="anchor" href="#method-move-"></a></h3>
+<p>Move a page</p><div class="section">
+<h4 id="usage-3">Usage<a class="anchor" aria-label="anchor" href="#usage-3"></a></h4>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">PagesEndpoint</span><span class="op">$</span><span class="fu">move</span><span class="op">(</span><span class="va">page_id</span>, <span class="va">parent</span><span class="op">)</span></span></code></pre></div><p></p></div>
+</div>
+
+<div class="section">
+<h4 id="arguments-3">Arguments<a class="anchor" aria-label="anchor" href="#arguments-3"></a></h4>
+<p></p><div class="arguments"><dl><dt><code>page_id</code></dt>
+<dd><p>Character (required). The ID of the page to move.</p></dd>
+
+
+<dt><code>parent</code></dt>
+<dd><p>Named list (JSON object) (required). The new parent location for the page.</p></dd>
+
+
+</dl><p></p></div>
+</div>
+<div class="section">
+<h4 id="details-2">Details<a class="anchor" aria-label="anchor" href="#details-2"></a></h4>
+<p><a href="https://developers.notion.com/reference/move-page" class="external-link">Endpoint documentation</a></p>
+</div>
+
+
+</div><p></p><hr><a id="method-PagesEndpoint-update"></a><div class="section">
+<h3 id="method-update-">Method <code><a href="https://rdrr.io/r/stats/update.html" class="external-link">update()</a></code><a class="anchor" aria-label="anchor" href="#method-update-"></a></h3>
+<p>Update attributes of a Notion page</p><div class="section">
+<h4 id="usage-4">Usage<a class="anchor" aria-label="anchor" href="#usage-4"></a></h4>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">PagesEndpoint</span><span class="op">$</span><span class="fu">update</span><span class="op">(</span></span>
+<span>  <span class="va">page_id</span>,</span>
+<span>  properties <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  icon <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  cover <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  is_locked <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  template <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  erase_content <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  in_trash <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  is_archived <span class="op">=</span> <span class="cn">NULL</span></span>
+<span><span class="op">)</span></span></code></pre></div><p></p></div>
+</div>
+
+<div class="section">
+<h4 id="arguments-4">Arguments<a class="anchor" aria-label="anchor" href="#arguments-4"></a></h4>
+<p></p><div class="arguments"><dl><dt><code>page_id</code></dt>
+<dd><p>Character (required). The ID for a Notion page.</p></dd>
+
+
+<dt><code>properties</code></dt>
+<dd><p>Named list (JSON object). Key-value pairs representing the page's properties.</p></dd>
+
+
+<dt><code>icon</code></dt>
+<dd><p>Named list (JSON object). The page icon.</p></dd>
+
+
+<dt><code>cover</code></dt>
+<dd><p>Named list (JSON object). The page cover image.</p></dd>
+
+
+<dt><code>is_locked</code></dt>
+<dd><p>Boolean. Whether the page should be locked from editing.</p></dd>
+
+
+<dt><code>template</code></dt>
+<dd><p>Named list (JSON object). A template to apply to the page.</p></dd>
+
+
+<dt><code>erase_content</code></dt>
+<dd><p>Boolean. Whether to erase all existing content from the page.
+Irreversible via the API.</p></dd>
+
+
+<dt><code>in_trash</code></dt>
+<dd><p>Boolean. Set to TRUE to trash (delete) the page.
+Set to FALSE to restore the page.</p></dd>
+
+
+<dt><code>is_archived</code></dt>
+<dd><p>Boolean. Deprecated alias for <code>in_trash</code>. Use <code>in_trash</code>
+for new integrations.</p></dd>
+
+
+</dl><p></p></div>
+</div>
+<div class="section">
+<h4 id="details-3">Details<a class="anchor" aria-label="anchor" href="#details-3"></a></h4>
+<p><a href="https://developers.notion.com/reference/patch-page" class="external-link">Endpoint documentation</a></p>
+</div>
+
+
+</div><p></p><hr><a id="method-PagesEndpoint-retrieve_markdown"></a><div class="section">
+<h3 id="method-retrieve-markdown-">Method <code>retrieve_markdown()</code><a class="anchor" aria-label="anchor" href="#method-retrieve-markdown-"></a></h3>
+<p>Retrieve a page as markdown</p><div class="section">
+<h4 id="usage-5">Usage<a class="anchor" aria-label="anchor" href="#usage-5"></a></h4>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">PagesEndpoint</span><span class="op">$</span><span class="fu">retrieve_markdown</span><span class="op">(</span><span class="va">page_id</span>, include_transcript <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div><p></p></div>
+</div>
+
+<div class="section">
+<h4 id="arguments-5">Arguments<a class="anchor" aria-label="anchor" href="#arguments-5"></a></h4>
+<p></p><div class="arguments"><dl><dt><code>page_id</code></dt>
+<dd><p>Character (required). The ID of the page (or block) to
+to retrieve as markdown.</p></dd>
+
+
+<dt><code>include_transcript</code></dt>
+<dd><p>Boolean. Whether to include meeting note transcripts.
+Defaults to false.</p></dd>
+
+
+</dl><p></p></div>
+</div>
+<div class="section">
+<h4 id="details-4">Details<a class="anchor" aria-label="anchor" href="#details-4"></a></h4>
+<p><a href="https://developers.notion.com/reference/retrieve-page-markdown" class="external-link">Endpoint documentation</a></p>
+</div>
+
+
+</div><p></p><hr><a id="method-PagesEndpoint-update_markdown"></a><div class="section">
+<h3 id="method-update-markdown-">Method <code>update_markdown()</code><a class="anchor" aria-label="anchor" href="#method-update-markdown-"></a></h3>
+<p>Update a page's content as markdown</p><div class="section">
+<h4 id="usage-6">Usage<a class="anchor" aria-label="anchor" href="#usage-6"></a></h4>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">PagesEndpoint</span><span class="op">$</span><span class="fu">update_markdown</span><span class="op">(</span></span>
+<span>  <span class="va">page_id</span>,</span>
+<span>  <span class="va">type</span>,</span>
+<span>  update_content <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  replace_content <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  insert_content <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  replace_content_range <span class="op">=</span> <span class="cn">NULL</span></span>
+<span><span class="op">)</span></span></code></pre></div><p></p></div>
+</div>
+
+<div class="section">
+<h4 id="arguments-6">Arguments<a class="anchor" aria-label="anchor" href="#arguments-6"></a></h4>
+<p></p><div class="arguments"><dl><dt><code>page_id</code></dt>
+<dd><p>Character (required). The ID of the page to update.</p></dd>
+
+
+<dt><code>type</code></dt>
+<dd><p>Character (required). The update command type.
+One of "update_content", "replace_content", "insert_content"
+and "replace_content_range". The first two are recommended.</p></dd>
+
+
+<dt><code>update_content</code></dt>
+<dd><p>Named list (JSON object). Update specific content
+using search-and-replace operations.</p></dd>
+
+
+<dt><code>replace_content</code></dt>
+<dd><p>Named list (JSON object). Replace the entire page content
+with new markdown.</p></dd>
+
+
+<dt><code>insert_content</code></dt>
+<dd><p>Named list (JSON object). Insert new content into
+the page.</p></dd>
+
+
+<dt><code>replace_content_range</code></dt>
+<dd><p>Named list (JSON object). Replace a range
+of content in the page.</p></dd>
+
+
+</dl><p></p></div>
+</div>
+<div class="section">
+<h4 id="details-5">Details<a class="anchor" aria-label="anchor" href="#details-5"></a></h4>
+<p><a href="https://developers.notion.com/reference/update-page-markdown" class="external-link">Endpoint documentation</a></p>
+</div>
+
+
 </div>
 
     </div>
@@ -154,8 +353,7 @@ If NULL, all properties are returned.</p></dd>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">notion</span> <span class="op">&lt;-</span> <span class="fu"><a href="NotionClient.html">notion_client</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># ----- create a page</span></span></span>
+<span class="r-in"><span><span class="co"># ----- Create a page</span></span></span>
 <span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">pages</span><span class="op">$</span><span class="fu">create</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>page_id <span class="op">=</span> <span class="st">"22f33ea0c1e480b99c77d1ab72aedff9"</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
@@ -168,9 +366,9 @@ If NULL, all properties are returned.</p></dd>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "page",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2025-07-23T05:00:00.000Z",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2025-07-23T05:00:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "34033ea0-c1e4-8181-a411-fcffc69c690a",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2026-04-12T08:10:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2026-04-12T08:10:00.000Z",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "created_by": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "object": "user",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
@@ -185,8 +383,9 @@ If NULL, all properties are returned.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "type": "page_id",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "page_id": "22f33ea0-c1e4-80b9-9c77-d1ab72aedff9"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "archived": false,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "in_trash": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "is_archived": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "is_locked": false,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "properties": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "title": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       "id": "title",</span>
@@ -212,18 +411,17 @@ If NULL, all properties are returned.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       ]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     }</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "url": "https://www.notion.so/Test-Page-for-notionapi-23933ea0c1e481d6a6f6dd5b57ad4aba",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "url": "https://www.notion.so/Test-Page-for-notionapi-34033ea0c1e48181a411fcffc69c690a",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "public_url": {},</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "a46593d0-18a7-436e-ab7c-b3049b00c8e8"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "6c1f40b5-5d1b-46a8-908a-77c36853ee67"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># ----- retrieve a page</span></span></span>
-<span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">pages</span><span class="op">$</span><span class="fu">retrieve</span><span class="op">(</span><span class="st">"23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># ----- Retrieve a page</span></span></span>
+<span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">pages</span><span class="op">$</span><span class="fu">retrieve</span><span class="op">(</span><span class="st">"34033ea0-c1e4-8181-a411-fcffc69c690a"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "page",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2025-07-23T05:00:00.000Z",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2025-07-23T05:00:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "34033ea0-c1e4-8181-a411-fcffc69c690a",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2026-04-12T08:10:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2026-04-12T08:10:00.000Z",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "created_by": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "object": "user",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
@@ -238,8 +436,9 @@ If NULL, all properties are returned.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "type": "page_id",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "page_id": "22f33ea0-c1e4-80b9-9c77-d1ab72aedff9"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "archived": false,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "in_trash": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "is_archived": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "is_locked": false,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "properties": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "title": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       "id": "title",</span>
@@ -265,9 +464,286 @@ If NULL, all properties are returned.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       ]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     }</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "url": "https://www.notion.so/Test-Page-for-notionapi-23933ea0c1e481d6a6f6dd5b57ad4aba",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "url": "https://www.notion.so/Test-Page-for-notionapi-34033ea0c1e48181a411fcffc69c690a",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "public_url": {},</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "b9ea5c65-77df-48fb-b165-5bb2ffffe555"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "a46700f7-201f-42ba-91eb-737e90ce0e19"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
+<span class="r-in"><span><span class="co"># ----- Move page into a database</span></span></span>
+<span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">pages</span><span class="op">$</span><span class="fu">move</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="st">"34033ea0-c1e4-8181-a411-fcffc69c690a"</span>,</span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    data_source_id <span class="op">=</span> <span class="st">"34033ea0-c1e4-81a2-aaf4-000b260f79c9"</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "page",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "34033ea0-c1e4-8181-a411-fcffc69c690a",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2026-04-12T08:10:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2026-04-12T08:11:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_by": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "object": "user",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_by": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "object": "user",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "cover": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "icon": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "parent": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "type": "data_source_id",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "data_source_id": "34033ea0-c1e4-81a2-aaf4-000b260f79c9",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "database_id": "efab1bec-0094-4afe-a90c-c9b72d538b4b"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "in_trash": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "is_archived": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "is_locked": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "properties": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "Status": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "id": "BvMv",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "type": "status",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "status": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "id": "d240ac03-dfab-4eb3-8a98-2330b66c38f7",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "name": "To do",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "color": "red"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "Title": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "id": "title",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "type": "title",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "title": [</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "type": "text",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "text": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "content": "Test Page for notionapi",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "link": {}</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "annotations": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "bold": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "italic": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "strikethrough": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "underline": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "code": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "color": "default"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "plain_text": "Test Page for notionapi",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "href": {}</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       ]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "url": "https://www.notion.so/Test-Page-for-notionapi-34033ea0c1e48181a411fcffc69c690a",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "public_url": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "14c4f563-c698-45ee-b2c6-5db0b27b3176"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
+<span class="r-in"><span><span class="co"># ----- Update a page</span></span></span>
+<span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">pages</span><span class="op">$</span><span class="fu">update</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="st">"34033ea0-c1e4-8181-a411-fcffc69c690a"</span>,</span></span>
+<span class="r-in"><span>  icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    emoji <span class="op">=</span> <span class="st">"🐶"</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "page",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "34033ea0-c1e4-8181-a411-fcffc69c690a",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2026-04-12T08:10:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2026-04-12T08:10:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_by": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "object": "user",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_by": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "object": "user",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "cover": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "icon": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "type": "emoji",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "emoji": "🐶"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "parent": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "type": "page_id",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "page_id": "22f33ea0-c1e4-80b9-9c77-d1ab72aedff9"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "in_trash": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "is_archived": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "is_locked": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "properties": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "title": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "id": "title",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "type": "title",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "title": [</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "type": "text",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "text": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "content": "Test Page for notionapi",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "link": {}</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "annotations": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "bold": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "italic": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "strikethrough": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "underline": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "code": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "color": "default"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "plain_text": "Test Page for notionapi",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "href": {}</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       ]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "url": "https://www.notion.so/Test-Page-for-notionapi-34033ea0c1e48181a411fcffc69c690a",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "public_url": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "d4920b91-f85e-49ff-ba30-8573b8784ebb"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
+<span class="r-in"><span><span class="co"># ----- Use `NA` to send JSON `null` — below removes the page's icon</span></span></span>
+<span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">pages</span><span class="op">$</span><span class="fu">update</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="st">"34033ea0-c1e4-8181-a411-fcffc69c690a"</span>,</span></span>
+<span class="r-in"><span>  icon <span class="op">=</span> <span class="cn">NA</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "page",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "34033ea0-c1e4-8181-a411-fcffc69c690a",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2026-04-12T08:10:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2026-04-12T08:10:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_by": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "object": "user",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_by": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "object": "user",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "cover": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "icon": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "parent": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "type": "page_id",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "page_id": "22f33ea0-c1e4-80b9-9c77-d1ab72aedff9"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "in_trash": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "is_archived": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "is_locked": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "properties": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "title": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "id": "title",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "type": "title",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "title": [</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "type": "text",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "text": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "content": "Test Page for notionapi",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "link": {}</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "annotations": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "bold": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "italic": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "strikethrough": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "underline": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "code": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "color": "default"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "plain_text": "Test Page for notionapi",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "href": {}</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       ]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "url": "https://www.notion.so/Test-Page-for-notionapi-34033ea0c1e48181a411fcffc69c690a",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "public_url": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "493613d8-e089-40c5-a1d9-45866fed19a1"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
+<span class="r-in"><span><span class="co"># ----- Retrieve a page as markdown</span></span></span>
+<span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">pages</span><span class="op">$</span><span class="fu">retrieve_markdown</span><span class="op">(</span><span class="st">"34033ea0-c1e4-8181-a411-fcffc69c690a"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "page_markdown",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "34033ea0-c1e4-8181-a411-fcffc69c690a",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "markdown": "## Updated Test Heading",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "truncated": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "unknown_block_ids": [],</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "644d1b20-faa9-41b6-b9eb-dc6d3b14d51a"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
+<span class="r-in"><span><span class="co"># ----- Update/replace a page content</span></span></span>
+<span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">pages</span><span class="op">$</span><span class="fu">update_markdown</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="st">"34033ea0-c1e4-8181-a411-fcffc69c690a"</span>,</span></span>
+<span class="r-in"><span>  <span class="st">"replace_content"</span>,</span></span>
+<span class="r-in"><span>  replace_content <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    new_str <span class="op">=</span> <span class="st">'## Updated Test Heading\nUsed markdown{color="blue"}'</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "page_markdown",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "34033ea0-c1e4-8181-a411-fcffc69c690a",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "markdown": "## Updated Test Heading\nUsed markdown {color=\"blue\"}",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "truncated": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "unknown_block_ids": [],</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "068f9057-33d2-4ee2-be77-c0a43f75ac58"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
+<span class="r-in"><span><span class="co"># ----- Trash a page</span></span></span>
+<span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">pages</span><span class="op">$</span><span class="fu">update</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="st">"34033ea0-c1e4-8181-a411-fcffc69c690a"</span>,</span></span>
+<span class="r-in"><span>  in_trash <span class="op">=</span> <span class="cn">TRUE</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "page",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "34033ea0-c1e4-8181-a411-fcffc69c690a",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2026-04-12T08:10:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2026-04-12T08:11:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_by": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "object": "user",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_by": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "object": "user",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "cover": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "icon": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "parent": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "type": "data_source_id",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "data_source_id": "34033ea0-c1e4-81a2-aaf4-000b260f79c9",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "database_id": "efab1bec-0094-4afe-a90c-c9b72d538b4b"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "in_trash": true,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "is_archived": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "is_locked": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "properties": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "Status": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "id": "BvMv",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "type": "status",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "status": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "id": "d240ac03-dfab-4eb3-8a98-2330b66c38f7",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "name": "To do",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "color": "red"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "Title": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "id": "title",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "type": "title",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "title": [</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "type": "text",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "text": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "content": "Test Page for notionapi",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "link": {}</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "annotations": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "bold": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "italic": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "strikethrough": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "underline": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "code": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             "color": "default"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "plain_text": "Test Page for notionapi",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "href": {}</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       ]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "url": "https://www.notion.so/Test-Page-for-notionapi-34033ea0c1e48181a411fcffc69c690a",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "public_url": {},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "4341af17-7de4-45da-9741-9da796127da5"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
 </code></pre></div>
     </div>
@@ -280,7 +756,7 @@ If NULL, all properties are returned.</p></dd>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer></div>

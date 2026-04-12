@@ -64,33 +64,28 @@ that these properties expect.</p>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">notion</span> <span class="op">&lt;-</span> <span class="fu"><a href="NotionClient.html">notion_client</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># ----- create a database</span></span></span>
-<span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">databases</span><span class="op">$</span><span class="fu">create</span><span class="op">(</span></span></span>
-<span class="r-in"><span>  parent <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>page_id <span class="op">=</span> <span class="st">"23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba"</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>  title <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>      type <span class="op">=</span> <span class="st">"text"</span>,</span></span>
-<span class="r-in"><span>      text <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>        content <span class="op">=</span> <span class="st">"Grocery list"</span></span></span>
-<span class="r-in"><span>      <span class="op">)</span></span></span>
-<span class="r-in"><span>    <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># ----- Create a data source</span></span></span>
+<span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">data_sources</span><span class="op">$</span><span class="fu">create</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    database_id <span class="op">=</span> <span class="st">"5f9759b2-ad71-4b66-880f-d0306614227b"</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span>,</span></span>
 <span class="r-in"><span>  properties <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>    Name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    Title <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>      title <span class="op">=</span> <span class="fu">no_config</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-in"><span>    <span class="op">)</span>,</span></span>
-<span class="r-in"><span>    `In stock` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>      checkbox <span class="op">=</span> <span class="fu">no_config</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span>    <span class="op">)</span></span></span>
-<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span>,</span></span>
+<span class="r-in"><span>  title <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    text <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>      content <span class="op">=</span> <span class="st">"Test data source"</span></span></span>
+<span class="r-in"><span>    <span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "database",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "23933ea0-c1e4-8136-b37b-fa235c6f2a71",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "data_source",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "34033ea0-c1e4-81a2-aaf4-000b260f79c9",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "cover": {},</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "icon": {},</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2025-07-23T05:01:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2026-04-12T08:11:00.000Z",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "created_by": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "object": "user",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
@@ -99,12 +94,12 @@ that these properties expect.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "object": "user",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2025-07-23T05:01:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2026-04-12T08:11:00.000Z",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "title": [</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       "type": "text",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       "text": {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         "content": "Grocery list",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "content": "Test data source",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         "link": {}</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       },</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       "annotations": {</span>
@@ -115,35 +110,33 @@ that these properties expect.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         "code": false,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         "color": "default"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       "plain_text": "Grocery list",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "plain_text": "Test data source",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       "href": {}</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     }</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ],</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "description": [],</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "is_inline": false,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "properties": {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "In stock": {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       "id": "q%3BL%5E",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       "name": "In stock",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       "type": "checkbox",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       "checkbox": {}</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "Name": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "Title": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       "id": "title",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       "name": "Name",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "name": "Title",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "description": {},</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       "type": "title",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       "title": {}</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     }</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "parent": {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "type": "page_id",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "page_id": "23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "type": "database_id",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "database_id": "efab1bec-0094-4afe-a90c-c9b72d538b4b"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "url": "https://www.notion.so/23933ea0c1e48136b37bfa235c6f2a71",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "database_parent": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "type": "page_id",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "page_id": "22f33ea0-c1e4-80b9-9c77-d1ab72aedff9"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "url": "https://www.notion.so/efab1bec00944afea90cc9b72d538b4b",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "public_url": {},</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "archived": false,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "in_trash": false,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "c3a4224b-5923-46c2-9497-c5527eb10b92"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "f2eae437-5c2f-4682-bf1d-bd60097c37bd"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
 </code></pre></div>
     </div>
@@ -156,7 +149,7 @@ that these properties expect.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer></div>

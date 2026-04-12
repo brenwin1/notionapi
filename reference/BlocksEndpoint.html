@@ -104,7 +104,7 @@ Not to be called directly, e.g., use <code>notion$blocks</code> instead.</p><div
 <h3 id="method-update-">Method <code><a href="https://rdrr.io/r/stats/update.html" class="external-link">update()</a></code><a class="anchor" aria-label="anchor" href="#method-update-"></a></h3>
 <p>Update a block</p><div class="section">
 <h4 id="usage-2">Usage<a class="anchor" aria-label="anchor" href="#usage-2"></a></h4>
-<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">BlocksEndpoint</span><span class="op">$</span><span class="fu">update</span><span class="op">(</span><span class="va">block_id</span>, archived <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div><p></p></div>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">BlocksEndpoint</span><span class="op">$</span><span class="fu">update</span><span class="op">(</span><span class="va">block_id</span>, in_trash <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 
 <div class="section">
@@ -113,9 +113,9 @@ Not to be called directly, e.g., use <code>notion$blocks</code> instead.</p><div
 <dd><p>Character (required). The ID for a Notion block.</p></dd>
 
 
-<dt><code>archived</code></dt>
-<dd><p>Boolean. Set to TRUE to archive (delete) a block.
-Set to FALSE to unarchive (restore) a block. Defaults to FALSE.</p></dd>
+<dt><code>in_trash</code></dt>
+<dd><p>Boolean. Set to TRUE to trash (delete) a block.
+Set to FALSE to restore a block.</p></dd>
 
 
 <dt><code>...</code></dt>
@@ -160,18 +160,17 @@ with a named list value containing the block configuration.</p></dd>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">notion</span> <span class="op">&lt;-</span> <span class="fu"><a href="NotionClient.html">notion_client</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># ----- retrieve a block</span></span></span>
-<span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">blocks</span><span class="op">$</span><span class="fu">retrieve</span><span class="op">(</span><span class="st">"23933ea0-c1e4-81dc-9f56-f3fa251a757f"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># ----- Retrieve a block</span></span></span>
+<span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">blocks</span><span class="op">$</span><span class="fu">retrieve</span><span class="op">(</span><span class="st">"34033ea0-c1e4-8137-9ae8-e09c23601f12"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "block",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "23933ea0-c1e4-81dc-9f56-f3fa251a757f",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "34033ea0-c1e4-8137-9ae8-e09c23601f12",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "parent": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "type": "page_id",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "page_id": "23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "page_id": "34033ea0-c1e4-8181-a411-fcffc69c690a"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2025-07-23T05:00:00.000Z",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2025-07-23T05:00:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2026-04-12T08:11:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2026-04-12T08:11:00.000Z",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "created_by": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "object": "user",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
@@ -181,7 +180,6 @@ with a named list value containing the block configuration.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "has_children": false,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "archived": false,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "in_trash": false,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "type": "heading_2",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "heading_2": {</span>
@@ -207,31 +205,28 @@ with a named list value containing the block configuration.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "is_toggleable": false,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "color": "default"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "96790a47-fce1-4aac-ad55-b9d41d6cedd0"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "2bd93a52-1f5b-4d04-af48-f50d2afcc524"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># ----- update a block</span></span></span>
+<span class="r-in"><span><span class="co"># ----- Update a block</span></span></span>
 <span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">blocks</span><span class="op">$</span><span class="fu">update</span><span class="op">(</span></span></span>
-<span class="r-in"><span>  <span class="st">"23933ea0-c1e4-81dc-9f56-f3fa251a757f"</span>,</span></span>
+<span class="r-in"><span>  <span class="st">"34033ea0-c1e4-8137-9ae8-e09c23601f12"</span>,</span></span>
 <span class="r-in"><span>  heading_2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>    rich_text <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>      <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>        text <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>          content <span class="op">=</span> <span class="st">"Updated Test Heading"</span></span></span>
-<span class="r-in"><span>        <span class="op">)</span></span></span>
+<span class="r-in"><span>    rich_text <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>      text <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>        content <span class="op">=</span> <span class="st">"Updated Test Heading"</span></span></span>
 <span class="r-in"><span>      <span class="op">)</span></span></span>
-<span class="r-in"><span>    <span class="op">)</span></span></span>
+<span class="r-in"><span>    <span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "block",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "23933ea0-c1e4-81dc-9f56-f3fa251a757f",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "34033ea0-c1e4-8137-9ae8-e09c23601f12",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "parent": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "type": "page_id",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "page_id": "23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "page_id": "34033ea0-c1e4-8181-a411-fcffc69c690a"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2025-07-23T05:00:00.000Z",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2025-07-23T05:00:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2026-04-12T08:11:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2026-04-12T08:11:00.000Z",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "created_by": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "object": "user",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
@@ -241,7 +236,6 @@ with a named list value containing the block configuration.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "has_children": false,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "archived": false,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "in_trash": false,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "type": "heading_2",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "heading_2": {</span>
@@ -267,20 +261,21 @@ with a named list value containing the block configuration.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "is_toggleable": false,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "color": "default"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "648d96cd-0c96-455e-b2e1-7a35eb889dd4"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "7160efee-ec16-4e88-8b54-a50a95b8bb1d"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># ----- delete a block</span></span></span>
-<span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">blocks</span><span class="op">$</span><span class="fu">delete</span><span class="op">(</span>block_id <span class="op">=</span> <span class="st">"23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># ----- Delete a block</span></span></span>
+<span class="r-in"><span><span class="va">notion</span><span class="op">$</span><span class="va">blocks</span><span class="op">$</span><span class="fu">delete</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="st">"34033ea0-c1e4-8137-9ae8-e09c23601f12"</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "object": "block",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "id": "34033ea0-c1e4-8137-9ae8-e09c23601f12",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "parent": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "type": "page_id",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "page_id": "22f33ea0-c1e4-80b9-9c77-d1ab72aedff9"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "page_id": "34033ea0-c1e4-8181-a411-fcffc69c690a"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2025-07-23T05:00:00.000Z",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2025-07-23T05:01:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "created_time": "2026-04-12T08:11:00.000Z",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "last_edited_time": "2026-04-12T08:11:00.000Z",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "created_by": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "object": "user",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
@@ -289,14 +284,33 @@ with a named list value containing the block configuration.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "object": "user",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "id": "6b786605-e456-4237-9c61-5efaff23c081"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "has_children": true,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "archived": true,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "has_children": false,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "in_trash": true,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "type": "child_page",</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "child_page": {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "title": "Test Page for notionapi"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "type": "heading_2",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "heading_2": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "rich_text": [</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "type": "text",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "text": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "content": "Updated Test Heading",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "link": {}</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "annotations": {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "bold": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "italic": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "strikethrough": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "underline": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "code": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           "color": "default"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         },</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "plain_text": "Updated Test Heading",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "href": {}</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ],</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "is_toggleable": false,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "color": "default"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "3371d06e-15fc-4e7c-b238-baea10ee7926"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "request_id": "d4f8d754-672c-4751-bfb3-d1d6a8ba5f0d"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
 </code></pre></div>
     </div>
@@ -309,7 +323,7 @@ with a named list value containing the block configuration.</p></dd>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer></div>
