@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">notionapi</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,20 +32,46 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="development version" id="notionapi-development-version">notionapi (development version)<a class="anchor" aria-label="anchor" href="#notionapi-development-version"></a></h2>
+<h2 class="pkg-version" data-toc-text="0.2.0" id="notionapi-020">notionapi 0.2.0<a class="anchor" aria-label="anchor" href="#notionapi-020"></a></h2>
+<p><strong>Updated to support Notion API version 2026-03-11</strong> (previously 2022-06-28). All changes below reflect updates made to comply with the latest Notion API.</p>
 <div class="section level3">
-<h3 id="breaking-changes-development-version">Breaking changes<a class="anchor" aria-label="anchor" href="#breaking-changes-development-version"></a></h3>
-<ul><li>Notion API version updated to <code>2025-09-03</code> (previously <code>2022-06-28</code>).</li>
+<h3 id="breaking-changes-0-2-0">Breaking changes<a class="anchor" aria-label="anchor" href="#breaking-changes-0-2-0"></a></h3>
+<ul><li><p><code>DatabasesEndpoint$create()</code> no longer accepts <code>properties</code> parameter per API changes. Use <code>DataSourcesEndpoint</code> to create databases with properties.</p></li>
+<li><p><code>DatabasesEndpoint$query()</code> removed following API deprecation. Use <code>DataSourcesEndpoint$query()</code> instead.</p></li>
+<li><p><code>PagesPropertiesEndpoint$update()</code> removed as the endpoint was deprecated in the Notion API.</p></li>
 </ul></div>
 <div class="section level3">
-<h3 id="new-features-development-version">New features<a class="anchor" aria-label="anchor" href="#new-features-development-version"></a></h3>
-<ul><li><p><code>BlocksChildrenEndpoint$append()</code> gains <code>position</code> parameter to control block insertion placement.</p></li>
-<li><p><code>BlocksEndpoint</code> methods gain <code>in_trash</code> argument.</p></li>
+<h3 id="new-endpoints-per-api-additions-0-2-0">New endpoints (per API additions)<a class="anchor" aria-label="anchor" href="#new-endpoints-per-api-additions-0-2-0"></a></h3>
+<ul><li><p><code>DataSourcesEndpoint</code>: Manage data sources (table views of databases) with <code>$create()</code>, <code>$retrieve()</code>, <code>$update()</code>, <code>$query()</code>, and <code>$list_templates()</code>. Supports full property configuration.</p></li>
+<li><p><code>FileUploadsEndpoint</code>: Upload files to Notion with <code>$create()</code>, <code>$send()</code>, <code>$complete()</code>, <code>$retrieve()</code>, and <code>$list()</code>. Supports single-part (≤20MB), multi-part (&gt;20MB), and external URL imports.</p></li>
+<li><p><code>ViewsEndpoint</code>: Manage database views with <code>$create()</code>, <code>$retrieve()</code>, <code>$update()</code>, <code>$delete()</code>, and <code>$list()</code>.</p></li>
+<li><p><code>ViewsQueriesEndpoint</code>: Execute view queries with <code>$create()</code>, <code>$results()</code>, and <code>$delete()</code>.</p></li>
+<li><p><code>CustomEmojisEndpoint</code>: Access workspace custom emojis via <code>$list()</code>.</p></li>
 </ul></div>
 <div class="section level3">
-<h3 id="deprecations-development-version">Deprecations<a class="anchor" aria-label="anchor" href="#deprecations-development-version"></a></h3>
-<ul><li><p><code>BlocksChildrenEndpoint$append()</code>: <code>after</code> parameter deprecated by Notion API in favor of <code>position</code>.</p></li>
-<li><p><code>BlocksEndpoint</code>: <code>archived</code> parameter deprecated in favor of <code>in_trash</code>.</p></li>
+<h3 id="enhanced-endpoints-per-api-updates-0-2-0">Enhanced endpoints (per API updates)<a class="anchor" aria-label="anchor" href="#enhanced-endpoints-per-api-updates-0-2-0"></a></h3>
+<div class="section level4">
+<h4 id="pages-0-2-0">Pages<a class="anchor" aria-label="anchor" href="#pages-0-2-0"></a></h4>
+<ul><li><p><code>$create()</code> gains <code>content</code>, <code>markdown</code>, <code>template</code>, and <code>position</code> parameters.</p></li>
+<li><p><code>$update()</code> gains <code>is_locked</code>, <code>template</code>, and <code>erase_content</code> parameters.</p></li>
+<li><p><code>$retrieve_markdown()</code>: New method to retrieve page content as Notion-flavored Markdown.</p></li>
+<li><p><code>$update_markdown()</code>: New method to update page content using Markdown with <code>update_content</code>, <code>replace_content</code>, <code>insert_content</code>, and <code>replace_content_range</code> operations.</p></li>
+<li><p><code>$move()</code>: New method to move pages between parents.</p></li>
+</ul></div>
+<div class="section level4">
+<h4 id="blocks-0-2-0">Blocks<a class="anchor" aria-label="anchor" href="#blocks-0-2-0"></a></h4>
+<ul><li>
+<code>BlocksChildrenEndpoint$append()</code> gains <code>position</code> parameter (replaces deprecated <code>after</code>).</li>
+</ul></div>
+<div class="section level4">
+<h4 id="general-0-2-0">General<a class="anchor" aria-label="anchor" href="#general-0-2-0"></a></h4>
+<ul><li>All applicable endpoints now use <code>in_trash</code> argument for trash operations (replaces deprecated <code>archived</code> and <code>is_archived</code> parameters).</li>
+</ul></div>
+</div>
+<div class="section level3">
+<h3 id="deprecations-per-api-changes-0-2-0">Deprecations (per API changes)<a class="anchor" aria-label="anchor" href="#deprecations-per-api-changes-0-2-0"></a></h3>
+<ul><li><p><code>BlocksChildrenEndpoint$append()</code>: <code>after</code> parameter deprecated in favor of <code>position</code>.</p></li>
+<li><p><code>archived</code> and <code>is_archived</code> parameters deprecated across all endpoints in favor of <code>in_trash</code>.</p></li>
 </ul></div>
 </div>
     <div class="section level2">

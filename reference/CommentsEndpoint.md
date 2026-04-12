@@ -105,7 +105,7 @@ Retrieve comments for a block
 #### Details
 
 [Endpoint
-documentation](https://developers.notion.com/reference/retrieve-a-comment)
+documentation](https://developers.notion.com/reference/retrieve-comment)
 
 ------------------------------------------------------------------------
 
