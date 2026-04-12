@@ -2104,7 +2104,7 @@ CommentsEndpoint <- R6Class(
     #' @param comment_id Character (required). The ID of the comment to retrieve.
     #'
     #' @details
-    #' [Endpoint documentation](https://developers.notion.com/reference/retrieve-a-comment)
+    #' [Endpoint documentation](https://developers.notion.com/reference/retrieve-comment)
     retrieve = function(
       comment_id
     ) {

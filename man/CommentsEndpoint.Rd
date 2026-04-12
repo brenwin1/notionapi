@@ -120,7 +120,7 @@ Retrieve comments for a block
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-\href{https://developers.notion.com/reference/retrieve-a-comment}{Endpoint documentation}
+\href{https://developers.notion.com/reference/retrieve-comment}{Endpoint documentation}
 }
 
 }
