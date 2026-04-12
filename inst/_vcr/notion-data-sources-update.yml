@@ -1,18 +1,18 @@
 http_interactions:
 - request:
     method: PATCH
-    uri: https://api.notion.com/v1/data_sources/33f33ea0-c1e4-81a7-af25-000b2a6ab72d
+    uri: https://api.notion.com/v1/data_sources/34033ea0-c1e4-81a2-aaf4-000b260f79c9
     body:
       string: '{"properties":{"Status":{"status":{"options":[{"name":"To do","color":"red"},{"name":"Done","color":"green"}]}}}}'
   response:
     status: 200
     headers:
-      date: Sat, 11 Apr 2026 12:01:51 GMT
+      date: Sun, 12 Apr 2026 08:11:16 GMT
       content-type: application/json; charset=utf-8
-      cf-ray: 9ea9d6c339cba807-SYD
+      cf-ray: 9eb0c25c78045726-SYD
       cf-cache-status: DYNAMIC
       content-encoding: gzip
-      etag: W/"696-qz1DRV1IG8CBm5cbEeAa0ySmoEY"
+      etag: W/"694-ogbQc9IicfQfjLgc364mq8fKP0M"
       server: cloudflare
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       vary: Accept-Encoding
@@ -22,18 +22,18 @@ http_interactions:
       x-dns-prefetch-control: 'off'
       x-download-options: noopen
       x-frame-options: SAMEORIGIN
-      x-notion-request-id: 26e38840-cfa8-4c68-a037-60fd267db4e3
+      x-notion-request-id: 3629a270-d451-4600-9a3a-f77dd42fe716
       x-permitted-cross-domain-policies: none
       x-xss-protection: '0'
-      set-cookie: __cf_bm=LwauewWXROVDaJbeNgasp7JF81WN5_edL2YmSblPT1s-1775908910.5953107-1.0.1.1-kOz7HiEEieC2EPlpLrkK6TxHHASbFESOJBeCrGZ1FJ7USyEElWVlJ9frnpII5G4qm69jVwoQV1F4K7eY.52nKox7GaHA46D_DGGu5X_a4GUZmiOMx2hUJBb9Jw8F7a7z;
-        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sat, 11 Apr 2026 12:31:51
+      set-cookie: __cf_bm=WIYHxGuR4KN0AFc97MKlUG5MGzvdBsfprgB9CfbzJhI-1775981475.2712984-1.0.1.1-F.QaVFCYRafLki9sch4PDjZlRIferIL5SlLQCHvC.eaXVsWbL.oWn9OPF1w8Wsq7p3ksiN7.BDlNG_z6xke3v4zJNYnWFTdDNEOIJT3Dd66tKkeXTyfZn0HJjDJKdjOd;
+        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sun, 12 Apr 2026 08:41:16
         GMT
       alt-svc: h3=":443"; ma=86400
     body:
-      string: '{"object":"data_source","id":"33f33ea0-c1e4-81a7-af25-000b2a6ab72d","cover":null,"icon":null,"created_time":"2026-04-11T12:01:00.000Z","created_by":{"object":"user","id":"6b786605-e456-4237-9c61-5efaff23c081"},"last_edited_by":{"object":"user","id":"6b786605-e456-4237-9c61-5efaff23c081"},"last_edited_time":"2026-04-11T12:01:00.000Z","title":[{"type":"text","text":{"content":"Test
+      string: '{"object":"data_source","id":"34033ea0-c1e4-81a2-aaf4-000b260f79c9","cover":null,"icon":null,"created_time":"2026-04-12T08:11:00.000Z","created_by":{"object":"user","id":"6b786605-e456-4237-9c61-5efaff23c081"},"last_edited_by":{"object":"user","id":"6b786605-e456-4237-9c61-5efaff23c081"},"last_edited_time":"2026-04-12T08:11:00.000Z","title":[{"type":"text","text":{"content":"Test
         data source","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Test
-        data source","href":null}],"description":[],"is_inline":false,"properties":{"Status":{"id":"u%7Clh","name":"Status","description":null,"type":"status","status":{"options":[{"id":"3ac028c6-120e-408e-a5ac-01babd8c42b9","name":"To
-        do","color":"red","description":null},{"id":"9b667c41-0ced-4737-aaa1-160b6540b2c2","name":"Done","color":"green","description":null}],"groups":[{"id":"8581f80a-d52f-4a81-bbc3-3d40fdf27069","name":"To-do","color":"gray","option_ids":["3ac028c6-120e-408e-a5ac-01babd8c42b9","9b667c41-0ced-4737-aaa1-160b6540b2c2"]},{"id":"d0171eef-4fe8-42ce-a681-08d32d6b4607","name":"In
-        progress","color":"blue","option_ids":[]},{"id":"68bcf228-bcb0-4a03-9a8c-79494bb5fe66","name":"Complete","color":"green","option_ids":[]}]}},"Title":{"id":"title","name":"Title","description":null,"type":"title","title":{}}},"parent":{"type":"database_id","database_id":"5f9759b2-ad71-4b66-880f-d0306614227b"},"database_parent":{"type":"page_id","page_id":"22f33ea0-c1e4-80b9-9c77-d1ab72aedff9"},"url":"https://www.notion.so/5f9759b2ad714b66880fd0306614227b","public_url":null,"in_trash":false,"request_id":"26e38840-cfa8-4c68-a037-60fd267db4e3"}'
-  recorded_at: 2026-04-11 12:01:51
+        data source","href":null}],"description":[],"is_inline":false,"properties":{"Status":{"id":"BvMv","name":"Status","description":null,"type":"status","status":{"options":[{"id":"d240ac03-dfab-4eb3-8a98-2330b66c38f7","name":"To
+        do","color":"red","description":null},{"id":"5ded4a97-d895-468f-bc34-04dc08d7858f","name":"Done","color":"green","description":null}],"groups":[{"id":"104e2ae2-fc22-4731-bd28-96135ba3454d","name":"To-do","color":"gray","option_ids":["d240ac03-dfab-4eb3-8a98-2330b66c38f7","5ded4a97-d895-468f-bc34-04dc08d7858f"]},{"id":"c6ec5f45-a708-478b-9f62-b45082f5c111","name":"In
+        progress","color":"blue","option_ids":[]},{"id":"fe31f3b0-2c64-4b20-9266-681b11fbede2","name":"Complete","color":"green","option_ids":[]}]}},"Title":{"id":"title","name":"Title","description":null,"type":"title","title":{}}},"parent":{"type":"database_id","database_id":"efab1bec-0094-4afe-a90c-c9b72d538b4b"},"database_parent":{"type":"page_id","page_id":"22f33ea0-c1e4-80b9-9c77-d1ab72aedff9"},"url":"https://www.notion.so/efab1bec00944afea90cc9b72d538b4b","public_url":null,"in_trash":false,"request_id":"3629a270-d451-4600-9a3a-f77dd42fe716"}'
+  recorded_at: 2026-04-12 08:11:16
 recorded_with: VCR-vcr/2.1.0

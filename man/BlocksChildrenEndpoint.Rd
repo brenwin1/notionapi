@@ -17,7 +17,7 @@ notion <- notion_client()
 \dontshow{notionapi::vcr_example_start("notion-blocks-children-append")}
 # ----- Append children to a block
 notion$blocks$children$append(
-  "33f33ea0-c1e4-811a-9790-c5068b52c5d7",
+  "34033ea0-c1e4-8181-a411-fcffc69c690a",
   list(
     list(
       object = "block",
@@ -33,7 +33,7 @@ notion$blocks$children$append(
 \dontshow{notionapi::vcr_example_end()}
 \dontshow{notionapi::vcr_example_start("notion-blocks-children-list")}
 # ----- Retrieve children of a block
-notion$blocks$children$list("33f33ea0-c1e4-811a-9790-c5068b52c5d7")
+notion$blocks$children$list("34033ea0-c1e4-8181-a411-fcffc69c690a")
 \dontshow{notionapi::vcr_example_end()}
 # ----- Iterate through paginated results
 \dontrun{

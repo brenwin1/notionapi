@@ -5,12 +5,12 @@ http_interactions:
   response:
     status: 401
     headers:
-      date: Sat, 11 Apr 2026 12:01:24 GMT
+      date: Sun, 12 Apr 2026 08:10:52 GMT
       content-type: application/json; charset=utf-8
       content-length: '139'
-      cf-ray: 9ea9d621b8c3a807-SYD
+      cf-ray: 9eb0c1ce3e4f5726-SYD
       cf-cache-status: DYNAMIC
-      etag: W/"8b-QLnTdp7j7QEk+z3c3s80hkoJ0Ww"
+      etag: W/"8b-+ePpfTWXU6eLkR0evKkcU3ZQmpk"
       server: cloudflare
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       vary: Accept-Encoding
@@ -20,15 +20,15 @@ http_interactions:
       x-dns-prefetch-control: 'off'
       x-download-options: noopen
       x-frame-options: SAMEORIGIN
-      x-notion-request-id: f1473872-9477-43c7-9e63-cf84b1340eb5
+      x-notion-request-id: b057dec7-e93b-4ee4-8f4a-0854d6df9477
       x-permitted-cross-domain-policies: none
       x-xss-protection: '0'
-      set-cookie: __cf_bm=cDwY.hA0hh_o4VE6pIymsKDzNYa1Ldqo9IpH3DFPHxY-1775908884.7597976-1.0.1.1-sRFdihvPHLtRxh34NGqUD7jaSmynTHO3d70uV8uejWrjncvCIDxZ26H6jrwrvcKY1_waa_QGGNdwBTbAX2m1rk6xgyjjNjHyhoxYDTS9UpudUTplGSS1QQtmvcGNtJ_.;
-        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sat, 11 Apr 2026 12:31:24
+      set-cookie: __cf_bm=XRqu8OJEd95qmLo273xTf6yqXM0m.KyvUoTAqj3QVUg-1775981452.52033-1.0.1.1-UgHFDzHFBQL6una_EcGDNEGtRuby9kzqt8Sb_IUzK2iJOnOX3GXXiid8MGjcd2iLIxy2n_FzqF8glZw1_jw7pYmkn0BNO5A9aLjvERr5838qVu8l2FRw4Hg6g7LwbJhg;
+        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sun, 12 Apr 2026 08:40:52
         GMT
       alt-svc: h3=":443"; ma=86400
     body:
       string: '{"object":"error","status":401,"code":"unauthorized","message":"API
-        token is invalid.","request_id":"f1473872-9477-43c7-9e63-cf84b1340eb5"}'
-  recorded_at: 2026-04-11 12:01:24
+        token is invalid.","request_id":"b057dec7-e93b-4ee4-8f4a-0854d6df9477"}'
+  recorded_at: 2026-04-12 08:10:52
 recorded_with: VCR-vcr/2.1.0

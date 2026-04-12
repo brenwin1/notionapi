@@ -17,27 +17,27 @@ notion <- notion_client()
 \dontshow{notionapi::vcr_example_start("notion-views-create")}
 # ----- Create a view
 notion$views$create(
-  "33f33ea0-c1e4-81a7-af25-000b2a6ab72d",
+  "34033ea0-c1e4-81a2-aaf4-000b260f79c9",
   "Test view",
   "table",
-  "5f9759b2-ad71-4b66-880f-d0306614227b"
+  "efab1bec-0094-4afe-a90c-c9b72d538b4b"
 )
 \dontshow{notionapi::vcr_example_end()}
 \dontshow{notionapi::vcr_example_start("notion-views-retrieve")}
 # ----- Retrieve a view
-notion$views$retrieve("33f33ea0-c1e4-8145-9555-000c19cc8d71")
+notion$views$retrieve("34033ea0-c1e4-81e1-942f-000c08810f61")
 \dontshow{notionapi::vcr_example_end()}
 \dontshow{notionapi::vcr_example_start("notion-views-list")}
 # ----- List views
-notion$views$list(data_source_id = "33f33ea0-c1e4-81a7-af25-000b2a6ab72d")
+notion$views$list(data_source_id = "34033ea0-c1e4-81a2-aaf4-000b260f79c9")
 \dontshow{notionapi::vcr_example_end()}
 \dontshow{notionapi::vcr_example_start("notion-views-update")}
 # ----- Update a view
-notion$views$update("33f33ea0-c1e4-8145-9555-000c19cc8d71", "Updated view name")
+notion$views$update("34033ea0-c1e4-81e1-942f-000c08810f61", "Updated view name")
 \dontshow{notionapi::vcr_example_end()}
 \dontshow{notionapi::vcr_example_start("notion-views-delete")}
 # ----- Delete a view
-notion$views$delete("33f33ea0-c1e4-8145-9555-000c19cc8d71")
+notion$views$delete("34033ea0-c1e4-81e1-942f-000c08810f61")
 \dontshow{notionapi::vcr_example_end()}
 \dontshow{\}) # examplesIf}
 }

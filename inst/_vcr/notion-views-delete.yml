@@ -1,15 +1,15 @@
 http_interactions:
 - request:
     method: DELETE
-    uri: https://api.notion.com/v1/views/33f33ea0-c1e4-8145-9555-000c19cc8d71
+    uri: https://api.notion.com/v1/views/34033ea0-c1e4-81e1-942f-000c08810f61
   response:
     status: 200
     headers:
-      date: Sat, 11 Apr 2026 12:02:01 GMT
+      date: Sun, 12 Apr 2026 08:11:23 GMT
       content-type: application/json; charset=utf-8
-      cf-ray: 9ea9d703684ca807-SYD
+      cf-ray: 9eb0c2855c965726-SYD
       cf-cache-status: DYNAMIC
-      etag: W/"d5-8c1pQwde21nr22/O1e+f26Jny5A"
+      etag: W/"d5-9QDI8/OF6FwoKJOewGnHyQFr3lE"
       server: cloudflare
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       vary: Accept-Encoding
@@ -19,15 +19,15 @@ http_interactions:
       x-dns-prefetch-control: 'off'
       x-download-options: noopen
       x-frame-options: SAMEORIGIN
-      x-notion-request-id: 65993670-94d2-48a2-92d4-8c36910f9d9b
+      x-notion-request-id: d83da7a4-f8a9-4591-8e7e-84040da1659f
       x-permitted-cross-domain-policies: none
       x-xss-protection: '0'
-      set-cookie: __cf_bm=YUVDrwZFcTRQRCzpm4_ii496h97v7Dq3XzOg9i6gx3o-1775908920.8705738-1.0.1.1-NGW_dwStGjDGzY8hU61CWU31AtetDjeg1wBKitDbd0Sp440xFELK3cVPkn8ArtCMGOFXUWjzefHAvi0kxjUB0ICooZbDrT1qmNGh3RFfN6T2b58mHk33njX5KxGVqXY7;
-        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sat, 11 Apr 2026 12:32:01
+      set-cookie: __cf_bm=5rrA9QgDy3uIgIaz_ypx3boksoWJzDp8r6GO1FcCKA0-1775981481.817616-1.0.1.1-lXt4tzVswHNztByT2Uvg8_Ra7yz6rzJfDQmlpbYVjUtcZVgSCybyoy0jIwy0QkDMLdH5.yURwg0yElMoE_OudqCZhfE.f4OQwEZAIgNztSyWZHmBUeP5aPLDpxzifit5;
+        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sun, 12 Apr 2026 08:41:23
         GMT
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
-      string: '{"object":"view","id":"33f33ea0-c1e4-8145-9555-000c19cc8d71","parent":{"type":"database_id","database_id":"5f9759b2-ad71-4b66-880f-d0306614227b"},"type":"table","request_id":"65993670-94d2-48a2-92d4-8c36910f9d9b"}'
-  recorded_at: 2026-04-11 12:02:01
+      string: '{"object":"view","id":"34033ea0-c1e4-81e1-942f-000c08810f61","parent":{"type":"database_id","database_id":"efab1bec-0094-4afe-a90c-c9b72d538b4b"},"type":"table","request_id":"d83da7a4-f8a9-4591-8e7e-84040da1659f"}'
+  recorded_at: 2026-04-12 08:11:23
 recorded_with: VCR-vcr/2.1.0

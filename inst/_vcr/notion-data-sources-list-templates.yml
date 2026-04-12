@@ -1,13 +1,13 @@
 http_interactions:
 - request:
     method: GET
-    uri: https://api.notion.com/v1/data_sources/33f33ea0-c1e4-81a7-af25-000b2a6ab72d/templates
+    uri: https://api.notion.com/v1/data_sources/34033ea0-c1e4-81a2-aaf4-000b260f79c9/templates
   response:
     status: 200
     headers:
-      date: Sat, 11 Apr 2026 12:01:52 GMT
+      date: Sun, 12 Apr 2026 08:11:17 GMT
       content-type: application/json; charset=utf-8
-      cf-ray: 9ea9d6cd6ebfa807-SYD
+      cf-ray: 9eb0c26639265726-SYD
       cf-cache-status: DYNAMIC
       etag: W/"34-gI2Qzl2fZNpIuqc8BGLSdwW0q1M"
       server: cloudflare
@@ -19,15 +19,15 @@ http_interactions:
       x-dns-prefetch-control: 'off'
       x-download-options: noopen
       x-frame-options: SAMEORIGIN
-      x-notion-request-id: d429a670-64ac-49e6-a3d2-8b355155e529
+      x-notion-request-id: f3a57929-d126-4538-8983-6d877a1150d5
       x-permitted-cross-domain-policies: none
       x-xss-protection: '0'
-      set-cookie: __cf_bm=uS6SxA_hGSMeMb76m6N3vrtIsCvwl.ljkCLNukj0qt0-1775908912.2261417-1.0.1.1-H0BC99ulmrXidoI9bq4HKcVjSFe5sO7lQbV.Kip34Ez_.Z3ArUq8S51Mf3c3bNxwEe8.hLyVzaJwTM9vtYXoPPxlGr.5W4FidpzaRYq4BzuT2Ql4vSGBZTMfQyNXYjRH;
-        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sat, 11 Apr 2026 12:31:52
+      set-cookie: __cf_bm=1bXMYnaPQ3simPLui8SHfKIlTtcQc06anpdmpzhG8NM-1775981476.8313065-1.0.1.1-5iNnI6J7pUgD_sS0HjC8w3oIBGyqErFgveS1TYZjx7gkAIWKw37LFeKg6qSeygyAKrVFJag0rVlAV0av8cA_uk2U3OQ_sbX78EZPd7jtJXohVqgeiM7VMRNzv6onn7cr;
+        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sun, 12 Apr 2026 08:41:17
         GMT
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
       string: '{"templates":[],"has_more":false,"next_cursor":null}'
-  recorded_at: 2026-04-11 12:01:52
+  recorded_at: 2026-04-12 08:11:17
 recorded_with: VCR-vcr/2.1.0

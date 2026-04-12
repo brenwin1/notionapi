@@ -1,18 +1,17 @@
 http_interactions:
 - request:
-    method: POST
-    uri: https://api.notion.com/v1/pages
+    method: PATCH
+    uri: https://api.notion.com/v1/pages/34033ea0-c1e4-8181-a411-fcffc69c690a
     body:
-      string: '{"parent":{"page_id":"22f33ea0c1e480b99c77d1ab72aedff9"},"properties":{"title":[{"text":{"content":"Test
-        Page for notionapi"}}]}}'
+      string: '{"icon":null}'
   response:
     status: 200
     headers:
-      date: Sun, 12 Apr 2026 08:10:53 GMT
+      date: Sun, 12 Apr 2026 08:11:01 GMT
       content-type: application/json; charset=utf-8
-      cf-ray: 9eb0c1cfafc95726-SYD
+      cf-ray: 9eb0c1e4eb9e5726-SYD
       cf-cache-status: DYNAMIC
-      etag: W/"397-yKO6mk5WTJXjeBbGXvgzOc43FPc"
+      etag: W/"397-Qc2ydAF5ev+shwyFBHF6uumJFoc"
       server: cloudflare
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       vary: Accept-Encoding
@@ -22,17 +21,17 @@ http_interactions:
       x-dns-prefetch-control: 'off'
       x-download-options: noopen
       x-frame-options: SAMEORIGIN
-      x-notion-request-id: 6c1f40b5-5d1b-46a8-908a-77c36853ee67
+      x-notion-request-id: 493613d8-e089-40c5-a1d9-45866fed19a1
       x-permitted-cross-domain-policies: none
       x-xss-protection: '0'
-      set-cookie: __cf_bm=DMyhspJxvbFllzTb1bO.5DMhDNvwXsdkpc4udqWLHX4-1775981452.7465842-1.0.1.1-m9sruokfUq0MJd0q_qKXKDExhXpUOzHjAkhdjXNBQcq5JjdISGAscFb0bneHKaUg9c.oMds_SdSFHpCtTJTlX60NDbOT8bT8uP6765xgm5c.3Y6HgTlYh70M1VWOkrPf;
-        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sun, 12 Apr 2026 08:40:53
+      set-cookie: __cf_bm=R4OPBRGc72WGTmwUzrctJIHdxxJG5R9QCpGOLE_miTE-1775981456.1490216-1.0.1.1-XIjehhsakEMZT0zp_rXMvR3pprWHVUWwB4Pjx_CHpZ_iV_dEoZfIWh5LLxjJ0se8n7tF3497o.nsVZrjP7o.tg_iq4ZHCFv0UQzXW2Z0ZLBg5HDV2fHVzsAFhCPdFmXa;
+        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sun, 12 Apr 2026 08:41:01
         GMT
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
       string: '{"object":"page","id":"34033ea0-c1e4-8181-a411-fcffc69c690a","created_time":"2026-04-12T08:10:00.000Z","last_edited_time":"2026-04-12T08:10:00.000Z","created_by":{"object":"user","id":"6b786605-e456-4237-9c61-5efaff23c081"},"last_edited_by":{"object":"user","id":"6b786605-e456-4237-9c61-5efaff23c081"},"cover":null,"icon":null,"parent":{"type":"page_id","page_id":"22f33ea0-c1e4-80b9-9c77-d1ab72aedff9"},"in_trash":false,"is_archived":false,"is_locked":false,"properties":{"title":{"id":"title","type":"title","title":[{"type":"text","text":{"content":"Test
         Page for notionapi","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Test
-        Page for notionapi","href":null}]}},"url":"https://www.notion.so/Test-Page-for-notionapi-34033ea0c1e48181a411fcffc69c690a","public_url":null,"request_id":"6c1f40b5-5d1b-46a8-908a-77c36853ee67"}'
-  recorded_at: 2026-04-12 08:10:53
+        Page for notionapi","href":null}]}},"url":"https://www.notion.so/Test-Page-for-notionapi-34033ea0c1e48181a411fcffc69c690a","public_url":null,"request_id":"493613d8-e089-40c5-a1d9-45866fed19a1"}'
+  recorded_at: 2026-04-12 08:11:01
 recorded_with: VCR-vcr/2.1.0

@@ -5,11 +5,11 @@ http_interactions:
   response:
     status: 200
     headers:
-      date: Sat, 11 Apr 2026 12:02:11 GMT
+      date: Sun, 12 Apr 2026 08:11:30 GMT
       content-type: application/json; charset=utf-8
-      cf-ray: 9ea9d7474e51a807-SYD
+      cf-ray: 9eb0c2b86cea5726-SYD
       cf-cache-status: DYNAMIC
-      etag: W/"17a-1Br6YjZppLMwcBGyou9oK0xPffM"
+      etag: W/"17a-9OaSs0HHAKwiFD+hxOO5JECS9BY"
       server: cloudflare
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       vary: Accept-Encoding
@@ -19,16 +19,16 @@ http_interactions:
       x-dns-prefetch-control: 'off'
       x-download-options: noopen
       x-frame-options: SAMEORIGIN
-      x-notion-request-id: 9d64abc9-88af-4183-90ab-45a25935b849
+      x-notion-request-id: 735487fd-fc58-4aa0-836d-f0d4d320e7c6
       x-permitted-cross-domain-policies: none
       x-xss-protection: '0'
-      set-cookie: __cf_bm=s2h.iQ2iXdq5KTdLMyygdsL2N9ioFsfRO_HVnvBcC6o-1775908931.729801-1.0.1.1-KXMz5k4Ce3j76MtgucCuD0pE1NsPwWYQJwJrY33SpvkWr8i5aOuejquScZ.8g2Y95psh6wVmLJrjRvhcZIuQDzt3OKZ8cFZiUAWYG.k4v3.xSvjNk3ojGO9QjGKzaQaK;
-        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sat, 11 Apr 2026 12:32:11
+      set-cookie: __cf_bm=Bryca_Yn6QiZZXghX.wW_k6aQNJeh2Ye.vMShkikNgc-1775981489.982356-1.0.1.1-4lgzlB4MVrP2tgbc.LKm6iV1YU9xJJXdUgR192aDJ5fUTMx2txNykphKE0jfY919vazNWBJ4wgNZuUf9ogqHE9s79gN5BOyu3huslbEF1CDG7ZtstWD5rQsJHH2EfCKa;
+        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sun, 12 Apr 2026 08:41:30
         GMT
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
       string: '{"object":"user","id":"6b786605-e456-4237-9c61-5efaff23c081","name":"brenwin-internal","avatar_url":null,"type":"bot","bot":{"owner":{"type":"workspace","workspace":true},"workspace_name":"Brenwin''s
-        Notion","workspace_id":"8c95f187-450c-4f67-a013-54f17e298330","workspace_limits":{"max_file_upload_size_in_bytes":5368709120}},"request_id":"9d64abc9-88af-4183-90ab-45a25935b849"}'
-  recorded_at: 2026-04-11 12:02:11
+        Notion","workspace_id":"8c95f187-450c-4f67-a013-54f17e298330","workspace_limits":{"max_file_upload_size_in_bytes":5368709120}},"request_id":"735487fd-fc58-4aa0-836d-f0d4d320e7c6"}'
+  recorded_at: 2026-04-12 08:11:30
 recorded_with: VCR-vcr/2.1.0

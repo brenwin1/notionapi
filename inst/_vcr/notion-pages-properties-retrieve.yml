@@ -1,15 +1,15 @@
 http_interactions:
 - request:
     method: GET
-    uri: https://api.notion.com/v1/pages/33f33ea0-c1e4-811a-9790-c5068b52c5d7/properties/u%7Clh
+    uri: https://api.notion.com/v1/pages/34033ea0-c1e4-8181-a411-fcffc69c690a/properties/BvMv
   response:
     status: 200
     headers:
-      date: Sat, 11 Apr 2026 12:01:54 GMT
+      date: Sun, 12 Apr 2026 08:11:18 GMT
       content-type: application/json; charset=utf-8
-      cf-ray: 9ea9d6da7c25a807-SYD
+      cf-ray: 9eb0c26b6e8e5726-SYD
       cf-cache-status: DYNAMIC
-      etag: W/"c0-hOJSRD1MQnP0Zdweg2iWGxyPBx8"
+      etag: W/"be-vcKZ/+raK94vp7/88vfyd+70BHw"
       server: cloudflare
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       vary: Accept-Encoding
@@ -19,16 +19,16 @@ http_interactions:
       x-dns-prefetch-control: 'off'
       x-download-options: noopen
       x-frame-options: SAMEORIGIN
-      x-notion-request-id: ddc3aaf6-3fcc-4840-9e77-ea6d84631dd5
+      x-notion-request-id: b72cd44e-0352-41b6-bde8-e9eec5e64b1f
       x-permitted-cross-domain-policies: none
       x-xss-protection: '0'
-      set-cookie: __cf_bm=Wu2fH3sYYO_zszYEXm3N1yG9PxcSAzCe4FepXtmbCxE-1775908914.3129067-1.0.1.1-uyVNei9BekBAJlxsfkMGI_.iaQtDK02TWyxsSSXyTrlD73Er3Zr2eO2MQh_OD9AZynrSErGoRxT.A0HwoPBi9E3k4nt3W3CAHayyrRIsbnzAZQAAIJz4Y7.EU56U2cYC;
-        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sat, 11 Apr 2026 12:31:54
+      set-cookie: __cf_bm=ddPueA6YvAIH7WcEhxw88oIfsC2sjDROdstRDGPSgzg-1775981477.6621974-1.0.1.1-l1WQ4O7fOKPziGvNFpkIML7eJnZr9L3th7vxp3R2fHsj20CcjyF.2cWT0.le1_0gci2wy4zCbWMSkl9Hiby6VsS0zv5uxAAcv5rZTasoWWXX.IsHGrehc8U_9MOerAOj;
+        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sun, 12 Apr 2026 08:41:18
         GMT
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
-      string: '{"object":"property_item","type":"status","id":"u%7Clh","status":{"id":"3ac028c6-120e-408e-a5ac-01babd8c42b9","name":"To
-        do","color":"red"},"request_id":"ddc3aaf6-3fcc-4840-9e77-ea6d84631dd5"}'
-  recorded_at: 2026-04-11 12:01:54
+      string: '{"object":"property_item","type":"status","id":"BvMv","status":{"id":"d240ac03-dfab-4eb3-8a98-2330b66c38f7","name":"To
+        do","color":"red"},"request_id":"b72cd44e-0352-41b6-bde8-e9eec5e64b1f"}'
+  recorded_at: 2026-04-12 08:11:18
 recorded_with: VCR-vcr/2.1.0

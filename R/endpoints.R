@@ -12,12 +12,12 @@
 #' notion <- notion_client()
 #' \dontshow{notionapi::vcr_example_start("notion-blocks-retrieve")}
 #' # ----- Retrieve a block
-#' notion$blocks$retrieve("33f33ea0-c1e4-81cb-b1ae-d9eb58672111")
+#' notion$blocks$retrieve("34033ea0-c1e4-8137-9ae8-e09c23601f12")
 #' \dontshow{notionapi::vcr_example_end()}
 #' \dontshow{notionapi::vcr_example_start("notion-blocks-update")}
 #' # ----- Update a block
 #' notion$blocks$update(
-#'   "33f33ea0-c1e4-81cb-b1ae-d9eb58672111",
+#'   "34033ea0-c1e4-8137-9ae8-e09c23601f12",
 #'   heading_2 = list(
 #'     rich_text = list(list(
 #'       text = list(
@@ -30,7 +30,7 @@
 #' \dontshow{notionapi::vcr_example_start("notion-blocks-delete")}
 #' # ----- Delete a block
 #' notion$blocks$delete(
-#'   "33f33ea0-c1e4-81cb-b1ae-d9eb58672111"
+#'   "34033ea0-c1e4-8137-9ae8-e09c23601f12"
 #' )
 #' \dontshow{notionapi::vcr_example_end()}
 BlocksEndpoint <- R6Class(
@@ -159,7 +159,7 @@ BlocksEndpoint <- R6Class(
 #' \dontshow{notionapi::vcr_example_start("notion-blocks-children-append")}
 #' # ----- Append children to a block
 #' notion$blocks$children$append(
-#'   "33f33ea0-c1e4-811a-9790-c5068b52c5d7",
+#'   "34033ea0-c1e4-8181-a411-fcffc69c690a",
 #'   list(
 #'     list(
 #'       object = "block",
@@ -175,7 +175,7 @@ BlocksEndpoint <- R6Class(
 #' \dontshow{notionapi::vcr_example_end()}
 #' \dontshow{notionapi::vcr_example_start("notion-blocks-children-list")}
 #' # ----- Retrieve children of a block
-#' notion$blocks$children$list("33f33ea0-c1e4-811a-9790-c5068b52c5d7")
+#' notion$blocks$children$list("34033ea0-c1e4-8181-a411-fcffc69c690a")
 #' \dontshow{notionapi::vcr_example_end()}
 #' # ----- Iterate through paginated results
 #' \dontrun{
@@ -307,34 +307,41 @@ BlocksChildrenEndpoint <- R6Class(
 #' \dontshow{notionapi::vcr_example_end()}
 #' \dontshow{notionapi::vcr_example_start("notion-pages-retrieve")}
 #' # ----- Retrieve a page
-#' notion$pages$retrieve("33f33ea0-c1e4-811a-9790-c5068b52c5d7")
+#' notion$pages$retrieve("34033ea0-c1e4-8181-a411-fcffc69c690a")
 #' \dontshow{notionapi::vcr_example_end()}
 #' \dontshow{notionapi::vcr_example_start("notion-pages-move")}
 #' # ----- Move page into a database
 #' notion$pages$move(
-#'   "33f33ea0-c1e4-811a-9790-c5068b52c5d7",
+#'   "34033ea0-c1e4-8181-a411-fcffc69c690a",
 #'   list(
-#'     data_source_id = "33f33ea0-c1e4-8169-8c50-000b9925efd7"
+#'     data_source_id = "34033ea0-c1e4-81a2-aaf4-000b260f79c9"
 #'   )
 #' )
 #' \dontshow{notionapi::vcr_example_end()}
 #' \dontshow{notionapi::vcr_example_start("notion-pages-update")}
 #' # ----- Update a page
 #' notion$pages$update(
-#'   "33f33ea0-c1e4-811a-9790-c5068b52c5d7",
+#'   "34033ea0-c1e4-8181-a411-fcffc69c690a",
 #'   icon = list(
 #'     emoji = "🐶"
 #'   )
 #' )
 #' \dontshow{notionapi::vcr_example_end()}
+#' \dontshow{notionapi::vcr_example_start("notion-pages-update-null")}
+#' # ----- Use `NA` to send JSON `null` — below removes the page's icon
+#' notion$pages$update(
+#'   "34033ea0-c1e4-8181-a411-fcffc69c690a",
+#'   icon = NA
+#' )
+#' \dontshow{notionapi::vcr_example_end()}
 #' \dontshow{notionapi::vcr_example_start("notion-pages-retrieve-markdown")}
 #' # ----- Retrieve a page as markdown
-#' notion$pages$retrieve_markdown("33f33ea0-c1e4-811a-9790-c5068b52c5d7")
+#' notion$pages$retrieve_markdown("34033ea0-c1e4-8181-a411-fcffc69c690a")
 #' \dontshow{notionapi::vcr_example_end()}
 #' \dontshow{notionapi::vcr_example_start("notion-pages-update-markdown")}
 #' # ----- Update/replace a page content
 #' notion$pages$update_markdown(
-#'   "33f33ea0-c1e4-811a-9790-c5068b52c5d7",
+#'   "34033ea0-c1e4-8181-a411-fcffc69c690a",
 #'   "replace_content",
 #'   replace_content = list(
 #'     new_str = '## Updated Test Heading\nUsed markdown{color="blue"}'
@@ -344,7 +351,7 @@ BlocksChildrenEndpoint <- R6Class(
 #' \dontshow{notionapi::vcr_example_start("notion-pages-trash")}
 #' # ----- Trash a page
 #' notion$pages$update(
-#'   "33f33ea0-c1e4-811a-9790-c5068b52c5d7",
+#'   "34033ea0-c1e4-8181-a411-fcffc69c690a",
 #'   in_trash = TRUE
 #' )
 #' \dontshow{notionapi::vcr_example_end()}
@@ -685,8 +692,8 @@ PagesEndpoint <- R6Class(
 #' \dontshow{notionapi::vcr_example_start("notion-pages-properties-retrieve")}
 #' # ----- Retrieve a page property
 #' notion$pages$properties$retrieve(
-#'   "33f33ea0-c1e4-811a-9790-c5068b52c5d7",
-#'   "u%7Clh"
+#'   "34033ea0-c1e4-8181-a411-fcffc69c690a",
+#'   "BvMv"
 #' )
 #' \dontshow{notionapi::vcr_example_end()}
 PagesPropertiesEndpoint <- R6Class(
@@ -777,12 +784,12 @@ PagesPropertiesEndpoint <- R6Class(
 #' \dontshow{notionapi::vcr_example_end()}
 #' \dontshow{notionapi::vcr_example_start("notion-databases-retrieve")}
 #' # ----- Retrieve a database
-#' notion$databases$retrieve("5f9759b2-ad71-4b66-880f-d0306614227b")
+#' notion$databases$retrieve("efab1bec-0094-4afe-a90c-c9b72d538b4b")
 #' \dontshow{notionapi::vcr_example_end()}
 #' \dontshow{notionapi::vcr_example_start("notion-database-update")}
 #' # ----- Update a database
 #' notion$databases$update(
-#'   "5f9759b2-ad71-4b66-880f-d0306614227b",
+#'   "efab1bec-0094-4afe-a90c-c9b72d538b4b",
 #'   description = list(list(
 #'     text = list(
 #'       content = "For testing purposes"
@@ -972,7 +979,7 @@ DatabasesEndpoint <- R6Class(
 #' # ----- Create a data source
 #' notion$data_sources$create(
 #'   list(
-#'     database_id = "5f9759b2-ad71-4b66-880f-d0306614227b"
+#'     database_id = "efab1bec-0094-4afe-a90c-c9b72d538b4b"
 #'   ),
 #'   properties = list(
 #'     Title = list(
@@ -989,7 +996,7 @@ DatabasesEndpoint <- R6Class(
 #' \dontshow{notionapi::vcr_example_start("notion-data-sources-update")}
 #' # ----- Update data source
 #' notion$data_sources$update(
-#'   "33f33ea0-c1e4-81a7-af25-000b2a6ab72d",
+#'   "34033ea0-c1e4-81a2-aaf4-000b260f79c9",
 #'   properties = list(
 #'     Status = list(
 #'       status = list(
@@ -1010,16 +1017,16 @@ DatabasesEndpoint <- R6Class(
 #' \dontshow{notionapi::vcr_example_end()}
 #' \dontshow{notionapi::vcr_example_start("notion-data-sources-retrieve")}
 #' # ----- Retrieve a data source
-#' notion$data_sources$retrieve("33f33ea0-c1e4-81a7-af25-000b2a6ab72d")
+#' notion$data_sources$retrieve("34033ea0-c1e4-81a2-aaf4-000b260f79c9")
 #' \dontshow{notionapi::vcr_example_end()}
 #' \dontshow{notionapi::vcr_example_start("notion-data-sources-list-templates")}
 #' # ----- List data source templates
-#' notion$data_sources$list_templates("33f33ea0-c1e4-81a7-af25-000b2a6ab72d")
+#' notion$data_sources$list_templates("34033ea0-c1e4-81a2-aaf4-000b260f79c9")
 #' \dontshow{notionapi::vcr_example_end()}
 #' \dontshow{notionapi::vcr_example_start("notion-data-sources-query")}
 #' # ----- Query a data source
 #' notion$data_sources$query(
-#'   "33f33ea0-c1e4-81a7-af25-000b2a6ab72d",
+#'   "34033ea0-c1e4-81a2-aaf4-000b260f79c9",
 #'   filter = list(
 #'     property = "Status",
 #'     status = list(
@@ -1281,27 +1288,27 @@ DataSourcesEndpoint <- R6Class(
 #' \dontshow{notionapi::vcr_example_start("notion-views-create")}
 #' # ----- Create a view
 #' notion$views$create(
-#'   "33f33ea0-c1e4-81a7-af25-000b2a6ab72d",
+#'   "34033ea0-c1e4-81a2-aaf4-000b260f79c9",
 #'   "Test view",
 #'   "table",
-#'   "5f9759b2-ad71-4b66-880f-d0306614227b"
+#'   "efab1bec-0094-4afe-a90c-c9b72d538b4b"
 #' )
 #' \dontshow{notionapi::vcr_example_end()}
 #' \dontshow{notionapi::vcr_example_start("notion-views-retrieve")}
 #' # ----- Retrieve a view
-#' notion$views$retrieve("33f33ea0-c1e4-8145-9555-000c19cc8d71")
+#' notion$views$retrieve("34033ea0-c1e4-81e1-942f-000c08810f61")
 #' \dontshow{notionapi::vcr_example_end()}
 #' \dontshow{notionapi::vcr_example_start("notion-views-list")}
 #' # ----- List views
-#' notion$views$list(data_source_id = "33f33ea0-c1e4-81a7-af25-000b2a6ab72d")
+#' notion$views$list(data_source_id = "34033ea0-c1e4-81a2-aaf4-000b260f79c9")
 #' \dontshow{notionapi::vcr_example_end()}
 #' \dontshow{notionapi::vcr_example_start("notion-views-update")}
 #' # ----- Update a view
-#' notion$views$update("33f33ea0-c1e4-8145-9555-000c19cc8d71", "Updated view name")
+#' notion$views$update("34033ea0-c1e4-81e1-942f-000c08810f61", "Updated view name")
 #' \dontshow{notionapi::vcr_example_end()}
 #' \dontshow{notionapi::vcr_example_start("notion-views-delete")}
 #' # ----- Delete a view
-#' notion$views$delete("33f33ea0-c1e4-8145-9555-000c19cc8d71")
+#' notion$views$delete("34033ea0-c1e4-81e1-942f-000c08810f61")
 #' \dontshow{notionapi::vcr_example_end()}
 ViewsEndpoint <- R6Class(
   "ViewsEndpoint",
@@ -1562,20 +1569,20 @@ ViewsEndpoint <- R6Class(
 #' notion <- notion_client()
 #' \dontshow{notionapi::vcr_example_start("notion-views-queries-create")}
 #' # ----- Create a view query
-#' notion$views$queries$create("33f33ea0-c1e4-8145-9555-000c19cc8d71")
+#' notion$views$queries$create("34033ea0-c1e4-81e1-942f-000c08810f61")
 #' \dontshow{notionapi::vcr_example_end()}
 #' \dontshow{notionapi::vcr_example_start("notion-views-queries-results")}
 #' # ----- Get view query results
 #' notion$views$queries$results(
-#'   "33f33ea0-c1e4-8145-9555-000c19cc8d71",
-#'   "ee90464c-bd8d-4882-bba6-792a1dba18c6"
+#'   "34033ea0-c1e4-81e1-942f-000c08810f61",
+#'   "a966d86e-5211-47cb-8a1e-f05bc0a33494"
 #' )
 #' \dontshow{notionapi::vcr_example_end()}
 #' \dontshow{notionapi::vcr_example_start("notion-views-queries-delete")}
 #' # ----- Delete a view query
 #' notion$views$queries$delete(
-#'   "33f33ea0-c1e4-8145-9555-000c19cc8d71",
-#'   "ee90464c-bd8d-4882-bba6-792a1dba18c6"
+#'   "34033ea0-c1e4-81e1-942f-000c08810f61",
+#'   "a966d86e-5211-47cb-8a1e-f05bc0a33494"
 #' )
 #' \dontshow{notionapi::vcr_example_end()}
 ViewsQueriesEndpoint <- R6Class(
@@ -2013,7 +2020,7 @@ FileUploadsEndpoint <- R6Class(
 #' # ----- Create comment
 #' notion$comments$create(
 #'   parent = list(
-#'     page_id = "33f33ea0-c1e4-811a-9790-c5068b52c5d7"
+#'     page_id = "34033ea0-c1e4-8181-a411-fcffc69c690a"
 #'   ),
 #'   rich_text = list(
 #'     list(
@@ -2026,11 +2033,11 @@ FileUploadsEndpoint <- R6Class(
 #' \dontshow{notionapi::vcr_example_end()}
 #' \dontshow{notionapi::vcr_example_start("notion-comments-retrieve")}
 #' # ----- Retrieve comment
-#' notion$comments$retrieve("33f33ea0-c1e4-8131-8c6c-001df322f981")
+#' notion$comments$retrieve("34033ea0-c1e4-81a9-ba52-001d7629e201")
 #' \dontshow{notionapi::vcr_example_end()}
 #' \dontshow{notionapi::vcr_example_start("notion-comments-list")}
 #' # ----- List un-resolved comments from a page or block
-#' notion$comments$list("33f33ea0-c1e4-811a-9790-c5068b52c5d7")
+#' notion$comments$list("34033ea0-c1e4-8181-a411-fcffc69c690a")
 #' \dontshow{notionapi::vcr_example_end()}
 CommentsEndpoint <- R6Class(
   "CommentsEndpoint",

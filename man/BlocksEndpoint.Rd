@@ -16,12 +16,12 @@ Handle all block operations in the Notion API
 notion <- notion_client()
 \dontshow{notionapi::vcr_example_start("notion-blocks-retrieve")}
 # ----- Retrieve a block
-notion$blocks$retrieve("33f33ea0-c1e4-81cb-b1ae-d9eb58672111")
+notion$blocks$retrieve("34033ea0-c1e4-8137-9ae8-e09c23601f12")
 \dontshow{notionapi::vcr_example_end()}
 \dontshow{notionapi::vcr_example_start("notion-blocks-update")}
 # ----- Update a block
 notion$blocks$update(
-  "33f33ea0-c1e4-81cb-b1ae-d9eb58672111",
+  "34033ea0-c1e4-8137-9ae8-e09c23601f12",
   heading_2 = list(
     rich_text = list(list(
       text = list(
@@ -34,7 +34,7 @@ notion$blocks$update(
 \dontshow{notionapi::vcr_example_start("notion-blocks-delete")}
 # ----- Delete a block
 notion$blocks$delete(
-  "33f33ea0-c1e4-81cb-b1ae-d9eb58672111"
+  "34033ea0-c1e4-8137-9ae8-e09c23601f12"
 )
 \dontshow{notionapi::vcr_example_end()}
 \dontshow{\}) # examplesIf}

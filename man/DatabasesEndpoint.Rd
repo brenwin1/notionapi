@@ -30,12 +30,12 @@ notion$databases$create(
 \dontshow{notionapi::vcr_example_end()}
 \dontshow{notionapi::vcr_example_start("notion-databases-retrieve")}
 # ----- Retrieve a database
-notion$databases$retrieve("5f9759b2-ad71-4b66-880f-d0306614227b")
+notion$databases$retrieve("efab1bec-0094-4afe-a90c-c9b72d538b4b")
 \dontshow{notionapi::vcr_example_end()}
 \dontshow{notionapi::vcr_example_start("notion-database-update")}
 # ----- Update a database
 notion$databases$update(
-  "5f9759b2-ad71-4b66-880f-d0306614227b",
+  "efab1bec-0094-4afe-a90c-c9b72d538b4b",
   description = list(list(
     text = list(
       content = "For testing purposes"

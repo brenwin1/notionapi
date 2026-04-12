@@ -7,12 +7,12 @@ http_interactions:
   response:
     status: 400
     headers:
-      date: Sat, 11 Apr 2026 12:01:24 GMT
+      date: Sun, 12 Apr 2026 08:10:52 GMT
       content-type: application/json; charset=utf-8
       content-length: '365'
-      cf-ray: 9ea9d6193d18a807-SYD
+      cf-ray: 9eb0c1cc6c575726-SYD
       cf-cache-status: DYNAMIC
-      etag: W/"16d-hJH2BH+ek52LPgCxAq1jvTW3t2E"
+      etag: W/"16d-uU9do+Qx/SmMufe7ITTNTzKjUkA"
       server: cloudflare
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       vary: Accept-Encoding
@@ -22,17 +22,17 @@ http_interactions:
       x-dns-prefetch-control: 'off'
       x-download-options: noopen
       x-frame-options: SAMEORIGIN
-      x-notion-request-id: 440f81af-2d69-411a-89ec-0ef1b06606cd
+      x-notion-request-id: 003bd732-c3de-4ddd-8cd8-1ea46857265e
       x-permitted-cross-domain-policies: none
       x-xss-protection: '0'
-      set-cookie: __cf_bm=zrs_iO_kGGtHps.I90SoUkcEb4Qa0UcnqvoJLV0adC0-1775908883.396475-1.0.1.1-fGegb.Fp5rfQ8ufm9PI2KMuRszRCGQYBaijYMc0HqpFRkPXNm741KYWjTjM2VMtyxWF7Vuli7w74Z5wcBubs4e1gvQ2ZOBYD9gPBFIY5FgiM7d0znK283G5cNq6xsn89;
-        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sat, 11 Apr 2026 12:31:24
+      set-cookie: __cf_bm=bR6OZfDRYvzaqdg4qTXUkSLZ1bVDW6VUYHhrSwn4fhQ-1775981452.2290251-1.0.1.1-APE0NUw7w5DYJ2QD0KYLh5dgOvuAra1RHNdIp3co1BigZmm2Jj6oRcaQGVuIPlHZcwmq.1mfx5x6EOsr0fF7PZfY3gcLJPvoou4GDiud3yTjN4.xY8WQ59AW8ppluHpN;
+        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sun, 12 Apr 2026 08:40:52
         GMT
       alt-svc: h3=":443"; ma=86400
     body:
       string: '{"object":"error","status":400,"code":"validation_error","message":"body
         failed validation. Fix one:\nbody.rich_text[0].text should be defined, instead
         was `undefined`.\nbody.rich_text[0].mention should be defined, instead was
-        `undefined`.\nbody.rich_text[0].equation should be defined, instead was `undefined`.","request_id":"440f81af-2d69-411a-89ec-0ef1b06606cd"}'
-  recorded_at: 2026-04-11 12:01:24
+        `undefined`.\nbody.rich_text[0].equation should be defined, instead was `undefined`.","request_id":"003bd732-c3de-4ddd-8cd8-1ea46857265e"}'
+  recorded_at: 2026-04-12 08:10:52
 recorded_with: VCR-vcr/2.1.0

@@ -16,20 +16,20 @@ Handle all views queries operations in the Notion API
 notion <- notion_client()
 \dontshow{notionapi::vcr_example_start("notion-views-queries-create")}
 # ----- Create a view query
-notion$views$queries$create("33f33ea0-c1e4-8145-9555-000c19cc8d71")
+notion$views$queries$create("34033ea0-c1e4-81e1-942f-000c08810f61")
 \dontshow{notionapi::vcr_example_end()}
 \dontshow{notionapi::vcr_example_start("notion-views-queries-results")}
 # ----- Get view query results
 notion$views$queries$results(
-  "33f33ea0-c1e4-8145-9555-000c19cc8d71",
-  "ee90464c-bd8d-4882-bba6-792a1dba18c6"
+  "34033ea0-c1e4-81e1-942f-000c08810f61",
+  "a966d86e-5211-47cb-8a1e-f05bc0a33494"
 )
 \dontshow{notionapi::vcr_example_end()}
 \dontshow{notionapi::vcr_example_start("notion-views-queries-delete")}
 # ----- Delete a view query
 notion$views$queries$delete(
-  "33f33ea0-c1e4-8145-9555-000c19cc8d71",
-  "ee90464c-bd8d-4882-bba6-792a1dba18c6"
+  "34033ea0-c1e4-81e1-942f-000c08810f61",
+  "a966d86e-5211-47cb-8a1e-f05bc0a33494"
 )
 \dontshow{notionapi::vcr_example_end()}
 \dontshow{\}) # examplesIf}

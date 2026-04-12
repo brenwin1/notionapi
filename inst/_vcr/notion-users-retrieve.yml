@@ -5,11 +5,11 @@ http_interactions:
   response:
     status: 200
     headers:
-      date: Sat, 11 Apr 2026 12:02:11 GMT
+      date: Sun, 12 Apr 2026 08:11:29 GMT
       content-type: application/json; charset=utf-8
-      cf-ray: 9ea9d7457d31a807-SYD
+      cf-ray: 9eb0c2b6bb415726-SYD
       cf-cache-status: DYNAMIC
-      etag: W/"b0-SAeBrtxNlmZwNOrGQgi7V1FhLu4"
+      etag: W/"b0-L7bUphTdCvpSzQEtnCTwlu0ySQA"
       server: cloudflare
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       vary: Accept-Encoding
@@ -19,15 +19,15 @@ http_interactions:
       x-dns-prefetch-control: 'off'
       x-download-options: noopen
       x-frame-options: SAMEORIGIN
-      x-notion-request-id: 8fbaec29-bf8b-41f7-8e56-a51013986607
+      x-notion-request-id: 323e473c-f861-43ea-bfc1-a8fb2daeaf5d
       x-permitted-cross-domain-policies: none
       x-xss-protection: '0'
-      set-cookie: __cf_bm=c8iEs6xfmy_PCzsU3IO3C7fkvgF4UhNZI9BEz_ObVOs-1775908931.434803-1.0.1.1-dQHvlYi0FwCs5Mg3Pq63Zt2g3ESN2YPX9__u7o5_mXF6AMHroDaPQViyWAU0mqP0vVd042gb8f8PcwGIK70.BzQqZnFWiwrTyKXFt3s.fj0SuVL4r7hi9aLRLs_ArPOv;
-        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sat, 11 Apr 2026 12:32:11
+      set-cookie: __cf_bm=ak_vGtNZWyEYdOekksvq9DYSoY6Jj.BykPIT3Bzvo.c-1775981489.7116497-1.0.1.1-FnixbzMppzbr1K86Ae9_NU.mU0DY.CC6QHJfZ3N2Ph5RqQMurULG4aCKAMGIoWJeUt6il7PzbHPr5KLKqGFB2MurcRl92rY9EEhWxofkxjskXhOWXgBhGbBIFu4G80fY;
+        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sun, 12 Apr 2026 08:41:29
         GMT
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
-      string: '{"object":"user","id":"fda12729-108d-4eb5-bbfb-a8f0886794d1","name":"Brenwin","avatar_url":null,"type":"person","person":{},"request_id":"8fbaec29-bf8b-41f7-8e56-a51013986607"}'
-  recorded_at: 2026-04-11 12:02:11
+      string: '{"object":"user","id":"fda12729-108d-4eb5-bbfb-a8f0886794d1","name":"Brenwin","avatar_url":null,"type":"person","person":{},"request_id":"323e473c-f861-43ea-bfc1-a8fb2daeaf5d"}'
+  recorded_at: 2026-04-12 08:11:29
 recorded_with: VCR-vcr/2.1.0
