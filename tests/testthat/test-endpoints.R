@@ -214,6 +214,22 @@ test_that("notion$pages$update() works", {
   expect_gt(length(resp[["icon"]]), 0)
 })
 
+test_that("can send explicit JSON null", {
+  notion <- notion_client()
+
+  vcr::local_cassette("notion-pages-update-null")
+
+  resp <- notion$pages$update(
+    test_ids[["created_page_id"]],
+    icon = NA
+  )
+
+  expect_s3_class(resp, "notion_response")
+  expect_type(resp, "list")
+  expect_equal(resp[["object"]], "page")
+  expect_null(resp[["icon"]])
+})
+
 test_that("notion$blocks$children$append() works", {
   notion <- notion_client()
 
