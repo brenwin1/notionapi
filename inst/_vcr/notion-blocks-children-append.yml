@@ -1,41 +1,38 @@
 http_interactions:
 - request:
     method: PATCH
-    uri: https://api.notion.com/v1/blocks/23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba/children
+    uri: https://api.notion.com/v1/blocks/34033ea0-c1e4-8181-a411-fcffc69c690a/children
     body:
       string: '{"children":[{"object":"block","heading_2":{"rich_text":[{"text":{"content":"Test
-        Heading"}}]}}]}'
+        Heading"}}]}}],"position":{"type":"start"}}'
   response:
     status: 200
     headers:
-      alt-svc: h3=":443"; ma=86400
-      cf-cache-status: DYNAMIC
-      cf-ray: 96389df99a67271a-MEL
-      content-encoding: gzip
-      content-security-policy: default-src 'none'
+      date: Sun, 12 Apr 2026 08:11:02 GMT
       content-type: application/json; charset=utf-8
-      date: Wed, 23 Jul 2025 05:00:57 GMT
-      etag: W/"374-A6kJmykGrC35NgWUe7JWch3CH+w"
-      referrer-policy: strict-origin-when-cross-origin
+      cf-ray: 9eb0c206aae15726-SYD
+      cf-cache-status: DYNAMIC
+      etag: W/"363-F6kgOcMmEzE/8+ZJDs0j3mLHMBY"
       server: cloudflare
-      set-cookie:
-      - __cf_bm=oK5GaRa3NYWpn.X6v9tRBoj47BdzpDGqlewE8zc5nKo-1753246857-1.0.1.1-1g_oP0X8LPsa7l_MaWIDPpwj3w3ZFC0hd05oRJWy9wLiKPbUEW2EyMBhyh5jcxJugqVWRZwdnQVJzWEwgLc00_QMUGh9VM9vJrDaR01Y.Zc;
-        path=/; expires=Wed, 23-Jul-25 05:30:57 GMT; domain=.notion.com; HttpOnly;
-        Secure; SameSite=None
-      - _cfuvid=kK6jNO.gWGzGXufZFjkl2hXsN2gfd.GKcM7j9MBQGKU-1753246857917-0.0.1.1-604800000;
-        path=/; domain=.notion.com; HttpOnly; Secure; SameSite=None
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       vary: Accept-Encoding
+      content-security-policy: default-src 'none'
+      referrer-policy: strict-origin-when-cross-origin
       x-content-type-options: nosniff
       x-dns-prefetch-control: 'off'
       x-download-options: noopen
       x-frame-options: SAMEORIGIN
-      x-notion-request-id: 9e6e8dcd-dac3-479f-9d0c-b5ef44b628c9
+      x-notion-request-id: c3e5b37b-0ce0-4b57-be0c-52da4870a541
       x-permitted-cross-domain-policies: none
       x-xss-protection: '0'
+      set-cookie: __cf_bm=Ixc6pxA6wo2wLCyGdKhyjvGd.307OiVjootaULP83wI-1775981461.5490065-1.0.1.1-2meWfVpiQWrQIXFs9O40nEffObWdIv6rFo12aimScGc1hAsCx6tXr4PFiES_a7t1cskoOMfByXiuC3jOZx_24OEytt_s7tvSbzxbNajGbxIFsAUQAdUMYxhUvQKMUkaL;
+        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sun, 12 Apr 2026 08:41:02
+        GMT
+      content-encoding: gzip
+      alt-svc: h3=":443"; ma=86400
     body:
-      string: '{"object":"list","results":[{"object":"block","id":"23933ea0-c1e4-81dc-9f56-f3fa251a757f","parent":{"type":"page_id","page_id":"23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba"},"created_time":"2025-07-23T05:00:00.000Z","last_edited_time":"2025-07-23T05:00:00.000Z","created_by":{"object":"user","id":"6b786605-e456-4237-9c61-5efaff23c081"},"last_edited_by":{"object":"user","id":"6b786605-e456-4237-9c61-5efaff23c081"},"has_children":false,"archived":false,"in_trash":false,"type":"heading_2","heading_2":{"rich_text":[{"type":"text","text":{"content":"Test
+      string: '{"object":"list","results":[{"object":"block","id":"34033ea0-c1e4-8137-9ae8-e09c23601f12","parent":{"type":"page_id","page_id":"34033ea0-c1e4-8181-a411-fcffc69c690a"},"created_time":"2026-04-12T08:11:00.000Z","last_edited_time":"2026-04-12T08:11:00.000Z","created_by":{"object":"user","id":"6b786605-e456-4237-9c61-5efaff23c081"},"last_edited_by":{"object":"user","id":"6b786605-e456-4237-9c61-5efaff23c081"},"has_children":false,"in_trash":false,"type":"heading_2","heading_2":{"rich_text":[{"type":"text","text":{"content":"Test
         Heading","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Test
-        Heading","href":null}],"is_toggleable":false,"color":"default"}}],"next_cursor":null,"has_more":false,"type":"block","block":{},"request_id":"9e6e8dcd-dac3-479f-9d0c-b5ef44b628c9"}'
-  recorded_at: 2025-07-23 05:00:57
-recorded_with: VCR-vcr/1.7.1.93
+        Heading","href":null}],"is_toggleable":false,"color":"default"}}],"next_cursor":null,"has_more":false,"type":"block","block":{},"request_id":"c3e5b37b-0ce0-4b57-be0c-52da4870a541"}'
+  recorded_at: 2026-04-12 08:11:02
+recorded_with: VCR-vcr/2.1.0

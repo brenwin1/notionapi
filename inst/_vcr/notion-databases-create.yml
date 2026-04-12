@@ -3,40 +3,37 @@ http_interactions:
     method: POST
     uri: https://api.notion.com/v1/databases
     body:
-      string: '{"parent":{"page_id":"23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba"},"title":[{"type":"text","text":{"content":"Grocery
-        list"}}],"properties":{"Name":{"title":{}},"In stock":{"checkbox":{}}}}'
+      string: '{"parent":{"type":"page_id","page_id":"22f33ea0c1e480b99c77d1ab72aedff9"},"title":[{"text":{"content":"Test
+        Database"}}]}'
   response:
     status: 200
     headers:
-      alt-svc: h3=":443"; ma=86400
-      cf-cache-status: DYNAMIC
-      cf-ray: 96389e0adf07271a-MEL
-      content-encoding: gzip
-      content-security-policy: default-src 'none'
+      date: Sun, 12 Apr 2026 08:11:08 GMT
       content-type: application/json; charset=utf-8
-      date: Wed, 23 Jul 2025 05:01:00 GMT
-      etag: W/"3e2-6DIEA1FTfenQ0kRZFmPbMredBvo"
-      referrer-policy: strict-origin-when-cross-origin
+      cf-ray: 9eb0c2295cbe5726-SYD
+      cf-cache-status: DYNAMIC
+      etag: W/"30f-DbUwvXBhz+fdYsPQfQSCXO8j2wE"
       server: cloudflare
-      set-cookie:
-      - __cf_bm=yrNeppkQNv1mbsHK2zxynTqD6ztPOoHojCG0thaasAo-1753246860-1.0.1.1-iX1gv6OI2l6JIHTFsvlEE3IPQfqfiltUkfEL0taBr9ZqZ7Tk1LxJYNQwM_k8nH38YHc0rtaqLISavTfYn33MdQCAmyjgpfiKc5XrsXpoCOk;
-        path=/; expires=Wed, 23-Jul-25 05:31:00 GMT; domain=.notion.com; HttpOnly;
-        Secure; SameSite=None
-      - _cfuvid=HmDrC_FC6gvtpOFhBJdYMnm3kh_NoUUjTlb3hqoXNWQ-1753246860923-0.0.1.1-604800000;
-        path=/; domain=.notion.com; HttpOnly; Secure; SameSite=None
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       vary: Accept-Encoding
+      content-security-policy: default-src 'none'
+      referrer-policy: strict-origin-when-cross-origin
       x-content-type-options: nosniff
       x-dns-prefetch-control: 'off'
       x-download-options: noopen
       x-frame-options: SAMEORIGIN
-      x-notion-request-id: c3a4224b-5923-46c2-9497-c5527eb10b92
+      x-notion-request-id: a38576d0-12fa-4266-9e14-49373e12fd99
       x-permitted-cross-domain-policies: none
       x-xss-protection: '0'
+      set-cookie: __cf_bm=6o0fxoVJ2KDNhVQrMmkgN6b43xXDn43KW.FATUplVZk-1775981467.1001685-1.0.1.1-qnKELu6UPnSeoDx7aGUZfWq.Pkj6tDcizW2UNcomTIgpasSpKk.olx5RWo0iwO6F6ZfmITu_e5dX76MWJL7hcE1LV3WwmIMPlPf3zD70uXk_E5GUds2vGGjN9XV2iQ4f;
+        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sun, 12 Apr 2026 08:41:08
+        GMT
+      content-encoding: gzip
+      alt-svc: h3=":443"; ma=86400
     body:
-      string: '{"object":"database","id":"23933ea0-c1e4-8136-b37b-fa235c6f2a71","cover":null,"icon":null,"created_time":"2025-07-23T05:01:00.000Z","created_by":{"object":"user","id":"6b786605-e456-4237-9c61-5efaff23c081"},"last_edited_by":{"object":"user","id":"6b786605-e456-4237-9c61-5efaff23c081"},"last_edited_time":"2025-07-23T05:01:00.000Z","title":[{"type":"text","text":{"content":"Grocery
-        list","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Grocery
-        list","href":null}],"description":[],"is_inline":false,"properties":{"In stock":{"id":"q%3BL%5E","name":"In
-        stock","type":"checkbox","checkbox":{}},"Name":{"id":"title","name":"Name","type":"title","title":{}}},"parent":{"type":"page_id","page_id":"23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba"},"url":"https://www.notion.so/23933ea0c1e48136b37bfa235c6f2a71","public_url":null,"archived":false,"in_trash":false,"request_id":"c3a4224b-5923-46c2-9497-c5527eb10b92"}'
-  recorded_at: 2025-07-23 05:01:00
-recorded_with: VCR-vcr/1.7.1.93
+      string: '{"object":"database","id":"efab1bec-0094-4afe-a90c-c9b72d538b4b","title":[{"type":"text","text":{"content":"Test
+        Database","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Test
+        Database","href":null}],"description":[],"parent":{"type":"page_id","page_id":"22f33ea0-c1e4-80b9-9c77-d1ab72aedff9"},"is_inline":false,"in_trash":false,"is_locked":false,"created_time":"2026-04-12T08:11:07.514+00:00","last_edited_time":"2026-04-12T08:11:07.514+00:00","data_sources":[{"id":"4b00477f-d3cf-4c86-a677-a10075c11fd2","name":"Test
+        Database"}],"icon":null,"cover":null,"url":"https://www.notion.so/efab1bec00944afea90cc9b72d538b4b","public_url":null,"request_id":"a38576d0-12fa-4266-9e14-49373e12fd99"}'
+  recorded_at: 2026-04-12 08:11:08
+recorded_with: VCR-vcr/2.1.0

@@ -1,36 +1,34 @@
 http_interactions:
 - request:
     method: GET
-    uri: https://api.notion.com/v1/pages/23933ea0-c1e4-8104-897b-f5a09269e561/properties/q%3BL%5E?page_size=100
+    uri: https://api.notion.com/v1/pages/34033ea0-c1e4-8181-a411-fcffc69c690a/properties/BvMv
   response:
     status: 200
     headers:
-      alt-svc: h3=":443"; ma=86400
-      cf-cache-status: DYNAMIC
-      cf-ray: 96389e187a60271a-MEL
-      content-encoding: gzip
-      content-security-policy: default-src 'none'
+      date: Sun, 12 Apr 2026 08:11:18 GMT
       content-type: application/json; charset=utf-8
-      date: Wed, 23 Jul 2025 05:01:02 GMT
-      etag: W/"80-a3FzbdOYLearq4WcDrQE5ARnVEU"
-      referrer-policy: strict-origin-when-cross-origin
+      cf-ray: 9eb0c26b6e8e5726-SYD
+      cf-cache-status: DYNAMIC
+      etag: W/"be-vcKZ/+raK94vp7/88vfyd+70BHw"
       server: cloudflare
-      set-cookie:
-      - __cf_bm=qtJ.R81mVbpexQ0b5RMwgSm2iDEUcgrPbDgeCl_9iPs-1753246862-1.0.1.1-.I8yQolZv1yRsgznbETFsmSUkxxwiScMzPk5SRXJNgmO9bQgh8xKHOlFUsIvIeSt3TbNZ5s4NpNjTuuzH0NRL98usXZp3brIQesZevUd5Bs;
-        path=/; expires=Wed, 23-Jul-25 05:31:02 GMT; domain=.notion.com; HttpOnly;
-        Secure; SameSite=None
-      - _cfuvid=M6XsY9w1nl_WVFmr6yZG08EaknocowIPt2.NW7Y_Vdk-1753246862419-0.0.1.1-604800000;
-        path=/; domain=.notion.com; HttpOnly; Secure; SameSite=None
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       vary: Accept-Encoding
+      content-security-policy: default-src 'none'
+      referrer-policy: strict-origin-when-cross-origin
       x-content-type-options: nosniff
       x-dns-prefetch-control: 'off'
       x-download-options: noopen
       x-frame-options: SAMEORIGIN
-      x-notion-request-id: 7905abd5-ea30-4e4b-95c3-f2a49113b047
+      x-notion-request-id: b72cd44e-0352-41b6-bde8-e9eec5e64b1f
       x-permitted-cross-domain-policies: none
       x-xss-protection: '0'
+      set-cookie: __cf_bm=ddPueA6YvAIH7WcEhxw88oIfsC2sjDROdstRDGPSgzg-1775981477.6621974-1.0.1.1-l1WQ4O7fOKPziGvNFpkIML7eJnZr9L3th7vxp3R2fHsj20CcjyF.2cWT0.le1_0gci2wy4zCbWMSkl9Hiby6VsS0zv5uxAAcv5rZTasoWWXX.IsHGrehc8U_9MOerAOj;
+        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sun, 12 Apr 2026 08:41:18
+        GMT
+      content-encoding: gzip
+      alt-svc: h3=":443"; ma=86400
     body:
-      string: '{"object":"property_item","type":"checkbox","id":"q%3BL%5E","checkbox":true,"request_id":"7905abd5-ea30-4e4b-95c3-f2a49113b047"}'
-  recorded_at: 2025-07-23 05:01:02
-recorded_with: VCR-vcr/1.7.1.93
+      string: '{"object":"property_item","type":"status","id":"BvMv","status":{"id":"d240ac03-dfab-4eb3-8a98-2330b66c38f7","name":"To
+        do","color":"red"},"request_id":"b72cd44e-0352-41b6-bde8-e9eec5e64b1f"}'
+  recorded_at: 2026-04-12 08:11:18
+recorded_with: VCR-vcr/2.1.0

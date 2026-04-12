@@ -12,92 +12,40 @@ Handle all databases operations in the Notion API
 \strong{Note:} Access this endpoint through the client instance, e.g., \code{notion$databases}. Not to be instantiated directly.
 }
 \examples{
-\dontshow{if (notion_token_exists()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (notion_token_exists()) withAutoprint(\{ # examplesIf}
 notion <- notion_client()
-
-# ----- create a database
 \dontshow{notionapi::vcr_example_start("notion-databases-create")}
+# ----- Create a database
 notion$databases$create(
-  parent = list(page_id = "23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba"),
-  title = list(
-    list(
-      type = "text",
-      text = list(
-        content = "Grocery list"
-      )
-    )
+  list(
+    type = "page_id",
+    page_id = "22f33ea0c1e480b99c77d1ab72aedff9"
   ),
-  properties = list(
-    Name = list(
-      title = no_config()
-    ),
-    `In stock` = list(
-      checkbox = no_config()
-    )
-  )
-)
-\dontshow{notionapi::vcr_example_end()}
-
-# ----- retrieve a database
-\dontshow{notionapi::vcr_example_start("notion-databases-retrieve")}
-notion$databases$retrieve(
-  "23933ea0-c1e4-8136-b37b-fa235c6f2a71"
-)
-\dontshow{notionapi::vcr_example_end()}
-
-# ----- update a database
-\dontshow{notionapi::vcr_example_start("notion-database-update")}
-notion$databases$update(
-  "23933ea0-c1e4-8136-b37b-fa235c6f2a71",
-  list(list(
+  title = list(list(
     text = list(
-      content = "Today's grocery list"
+      content = "Test Database"
     )
   ))
 )
 \dontshow{notionapi::vcr_example_end()}
-
-# ----- query a database
-\dontshow{notionapi::vcr_example_start("notion-database-query")}
-notion$databases$query(
-  database_id = "23933ea0-c1e4-8136-b37b-fa235c6f2a71",
-  filter = list(
-    or = list(
-      list(
-        property = "In stock",
-        checkbox = list(equals = TRUE)
-      ),
-      list(
-        property = "Name",
-        title = list(contains = "kale")
-      )
-    )
-  ),
-  sorts = list(list(
-    property = "Name",
-    direction = "ascending"
-  ))
-)
+\dontshow{notionapi::vcr_example_start("notion-databases-retrieve")}
+# ----- Retrieve a database
+notion$databases$retrieve("efab1bec-0094-4afe-a90c-c9b72d538b4b")
 \dontshow{notionapi::vcr_example_end()}
-
-# ----- iterate through paginated results
-\dontrun{
-i <- 1
-resps <- list()
-has_more <- FALSE
-start_cursor <- NULL
-
-while (has_more) {
-  resps[[i]] <- notion$databases$query(
-    "22833ea0c1e481178e9cf1dcba79dbca",
-    start_cursor = start_cursor
+\dontshow{notionapi::vcr_example_start("notion-database-update")}
+# ----- Update a database
+notion$databases$update(
+  "efab1bec-0094-4afe-a90c-c9b72d538b4b",
+  description = list(list(
+    text = list(
+      content = "For testing purposes"
+    )
+  )),
+  icon = list(
+    emoji = "🤩"
   )
-
-  has_more <- resps[[i]][["has_more"]]
-  start_cursor <- resps[[i]][["next_cursor"]]
-  i <- i + 1
-}
-}
+)
+\dontshow{notionapi::vcr_example_end()}
 \dontshow{\}) # examplesIf}
 }
 \section{Methods}{
@@ -105,7 +53,6 @@ while (has_more) {
 \itemize{
 \item \href{#method-DatabasesEndpoint-new}{\code{DatabasesEndpoint$new()}}
 \item \href{#method-DatabasesEndpoint-create}{\code{DatabasesEndpoint$create()}}
-\item \href{#method-DatabasesEndpoint-query}{\code{DatabasesEndpoint$query()}}
 \item \href{#method-DatabasesEndpoint-retrieve}{\code{DatabasesEndpoint$retrieve()}}
 \item \href{#method-DatabasesEndpoint-update}{\code{DatabasesEndpoint$update()}}
 }
@@ -134,68 +81,41 @@ Not to be called directly, e.g., use \code{notion$databases} instead.
 \subsection{Method \code{create()}}{
 Create a database
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{DatabasesEndpoint$create(parent, title, properties, ...)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{parent}}{Named list (JSON object) (required). The parent page where the database will be created.}
-
-\item{\code{title}}{List of lists (JSON array). Database title as an array of \href{https://developers.notion.com/reference/rich-text}{rich text objects}.}
-
-\item{\code{properties}}{Named list (JSON object) (required). The properties of the database as key-value pairs.}
-
-\item{\code{...}}{<\code{\link[rlang:dyn-dots]{dynamic-dots}}> Additional body parameters to include in the request body.}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Details}{
-\href{https://developers.notion.com/reference/create-a-database}{Endpoint documentation}
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatabasesEndpoint-query"></a>}}
-\if{latex}{\out{\hypertarget{method-DatabasesEndpoint-query}{}}}
-\subsection{Method \code{query()}}{
-Query a database
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{DatabasesEndpoint$query(
-  database_id,
-  filter_properties = NULL,
-  filter = NULL,
-  sorts = NULL,
-  start_cursor = NULL,
-  page_size = 100,
-  ...
+\if{html}{\out{<div class="r">}}\preformatted{DatabasesEndpoint$create(
+  parent,
+  title = NULL,
+  description = NULL,
+  is_inline = NULL,
+  initial_data_source = NULL,
+  icon = NULL,
+  cover = NULL
 )}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{database_id}}{String (required). The ID of a Notion database.}
+\item{\code{parent}}{Named list (JSON object) (required). The parent page or workspace
+where the database will be created.}
 
-\item{\code{filter_properties}}{Character vector. Property value IDs to include in the response schema.}
+\item{\code{title}}{List of lists (JSON array). The title of the database.}
 
-\item{\code{filter}}{Named list (JSON object). \href{https://developers.notion.com/reference/post-database-query-filter}{Filter conditions}
-to apply to the query.}
+\item{\code{description}}{List of lists (JSON array). The description of the database.}
 
-\item{\code{sorts}}{List of lists (JSON array). \href{https://developers.notion.com/reference/post-database-query-sort}{Sort conditions}
-to apply to the query.}
+\item{\code{is_inline}}{Boolean. Whether the database should be displayed inline
+in the parent page. Defaults to false.}
 
-\item{\code{start_cursor}}{Character. For pagination. If provided, returns results starting from this cursor.
-If NULL, returns the first page of results.}
+\item{\code{initial_data_source}}{Named list (JSON object). Initial data source
+configuration for the database}
 
-\item{\code{page_size}}{Integer. Number of items to return per page (1-100). Defaults to 100.}
+\item{\code{icon}}{Named list (JSON object). The icon for the database.}
 
-\item{\code{...}}{Reserved for future use.}
+\item{\code{cover}}{Named list (JSON object). The cover image for the database.}
 }
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-\href{https://developers.notion.com/reference/post-database-query}{Endpoint documentation}
+\href{https://developers.notion.com/reference/create-database}{Endpoint documentation}
 }
 
 }
@@ -216,7 +136,7 @@ Retrieve a database
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-\href{https://developers.notion.com/reference/retrieve-a-database}{Endpoint documentation}
+\href{https://developers.notion.com/reference/retrieve-database}{Endpoint documentation}
 }
 
 }
@@ -228,9 +148,14 @@ Update a database
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DatabasesEndpoint$update(
   database_id,
+  parent = NULL,
   title = NULL,
   description = NULL,
-  properties = NULL
+  is_inline = NULL,
+  icon = NULL,
+  cover = NULL,
+  in_trash = NULL,
+  is_locked = NULL
 )}\if{html}{\out{</div>}}
 }
 
@@ -239,16 +164,28 @@ Update a database
 \describe{
 \item{\code{database_id}}{String (required). The ID of a Notion database.}
 
-\item{\code{title}}{List of lists (JSON array). Database title as an array of rich text objects.}
+\item{\code{parent}}{Named list (JSON object). The parent page or workspace
+to move the database to. If not provided, the database will not be moved.}
 
-\item{\code{description}}{List of lists (JSON array). Database description as an array of rich text objects.}
+\item{\code{title}}{List of lists (JSON array). The updated title of the database.}
 
-\item{\code{properties}}{Named list (JSON object). Database properties to update as key-value pairs.}
+\item{\code{description}}{List of lists (JSON array). The updated description of the database.}
+
+\item{\code{is_inline}}{Boolean. Whether the database should be displayed in the
+parent page.}
+
+\item{\code{icon}}{Named list (JSON object). The updated icon for the database.}
+
+\item{\code{cover}}{Named list (JSON object). The updated cover image for the database.}
+
+\item{\code{in_trash}}{Boolean. Whether the database should be moved to or from the trash.}
+
+\item{\code{is_locked}}{Boolean. Whether the database should be locked from editing.}
 }
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-\href{https://developers.notion.com/reference/update-a-database}{Endpoint documentation}
+\href{https://developers.notion.com/reference/update-database}{Endpoint documentation}
 }
 
 }

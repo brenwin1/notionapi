@@ -6,6 +6,11 @@ is_present <- function(x) {
   (!is_missing(x) && !is.null(x))
 }
 
+# if user pass NA (serialise as json null sentinel; this is allowed)
+is_na <- function(x) {
+  identical(x, NA)
+}
+
 check_required <- function(
   x,
   arg = caller_arg(x),
@@ -37,10 +42,7 @@ check_string <- function(
   arg = caller_arg(x),
   call = caller_env()
 ) {
-  if (
-    is_present(x) &&
-      !is_string(x, multiple)
-  ) {
+  if (is_present(x) && !is_na(x) && !is_string(x, multiple)) {
     what <- if (multiple) {
       "a character vector with non-empty strings"
     } else {
@@ -69,7 +71,7 @@ check_bool <- function(
   arg = caller_arg(x),
   call = caller_env()
 ) {
-  if (is_present(x) && !is_bool(x)) {
+  if (is_present(x) && !is_na(x) && !is_bool(x)) {
     notionapi_error(
       "`{arg}` must be a boolean.",
       class = "notionapi_validation_error",
@@ -93,7 +95,7 @@ check_int <- function(
   arg = rlang::caller_arg(arg = x),
   call = rlang::caller_env()
 ) {
-  if (is_present(x) && !is_int(x)) {
+  if (is_present(x) && !is_na(x) && !is_int(x)) {
     notionapi_error(
       message = "`{arg}` must be a single integer.",
       class = "notionapi_validation_error",
@@ -135,7 +137,7 @@ check_json_array <- function(
   arg = caller_arg(x),
   call = caller_env()
 ) {
-  if (is_present(x) && !is_json_array(x)) {
+  if (is_present(x) && !is_na(x) && !is_json_array(x)) {
     notionapi_error(
       "`{arg}` must be list of lists (JSON array of object(s)).",
       class = "notionapi_validation_error",
@@ -159,7 +161,7 @@ check_json_object <- function(
   arg = caller_arg(arg = x),
   call = caller_env()
 ) {
-  if (is_present(x) && !is_json_object(x)) {
+  if (is_present(x) && !is_na(x) && !is_json_object(x)) {
     notionapi_error(
       "`{arg}` must be a named list (JSON object).",
       class = "notionapi_validation_error",

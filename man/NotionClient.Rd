@@ -57,29 +57,35 @@ The only difference is that async methods return \href{https://rstudio.github.io
 \item \code{pages$properties}: Pages properties endpoint object (\link{PagesPropertiesEndpoint})
 }
 \item \code{databases}: Databases endpoint object (\link{DatabasesEndpoint})
+\item \code{data_sources}: Data sources endpoint object (\link{DataSourcesEndpoint})
+\item \code{views}: Views endpoint object (\link{ViewsEndpoint})
+\itemize{
+\item \code{views$queries}: Views queries endpoint object (\link{ViewsQueriesEndpoint})
+}
+\item \code{file_uploads}: File uploads endpoint object (\link{FileUploadsEndpoint})
 \item \code{comments}: Comments endpoint object (\link{CommentsEndpoint})
 \item \code{search}: Search endpoint (see \code{NotionClient$search()} method below)
 \item \code{users}: Users endpoint object (\link{UsersEndpoint})
+\item \code{custom_emojis}: Custom emojis endpoint object (\link{CustomEmojisEndpoint})
 }
 }
 
 \examples{
-\dontshow{if (notion_token_exists()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (notion_token_exists()) withAutoprint(\{ # examplesIf}
 # ----- Create a Notion client with default configuration
 notion <- notion_client()
-
-# search for pages and databases
 \dontshow{notionapi::vcr_example_start("notion-search")}
+# ----- Search for pages and databases
 notion$search(
-  "Test Page 2025-07-15",
+  query = "Test Page for notionapi",
   page_size = 1,
   filter = list(
-    value = "page",
-    property = "object"
+    property = "object",
+    value = "page"
   ),
   sort = list(
-    direction = "descending",
-    timestamp = "last_edited_time"
+    timestamp = "last_edited_time",
+    direction = "descending"
   )
 )
 \dontshow{notionapi::vcr_example_end()}
@@ -130,9 +136,17 @@ p2 \%...>\%
 
 \item{\code{databases}}{Databases endpoint object}
 
+\item{\code{data_sources}}{Data sources endpoint object}
+
+\item{\code{views}}{Views endpoint object}
+
+\item{\code{file_uploads}}{File uploads endpoint object}
+
 \item{\code{comments}}{Comments endpoint object}
 
 \item{\code{users}}{Users endpoint object}
+
+\item{\code{custom_emojis}}{Custom emojis endpoint object}
 }
 \if{html}{\out{</div>}}
 }
@@ -153,7 +167,7 @@ Initialise Notion Client
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{NotionClient$new(
   auth = NULL,
-  base_url = "https://api.notion.com/v1/",
+  base_url = getOption("notionapi.base_url"),
   version = getOption("notionapi.version"),
   timeout = 60000
 )}\if{html}{\out{</div>}}
@@ -206,27 +220,27 @@ Print basic details of Notion Client
 Search all parent or child pages and databases shared with an integration
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{NotionClient$search(
-  query = NULL,
   sort = NULL,
-  filter = NULL,
+  query = NULL,
   start_cursor = NULL,
-  page_size = NULL
+  page_size = NULL,
+  filter = NULL
 )}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{query}}{Character. The search query string.}
-
 \item{\code{sort}}{Named list (JSON object). Sort condition to apply to the search results.}
 
-\item{\code{filter}}{List (JSON object). Filter condition to apply to the search results.}
+\item{\code{query}}{Character. The search query string.}
 
 \item{\code{start_cursor}}{Character. For pagination. If provided, returns results starting from this cursor.
 If NULL, returns the first page of results.}
 
 \item{\code{page_size}}{Integer. Number of items to return per page (1-100). Defaults to 100.}
+
+\item{\code{filter}}{List (JSON object). Filter condition to apply to the search results.}
 }
 \if{html}{\out{</div>}}
 }
@@ -262,7 +276,7 @@ Initialise Async Notion Client
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{AsyncNotionClient$new(
   auth = NULL,
-  base_url = "https://api.notion.com/v1/",
+  base_url = getOption("notionapi.base_url"),
   version = getOption("notionapi.version"),
   timeout = 60000
 )}\if{html}{\out{</div>}}

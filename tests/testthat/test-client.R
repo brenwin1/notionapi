@@ -1,10 +1,7 @@
 test_that("notion_client() creates a valid client", {
   notion <- notion_client()
 
-  expect_s3_class(notion, "NotionClient")
-
-  expect_s3_class(notion, "R6")
-
+  expect_r6_class(notion, "NotionClient")
   expect_s3_class(notion$request(), "httr2_request")
 
   expect_match(
@@ -32,8 +29,8 @@ test_that("Client creation fails without authentication", {
 test_that("async_notion_client creates AsyncNotionClient", {
   async_notion <- async_notion_client()
 
-  expect_s3_class(async_notion, "AsyncNotionClient")
-  expect_s3_class(async_notion, "NotionClient") # test inheritance
+  expect_r6_class(async_notion, "AsyncNotionClient")
+  expect_r6_class(async_notion, "NotionClient") # test inheritance
 })
 
 test_that("Async methods return promises", {

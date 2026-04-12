@@ -12,33 +12,30 @@ Handle all block operations in the Notion API
 \strong{Note:} Access this endpoint through the client instance, e.g., \code{notion$blocks}. Not to be instantiated directly.
 }
 \examples{
-\dontshow{if (notion_token_exists()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-\dontshow{notionapi::vcr_example_start("notion-blocks-retrieve")}
+\dontshow{if (notion_token_exists()) withAutoprint(\{ # examplesIf}
 notion <- notion_client()
-
-# ----- retrieve a block
-notion$blocks$retrieve("23933ea0-c1e4-81dc-9f56-f3fa251a757f")
+\dontshow{notionapi::vcr_example_start("notion-blocks-retrieve")}
+# ----- Retrieve a block
+notion$blocks$retrieve("34033ea0-c1e4-8137-9ae8-e09c23601f12")
 \dontshow{notionapi::vcr_example_end()}
-
-# ----- update a block
 \dontshow{notionapi::vcr_example_start("notion-blocks-update")}
+# ----- Update a block
 notion$blocks$update(
-  "23933ea0-c1e4-81dc-9f56-f3fa251a757f",
+  "34033ea0-c1e4-8137-9ae8-e09c23601f12",
   heading_2 = list(
-    rich_text = list(
-      list(
-        text = list(
-          content = "Updated Test Heading"
-        )
+    rich_text = list(list(
+      text = list(
+        content = "Updated Test Heading"
       )
-    )
+    ))
   )
 )
 \dontshow{notionapi::vcr_example_end()}
-
-# ----- delete a block
 \dontshow{notionapi::vcr_example_start("notion-blocks-delete")}
-notion$blocks$delete(block_id = "23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba")
+# ----- Delete a block
+notion$blocks$delete(
+  "34033ea0-c1e4-8137-9ae8-e09c23601f12"
+)
 \dontshow{notionapi::vcr_example_end()}
 \dontshow{\}) # examplesIf}
 }
@@ -103,7 +100,7 @@ Retrieve a block
 \subsection{Method \code{update()}}{
 Update a block
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{BlocksEndpoint$update(block_id, archived = FALSE, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{BlocksEndpoint$update(block_id, in_trash = NULL, ...)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
@@ -111,8 +108,8 @@ Update a block
 \describe{
 \item{\code{block_id}}{Character (required). The ID for a Notion block.}
 
-\item{\code{archived}}{Boolean. Set to TRUE to archive (delete) a block.
-Set to FALSE to unarchive (restore) a block. Defaults to FALSE.}
+\item{\code{in_trash}}{Boolean. Set to TRUE to trash (delete) a block.
+Set to FALSE to restore a block.}
 
 \item{\code{...}}{<\code{\link[rlang:dyn-dots]{dynamic-dots}}> Block-specific properties to update. Each argument should be named
 after a \href{https://developers.notion.com/reference/block}{block type} (e.g., \code{heading_1}, \code{paragraph})

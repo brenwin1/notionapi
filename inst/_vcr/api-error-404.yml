@@ -5,34 +5,31 @@ http_interactions:
   response:
     status: 404
     headers:
-      alt-svc: h3=":443"; ma=86400
-      cf-cache-status: DYNAMIC
-      cf-ray: 96389daf8f1d271a-MEL
-      content-encoding: gzip
-      content-security-policy: default-src 'none'
+      date: Sun, 12 Apr 2026 08:10:52 GMT
       content-type: application/json; charset=utf-8
-      date: Wed, 23 Jul 2025 05:00:45 GMT
-      etag: W/"10a-GUgUMGtDSnzjneoiOVIx5h1HX8g"
-      referrer-policy: strict-origin-when-cross-origin
+      cf-ray: 9eb0c1c9d9085726-SYD
+      cf-cache-status: DYNAMIC
+      etag: W/"16b-7TpuUTmlO1PVhYsXNIPppf6fzt0"
       server: cloudflare
-      set-cookie:
-      - __cf_bm=cWXyS9uMmXCh5gr8EuTk.4mZIYL7_HwLBg2OS4PD9gI-1753246845-1.0.1.1-ciqxKOq6uAdmbV_gr7JWn8A2nIn8C8c4fW0Xq0.2Tas5PS5e34SWIC3tC_ZQhYg05SbrP.GVyH4LpVmZEsPIxNe77MbkzW5rUP1JTxNEhFo;
-        path=/; expires=Wed, 23-Jul-25 05:30:45 GMT; domain=.notion.com; HttpOnly;
-        Secure; SameSite=None
-      - _cfuvid=_Nva8DobzW9tQA9KtmMUV.CWzVGvzzesmR58cklEIKo-1753246845753-0.0.1.1-604800000;
-        path=/; domain=.notion.com; HttpOnly; Secure; SameSite=None
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       vary: Accept-Encoding
+      content-security-policy: default-src 'none'
+      referrer-policy: strict-origin-when-cross-origin
       x-content-type-options: nosniff
       x-dns-prefetch-control: 'off'
       x-download-options: noopen
       x-frame-options: SAMEORIGIN
-      x-notion-request-id: eba811be-b071-4008-9e81-ce75fa3c2bb1
+      x-notion-request-id: 661cae61-a0d8-45fb-a00d-bf126063238f
       x-permitted-cross-domain-policies: none
       x-xss-protection: '0'
+      set-cookie: __cf_bm=rfwc2n7jOljG3gdFiQP0T20ZGCxTRB7NoW7TxcJV59k-1775981451.8179376-1.0.1.1-0OIWAJrbeA7K_XVsyaOjex0MKDq.Om0KDqic3wDxk5X1YoMJTv1d0kiLXocuLaEuJABLuDJAulPtC.ddVn.oi53WEcN99d3Q7y_rOJus1yn5wX1w_tL1TQNpwjW3wMh9;
+        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sun, 12 Apr 2026 08:40:52
+        GMT
+      content-encoding: gzip
+      alt-svc: h3=":443"; ma=86400
     body:
       string: '{"object":"error","status":404,"code":"object_not_found","message":"Could
         not find block with ID: 12345ea0-c1e4-808c-95d2-c6b376c4fe2f. Make sure the
-        relevant pages and databases are shared with your integration.","request_id":"eba811be-b071-4008-9e81-ce75fa3c2bb1"}'
-  recorded_at: 2025-07-23 05:00:45
-recorded_with: VCR-vcr/1.7.1.93
+        relevant pages and databases are shared with your integration \"brenwin-internal\".","additional_data":{"integration_id":"6b786605-e456-4237-9c61-5efaff23c081"},"request_id":"661cae61-a0d8-45fb-a00d-bf126063238f"}'
+  recorded_at: 2026-04-12 08:10:52
+recorded_with: VCR-vcr/2.1.0

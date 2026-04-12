@@ -12,15 +12,13 @@ Handle all block children operations in the Notion API
 \strong{Note:} Access this endpoint through the client instance, e.g., \code{notion$blocks$children}. Not to be instantiated directly.
 }
 \examples{
-\dontshow{if (notion_token_exists()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (notion_token_exists()) withAutoprint(\{ # examplesIf}
 notion <- notion_client()
-
-# ----- append children to a block
 \dontshow{notionapi::vcr_example_start("notion-blocks-children-append")}
+# ----- Append children to a block
 notion$blocks$children$append(
-  block_id = "23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba",
-  children = list(
-    # add a level 2 heading called "Test Heading"
+  "34033ea0-c1e4-8181-a411-fcffc69c690a",
+  list(
     list(
       object = "block",
       heading_2 = list(
@@ -29,16 +27,15 @@ notion$blocks$children$append(
         ))
       )
     )
-  )
+  ),
+  position = list(type = "start")
 )
 \dontshow{notionapi::vcr_example_end()}
-
-# ----- retrieve children of a block
-\dontshow{notionapi::vcr_example_start("notion-blocks-children-retrieve")}
-notion$blocks$children$retrieve("23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba")
+\dontshow{notionapi::vcr_example_start("notion-blocks-children-list")}
+# ----- Retrieve children of a block
+notion$blocks$children$list("34033ea0-c1e4-8181-a411-fcffc69c690a")
 \dontshow{notionapi::vcr_example_end()}
-
-# ----- iterate through paginated results
+# ----- Iterate through paginated results
 \dontrun{
 start_cursor <- NULL
 has_more <- FALSE
@@ -46,7 +43,7 @@ resps <- list()
 i <- 1
 
 while (has_more) {
-  resps[[i]] <- notion$blocks$children$retrieve(
+  resps[[i]] <- notion$blocks$children$list(
     "2926b407e3c44b49a1830609abe6744f",
     start_cursor
   )
@@ -61,7 +58,7 @@ while (has_more) {
 \subsection{Public methods}{
 \itemize{
 \item \href{#method-BlocksChildrenEndpoint-new}{\code{BlocksChildrenEndpoint$new()}}
-\item \href{#method-BlocksChildrenEndpoint-retrieve}{\code{BlocksChildrenEndpoint$retrieve()}}
+\item \href{#method-BlocksChildrenEndpoint-list}{\code{BlocksChildrenEndpoint$list()}}
 \item \href{#method-BlocksChildrenEndpoint-append}{\code{BlocksChildrenEndpoint$append()}}
 }
 }
@@ -84,12 +81,12 @@ Not to be called directly, e.g., use \code{notion$pages$children} instead.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-BlocksChildrenEndpoint-retrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-BlocksChildrenEndpoint-retrieve}{}}}
-\subsection{Method \code{retrieve()}}{
+\if{html}{\out{<a id="method-BlocksChildrenEndpoint-list"></a>}}
+\if{latex}{\out{\hypertarget{method-BlocksChildrenEndpoint-list}{}}}
+\subsection{Method \code{list()}}{
 Retrieve a block's children
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{BlocksChildrenEndpoint$retrieve(block_id, start_cursor = NULL, page_size = 100)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{BlocksChildrenEndpoint$list(block_id, start_cursor = NULL, page_size = NULL)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
@@ -115,7 +112,7 @@ If NULL, returns the first page of results.}
 \subsection{Method \code{append()}}{
 Append block children
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{BlocksChildrenEndpoint$append(block_id, children, after = NULL)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{BlocksChildrenEndpoint$append(block_id, children, position = NULL)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
@@ -125,7 +122,8 @@ Append block children
 
 \item{\code{children}}{List of lists (JSON array) (required). Block objects to append as children to the block.}
 
-\item{\code{after}}{Character. The ID of the existing block after which the new children are appended.}
+\item{\code{position}}{Named list (JSON object). Controls where new blocks are inserted
+among parent's children. Defaults to end of parent block's children when omitted.}
 }
 \if{html}{\out{</div>}}
 }

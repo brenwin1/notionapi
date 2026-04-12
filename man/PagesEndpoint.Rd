@@ -12,11 +12,10 @@ Handle all pages operations in the Notion API
 \strong{Note:} Access this endpoint through the client instance, e.g., \code{notion$pages}. Not to be instantiated directly.
 }
 \examples{
-\dontshow{if (notion_token_exists()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-\dontshow{notionapi::vcr_example_start("notion-pages-create")}
+\dontshow{if (notion_token_exists()) withAutoprint(\{ # examplesIf}
 notion <- notion_client()
-
-# ----- create a page
+\dontshow{notionapi::vcr_example_start("notion-pages-create")}
+# ----- Create a page
 notion$pages$create(
   list(page_id = "22f33ea0c1e480b99c77d1ab72aedff9"),
   list(
@@ -28,10 +27,55 @@ notion$pages$create(
   )
 )
 \dontshow{notionapi::vcr_example_end()}
-
-# ----- retrieve a page
 \dontshow{notionapi::vcr_example_start("notion-pages-retrieve")}
-notion$pages$retrieve("23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba")
+# ----- Retrieve a page
+notion$pages$retrieve("34033ea0-c1e4-8181-a411-fcffc69c690a")
+\dontshow{notionapi::vcr_example_end()}
+\dontshow{notionapi::vcr_example_start("notion-pages-move")}
+# ----- Move page into a database
+notion$pages$move(
+  "34033ea0-c1e4-8181-a411-fcffc69c690a",
+  list(
+    data_source_id = "34033ea0-c1e4-81a2-aaf4-000b260f79c9"
+  )
+)
+\dontshow{notionapi::vcr_example_end()}
+\dontshow{notionapi::vcr_example_start("notion-pages-update")}
+# ----- Update a page
+notion$pages$update(
+  "34033ea0-c1e4-8181-a411-fcffc69c690a",
+  icon = list(
+    emoji = "🐶"
+  )
+)
+\dontshow{notionapi::vcr_example_end()}
+\dontshow{notionapi::vcr_example_start("notion-pages-update-null")}
+# ----- Use `NA` to send JSON `null` — below removes the page's icon
+notion$pages$update(
+  "34033ea0-c1e4-8181-a411-fcffc69c690a",
+  icon = NA
+)
+\dontshow{notionapi::vcr_example_end()}
+\dontshow{notionapi::vcr_example_start("notion-pages-retrieve-markdown")}
+# ----- Retrieve a page as markdown
+notion$pages$retrieve_markdown("34033ea0-c1e4-8181-a411-fcffc69c690a")
+\dontshow{notionapi::vcr_example_end()}
+\dontshow{notionapi::vcr_example_start("notion-pages-update-markdown")}
+# ----- Update/replace a page content
+notion$pages$update_markdown(
+  "34033ea0-c1e4-8181-a411-fcffc69c690a",
+  "replace_content",
+  replace_content = list(
+    new_str = '## Updated Test Heading\nUsed markdown{color="blue"}'
+  )
+)
+\dontshow{notionapi::vcr_example_end()}
+\dontshow{notionapi::vcr_example_start("notion-pages-trash")}
+# ----- Trash a page
+notion$pages$update(
+  "34033ea0-c1e4-8181-a411-fcffc69c690a",
+  in_trash = TRUE
+)
 \dontshow{notionapi::vcr_example_end()}
 \dontshow{\}) # examplesIf}
 }
@@ -48,6 +92,10 @@ notion$pages$retrieve("23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba")
 \item \href{#method-PagesEndpoint-new}{\code{PagesEndpoint$new()}}
 \item \href{#method-PagesEndpoint-create}{\code{PagesEndpoint$create()}}
 \item \href{#method-PagesEndpoint-retrieve}{\code{PagesEndpoint$retrieve()}}
+\item \href{#method-PagesEndpoint-move}{\code{PagesEndpoint$move()}}
+\item \href{#method-PagesEndpoint-update}{\code{PagesEndpoint$update()}}
+\item \href{#method-PagesEndpoint-retrieve_markdown}{\code{PagesEndpoint$retrieve_markdown()}}
+\item \href{#method-PagesEndpoint-update_markdown}{\code{PagesEndpoint$update_markdown()}}
 }
 }
 \if{html}{\out{<hr>}}
@@ -76,25 +124,40 @@ Create a page
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{PagesEndpoint$create(
   parent,
-  properties,
-  children = NULL,
+  properties = NULL,
   icon = NULL,
-  cover = NULL
+  cover = NULL,
+  content = NULL,
+  children = NULL,
+  markdown = NULL,
+  template = NULL,
+  position = NULL
 )}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{parent}}{Named list (JSON object) (required). The parent page or database where the new page is inserted.}
+\item{\code{parent}}{Named list (JSON object) (required). The parent under which the new page is created.}
 
-\item{\code{properties}}{Named list (JSON object) (required). Key-value pairs representing the properties of the page.}
+\item{\code{properties}}{Named list (JSON object). Key-value pairs representing the page's properties.}
+
+\item{\code{icon}}{Named list (JSON object). The page icon.}
+
+\item{\code{cover}}{Named list (JSON object). The page cover image.}
+
+\item{\code{content}}{List of lists (JSON array). Block objects to append as children to the page.}
 
 \item{\code{children}}{List of lists (JSON array). Block objects to append as children to the page.}
 
-\item{\code{icon}}{Named list (JSON object). An icon for the page.}
+\item{\code{markdown}}{Character. Page content as Notion-flavored Markdown.
+Mutually exclusive with content/children.}
 
-\item{\code{cover}}{Named list (JSON object). A cover image for the page.}
+\item{\code{template}}{Named list (JSON object). A data source template apply to the new page.
+Cannot be combined with children.}
+
+\item{\code{position}}{Named list (JSON object). Controls where new blocks are inserted
+among parent's children. Defaults to end of parent block's children when omitted.}
 }
 \if{html}{\out{</div>}}
 }
@@ -115,15 +178,157 @@ Retrieve page properties
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{page_id}}{Character (required.). The ID for a Notion page.}
+\item{\code{page_id}}{Character (required). The ID for a Notion page.}
 
-\item{\code{filter_properties}}{Character. Page property value IDs to include in the response schema.
-If NULL, all properties are returned.}
+\item{\code{filter_properties}}{Character vector. Page property value IDs to include in the response schema.
+If NULL (default), all properties are returned.}
 }
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
 \href{https://developers.notion.com/reference/retrieve-a-page}{Endpoint documentation}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-PagesEndpoint-move"></a>}}
+\if{latex}{\out{\hypertarget{method-PagesEndpoint-move}{}}}
+\subsection{Method \code{move()}}{
+Move a page
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{PagesEndpoint$move(page_id, parent)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{page_id}}{Character (required). The ID of the page to move.}
+
+\item{\code{parent}}{Named list (JSON object) (required). The new parent location for the page.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+\href{https://developers.notion.com/reference/move-page}{Endpoint documentation}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-PagesEndpoint-update"></a>}}
+\if{latex}{\out{\hypertarget{method-PagesEndpoint-update}{}}}
+\subsection{Method \code{update()}}{
+Update attributes of a Notion page
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{PagesEndpoint$update(
+  page_id,
+  properties = NULL,
+  icon = NULL,
+  cover = NULL,
+  is_locked = NULL,
+  template = NULL,
+  erase_content = NULL,
+  in_trash = NULL,
+  is_archived = NULL
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{page_id}}{Character (required). The ID for a Notion page.}
+
+\item{\code{properties}}{Named list (JSON object). Key-value pairs representing the page's properties.}
+
+\item{\code{icon}}{Named list (JSON object). The page icon.}
+
+\item{\code{cover}}{Named list (JSON object). The page cover image.}
+
+\item{\code{is_locked}}{Boolean. Whether the page should be locked from editing.}
+
+\item{\code{template}}{Named list (JSON object). A template to apply to the page.}
+
+\item{\code{erase_content}}{Boolean. Whether to erase all existing content from the page.
+Irreversible via the API.}
+
+\item{\code{in_trash}}{Boolean. Set to TRUE to trash (delete) the page.
+Set to FALSE to restore the page.}
+
+\item{\code{is_archived}}{Boolean. Deprecated alias for \code{in_trash}. Use \code{in_trash}
+for new integrations.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+\href{https://developers.notion.com/reference/patch-page}{Endpoint documentation}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-PagesEndpoint-retrieve_markdown"></a>}}
+\if{latex}{\out{\hypertarget{method-PagesEndpoint-retrieve_markdown}{}}}
+\subsection{Method \code{retrieve_markdown()}}{
+Retrieve a page as markdown
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{PagesEndpoint$retrieve_markdown(page_id, include_transcript = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{page_id}}{Character (required). The ID of the page (or block) to
+to retrieve as markdown.}
+
+\item{\code{include_transcript}}{Boolean. Whether to include meeting note transcripts.
+Defaults to false.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+\href{https://developers.notion.com/reference/retrieve-page-markdown}{Endpoint documentation}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-PagesEndpoint-update_markdown"></a>}}
+\if{latex}{\out{\hypertarget{method-PagesEndpoint-update_markdown}{}}}
+\subsection{Method \code{update_markdown()}}{
+Update a page's content as markdown
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{PagesEndpoint$update_markdown(
+  page_id,
+  type,
+  update_content = NULL,
+  replace_content = NULL,
+  insert_content = NULL,
+  replace_content_range = NULL
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{page_id}}{Character (required). The ID of the page to update.}
+
+\item{\code{type}}{Character (required). The update command type.
+One of "update_content", "replace_content", "insert_content"
+and "replace_content_range". The first two are recommended.}
+
+\item{\code{update_content}}{Named list (JSON object). Update specific content
+using search-and-replace operations.}
+
+\item{\code{replace_content}}{Named list (JSON object). Replace the entire page content
+with new markdown.}
+
+\item{\code{insert_content}}{Named list (JSON object). Insert new content into
+the page.}
+
+\item{\code{replace_content_range}}{Named list (JSON object). Replace a range
+of content in the page.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+\href{https://developers.notion.com/reference/update-page-markdown}{Endpoint documentation}
 }
 
 }

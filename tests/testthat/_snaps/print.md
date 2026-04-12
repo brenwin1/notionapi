@@ -26,6 +26,7 @@
                 "workspace": true
               },
               "workspace_name": "Brenwin's Notion",
+              "workspace_id": "8c95f187-450c-4f67-a013-54f17e298330",
               "workspace_limits": {
                 "max_file_upload_size_in_bytes": 5368709120
               }
@@ -36,6 +37,6 @@
         "has_more": false,
         "type": "user",
         "user": {},
-        "request_id": "fd112634-e4c9-4953-a557-43326deb3f41"
+        "request_id": "126d9923-9e2b-4fcb-aed3-fdb08e1b6857"
       } 
 

@@ -60,10 +60,15 @@ async_notion_client <- function(
 #' - `pages`: Pages endpoint object ([PagesEndpoint])
 #'   - `pages$properties`: Pages properties endpoint object ([PagesPropertiesEndpoint])
 #' - `databases`: Databases endpoint object ([DatabasesEndpoint])
+#' - `data_sources`: Data sources endpoint object ([DataSourcesEndpoint])
+#' - `views`: Views endpoint object ([ViewsEndpoint])
+#'   - `views$queries`: Views queries endpoint object ([ViewsQueriesEndpoint])
+#' - `file_uploads`: File uploads endpoint object ([FileUploadsEndpoint])
 #' - `comments`: Comments endpoint object ([CommentsEndpoint])
 # #' - `file_uploads`: File Uploads endpoint object (not implemented (yet))
 #' - `search`: Search endpoint (see `NotionClient$search()` method below)
 #' - `users`: Users endpoint object ([UsersEndpoint])
+#' - `custom_emojis`: Custom emojis endpoint object ([CustomEmojisEndpoint])
 #'
 #' @seealso [Notion API documentation](https://developers.notion.com/reference)
 #' @returns A Notion API client instance
@@ -72,19 +77,18 @@ async_notion_client <- function(
 #' @examplesIf notion_token_exists()
 #' # ----- Create a Notion client with default configuration
 #' notion <- notion_client()
-#'
-#' # search for pages and databases
 #' \dontshow{notionapi::vcr_example_start("notion-search")}
+#' # ----- Search for pages and databases
 #' notion$search(
-#'   "Test Page 2025-07-15",
+#'   query = "Test Page for notionapi",
 #'   page_size = 1,
 #'   filter = list(
-#'     value = "page",
-#'     property = "object"
+#'     property = "object",
+#'     value = "page"
 #'   ),
 #'   sort = list(
-#'     direction = "descending",
-#'     timestamp = "last_edited_time"
+#'     timestamp = "last_edited_time",
+#'     direction = "descending"
 #'   )
 #' )
 #' \dontshow{notionapi::vcr_example_end()}
@@ -131,14 +135,18 @@ NotionClient <- R6Class(
     pages = NULL,
     #' @field databases Databases endpoint object
     databases = NULL,
+    #' @field data_sources Data sources endpoint object
+    data_sources = NULL,
+    #' @field views Views endpoint object
+    views = NULL,
+    #' @field file_uploads File uploads endpoint object
+    file_uploads = NULL,
     #' @field comments Comments endpoint object
     comments = NULL,
-
-    # #' @field file_uploads File Uploads endpoint object
-    # file_uploads = NULL,
-
     #' @field users Users endpoint object
     users = NULL,
+    #' @field custom_emojis Custom emojis endpoint object
+    custom_emojis = NULL,
 
     #' @description
     #' Initialise Notion Client
@@ -149,7 +157,7 @@ NotionClient <- R6Class(
     #' @keywords internal
     initialize = function(
       auth = NULL,
-      base_url = "https://api.notion.com/v1/",
+      base_url = getOption("notionapi.base_url"),
       version = getOption("notionapi.version"),
       timeout = 60000
     ) {
@@ -161,9 +169,12 @@ NotionClient <- R6Class(
       self$blocks <- BlocksEndpoint$new(self)
       self$pages <- PagesEndpoint$new(self)
       self$databases <- DatabasesEndpoint$new(self)
+      self$data_sources <- DataSourcesEndpoint$new(self)
+      self$views <- ViewsEndpoint$new(self)
+      self$file_uploads <- FileUploadsEndpoint$new(self)
       self$comments <- CommentsEndpoint$new(self)
-      # self$file_uploads <- FileUploadsEndpoint$new(self)
       self$users <- UsersEndpoint$new(self)
+      self$custom_emojis <- CustomEmojisEndpoint$new(self)
     },
 
     #' @description
@@ -209,34 +220,34 @@ NotionClient <- R6Class(
     #' @description
     #' Search all parent or child pages and databases shared with an integration
     #'
-    #' @param query Character. The search query string.
     #' @param sort Named list (JSON object). Sort condition to apply to the search results.
+    #' @param query Character. The search query string.
     #' @param filter List (JSON object). Filter condition to apply to the search results.
-    #' @param page_size Integer. Number of items to return per page (1-100). Defaults to 100.
     #' @param start_cursor Character. For pagination. If provided, returns results starting from this cursor.
     #'   If NULL, returns the first page of results.
+    #' @param page_size Integer. Number of items to return per page (1-100). Defaults to 100.
     #'
     #' @details
     #' [Endpoint documentation](https://developers.notion.com/reference/post-search)
     search = function(
-      query = NULL,
       sort = NULL,
-      filter = NULL,
+      query = NULL,
       start_cursor = NULL,
-      page_size = NULL
+      page_size = NULL,
+      filter = NULL
     ) {
-      check_string(query, FALSE, FALSE)
-      check_json_object(sort, required = FALSE)
-      check_json_object(filter, FALSE)
-      check_string(start_cursor, FALSE)
-      check_int(page_size, 100, FALSE)
+      check_json_object(sort)
+      check_string(query)
+      check_string(start_cursor)
+      check_int(page_size, 100)
+      check_json_object(filter)
 
       body_params <- parse_body_params(
-        query = query,
         sort = sort,
-        filter = filter,
+        query = query,
         start_cursor = start_cursor,
-        page_size = page_size
+        page_size = page_size,
+        filter = filter
       )
 
       req <- notion_build_request(
@@ -276,7 +287,7 @@ AsyncNotionClient <- R6Class(
     #' @keywords internal
     initialize = function(
       auth = NULL,
-      base_url = "https://api.notion.com/v1/",
+      base_url = getOption("notionapi.base_url"),
       version = getOption("notionapi.version"),
       timeout = 60000
     ) {

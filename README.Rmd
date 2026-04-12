@@ -95,7 +95,9 @@ R data structures are automatically converted to the JSON format expected by the
 - `lists` → JSON object
 - `list of lists` → JSON array
 
-Examples are provided throughout the [reference documentation](https://brenwin1.github.io/notionapi/reference/index.html). See [CommentsEndpoint create()](https://brenwin1.github.io/notionapi/reference/CommentsEndpoint.html#ref-examples) method for an example.
+Examples are provided throughout the [reference documentation](https://brenwin1.github.io/notionapi/reference/index.html).
+
+Named `NULL` values are dropped and excluded from the request body. To send an explicit JSON `null`, use `NA` — [example usage to remove a page's icon](https://brenwin1.github.io/notionapi/reference/PagesEndpoint.html#ref-examples).
 
 ### Pagination
 
@@ -103,4 +105,4 @@ See [Pagination](https://developers.notion.com/reference/intro#pagination) secti
 
 Pagination parameters (`page_size` and `start_cursor`) are exposed as function arguments. 
 
-For an example, see [BlocksChildrenEndpoint retrieve()](https://brenwin1.github.io/notionapi/reference/BlocksChildrenEndpoint.html#ref-examples) method.
+For an example, see [BlocksChildrenEndpoint list()](https://brenwin1.github.io/notionapi/reference/BlocksChildrenEndpoint.html#ref-examples) method.

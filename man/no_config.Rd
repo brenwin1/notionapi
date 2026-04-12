@@ -19,29 +19,24 @@ This function returns the empty configuration (\code{{}} in JSON)
 that these properties expect.
 }
 \examples{
-\dontshow{if (notion_token_exists()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (notion_token_exists()) withAutoprint(\{ # examplesIf}
 notion <- notion_client()
-
-# ----- create a database
-\dontshow{notionapi::vcr_example_start("notion-databases-create")}
-notion$databases$create(
-  parent = list(page_id = "23933ea0-c1e4-81d6-a6f6-dd5b57ad4aba"),
-  title = list(
-    list(
-      type = "text",
-      text = list(
-        content = "Grocery list"
-      )
-    )
+\dontshow{notionapi::vcr_example_start("notion-data-sources-create")}
+# ----- Create a data source
+notion$data_sources$create(
+  list(
+    database_id = "5f9759b2-ad71-4b66-880f-d0306614227b"
   ),
   properties = list(
-    Name = list(
+    Title = list(
       title = no_config()
-    ),
-    `In stock` = list(
-      checkbox = no_config()
     )
-  )
+  ),
+  title = list(list(
+    text = list(
+      content = "Test data source"
+    )
+  ))
 )
 \dontshow{notionapi::vcr_example_end()}
 \dontshow{\}) # examplesIf}
