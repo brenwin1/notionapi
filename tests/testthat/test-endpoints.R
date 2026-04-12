@@ -912,13 +912,16 @@ test_that("can upload using multi-part mode", {
 test_that("can upload files from an external URL", {
   notion <- notion_client()
 
-  vcr::local_cassette("notion-file-uploads-external-url")
+  vcr::local_cassette(
+    "notion-file-uploads-external-url",
+    match_requests_on = c("method", "uri")
+  )
 
   resp <- notion$file_uploads$create(
     "external_url",
     "dummy.pdf",
     "application/pdf",
-    external_url = "https://github.com/brenwin1/notionapi/blob/main/tests/testthat/test.pdf"
+    external_url = "https://github.com/brenwin1/notionapi/blob/dev/tests/testthat/test.pdf"
   )
 
   expect_s3_class(resp, "notion_response")

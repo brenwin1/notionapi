@@ -3,16 +3,15 @@ http_interactions:
     method: POST
     uri: https://api.notion.com/v1/file_uploads
     body:
-      string: '{"mode":"external_url","filename":"dummy.pdf","content_type":"application/pdf","external_url":"https://github.com/brenwin1/notionapi/blob/main/tests/testthat/test.pdf"}'
+      string: '{"mode":"external_url","filename":"dummy.pdf","content_type":"application/pdf","external_url":"https://github.com/brenwin1/notionapi/blob/dev/tests/testthat/test.pdf"}'
   response:
-    status: 400
+    status: 200
     headers:
-      date: Sat, 11 Apr 2026 12:02:19 GMT
+      date: Sun, 12 Apr 2026 01:24:33 GMT
       content-type: application/json; charset=utf-8
-      content-length: '230'
-      cf-ray: 9ea9d7745bada807-SYD
+      cf-ray: 9eae6e962838d5e0-SYD
       cf-cache-status: DYNAMIC
-      etag: W/"e6-dH/U4CWB1oLhbb/zzbVpopcwyC0"
+      etag: W/"213-s4rQqIzoip6tqshFDrIL7cd0KvY"
       server: cloudflare
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       vary: Accept-Encoding
@@ -22,16 +21,15 @@ http_interactions:
       x-dns-prefetch-control: 'off'
       x-download-options: noopen
       x-frame-options: SAMEORIGIN
-      x-notion-request-id: ee1fcd15-7380-4375-919f-e07f2b89c9ef
+      x-notion-request-id: 2973ac14-de1b-4479-8166-efbfaa44832d
       x-permitted-cross-domain-policies: none
       x-xss-protection: '0'
-      set-cookie: __cf_bm=qAkRzF6D3kfCuLbcsgj2meRoQXgJsIHc7__jKgGJzp4-1775908938.9338095-1.0.1.1-Yog_RNJNtvNLR1SRuzmluWS.JSUa3zGzOL4LvjEtpZWo8tT7VWk7hzRB2ldHcoTJtvJohOB5d0ZAvYhoM2JbIZjQXFze0SoMnpOGrVVT6th1601jF9_Z8.T2IhyV2xeZ;
-        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sat, 11 Apr 2026 12:32:19
+      set-cookie: __cf_bm=i91j9MDrhr56OL2.0FobnwAFhgBiNiBEiy0WoyAqj3k-1775957072.347418-1.0.1.1-W8kym1r7DyCail76rBXAA24dZAnIQkGTLAOt1C1Z9Hvn2ixaqiAWhH0hH5ebHMXy0Rqg1v.WKMxmK1T_ghsE_54bpJESsIxv3lxC2o5N_XlpFY9fqejZ9AMVvOmi5xP7;
+        HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Sun, 12 Apr 2026 01:54:33
         GMT
+      content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
-      string: '{"object":"error","status":400,"code":"validation_error","message":"Failed
-        to fetch the headers of the external URL. Ensure it''s a valid, publicly accessible
-        URL and try again.","request_id":"ee1fcd15-7380-4375-919f-e07f2b89c9ef"}'
-  recorded_at: 2026-04-11 12:02:19
+      string: '{"object":"file_upload","id":"34033ea0-c1e4-8136-b532-00b25ce75d2c","created_time":"2026-04-12T01:24:00.000Z","created_by":{"id":"6b786605-e456-4237-9c61-5efaff23c081","type":"bot"},"last_edited_time":"2026-04-12T01:24:00.000Z","expiry_time":"2026-04-12T02:24:00.000Z","upload_url":"https://api.notion.com/v1/file_uploads/34033ea0-c1e4-8136-b532-00b25ce75d2c/send","in_trash":false,"status":"pending","filename":"dummy.pdf","content_type":"application/pdf","content_length":null,"request_id":"2973ac14-de1b-4479-8166-efbfaa44832d"}'
+  recorded_at: 2026-04-12 01:24:33
 recorded_with: VCR-vcr/2.1.0
