@@ -95,6 +95,7 @@ resp
 #>           "workspace": true
 #>         },
 #>         "workspace_name": "Brenwin's Notion",
+#>         "workspace_id": "8c95f187-450c-4f67-a013-54f17e298330",
 #>         "workspace_limits": {
 #>           "max_file_upload_size_in_bytes": 5368709120
 #>         }
@@ -105,7 +106,7 @@ resp
 #>   "has_more": false,
 #>   "type": "user",
 #>   "user": {},
-#>   "request_id": "54809334-7545-4bcb-a1a9-c8b1a36b4857"
+#>   "request_id": "45cb6304-4905-440e-8998-27a49d255210"
 #> }
 ```
 
@@ -127,9 +128,11 @@ expected by the Notion API:
 
 Examples are provided throughout the [reference
 documentation](https://brenwin1.github.io/notionapi/reference/index.html).
-See [CommentsEndpoint
-create()](https://brenwin1.github.io/notionapi/reference/CommentsEndpoint.html#ref-examples)
-method for an example.
+
+Named `NULL` values are dropped and excluded from the request body. To
+send an explicit JSON `null`, use `NA` — [example usage to remove a
+page’s
+icon](https://brenwin1.github.io/notionapi/reference/PagesEndpoint.html#ref-examples).
 
 ### Pagination
 

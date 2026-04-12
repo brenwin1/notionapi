@@ -127,6 +127,7 @@
 <span><span class="co">#&gt;           "workspace": true</span></span>
 <span><span class="co">#&gt;         },</span></span>
 <span><span class="co">#&gt;         "workspace_name": "Brenwin's Notion",</span></span>
+<span><span class="co">#&gt;         "workspace_id": "8c95f187-450c-4f67-a013-54f17e298330",</span></span>
 <span><span class="co">#&gt;         "workspace_limits": {</span></span>
 <span><span class="co">#&gt;           "max_file_upload_size_in_bytes": 5368709120</span></span>
 <span><span class="co">#&gt;         }</span></span>
@@ -137,7 +138,7 @@
 <span><span class="co">#&gt;   "has_more": false,</span></span>
 <span><span class="co">#&gt;   "type": "user",</span></span>
 <span><span class="co">#&gt;   "user": {},</span></span>
-<span><span class="co">#&gt;   "request_id": "54809334-7545-4bcb-a1a9-c8b1a36b4857"</span></span>
+<span><span class="co">#&gt;   "request_id": "45cb6304-4905-440e-8998-27a49d255210"</span></span>
 <span><span class="co">#&gt; }</span></span></code></pre></div>
 <p>API responses are automatically converted from JSON to R lists.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
@@ -154,7 +155,8 @@
 <li>
 <code>list of lists</code> → JSON array</li>
 </ul>
-<p>Examples are provided throughout the <a href="https://brenwin1.github.io/notionapi/reference/index.html">reference documentation</a>. See <a href="https://brenwin1.github.io/notionapi/reference/CommentsEndpoint.html#ref-examples">CommentsEndpoint create()</a> method for an example.</p>
+<p>Examples are provided throughout the <a href="https://brenwin1.github.io/notionapi/reference/index.html">reference documentation</a>.</p>
+<p>Named <code>NULL</code> values are dropped and excluded from the request body. To send an explicit JSON <code>null</code>, use <code>NA</code> — <a href="https://brenwin1.github.io/notionapi/reference/PagesEndpoint.html#ref-examples">example usage to remove a page’s icon</a>.</p>
 </div>
 <div class="section level3">
 <h3 id="pagination">Pagination<a class="anchor" aria-label="anchor" href="#pagination"></a>
