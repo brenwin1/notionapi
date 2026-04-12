@@ -204,7 +204,10 @@ test_that("notion$pages$update() works", {
   resp <- notion$pages$update(
     test_ids[["created_page_id"]],
     icon = list(
-      emoji = "🐶"
+      icon = list(
+        name = "pizza",
+        color = "blue"
+      )
     )
   )
 
@@ -388,7 +391,10 @@ test_that("notion$databases$update() works", {
       )
     )),
     icon = list(
-      emoji = "🤩"
+      icon = list(
+        name = "calendar",
+        color = "gray"
+      )
     )
   )
 

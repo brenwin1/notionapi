@@ -323,7 +323,10 @@ BlocksChildrenEndpoint <- R6Class(
 #' notion$pages$update(
 #'   "34033ea0-c1e4-8181-a411-fcffc69c690a",
 #'   icon = list(
-#'     emoji = "🐶"
+#'     icon = list(
+#'       name = "pizza",
+#'       color = "blue"
+#'     )
 #'   )
 #' )
 #' \dontshow{notionapi::vcr_example_end()}
@@ -796,7 +799,10 @@ PagesPropertiesEndpoint <- R6Class(
 #'     )
 #'   )),
 #'   icon = list(
-#'     emoji = "🤩"
+#'     icon = list(
+#'       name = "calendar",
+#'       color = "gray"
+#'     )
 #'   )
 #' )
 #' \dontshow{notionapi::vcr_example_end()}
