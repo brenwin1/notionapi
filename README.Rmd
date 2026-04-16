@@ -21,7 +21,9 @@ knitr::opts_chunk$set(
 [![CRAN status](https://www.r-pkg.org/badges/version/notionapi)](https://CRAN.R-project.org/package=notionapi)
 <!-- badges: end -->
 
-notionapi is an R client library for [Notion API](https://developers.notion.com/), enabling users to programmatically interact with their Notion workspaces. The package provides complete API coverage for managing pages and databases, managing content blocks, handling comments and retrieving user information.
+> The package supports all endpoints of [Notion API version 2026-03-11](https://developers.notion.com/reference/versioning).
+
+notionapi is an R client library for [Notion API](https://developers.notion.com/), enabling users to programmatically interact with their Notion workspaces. The package provides complete API coverage including page and content block management, databases, data sources, views, file uploads, comments, custom emojis, and users.
 
 The package is designed to mirror the [Official Notion JavaScript Client](https://github.com/makenotion/notion-sdk-js), using R6 classes to provide a familiar object-oriented interface and consistent API structure.
 
