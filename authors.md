@@ -7,7 +7,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/brenwin1/notionapi/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/brenwin1/notionapi/blob/v0.2.0/DESCRIPTION)
 
 Ang B (2026). *notionapi: Client for the 'Notion API'*. R package
 version 0.2.0, <https://brenwin1.github.io/notionapi/>.
