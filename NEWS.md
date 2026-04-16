@@ -1,3 +1,5 @@
+# notionapi (development version)
+
 # notionapi 0.2.0
 
 **Updated to support Notion API version 2026-03-11** (previously 2022-06-28). All changes below reflect updates made to comply with the latest Notion API.
