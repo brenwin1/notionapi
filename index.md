@@ -1,10 +1,13 @@
 # notionapi
 
+> The package supports all endpoints of [Notion API version
+> 2026-03-11](https://developers.notion.com/reference/versioning).
+
 notionapi is an R client library for [Notion
 API](https://developers.notion.com/), enabling users to programmatically
 interact with their Notion workspaces. The package provides complete API
-coverage for managing pages and databases, managing content blocks,
-handling comments and retrieving user information.
+coverage including page and content block management, databases, data
+sources, views, file uploads, comments, custom emojis, and users.
 
 The package is designed to mirror the [Official Notion JavaScript
 Client](https://github.com/makenotion/notion-sdk-js), using R6 classes
@@ -106,7 +109,7 @@ resp
 #>   "has_more": false,
 #>   "type": "user",
 #>   "user": {},
-#>   "request_id": "45cb6304-4905-440e-8998-27a49d255210"
+#>   "request_id": "ead418e0-bb8a-4641-bb2d-1d3bb049026a"
 #> }
 ```
 

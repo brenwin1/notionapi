@@ -1,5 +1,7 @@
 # Changelog
 
+## notionapi (development version)
+
 ## notionapi 0.2.0
 
 CRAN release: 2026-04-13

@@ -28,7 +28,7 @@
 
     <a class="navbar-brand me-2" href="index.html">notionapi</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,7 +60,10 @@
 </div>
 <!-- badges: start -->
 
-<p>notionapi is an R client library for <a href="https://developers.notion.com/" class="external-link">Notion API</a>, enabling users to programmatically interact with their Notion workspaces. The package provides complete API coverage for managing pages and databases, managing content blocks, handling comments and retrieving user information.</p>
+<blockquote>
+<p>The package supports all endpoints of <a href="https://developers.notion.com/reference/versioning" class="external-link">Notion API version 2026-03-11</a>.</p>
+</blockquote>
+<p>notionapi is an R client library for <a href="https://developers.notion.com/" class="external-link">Notion API</a>, enabling users to programmatically interact with their Notion workspaces. The package provides complete API coverage including page and content block management, databases, data sources, views, file uploads, comments, custom emojis, and users.</p>
 <p>The package is designed to mirror the <a href="https://github.com/makenotion/notion-sdk-js" class="external-link">Official Notion JavaScript Client</a>, using R6 classes to provide a familiar object-oriented interface and consistent API structure.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -138,7 +141,7 @@
 <span><span class="co">#&gt;   "has_more": false,</span></span>
 <span><span class="co">#&gt;   "type": "user",</span></span>
 <span><span class="co">#&gt;   "user": {},</span></span>
-<span><span class="co">#&gt;   "request_id": "45cb6304-4905-440e-8998-27a49d255210"</span></span>
+<span><span class="co">#&gt;   "request_id": "ead418e0-bb8a-4641-bb2d-1d3bb049026a"</span></span>
 <span><span class="co">#&gt; }</span></span></code></pre></div>
 <p>API responses are automatically converted from JSON to R lists.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
